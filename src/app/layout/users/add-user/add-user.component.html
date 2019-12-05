@@ -14,7 +14,7 @@
                 <option [disabled]>Select Role</option>
                 <option *ngFor = "let role of roles" value={{role.id}}>{{ role.role_name }} ({{ role.role_abv }}) </option>
               </select>
-          </div>
+            </div>
             <fieldset class="form-group">
               <label class="required">Employee Code</label>
               <input class="form-control" formControlName="employeeCode" />
@@ -31,10 +31,13 @@
               <label class="required">CNIC</label>
               <input class="form-control" formControlName="cnic" />
             </fieldset>
-            <fieldset class="form-group">
-              <label class="required">Team</label>
-              <input class="form-control" formControlName="team" />
-            </fieldset>
+            <div class="form-group">
+                <label>Teams</label>
+                <select class="form-control" formControlName="team">
+                  <option [disabled]>Select Team</option>
+                  <option *ngFor = "let team of teams" value={{team.id}}>{{ team.team_name }}</option>
+                </select>
+              </div>
             <fieldset class="form-group">
               <label class="required">Region</label>
               <input class="form-control" formControlName="region" />

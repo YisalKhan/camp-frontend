@@ -14,6 +14,7 @@ import { from } from 'rxjs';
 export class AddUserComponent implements OnInit {
 
   roles: any;
+  teams: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,14 +35,26 @@ export class AddUserComponent implements OnInit {
   });
 
   ngOnInit() {
+    this.getUserRoles();
+    this.getUserTeams();
+  }
+
+  getUserRoles() {
     this.userService.getUserRoles().subscribe(
       res => {
-        this.roles = res['data'];
-        // console.log(this.roles);
+        this.roles = res;
       },
       err => console.log(err)
     );
-      // debugger;
+  }
+
+  getUserTeams() {
+    this.userService.getUserTeams().subscribe(
+      res => {
+        this.teams = res;
+      },
+      err => console.log(err)
+    );
   }
 
   onSubmit() {

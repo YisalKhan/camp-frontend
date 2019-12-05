@@ -17,4 +17,8 @@ export class UserService {
   getUserRoles() {
     return this.httpClient.get(this.basicURL + '/roles');
   }
+
+  getUserTeams() {
+    return this.httpClient.get(this.basicURL + '/teams');
+  }
 }
