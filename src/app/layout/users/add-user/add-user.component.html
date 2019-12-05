@@ -1,3 +1,59 @@
-<p>
-  add-user works!
-</p>
+<div [@routerTransition]>
+  <app-page-header [heading]="'Forms'" [icon]="'fa-edit'"></app-page-header>
+
+  <div class="row">
+      <div class="col-lg-6 my-auto">
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <fieldset class="form-group">
+              <label class="required">Name</label>
+              <input class="form-control" formControlName="name" />
+            </fieldset>
+            <div class="form-group">
+              <label>Designition</label>
+              <select class="form-control" formControlName="designition">
+                <option [disabled]>Select Role</option>
+                <option *ngFor = "let role of roles" value={{role.id}}>{{ role.role_name }} ({{ role.role_abv }}) </option>
+              </select>
+          </div>
+            <fieldset class="form-group">
+              <label class="required">Employee Code</label>
+              <input class="form-control" formControlName="employeeCode" />
+            </fieldset>
+            <fieldset class="form-group">
+              <label class="required">Mobile #</label>
+              <input class="form-control" formControlName="mobileNumber" />
+            </fieldset>
+            <fieldset class="form-group">
+              <label class="required">Email</label>
+              <input class="form-control" formControlName="email" />
+            </fieldset>
+            <fieldset class="form-group">
+              <label class="required">CNIC</label>
+              <input class="form-control" formControlName="cnic" />
+            </fieldset>
+            <fieldset class="form-group">
+              <label class="required">Team</label>
+              <input class="form-control" formControlName="team" />
+            </fieldset>
+            <fieldset class="form-group">
+              <label class="required">Region</label>
+              <input class="form-control" formControlName="region" />
+            </fieldset>
+            <fieldset class="form-group">
+              <label class="required">District</label>
+              <input class="form-control" formControlName="district" />
+            </fieldset>
+            <fieldset class="form-group">
+              <label class="required">Territory</label>
+              <input class="form-control" formControlName="territory" />
+            </fieldset>
+            <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">
+              Submit Button
+            </button>
+            <button type="reset" class="btn btn-secondary">
+              Reset Button
+            </button>
+          </form>
+      </div>
+  </div>
+</div>
