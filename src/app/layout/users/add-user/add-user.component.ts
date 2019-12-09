@@ -24,7 +24,7 @@ export class AddUserComponent implements OnInit {
   userForm = this.formBuilder.group({
     name : ['', Validators.required],
     cnic : ['', Validators.required],
-    designition : ['', Validators.required],
+    designation : ['', Validators.required],
     employeeCode : ['', Validators.required],
     mobileNumber : ['', Validators.required],
     email : ['', Validators.required],
@@ -58,6 +58,11 @@ export class AddUserComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.userForm);
+    // console.log(this.userForm);
+    this.userService.createUser(this.userForm.value).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
   }
 }

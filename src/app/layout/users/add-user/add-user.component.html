@@ -9,8 +9,8 @@
               <input class="form-control" formControlName="name" />
             </fieldset>
             <div class="form-group">
-              <label>Designition</label>
-              <select class="form-control" formControlName="designition">
+              <label>Designation</label>
+              <select class="form-control" formControlName="designation">
                 <option [disabled]>Select Role</option>
                 <option *ngFor = "let role of roles" value={{role.id}}>{{ role.role_name }} ({{ role.role_abv }}) </option>
               </select>
