@@ -21,4 +21,21 @@ export class UserService {
   getUserTeams() {
     return this.httpClient.get(this.basicURL + '/teams');
   }
+
+  createUser(data: any) {
+    return this.httpClient.post(this.basicURL + '/users', data);
+  }
+
+  getUsers() {
+    return this.httpClient.get(this.basicURL + '/users');
+  }
+
+  getEditUser(uid: any) {
+    return this.httpClient.get(this.basicURL + '/users/' + uid);
+  }
+
+  updateUser(uid: any, data: any) {
+    // debugger;
+    return this.httpClient.put(this.basicURL + '/users/' + uid, data);
+  }
 }

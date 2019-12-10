@@ -38,11 +38,13 @@ export class UsersComponent implements OnInit {
   }
 
   editUser(uid) {
-    this.userService.editUser(uid).subscribe(
-      res => {
-        console.log(res);
-      }
-    );
+    // this.userService.editUser(uid).subscribe(
+    //   res => {
+    //     console.log(res);
+    //   }
+    // );
+    localStorage.setItem('editStatus', 'editing');
+    this.router.navigate(['editUserForm', uid], {relativeTo: this.route});
     // console.log(uid);
 
   }

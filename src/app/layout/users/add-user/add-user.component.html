@@ -50,10 +50,11 @@
               <label class="required">Territory</label>
               <input class="form-control" formControlName="territory" />
             </fieldset>
-            <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">
-              Submit Button
+            <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">
+              {{ editStatus ? 'Update' : 'Add' }}
             </button>
-            <button type="reset" class="btn btn-secondary">
+            <button type="reset" class="btn btn-danger" (click)="onDelete()" *ngIf="editStatus">Delete</button>
+            <button type="reset" class="btn btn-primary" (click)="onClearForm()">
               Reset Button
             </button>
           </form>
