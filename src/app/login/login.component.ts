@@ -12,6 +12,10 @@ import { LoginService } from '../services/login.service';
   animations: [routerTransition()]
 })
 export class LoginComponent implements OnInit {
+
+  submitted = false;
+  loginForm: FormGroup;
+
   constructor(
     public router: Router,
     private formBuilder: FormBuilder,
@@ -19,14 +23,24 @@ export class LoginComponent implements OnInit {
     private loginService: LoginService
   ) {}
 
-  loginForm = this.formBuilder.group({
-    email: ['', Validators.required],
-    password: ['', Validators.required]
-  });
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
-  ngOnInit() {}
+  get f() {
+    return this.loginForm.controls;
+  }
 
   onLoggedin() {
+    this.submitted = true;
+
+    if (this.loginForm.invalid) {
+      return;
+    }
+
     this.loginService.userLogin(this.loginForm.value).subscribe(
       res => {
         localStorage.setItem('isLoggedin', 'true');
