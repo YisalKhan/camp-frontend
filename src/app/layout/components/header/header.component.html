@@ -36,7 +36,7 @@
                             src="http://i.huffpost.com/gadgets/slideshows/461162/slide_461162_6224974_sq50.jpg" alt="Generic placeholder image"
                         >
                         <div class="media-body">
-                            <h5 class="mt-0 mb-1">John Smith</h5>
+                            <h5 class="mt-0 mb-1">{{ userData.name }}</h5>
                             <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                             <p class="last"> Lorem ipsum dolor sit amet, consectetur...</p>
                         </div>
@@ -47,7 +47,7 @@
                             alt="Generic placeholder image"
                         >
                         <div class="media-body">
-                            <h5 class="mt-0 mb-1">John Smith</h5>
+                            <h5 class="mt-0 mb-1">{{ userData.name }}</h5>
                             <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                             <p class="last"> Lorem ipsum dolor sit amet, consectetur...</p>
                         </div>
@@ -58,7 +58,7 @@
                             alt="Generic placeholder image"
                         />
                         <div class="media-body">
-                            <h5 class="mt-0 mb-1">John Smith</h5>
+                            <h5 class="mt-0 mb-1">{{ userData.name }}</h5>
                             <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                             <p class="last"> Lorem ipsum dolor sit amet, consectetur...</p>
                         </div>
@@ -118,7 +118,7 @@
             </li>
             <li class="nav-item dropdown" ngbDropdown>
                 <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
-                    <i class="fa fa-user"></i> John Smith <b class="caret"></b>
+                    <i class="fa fa-user"></i> {{ userData.name }} <b class="caret"></b>
                 </a>
                 <div class="dropdown-menu-right" ngbDropdownMenu>
                     <a class="dropdown-item" href="javascript:void(0)">
