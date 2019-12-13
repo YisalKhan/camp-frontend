@@ -11,6 +11,7 @@ import {
     ChatComponent
 } from './components';
 import { StatModule } from '../../shared';
+import { CampboyDashboardComponent } from './campboy-dashboard/campboy-dashboard.component';
 
 @NgModule({
     imports: [
@@ -25,7 +26,8 @@ import { StatModule } from '../../shared';
         MapsComponent,
         TimelineComponent,
         NotificationComponent,
-        ChatComponent
+        ChatComponent,
+        CampboyDashboardComponent
     ]
 })
 export class DashboardModule {}
