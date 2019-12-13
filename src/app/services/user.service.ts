@@ -38,4 +38,8 @@ export class UserService {
     // debugger;
     return this.httpClient.put(this.basicURL + '/users/' + uid, data);
   }
+
+  getRegions() {
+    return this.httpClient.get(this.basicURL + '/regions');
+  }
 }
