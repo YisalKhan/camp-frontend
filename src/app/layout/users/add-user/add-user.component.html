@@ -38,10 +38,13 @@
                   <option *ngFor = "let team of teams" value={{team.id}}>{{ team.team_name }}</option>
                 </select>
               </div>
-            <fieldset class="form-group">
-              <label class="required">Region</label>
-              <input class="form-control" formControlName="region" />
-            </fieldset>
+              <div class="form-group">
+                  <label>Regions</label>
+                  <select class="form-control" formControlName="region">
+                    <option [disabled]>Select Region</option>
+                    <option *ngFor = "let region of regions" value={{region.id}}>{{ region.region_name }}</option>
+                  </select>
+                </div>
             <fieldset class="form-group">
               <label class="required">District</label>
               <input class="form-control" formControlName="district" />

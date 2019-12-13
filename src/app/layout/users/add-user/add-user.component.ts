@@ -19,6 +19,7 @@ export class AddUserComponent implements OnInit {
   editStatus: any;
   userID: any;
   data: any;
+  regions: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,6 +43,7 @@ export class AddUserComponent implements OnInit {
   ngOnInit() {
     this.getUserRoles();
     this.getUserTeams();
+    this.getRegions();
     if (localStorage.getItem('editStatus')) {
       this.editStatus = true;
       this.route.params.subscribe((params: Params) => {
@@ -110,6 +112,15 @@ export class AddUserComponent implements OnInit {
           region: this.data.region,
           team: this.data.team
         });
+      },
+      err => console.log(err)
+    );
+  }
+
+  getRegions() {
+    this.userService.getRegions().subscribe(
+      res => {
+        this.regions = res;
       },
       err => console.log(err)
     );
