@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   submitted = false;
   loginForm: FormGroup;
+  data: any;
 
   constructor(
     public router: Router,
@@ -43,9 +44,18 @@ export class LoginComponent implements OnInit {
 
     this.loginService.userLogin(this.loginForm.value).subscribe(
       res => {
-        localStorage.setItem('isLoggedin', 'true');
-        this.router.navigate(['dashboard']);
-        // console.log(res);
+        this.data = res['success'];
+        if (this.data.user.designation !== '9' && this.data.user.designation !== '10' && this.data.user.designation !== '11') {
+          localStorage.setItem('isLoggedin', 'true');
+          localStorage.setItem('userData', JSON.stringify(this.data.user));
+          localStorage.setItem('userDesignation', this.data.user.designation);
+          this.router.navigate(['dashboard']);
+        } else {
+          localStorage.setItem('userDesignation', this.data.user.designation);
+          localStorage.setItem('userData', JSON.stringify(this.data.user));
+          localStorage.setItem('isLoggedin', 'true');
+          this.router.navigate(['SPOdashboard']);
+        }
       }
     );
   }
