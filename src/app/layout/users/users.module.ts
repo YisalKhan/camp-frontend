@@ -8,15 +8,15 @@ import { PageHeaderModule } from '../../shared';
 import { AddUserComponent } from './add-user/add-user.component';
 
 @NgModule({
-    imports: [
-      CommonModule,
-      UsersRoutingModule,
-      PageHeaderModule,
-      ReactiveFormsModule
-    ],
-    declarations: [
-      UsersComponent,
-      AddUserComponent
-    ]
+  imports: [
+    CommonModule,
+    UsersRoutingModule,
+    PageHeaderModule,
+    ReactiveFormsModule
+  ],
+  declarations: [
+    UsersComponent,
+    AddUserComponent
+  ]
 })
 export class UsersModule {}

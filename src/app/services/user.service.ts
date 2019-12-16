@@ -35,11 +35,18 @@ export class UserService {
   }
 
   updateUser(uid: any, data: any) {
-    // debugger;
     return this.httpClient.put(this.basicURL + '/users/' + uid, data);
   }
 
   getRegions() {
     return this.httpClient.get(this.basicURL + '/regions');
+  }
+
+  getDistricts(regionID) {
+    return this.httpClient.get(this.basicURL + '/districts/' + regionID);
+  }
+
+  getTerritories(districtID) {
+    return this.httpClient.get(this.basicURL + '/territories/' + districtID);
   }
 }

@@ -20,6 +20,8 @@ export class AddUserComponent implements OnInit {
   userID: any;
   data: any;
   regions: any;
+  districts: any;
+  territories: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -121,6 +123,24 @@ export class AddUserComponent implements OnInit {
     this.userService.getRegions().subscribe(
       res => {
         this.regions = res;
+      },
+      err => console.log(err)
+    );
+  }
+
+  getDisctricts(regionID) {
+    this.userService.getDistricts(regionID).subscribe(
+      res => {
+        this.districts = res;
+      },
+      err => console.log(err)
+    );
+  }
+
+  getTerritories(districtID) {
+    this.userService.getTerritories(districtID).subscribe(
+      res => {
+        this.territories = res;
       },
       err => console.log(err)
     );
