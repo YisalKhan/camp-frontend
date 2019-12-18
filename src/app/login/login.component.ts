@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('userDesignation', this.data.user.designation);
           localStorage.setItem('userData', JSON.stringify(this.data.user));
           localStorage.setItem('isLoggedin', 'true');
-          this.router.navigate(['SPOdashboard']);
+          this.router.navigate(['camps']);
         }
       }
     );
