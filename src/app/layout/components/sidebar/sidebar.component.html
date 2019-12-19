@@ -142,7 +142,7 @@
     </div>
 
     <div class="list-group" *ngIf="userDesignation == '9' || userDesignation == '10' || userDesignation == '11'">
-        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a (click)="spoDashboard()" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;
             <span>{{ 'Request Camp' | translate }}</span>
         </a>
