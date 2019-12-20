@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // apiURL: 'http://127.0.0.1:8000',
-  apiURL: 'https://murmuring-falls-17187.herokuapp.com/'
+  apiURL: 'http://127.0.0.1:8000',
+  // apiURL: 'https://murmuring-falls-17187.herokuapp.com/'
 };
 
 /*
