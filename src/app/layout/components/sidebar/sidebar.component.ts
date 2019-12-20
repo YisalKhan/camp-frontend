@@ -81,6 +81,6 @@ export class SidebarComponent implements OnInit {
     }
 
     spoDashboard() {
-        this.router.navigate(['requestCamp'], { relativeTo: this.route });
+        this.router.navigate(['/camps/requestCamp']);
     }
 }

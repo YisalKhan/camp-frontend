@@ -1,3 +1,83 @@
-<p>
-  addcamps works!
-</p>
+<div [@routerTransition]>
+  <app-page-header [heading]="'Forms'" [icon]="'fa-edit'"></app-page-header>
+
+  <div class="row">
+      <div class="col-lg-6 my-auto">
+          <form [formGroup]="campForm" (ngSubmit)="onSubmit()">
+            <fieldset class="form-group">
+              <label class="required">Camp Name</label>
+              <input class="form-control" formControlName="campName" />
+            </fieldset>
+            <div class="form-group">
+              <label>Camp Type</label>
+              <select class="form-control" formControlName="campType">
+                <option [disabled]>Select Camp</option>
+                <!-- <option *ngFor = "let role of roles" value={{role.id}}>{{ role.role_name }} ({{ role.role_abv }}) </option> -->
+              </select>
+            </div>
+            <fieldset class="form-group">
+              <label class="required">Doctor Name</label>
+              <input class="form-control" formControlName="doctorName" />
+            </fieldset>
+            <fieldset class="form-group">
+              <label class="required">Camp Date and Time</label>
+              <input class="form-control" formControlName="campDateAndTime" />
+            </fieldset>
+            <fieldset class="form-group">
+              <label class="required">Camp Address</label>
+              <input class="form-control" formControlName="campAddress" />
+            </fieldset>
+            <div class="form-group">
+              <label>BP Apparatus</label>
+              <select class="form-control" formControlName="bpApparatus">
+                <option [disabled]>Select Option</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Blood Sugar Meter</label>
+              <select class="form-control" formControlName="bloodSugarMeter">
+                <option [disabled]>Select Option</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+            <!-- <div class="form-group">
+              <label>BP Apparatus</label>
+              <label class="checkbox-inline">
+                  <input type="checkbox">Yes
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox">No
+              </label>
+            </div> -->
+            <!-- <div class="form-group">
+              <label>Blood Sugar Meter</label>
+              <label class="checkbox-inline">
+                Blood Sugar Meter <input type="checkbox" formControlName=”bloodSugarMeter”>
+              </label>
+            </div> -->
+            <fieldset class="form-group">
+              <label class="required">Number of Strips</label>
+              <input class="form-control" formControlName="strips" />
+            </fieldset>
+            <fieldset class="form-group">
+              <label class="required">Number of Flyers</label>
+              <input class="form-control" formControlName="flyers" />
+            </fieldset>
+            <fieldset class="form-group">
+              <label class="required">Number of Screeing Slips</label>
+              <input class="form-control" formControlName="screeingSlips" />
+            </fieldset>
+            <button type="submit" class="btn btn-success" [disabled]="!campForm.valid">
+              <!-- {{ editStatus ? 'Update' : 'Add' }} -->Request a Camp
+            </button>
+            <!-- <button type="reset" class="btn btn-danger" (click)="onDelete()" *ngIf="editStatus">Delete</button>
+            <button type="reset" class="btn btn-primary" (click)="onClearForm()">
+              Reset Button
+            </button> -->
+          </form>
+      </div>
+  </div>
+</div>
