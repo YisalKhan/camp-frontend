@@ -12,6 +12,7 @@ import { UserService } from '../../services/user.service';
 export class UsersComponent implements OnInit {
 
   users: any;
+  regions: any;
 
   constructor(
     private router: Router,
@@ -21,6 +22,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
+    this.getRegions();
   }
 
   addUser() {
@@ -47,6 +49,14 @@ export class UsersComponent implements OnInit {
     this.router.navigate(['editUserForm', uid], {relativeTo: this.route});
     // console.log(uid);
 
+  }
+
+  getRegions() {
+    this.userService.getRegions().subscribe(
+      res => {
+        this.regions = res;
+      }
+    );
   }
 
 }

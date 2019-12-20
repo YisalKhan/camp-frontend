@@ -1,6 +1,10 @@
 <div [@routerTransition]>
   <app-page-header [heading]="'Forms'" [icon]="'fa-edit'"></app-page-header>
-
+  <div class="map-container">
+    <div class="map-frame">
+      <div #mapContainer id="map"></div>
+    </div>
+  </div>
   <div class="row">
       <div class="col-lg-6 my-auto">
           <form [formGroup]="campForm" (ngSubmit)="onSubmit()">
@@ -43,21 +47,6 @@
                 <option value="0">No</option>
               </select>
             </div>
-            <!-- <div class="form-group">
-              <label>BP Apparatus</label>
-              <label class="checkbox-inline">
-                  <input type="checkbox">Yes
-              </label>
-              <label class="checkbox-inline">
-                  <input type="checkbox">No
-              </label>
-            </div> -->
-            <!-- <div class="form-group">
-              <label>Blood Sugar Meter</label>
-              <label class="checkbox-inline">
-                Blood Sugar Meter <input type="checkbox" formControlName=”bloodSugarMeter”>
-              </label>
-            </div> -->
             <fieldset class="form-group">
               <label class="required">Number of Strips</label>
               <input class="form-control" formControlName="strips" />
@@ -71,12 +60,8 @@
               <input class="form-control" formControlName="screeingSlips" />
             </fieldset>
             <button type="submit" class="btn btn-success" [disabled]="!campForm.valid">
-              <!-- {{ editStatus ? 'Update' : 'Add' }} -->Request a Camp
+              Request a Camp
             </button>
-            <!-- <button type="reset" class="btn btn-danger" (click)="onDelete()" *ngIf="editStatus">Delete</button>
-            <button type="reset" class="btn btn-primary" (click)="onClearForm()">
-              Reset Button
-            </button> -->
           </form>
       </div>
   </div>

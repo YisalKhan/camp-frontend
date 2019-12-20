@@ -29,7 +29,9 @@
 								<td>{{ user.name }}</td>
 								<td>{{ user.email }}</td>
 								<td>{{ user.employee_code }}</td>
-								<td>{{ user.region }}</td>
+								<ng-container *ngFor="let region of regions">
+									<td *ngIf="region.id == user.region">{{ region.region_name }}</td>
+								</ng-container>
 								<td><a (click) = editUser(user.id)>Edit</a> <a href="#">Delete</a></td>
 							</tr>
 						</tbody>
