@@ -42,24 +42,16 @@ export class AddCampsComponent implements OnInit {
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.campUserID = this.userData.id;
     navigator.geolocation.getCurrentPosition((data) => {
-      // console.log(data);
-      // document.getElementById('map')
       const mapOptions: google.maps.MapOptions = {
         center: {lat: data.coords.latitude, lng: data.coords.longitude},
         zoom: 17
       };
       const map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    });
-    this.map = document.getElementById('map');
-    // console.log(this.map);
-    this.setUpClickListener(this.map);
-  }
-
-  setUpClickListener(map) {
-    map.addEventListener('tap', function (evt) {
-      // const coord = map.screeingSlips(evt.layerX, evt.layerY);
-      // console.log(coord);
-      console.log(evt);
+      google.maps.event.addListener(map, 'click', (event) => {
+        const lat = event.latLng.lat();
+        const lng = event.latLng.lng();
+        console.log(lat, lng);
+      });
     });
   }
 
