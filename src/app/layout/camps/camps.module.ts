@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CampsRoutingModule } from './camps-routing.module';
 import { CampsComponent } from './camps.component';
 import { AddCampsComponent } from './addcamps/addcamps.component';
+import { CampsRequestComponent } from './camps-request/camps-request.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { AddCampsComponent } from './addcamps/addcamps.component';
   ],
   declarations: [
     CampsComponent,
-    AddCampsComponent
+    AddCampsComponent,
+    CampsRequestComponent
   ]
 })
 export class CampsModule {}

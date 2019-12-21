@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCampsComponent } from './addcamps/addcamps.component';
 import { CampsComponent } from './camps.component';
+import { CampsRequestComponent } from './camps-request/camps-request.component';
 
 const routes: Routes = [
   { path: '', component: CampsComponent },
-  { path: 'requestCamp', component: AddCampsComponent }
+  { path: 'requestCamp', component: AddCampsComponent },
+  { path: 'campsRequest', component: CampsRequestComponent }
 ];
 
 @NgModule({

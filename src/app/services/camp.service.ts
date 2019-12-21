@@ -16,4 +16,12 @@ export class CampService {
   createCamp(data) {
     return this.httpClient.post(this.basicURL + '/camps', data);
   }
+
+  getCamps() {
+    return this.httpClient.get(this.basicURL + '/camps');
+  }
+
+  viewCamp(campID) {
+    return this.httpClient.get(this.basicURL + '/camps/' + campID);
+  }
 }

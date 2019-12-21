@@ -1,40 +1,36 @@
 <div [@routerTransition]>
-  <app-page-header [heading]="'Users'" [icon]="'fa-users'"></app-page-header>
+  <app-page-header [heading]="'Camps'" [icon]="'fa-users'"></app-page-header>
 	<div class="row">
 		<div class="col col-xl-12 col-lg-12">
 			<div class="card mb-3">
 				<div class="card-header">
-						Users
-						<button
+						Camps
+						<!-- <button
 								type="button"
 								class="btn btn-primary btn-userAdd"
 								(click)="addUser()"
 						>
 								Add User
-						</button>
+						</button> -->
 				</div>
 				<div class="card-body table-responsive">
 					<table class="table table-hover table-striped">
 						<thead>
 							<tr>
-								<th>Name</th>
-								<th>Email</th>
-								<th>Employee Code</th>
-								<th>Region</th>
+								<th>Camp Name</th>
+								<th>Camp Type</th>
+								<th>Doctor Name</th>
 								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr *ngFor="let user of users">
-								<td>{{ user.name }}</td>
-								<td>{{ user.email }}</td>
-								<td>{{ user.employee_code }}</td>
-								<ng-container *ngFor="let region of regions">
-									<td *ngIf="region.id == user.region">{{ region.region_name }}</td>
-								</ng-container>
-								<td>
+							<tr *ngFor="let camp of camps">
+								<td>{{ camp.camp_name }}</td>
+								<td>{{ camp.camp_type }}</td>
+                <td>{{ camp.dr_name }}</td>
+                <td>
 									<div class="btn-group" role="group" aria-label="...">
-										<button type="button" (click) = editUser(user.id) class="btn btn-primary">Edit</button>
+										<button type="button" (click)="viewCamp(camp.id)" class="btn btn-primary">View</button>
 										<button type="button" class="btn btn-danger">Delete</button>
 									</div>
 								</td>
