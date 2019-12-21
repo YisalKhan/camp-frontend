@@ -11,12 +11,12 @@ import { CampService } from '../../../services/camp.service';
   animations: [routerTransition()]
 })
 export class AddCampsComponent implements OnInit {
-  campUserID: any;
-  userData: any;
-
   @ViewChild('mapContainer', {static: false}) gmap: ElementRef;
 
+  campUserID: any;
+  userData: any;
   map: any;
+  address: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,7 +50,12 @@ export class AddCampsComponent implements OnInit {
       google.maps.event.addListener(map, 'click', (event) => {
         const lat = event.latLng.lat();
         const lng = event.latLng.lng();
-        console.log(lat, lng);
+        const latlng = new google.maps.LatLng(lat, lng);
+        const geoCoder = new google.maps.Geocoder();
+        geoCoder.geocode({ 'location': latlng }, (results, status) => {
+          this.address = results[0];
+          this.campForm.controls['campAddress'].setValue(this.address.formatted_address);
+        });
       });
     });
   }

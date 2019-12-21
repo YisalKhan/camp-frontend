@@ -1,11 +1,12 @@
 <div [@routerTransition]>
   <app-page-header [heading]="'Forms'" [icon]="'fa-edit'"></app-page-header>
   <div class="map-container">
+    <h4>Click on Map for setting the location of Camp</h4>
     <div class="map-frame">
       <div #mapContainer id="map"></div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" class="campForm">
       <div class="col-lg-6 my-auto">
           <form [formGroup]="campForm" (ngSubmit)="onSubmit()">
             <fieldset class="form-group">
