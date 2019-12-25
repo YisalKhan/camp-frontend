@@ -1,4 +1,14 @@
 <div [@routerTransition]>
+  <ngx-spinner
+    bdOpacity = 0.9
+    bdColor = "#333"
+    size = "medium"
+    color = "#fff"
+    type = "ball-newton-cradle"
+    [fullScreen] = "true"
+  >
+<p style="color: white" > Loading... </p>
+</ngx-spinner>
   <app-page-header [heading]="'Forms'" [icon]="'fa-edit'"></app-page-header>
 
   <div class="row">
@@ -59,13 +69,18 @@
                 <option *ngFor = "let territory of territories" value={{territory.id}}>{{ territory.territory_name }}</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="submit" [disabled]="!userForm.valid" class="btn btn-success">{{ editStatus ? 'Update' : 'Add' }}</button>
+              <button type="button" class="btn btn-danger" (click)="onDelete()" *ngIf="editStatus">Delete</button>
+              <button type="button" class="btn btn-primary" (click)="onClearForm()" *ngIf="editStatus">Clear</button>
+            </div>
+            <!-- <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">
               {{ editStatus ? 'Update' : 'Add' }}
             </button>
             <button type="reset" class="btn btn-danger" (click)="onDelete()" *ngIf="editStatus">Delete</button>
             <button type="reset" class="btn btn-primary" (click)="onClearForm()">
               Reset Button
-            </button>
+            </button> -->
           </form>
       </div>
   </div>

@@ -6,13 +6,15 @@ import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
 import { PageHeaderModule } from '../../shared';
 import { AddUserComponent } from './add-user/add-user.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
     CommonModule,
     UsersRoutingModule,
     PageHeaderModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule
   ],
   declarations: [
     UsersComponent,

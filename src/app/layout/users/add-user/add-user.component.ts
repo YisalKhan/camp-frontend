@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from '../../../services/user.service';
 
 import { routerTransition } from '../../../router.animations';
@@ -26,7 +27,8 @@ export class AddUserComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private spinner: NgxSpinnerService
   ) {}
 
   userForm = this.formBuilder.group({
@@ -43,6 +45,7 @@ export class AddUserComponent implements OnInit {
   });
 
   ngOnInit() {
+    this.spinner.show();
     this.getUserRoles();
     this.getUserTeams();
     this.getRegions();
@@ -59,6 +62,7 @@ export class AddUserComponent implements OnInit {
     this.userService.getUserRoles().subscribe(
       res => {
         this.roles = res;
+        this.spinner.hide();
       },
       err => console.log(err)
     );
@@ -129,18 +133,22 @@ export class AddUserComponent implements OnInit {
   }
 
   getDisctricts(regionID) {
+    this.spinner.show();
     this.userService.getDistricts(regionID).subscribe(
       res => {
         this.districts = res;
+        this.spinner.hide();
       },
       err => console.log(err)
     );
   }
 
   getTerritories(districtID) {
+    this.spinner.show();
     this.userService.getTerritories(districtID).subscribe(
       res => {
         this.territories = res;
+        this.spinner.hide();
       },
       err => console.log(err)
     );

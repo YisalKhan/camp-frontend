@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { routerTransition } from '../../router.animations';
 import { UserService } from '../../services/user.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-users',
@@ -17,10 +18,12 @@ export class UsersComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.getUsers();
     this.getRegions();
   }
@@ -34,6 +37,7 @@ export class UsersComponent implements OnInit {
     this.userService.getUsers().subscribe(
       res => {
         this.users = res;
+        this.spinner.hide();
       },
       err => console.log(err)
     );
