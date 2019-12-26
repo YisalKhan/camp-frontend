@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from '../../../services/user.service';
 
@@ -28,7 +28,8 @@ export class AddUserComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private userService: UserService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private router: Router
   ) {}
 
   userForm = this.formBuilder.group({
@@ -85,11 +86,14 @@ export class AddUserComponent implements OnInit {
         }
       );
     } else {
+      this.spinner.show();
       this.userService.createUser(this.userForm.value).subscribe(
         res => {
-          console.log(res);
+          alert('User has been created Successfully');
+          this.router.navigate(['users']);
         }
       );
+      this.spinner.hide();
     }
   }
 
