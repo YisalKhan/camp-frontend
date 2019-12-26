@@ -31,6 +31,7 @@
 								<th>Email</th>
 								<th>Employee Code</th>
 								<th>Region</th>
+								<th></th>
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -42,6 +43,7 @@
 								<ng-container *ngFor="let region of regions">
 									<td *ngIf="region.id == user.region">{{ region.region_name }}</td>
 								</ng-container>
+								<td></td>
 								<td>
 									<div class="btn-group" role="group" aria-label="...">
 										<button type="button" (click) = editUser(user.id) class="btn btn-primary">Edit</button>
