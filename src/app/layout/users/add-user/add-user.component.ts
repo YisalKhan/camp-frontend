@@ -89,9 +89,11 @@ export class AddUserComponent implements OnInit {
       this.spinner.show();
       this.userService.createUser(this.userForm.value).subscribe(
         res => {
+          console.log(res);
           alert('User has been created Successfully');
           this.router.navigate(['users']);
-        }
+        },
+        err => console.log(err)
       );
       this.spinner.hide();
     }
