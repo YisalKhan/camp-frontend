@@ -8,6 +8,7 @@ import { CampsComponent } from './camps.component';
 import { AddCampsComponent } from './addcamps/addcamps.component';
 import { CampsRequestComponent } from './camps-request/camps-request.component';
 import { StatModule } from '../../shared';
+import { EditcampsComponent } from './editcamps/editcamps.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { StatModule } from '../../shared';
   declarations: [
     CampsComponent,
     AddCampsComponent,
-    CampsRequestComponent
+    CampsRequestComponent,
+    EditcampsComponent
   ]
 })
 export class CampsModule {}
