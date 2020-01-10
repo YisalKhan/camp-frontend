@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { PubNubAngular } from 'pubnub-angular2';
+// import { PubNubAngular } from 'pubnub-angular2';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,7 +20,7 @@ import { AuthGuard } from './shared';
         AppRoutingModule
     ],
     declarations: [AppComponent],
-    providers: [AuthGuard, PubNubAngular],
+    providers: [AuthGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
