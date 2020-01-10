@@ -1,6 +1,6 @@
 {
-  "name": "test-ng7",
-  "short_name": "test-ng7",
+  "name": "Medical Camp",
+  "short_name": "Medical Camp",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
