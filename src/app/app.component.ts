@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
           // console.log(this.lat);
           localStorage.setItem('latitude', this.lat);
           localStorage.setItem('longitude', this.lng);
+          localStorage.setItem('asdf', 'asd');
         });
       }
     }
