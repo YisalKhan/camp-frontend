@@ -24,4 +24,8 @@ export class CampService {
   viewCamp(campID) {
     return this.httpClient.get(this.basicURL + '/camps/' + campID);
   }
+
+  campApprove(campID, userID) {
+    return this.httpClient.get(this.basicURL + '/camp/approval/' + campID + '/' + userID);
+  }
 }

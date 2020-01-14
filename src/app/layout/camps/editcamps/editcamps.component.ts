@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import { CampService } from '../../../services/camp.service';
 import { routerTransition } from '../../../router.animations';
@@ -14,11 +15,13 @@ import { routerTransition } from '../../../router.animations';
 export class EditcampsComponent implements OnInit {
 
   campId: any;
+  campData: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private campService: CampService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private spinner: NgxSpinnerService
   ) { }
 
   campEditForm = this.formBuilder.group({
@@ -37,23 +40,42 @@ export class EditcampsComponent implements OnInit {
   });
 
   ngOnInit() {
+    this.spinner.show();
     this.route.params.subscribe((params: Params) => {
       this.campId = params['campID'];
       this.campService.viewCamp(this.campId).subscribe(
         (res) => {
           console.log(res);
+          this.campData = res;
+          this.campEditForm.patchValue({
+            campName: this.campData.camp_name,
+            campType: this.campData.camp_type,
+            doctorName: this.campData.dr_name,
+            campDateAndTime: this.campData.camp_datetime,
+            campAddress: this.campData.address,
+            bpApparatus: this.campData.is_bp_apparatus,
+            campLat: this.campData.lat,
+            campLang: this.campData.lng,
+            bloodSugarMeter: this.campData.is_bs_meter,
+            strips: this.campData.no_of_strips,
+            flyers: this.campData.no_of_flyers,
+            screeingSlips: this.campData.no_of_screening_slips
+          });
+          this.spinner.hide();
         }
       );
     });
   }
 
-  onSubmit() {
-    // this.campForm.value.campUserID = this.campUserID;
-    // this.campService.createCamp(this.campForm.value).subscribe(
-    //   res => {
-    //     console.log(res);
-    //   }
-    // );
+  onCampApprove(cid) {
+    this.spinner.show();
+    const userID = JSON.parse(localStorage.getItem('userData'))['id'];
+    this.campService.campApprove(cid, userID).subscribe(
+      res => {
+        console.log(res);
+        this.spinner.hide();
+      }
+    );
   }
 
 }

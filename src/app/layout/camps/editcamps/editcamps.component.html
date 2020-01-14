@@ -8,7 +8,7 @@
   </div> -->
   <div class="row" class="campForm">
       <div class="col-lg-6 my-auto">
-          <form [formGroup]="campEditForm" (ngSubmit)="onSubmit()">
+          <form [formGroup]="campEditForm">
             <fieldset class="form-group">
               <label class="required">Camp Name</label>
               <input class="form-control" formControlName="campName" />
@@ -62,8 +62,8 @@
               <label class="required">Number of Screeing Slips</label>
               <input class="form-control" formControlName="screeingSlips" />
             </fieldset>
-            <button type="submit" class="btn btn-success" [disabled]="!campEditForm.valid">
-              Request a Camp
+            <button type="submit" (click)="onCampApprove(campId)" class="btn btn-success" [disabled]="!campEditForm.valid">
+              Approve
             </button>
           </form>
       </div>
