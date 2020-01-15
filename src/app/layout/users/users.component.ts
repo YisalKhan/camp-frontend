@@ -14,13 +14,14 @@ export class UsersComponent implements OnInit {
 
   users: any;
   regions: any;
+    pubnub: any;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
-    private spinner: NgxSpinnerService
-  ) { }
+    private spinner: NgxSpinnerService,
+  ) {}
 
   ngOnInit() {
     this.spinner.show();
