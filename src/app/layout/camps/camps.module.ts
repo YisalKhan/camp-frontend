@@ -9,6 +9,8 @@ import { AddCampsComponent } from './addcamps/addcamps.component';
 import { CampsRequestComponent } from './camps-request/camps-request.component';
 import { StatModule } from '../../shared';
 import { EditcampsComponent } from './editcamps/editcamps.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ApprovedCampsComponent } from './approved-camps/approved-camps.component';
 
 @NgModule({
   imports: [
@@ -16,13 +18,15 @@ import { EditcampsComponent } from './editcamps/editcamps.component';
     CampsRoutingModule,
     PageHeaderModule,
     ReactiveFormsModule,
-    StatModule
+    StatModule,
+    NgxSpinnerModule
   ],
   declarations: [
     CampsComponent,
     AddCampsComponent,
     CampsRequestComponent,
-    EditcampsComponent
+    EditcampsComponent,
+    ApprovedCampsComponent
   ]
 })
 export class CampsModule {}

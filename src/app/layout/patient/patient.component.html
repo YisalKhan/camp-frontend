@@ -1,0 +1,31 @@
+<div [@routerTransition]>
+    <!-- <app-page-header [heading]="'Forms'" [icon]="'fa-edit'"></app-page-header> -->
+    <div class="map-container">
+      <h4>Click on Map for setting the location of Camp</h4>
+      <div class="map-frame">
+        <div #mapContainer id="map"></div>
+      </div>
+    </div>
+    <div class="row" class="patientForm">
+        <div class="col-lg-6 my-auto">
+            <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+              <fieldset class="form-group">
+                <label class="required">Patient Name</label>
+                <input class="form-control" formControlName="patientName" />
+              </fieldset>
+              <fieldset class="form-group">
+                <label class="required">Patient Phone #</label>
+                <input class="form-control" formControlName="patientPhoneNo" />
+              </fieldset>
+              <fieldset class="form-group">
+                <label class="required">Patient Gender</label>
+                <input class="form-control" formControlName="patientGender" />
+              </fieldset>
+              <button type="submit" class="btn btn-success" [disabled]="!patientForm.valid">
+                Save Patient Record
+              </button>
+            </form>
+        </div>
+    </div>
+  </div>
+  

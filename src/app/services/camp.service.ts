@@ -28,4 +28,13 @@ export class CampService {
   campApprove(campID, userID) {
     return this.httpClient.get(this.basicURL + '/camp/approval/' + campID + '/' + userID);
   }
+
+  getApprovedCamps(userID) {
+    return this.httpClient.get(this.basicURL + '/approved/camps/' + userID);
+  }
+
+  addPatient(data) {
+    debugger;
+    return this.httpClient.post(this.basicURL + '/patient/add', data);
+  }
 }
