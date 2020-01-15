@@ -39,10 +39,6 @@ export class MapsComponent implements OnInit, AfterViewInit {
         map: this.maps,
       });
     });
-    // publishing on pubnub channel
-      this.pubnub.publish({ channel: 'myChannel', message: 'Hello!' }, (response) => {
-          console.log(response);
-      });
     // this.trackLocation({
     //   onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
     //     console.log(lat);

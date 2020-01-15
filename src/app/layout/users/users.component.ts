@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { routerTransition } from '../../router.animations';
 import { UserService } from '../../services/user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { PubNubAngular } from 'pubnub-angular2';
 
 @Component({
   selector: 'app-users',
@@ -22,23 +21,12 @@ export class UsersComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private spinner: NgxSpinnerService,
-    pubnub: PubNubAngular
-  ) {
-      this.pubnub = pubnub;
-  }
+  ) {}
 
   ngOnInit() {
     this.spinner.show();
     this.getUsers();
     this.getRegions();
-    // listening to pubnub message
-      this.pubnub.subscribe({ channels: ['myChannel'], triggerEvents: true, withPresence: true });
-      this.pubnub.getMessage('myChannel', (msg) => {
-          console.log(msg);
-      });
-      this.pubnub.getError((err) => {
-          console.log(err);
-      });
   }
 
   addUser() {
