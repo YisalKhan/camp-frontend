@@ -4,6 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from '../../../services/user.service';
 
+import { ToastrService } from 'ngx-toastr';
 import { routerTransition } from '../../../router.animations';
 import { from } from 'rxjs';
 
@@ -29,7 +30,8 @@ export class AddUserComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private spinner: NgxSpinnerService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   userForm = this.formBuilder.group({
@@ -82,18 +84,19 @@ export class AddUserComponent implements OnInit {
     if (this.editStatus) {
       this.userService.updateUser(this.userID, this.userForm.value).subscribe(
         res => {
-          console.log(res);
+          this.toastr.success(res.success);
         }
       );
     } else {
       this.spinner.show();
       this.userService.createUser(this.userForm.value).subscribe(
         res => {
-          console.log(res);
-          alert('User has been created Successfully');
+          this.toastr.success(res.success);
           this.router.navigate(['users']);
         },
-        err => console.log(err)
+        err => {
+            this.toastr.success(err.error);
+        }
       );
       this.spinner.hide();
     }

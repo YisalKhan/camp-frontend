@@ -4,6 +4,7 @@
 @import "utils";
 @import "rtl";
 @import "responsive";
+@import '~ngx-toastr/toastr';
 
 @media print {
     .breadcrumb {

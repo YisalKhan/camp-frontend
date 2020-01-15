@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 import { routerTransition } from '../../../router.animations';
 import { CampService } from '../../../services/camp.service';
@@ -20,7 +21,8 @@ export class AddCampsComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private campService: CampService
+    private campService: CampService,
+    private toastr: ToastrService
   ) { }
 
   campForm = this.formBuilder.group({
@@ -64,7 +66,7 @@ export class AddCampsComponent implements OnInit {
     this.campForm.value.campUserID = this.campUserID;
     this.campService.createCamp(this.campForm.value).subscribe(
       res => {
-        console.log(res);
+        this.toastr.success(res.success);
       }
     );
   }
