@@ -66,7 +66,7 @@ export class AddCampsComponent implements OnInit {
     this.campForm.value.campUserID = this.campUserID;
     this.campService.createCamp(this.campForm.value).subscribe(
       res => {
-        this.toastr.success(res.success);
+        this.toastr.success(res['success']);
       }
     );
   }

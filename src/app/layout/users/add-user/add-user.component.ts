@@ -84,14 +84,14 @@ export class AddUserComponent implements OnInit {
     if (this.editStatus) {
       this.userService.updateUser(this.userID, this.userForm.value).subscribe(
         res => {
-          this.toastr.success(res.success);
+          this.toastr.success(res['success']);
         }
       );
     } else {
       this.spinner.show();
       this.userService.createUser(this.userForm.value).subscribe(
         res => {
-          this.toastr.success(res.success);
+          this.toastr.success(res['success']);
           this.router.navigate(['users']);
         },
         err => {
