@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CampService } from '../../../services/camp.service';
 
 import { routerTransition } from '../../../router.animations';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-approved-camps',
@@ -18,7 +19,8 @@ export class ApprovedCampsComponent implements OnInit {
 
   constructor(
     private campService: CampService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -46,11 +48,17 @@ export class ApprovedCampsComponent implements OnInit {
         };
         // console.log(this.campData);
         this.campService.getCampPermission(this.campData).subscribe(
-          res1 => console.log(res1)
+          // res1 => console.log(res1)
+          res1 => {
+            this.toastr.success(res1['success']);
+            this.router.navigate(['/patients']);
+          },
+          err => {
+            this.toastr.error(err['error']);
+          }
         );
       }
     );
-    this.router.navigate(['/patients']);
   }
 
 }

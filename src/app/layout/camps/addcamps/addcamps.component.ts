@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { routerTransition } from '../../../router.animations';
 import { CampService } from '../../../services/camp.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-addcamps',
@@ -22,7 +23,8 @@ export class AddCampsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private campService: CampService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService,
   ) { }
 
   campForm = this.formBuilder.group({
@@ -63,9 +65,11 @@ export class AddCampsComponent implements OnInit {
   }
 
   onSubmit() {
+    this.spinner.show();
     this.campForm.value.campUserID = this.campUserID;
     this.campService.createCamp(this.campForm.value).subscribe(
       res => {
+        this.spinner.hide();
         this.toastr.success(res['success']);
       }
     );
