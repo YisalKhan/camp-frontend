@@ -27,6 +27,7 @@ export class EditcampsComponent implements OnInit {
   campEditForm = this.formBuilder.group({
     campType: ['', Validators.required],
     doctorName: ['', Validators.required],
+    doctorPhoneNumber: ['', Validators.required],
     campDateAndTime: ['', Validators.required],
     campAddress: ['', Validators.required],
     bpApparatus: ['', Validators.required],
@@ -49,6 +50,7 @@ export class EditcampsComponent implements OnInit {
           this.campEditForm.patchValue({
             campType: this.campData.camp_type,
             doctorName: this.campData.dr_name,
+            doctorPhoneNumber: ['', Validators.required],
             campDateAndTime: this.campData.camp_datetime,
             campAddress: this.campData.address,
             bpApparatus: this.campData.is_bp_apparatus,

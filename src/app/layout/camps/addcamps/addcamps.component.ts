@@ -30,6 +30,7 @@ export class AddCampsComponent implements OnInit {
   campForm = this.formBuilder.group({
     campType: ['', Validators.required],
     doctorName: ['', Validators.required],
+    doctorPhoneNumber: ['', Validators.required],
     campDateAndTime: ['', Validators.required],
     campAddress: ['', Validators.required],
     bpApparatus: ['', Validators.required],
