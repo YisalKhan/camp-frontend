@@ -17,10 +17,19 @@
                 <label class="required">Patient Phone #</label>
                 <input class="form-control" formControlName="patientPhoneNo" />
               </fieldset>
-              <fieldset class="form-group">
+              <div class="form-group">
+                <label>Blood Sugar Meter</label>
+                <select class="form-control" formControlName="patientGender">
+                  <option [disabled]>Select Option</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="others">Others</option>
+                </select>
+              </div>
+              <!-- <fieldset class="form-group">
                 <label class="required">Patient Gender</label>
                 <input class="form-control" formControlName="patientGender" />
-              </fieldset>
+              </fieldset> -->
               <button type="submit" class="btn btn-success" [disabled]="!patientForm.valid">
                 Save Patient Record
               </button>

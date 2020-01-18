@@ -52,15 +52,15 @@
             </div>
             <fieldset class="form-group">
               <label class="required">Number of Strips</label>
-              <input class="form-control" formControlName="strips" />
+              <input class="form-control" maxlength="3" formControlName="strips" />
             </fieldset>
             <fieldset class="form-group">
               <label class="required">Number of Flyers</label>
-              <input class="form-control" formControlName="flyers" />
+              <input class="form-control" maxlength="3" formControlName="flyers" />
             </fieldset>
             <fieldset class="form-group">
               <label class="required">Number of Screeing Slips</label>
-              <input class="form-control" formControlName="screeingSlips" />
+              <input class="form-control" maxlength="3" formControlName="screeingSlips" />
             </fieldset>
             <button type="submit" (click)="onCampApprove(campId)" class="btn btn-success" [disabled]="!campEditForm.valid">
               Approve
