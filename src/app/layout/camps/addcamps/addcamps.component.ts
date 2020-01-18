@@ -28,7 +28,6 @@ export class AddCampsComponent implements OnInit {
   ) { }
 
   campForm = this.formBuilder.group({
-    campName: ['', Validators.required],
     campType: ['', Validators.required],
     doctorName: ['', Validators.required],
     campDateAndTime: ['', Validators.required],

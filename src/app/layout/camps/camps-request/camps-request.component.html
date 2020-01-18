@@ -17,17 +17,17 @@
 					<table class="table table-hover table-striped">
 						<thead>
 							<tr>
-								<th>Camp Name</th>
 								<th>Camp Type</th>
 								<th>Doctor Name</th>
+								<th>Camp Date/Time</th>
 								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr *ngFor="let camp of camps">
-								<td>{{ camp.camp_name }}</td>
 								<td>{{ camp.camp_type }}</td>
-                <td>{{ camp.dr_name }}</td>
+								<td>{{ camp.dr_name }}</td>
+								<td>{{ camp.camp_datetime }}</td>
                 <td>
 									<div class="btn-group" role="group" aria-label="...">
 										<button type="button" (click)="viewCamp(camp.id)" class="btn btn-primary">View/Edit</button>

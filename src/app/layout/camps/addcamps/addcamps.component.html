@@ -9,10 +9,6 @@
   <div class="row" class="campForm">
       <div class="col-lg-6 my-auto">
           <form [formGroup]="campForm" (ngSubmit)="onSubmit()">
-            <fieldset class="form-group">
-              <label class="required">Camp Name</label>
-              <input class="form-control" formControlName="campName" />
-            </fieldset>
             <div class="form-group">
               <label>Camp Type</label>
               <select class="form-control" formControlName="campType">
