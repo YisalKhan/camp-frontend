@@ -14,6 +14,7 @@ import { routerTransition } from '../../../router.animations';
 export class ApprovedCampsComponent implements OnInit {
 
   camps: any;
+  campData: any;
 
   constructor(
     private campService: CampService,
@@ -31,8 +32,24 @@ export class ApprovedCampsComponent implements OnInit {
     );
   }
 
-  startCamp(cId) {
+  startCamp( cId: any ) {
     localStorage.setItem('campId', cId);
+    this.campService.viewCamp(cId).subscribe(
+      res => {
+        // this.campData = res;
+        this.campData = {
+          userId: res['user_id'],
+          campId: res['id'],
+          lat: res['lat'],
+          lng: res['lng']
+
+        };
+        // console.log(this.campData);
+        this.campService.getCampPermission(this.campData).subscribe(
+          res1 => console.log(res1)
+        );
+      }
+    );
     this.router.navigate(['/patients']);
   }
 

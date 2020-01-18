@@ -34,7 +34,11 @@ export class CampService {
   }
 
   addPatient(data) {
-    debugger;
+    // debugger;
     return this.httpClient.post(this.basicURL + '/patient/add', data);
+  }
+
+  getCampPermission(data) {
+    return this.httpClient.post(this.basicURL + '/start/camp', data);
   }
 }

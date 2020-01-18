@@ -5,6 +5,7 @@ import { CampService } from '../../services/camp.service';
 
 import { routerTransition } from '../../router.animations';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-patient',
@@ -17,7 +18,8 @@ export class PatientComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private spinner: NgxSpinnerService,
-    private campService: CampService
+    private campService: CampService,
+    private toastr: ToastrService
   ) { }
 
   patientForm = this.formBuilder.group({
@@ -34,7 +36,13 @@ export class PatientComponent implements OnInit {
     const campId = localStorage.getItem('campId');
     this.patientForm.value.camp_id = campId;
     this.campService.addPatient(this.patientForm.value).subscribe(
-      res => console.log(res)
+      // res => console.log(res);
+      // this.patientForm.reset();
+      res => {
+        this.toastr.success(res['success']);
+        // console.log(res);
+        this.patientForm.reset();
+      }
     );
   }
 
