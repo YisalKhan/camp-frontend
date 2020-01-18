@@ -76,9 +76,9 @@ export class SidebarComponent implements OnInit {
         this.translate.use(language);
     }
 
-    onLoggedout() {
-        localStorage.removeItem('isLoggedin');
-    }
+    // onLoggedout() {
+    //     localStorage.removeItem('isLoggedin');
+    // }
 
     spoDashboard() {
         this.router.navigate(['/camps/requestCamp']);
@@ -90,5 +90,9 @@ export class SidebarComponent implements OnInit {
 
     spoDashboardLink() {
         this.router.navigate(['/camps']);
+    }
+
+    onLoggedout() {
+        localStorage.clear();
     }
 }
