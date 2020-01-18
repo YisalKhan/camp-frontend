@@ -87,4 +87,8 @@ export class SidebarComponent implements OnInit {
     requestedCamps() {
         this.router.navigate(['/camps/campsRequest']);
     }
+
+    spoDashboardLink() {
+        this.router.navigate(['/camps']);
+    }
 }
