@@ -64,4 +64,11 @@ export class UsersComponent implements OnInit {
     );
   }
 
+  onDeleteUser(uid) {
+    this.userService.deleteUser(uid).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    );
+  }
+
 }

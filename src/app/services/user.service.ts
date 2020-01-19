@@ -49,4 +49,8 @@ export class UserService {
   getTerritories(districtID) {
     return this.httpClient.get(this.basicURL + '/territories/' + districtID);
   }
+
+  deleteUser(userId) {
+    return this.httpClient.delete(this.basicURL + '/user/' + userId);
+  }
 }
