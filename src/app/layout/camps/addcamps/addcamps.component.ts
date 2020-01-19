@@ -20,6 +20,11 @@ export class AddCampsComponent implements OnInit {
   map: any;
   address: any;
   dateTime: any;
+  public phone = {
+    guide: true,
+    showMask: true,
+    mask: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/]
+  };
 
   constructor(
     private formBuilder: FormBuilder,

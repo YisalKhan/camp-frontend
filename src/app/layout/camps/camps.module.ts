@@ -12,6 +12,7 @@ import { EditcampsComponent } from './editcamps/editcamps.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ApprovedCampsComponent } from './approved-camps/approved-camps.component';
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
+import { TextMaskModule } from 'angular2-text-mask';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-
     NgxSpinnerModule,
     DlDateTimeDateModule,  // <--- Determines the data type of the model
     DlDateTimePickerModule,
+    TextMaskModule
   ],
   declarations: [
     CampsComponent,

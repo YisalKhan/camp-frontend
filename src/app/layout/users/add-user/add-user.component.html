@@ -31,7 +31,7 @@
             </fieldset>
             <fieldset class="form-group">
               <label class="required">Mobile #</label>
-              <input class="form-control" formControlName="mobileNumber" [textMask]="mask" />
+              <input class="form-control" formControlName="mobileNumber" [textMask]="phone" />
             </fieldset>
             <fieldset class="form-group">
               <label class="required">Email</label>
@@ -39,7 +39,7 @@
             </fieldset>
             <fieldset class="form-group">
               <label class="required">CNIC</label>
-              <input class="form-control" formControlName="cnic" />
+              <input class="form-control" formControlName="cnic" [textMask]="cnic" />
             </fieldset>
             <div class="form-group">
               <label>Teams</label>

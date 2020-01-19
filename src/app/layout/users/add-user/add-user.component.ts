@@ -24,10 +24,15 @@ export class AddUserComponent implements OnInit {
   regions: any;
   districts: any;
   territories: any;
-  public mask = {
+  public phone = {
     guide: true,
     showMask: true,
     mask: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/]
+  };
+  public cnic = {
+    guide: true,
+    showMask: true,
+    mask: [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, ]
   };
 
   constructor(
