@@ -3,6 +3,7 @@ import { routerTransition } from '../../../router.animations';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { CampService } from '../../../services/camp.service';
+import { ToastrService } from 'ngx-toastr';
 import { from } from 'rxjs';
 
 @Component({
@@ -18,7 +19,8 @@ export class CampsRequestComponent implements OnInit {
   constructor(
     private campService: CampService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -29,7 +31,6 @@ export class CampsRequestComponent implements OnInit {
     this.campService.getCamps().subscribe(
       (res) => {
         this.camps = res;
-        console.log(res);
     });
   }
 
@@ -40,6 +41,16 @@ export class CampsRequestComponent implements OnInit {
     // });
     console.log(campID);
     this.router.navigate(['camps/viewEditCamp', campID]);
+  }
+
+  deleteCamp(campID) {
+    this.campService.deleteCamp(campID).subscribe(
+      res => {
+        this.toastr.error(res['success']);
+        this.getCamps();
+      },
+      err => console.log(err)
+    );
   }
 
 }

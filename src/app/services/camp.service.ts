@@ -41,4 +41,8 @@ export class CampService {
   getCampPermission(data) {
     return this.httpClient.post(this.basicURL + '/start/camp', data);
   }
+
+  deleteCamp(campId) {
+    return this.httpClient.delete(this.basicURL + '/camps/' + campId);
+  }
 }

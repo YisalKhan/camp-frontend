@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 import { CampService } from '../../../services/camp.service';
 import { routerTransition } from '../../../router.animations';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-editcamps',
@@ -21,7 +22,9 @@ export class EditcampsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private campService: CampService,
     private route: ActivatedRoute,
-    private spinner: NgxSpinnerService
+    private router: Router,
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) { }
 
   campEditForm = this.formBuilder.group({
@@ -68,12 +71,12 @@ export class EditcampsComponent implements OnInit {
   }
 
   onCampApprove(cid) {
-    this.spinner.show();
     const userID = JSON.parse(localStorage.getItem('userData'))['id'];
     this.campService.campApprove(cid, userID).subscribe(
       res => {
-        console.log(res);
-        this.spinner.hide();
+        // console.log(res);
+        this.toastr.success(res['success']);
+        this.router.navigate(['/camps/campsRequest']);
       }
     );
   }
