@@ -8,9 +8,9 @@
             <i class="fa fa-fw fa-users"></i>&nbsp;
             <span>{{ 'Users' | translate }}</span>
         </a>
-        <a (click)="requestedCamps()" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a routerLink="/camps/campsRequest" (click)="requestedCamps()" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-tasks"></i>&nbsp;
-            <span>{{ 'Camps Request' | translate }}</span>
+            <span>{{ 'Camps' | translate }}</span>
         </a>
         <!-- <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
@@ -160,7 +160,7 @@
     </div>
 
     <div class="list-group">
-        <a [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a routerLink="/editProfile" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-user"></i>&nbsp;
             <span>{{ 'Profile' | translate }}</span>
         </a>
