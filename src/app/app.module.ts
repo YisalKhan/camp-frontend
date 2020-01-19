@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
     imports: [
@@ -22,6 +23,7 @@ import { environment } from '../environments/environment';
         HttpClientModule,
         LanguageTranslationModule,
         AppRoutingModule,
+        TextMaskModule,
         SweetAlert2Module.forRoot(),
         ToastrModule.forRoot(),
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })

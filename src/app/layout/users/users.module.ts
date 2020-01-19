@@ -7,6 +7,7 @@ import { UsersComponent } from './users.component';
 import { PageHeaderModule } from '../../shared';
 import { AddUserComponent } from './add-user/add-user.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     UsersRoutingModule,
     PageHeaderModule,
     ReactiveFormsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    TextMaskModule
   ],
   declarations: [
     UsersComponent,

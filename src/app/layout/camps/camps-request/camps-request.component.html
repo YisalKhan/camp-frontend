@@ -25,7 +25,9 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let camp of camps">
-								<td>{{ camp.camp_type }}</td>
+								<td *ngIf="camp.camp_type == 1">Cardio Camp</td>
+								<td *ngIf="camp.camp_type == 2">Dibetic Camp</td>
+								<td *ngIf="camp.camp_type == 3">Cardio/Dibetic Camp</td>
 								<td>{{ camp.dr_name }}</td>
 								<td>{{ camp.camp_datetime }}</td>
                 <td>

@@ -15,6 +15,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PatientComponent implements OnInit {
 
+  campType: any;
+
   constructor(
     private formBuilder: FormBuilder,
     private spinner: NgxSpinnerService,
@@ -25,14 +27,18 @@ export class PatientComponent implements OnInit {
   patientForm = this.formBuilder.group({
     patientName: ['', Validators.required],
     patientPhoneNo: ['', Validators.required],
-    patientGender: ['', Validators.required]
+    patientGender: ['', Validators.required],
+    patientDiastolic: [''],
+    patientSystolic: [''],
+    patientBloodSugar: ['']
   });
 
   ngOnInit() {
+    this.campType = localStorage.getItem('campType');
   }
 
   onSubmit() {
-    this.spinner.show();
+    // this.spinner.show();
     const campId = localStorage.getItem('campId');
     this.patientForm.value.camp_id = campId;
     this.campService.addPatient(this.patientForm.value).subscribe(

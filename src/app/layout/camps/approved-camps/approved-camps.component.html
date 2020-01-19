@@ -24,11 +24,13 @@
                           </thead>
                           <tbody>
                               <tr *ngFor="let camp of camps">
-                                  <td>{{ camp.camp_type }}</td>
+                                  <td *ngIf="camp.camp_type == 1">Cardio Camp</td>
+                                  <td *ngIf="camp.camp_type == 2">Dibetic Camp</td>
+                                  <td *ngIf="camp.camp_type == 3">Cardio/Dibetic Camp</td>
                                   <td>{{ camp.dr_name }}</td>
                   <td>
                                       <div class="btn-group" role="group" aria-label="...">
-                                          <button type="button" (click)="startCamp(camp.id)" class="btn btn-primary">Start Camp</button>
+                                          <button type="button" (click)="startCamp(camp.id, camp.camp_type)" class="btn btn-primary">Start Camp</button>
                                           <!-- <button type="button" class="btn btn-danger">Delete</button> -->
                                       </div>
                                   </td>

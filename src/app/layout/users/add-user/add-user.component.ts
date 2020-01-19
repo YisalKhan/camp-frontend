@@ -24,6 +24,11 @@ export class AddUserComponent implements OnInit {
   regions: any;
   districts: any;
   territories: any;
+  public mask = {
+    guide: true,
+    showMask: true,
+    mask: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/]
+  };
 
   constructor(
     private formBuilder: FormBuilder,
