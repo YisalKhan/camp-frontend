@@ -5,6 +5,8 @@
 @import "rtl";
 @import "responsive";
 @import '~ngx-toastr/toastr';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~open-iconic/font/css/open-iconic-bootstrap.css';
 
 @media print {
     .breadcrumb {

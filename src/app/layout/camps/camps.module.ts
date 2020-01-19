@@ -11,6 +11,8 @@ import { StatModule } from '../../shared';
 import { EditcampsComponent } from './editcamps/editcamps.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ApprovedCampsComponent } from './approved-camps/approved-camps.component';
+import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
+
 
 @NgModule({
   imports: [
@@ -19,7 +21,9 @@ import { ApprovedCampsComponent } from './approved-camps/approved-camps.componen
     PageHeaderModule,
     ReactiveFormsModule,
     StatModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    DlDateTimeDateModule,  // <--- Determines the data type of the model
+    DlDateTimePickerModule,
   ],
   declarations: [
     CampsComponent,

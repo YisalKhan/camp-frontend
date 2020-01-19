@@ -50,7 +50,7 @@ export class EditcampsComponent implements OnInit {
           this.campEditForm.patchValue({
             campType: this.campData.camp_type,
             doctorName: this.campData.dr_name,
-            doctorPhoneNumber: ['', Validators.required],
+            doctorPhoneNumber: [this.campData.dr_phone_no],
             campDateAndTime: this.campData.camp_datetime,
             campAddress: this.campData.address,
             bpApparatus: this.campData.is_bp_apparatus,

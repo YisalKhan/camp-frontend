@@ -19,6 +19,7 @@ export class AddCampsComponent implements OnInit {
   userData: any;
   map: any;
   address: any;
+  dateTime: any;
 
   constructor(
     private formBuilder: FormBuilder,
