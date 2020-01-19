@@ -9,7 +9,11 @@
   <div class="row" class="campForm">
       <div class="col-lg-6 my-auto">
           <form [formGroup]="campForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
+          <fieldset class="form-group">
+              <label class="required">Camp Address</label>
+              <input class="form-control" id="searchTextField" formControlName="campAddress" />
+          </fieldset>
+          <div class="form-group">
               <label>Camp Type</label>
               <select class="form-control" formControlName="campType">
                 <option [disabled]>Select Camp</option>
@@ -32,10 +36,6 @@
               >
               </dl-date-time-picker>
               <input class="form-control" value="{{ campForm['campDateAndTime'] }}">
-            </fieldset>
-            <fieldset class="form-group">
-              <label class="required">Camp Address</label>
-              <input class="form-control" id="searchTextField" formControlName="campAddress" />
             </fieldset>
             <div class="form-group">
               <label>BP Apparatus</label>
