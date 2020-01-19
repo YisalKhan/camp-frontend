@@ -51,7 +51,24 @@ export class AddCampsComponent implements OnInit {
         center: {lat: data.coords.latitude, lng: data.coords.longitude},
         zoom: 17
       };
+      const markers = [];
       const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        const input = document.getElementById('searchTextField');
+        const autocomplete = new google.maps.places.Autocomplete(<HTMLInputElement>input);
+        const that = this;
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            const place = autocomplete.getPlace();
+            that.campForm.controls['campAddress'].setValue(place.formatted_address);
+            that.campForm.controls['campLat'].setValue(place.geometry.location.lat());
+            that.campForm.controls['campLang'].setValue(place.geometry.location.lng());
+            that.clearMarkers(markers);
+            // tslint:disable-next-line:no-unused-expression
+            const marker = new google.maps.Marker({
+                position: new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng()),
+                map: map,
+            });
+            markers.push(marker);
+        });
       google.maps.event.addListener(map, 'click', (event) => {
         const lat = event.latLng.lat();
         const lng = event.latLng.lng();
@@ -59,10 +76,22 @@ export class AddCampsComponent implements OnInit {
         const geoCoder = new google.maps.Geocoder();
         geoCoder.geocode({ 'location': latlng }, (results, status) => {
           this.address = results[0];
+          this.clearMarkers(markers);
+            // tslint:disable-next-line:no-unused-expression
+          const marker = new google.maps.Marker({
+              position: new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng()),
+              map: map,
+          });
+          markers.push(marker);
           this.campForm.controls['campAddress'].setValue(this.address.formatted_address);
         });
       });
     });
+  }
+  clearMarkers(markers) {
+      for (let i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
+      }
   }
 
   onSubmit() {
