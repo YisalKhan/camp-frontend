@@ -94,9 +94,9 @@ export class AddCampsComponent implements OnInit {
     });
   }
   clearMarkers(markers) {
-      for (let i = 0; i < markers.length; i++) {
-          markers[i].setMap(null);
-      }
+    for (let i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+    }
   }
 
   onSubmit() {
