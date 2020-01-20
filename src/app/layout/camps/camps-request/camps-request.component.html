@@ -20,6 +20,7 @@
 								<th>Camp Type</th>
 								<th>Doctor Name</th>
 								<th>Camp Date/Time</th>
+								<th>Camp Status</th>
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -30,6 +31,9 @@
 								<td *ngIf="camp.camp_type == 3">Cardio/Dibetic Camp</td>
 								<td>{{ camp.dr_name }}</td>
 								<td>{{ camp.camp_datetime }}</td>
+								<td *ngIf="camp.camp_status == 0">Pending</td>
+								<td *ngIf="camp.camp_status == 1">Approved</td>
+								<!-- <td>{{ camp.camp_status }}</td> -->
                 <td>
 									<div class="btn-group" role="group" aria-label="...">
 										<button type="button" (click)="viewCamp(camp.id)" class="btn btn-primary">View/Edit</button>

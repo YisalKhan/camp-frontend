@@ -105,7 +105,10 @@ export class AddUserComponent implements OnInit {
           this.router.navigate(['users']);
         },
         err => {
-            this.toastr.success(err.error);
+          // console.log(err['status']);
+          if (err['status']) {
+            this.toastr.error('Email already exist.');
+          }
         }
       );
       this.spinner.hide();

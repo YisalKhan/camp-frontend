@@ -51,6 +51,6 @@ export class UserService {
   }
 
   deleteUser(userId) {
-    return this.httpClient.delete(this.basicURL + '/user/' + userId);
+    return this.httpClient.delete(this.basicURL + '/users/' + userId);
   }
 }

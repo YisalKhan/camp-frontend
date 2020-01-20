@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { routerTransition } from '../../router.animations';
 import { UserService } from '../../services/user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-users',
@@ -14,13 +15,14 @@ export class UsersComponent implements OnInit {
 
   users: any;
   regions: any;
-    pubnub: any;
+  pubnub: any;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
     private spinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -66,7 +68,9 @@ export class UsersComponent implements OnInit {
 
   onDeleteUser(uid) {
     this.userService.deleteUser(uid).subscribe(
-      res => console.log(res),
+      res => {
+        this.toastr.error(res['success']);
+      },
       err => console.log(err)
     );
   }
