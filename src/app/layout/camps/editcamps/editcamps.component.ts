@@ -17,6 +17,7 @@ export class EditcampsComponent implements OnInit {
 
   campId: any;
   campData: any;
+  campStatus: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -64,6 +65,7 @@ export class EditcampsComponent implements OnInit {
             flyers: this.campData.no_of_flyers,
             screeingSlips: this.campData.no_of_screening_slips
           });
+          // this.campStatus = res['camp_status'];
           this.spinner.hide();
         }
       );
@@ -72,6 +74,7 @@ export class EditcampsComponent implements OnInit {
 
   onCampApprove(cid) {
     const userID = JSON.parse(localStorage.getItem('userData'))['id'];
+    // debugger;
     this.campService.campApprove(cid, userID).subscribe(
       res => {
         // console.log(res);

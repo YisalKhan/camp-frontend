@@ -70,6 +70,8 @@ export class UsersComponent implements OnInit {
     this.userService.deleteUser(uid).subscribe(
       res => {
         this.toastr.error(res['success']);
+        this.getUsers();
+        // this.router.navigate(['users']);
       },
       err => console.log(err)
     );

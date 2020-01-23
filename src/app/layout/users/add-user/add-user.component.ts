@@ -95,6 +95,7 @@ export class AddUserComponent implements OnInit {
       this.userService.updateUser(this.userID, this.userForm.value).subscribe(
         res => {
           this.toastr.success(res['success']);
+          this.router.navigate(['users']);
         }
       );
     } else {

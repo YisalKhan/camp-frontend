@@ -71,7 +71,7 @@
             </div>
             <div class="btn-group" role="group" aria-label="...">
               <button type="submit" [disabled]="!userForm.valid" class="btn btn-success">{{ editStatus ? 'Update' : 'Add' }}</button>
-              <button type="button" class="btn btn-danger" (click)="onDelete()" *ngIf="editStatus">Delete</button>
+              <!-- <button type="button" class="btn btn-danger" (click)="onDelete()" *ngIf="editStatus">Delete</button> -->
               <button type="button" class="btn btn-primary" (click)="onClearForm()" *ngIf="editStatus">Clear</button>
             </div>
             <!-- <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">
