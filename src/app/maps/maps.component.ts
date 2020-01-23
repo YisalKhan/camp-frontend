@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { PubNubAngular } from 'pubnub-angular2';
-
+import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
@@ -15,9 +14,9 @@ export class MapsComponent implements OnInit, AfterViewInit {
   // lat = 31.518875299999998;
   // lng = 74.3082251;
   // marker: any;
-  constructor(pubnub: PubNubAngular) {
-    pubnub.init({ publishKey: 'pub-c-02414160-d913-45c5-8531-0eaa1dffa163', subscribeKey: 'sub-c-1901bc68-330b-11ea-a820-f6a3bb2caa12' });
-    this.pubnub = pubnub;
+  constructor(public app: AppComponent) {
+    app.pubnub.subscribe({ channels: ['myChannel1'], triggerEvents: true, withPresence: true });
+    this.pubnub = app.pubnub;
   }
   lat: any = localStorage.getItem('latitude');
   lng: any = localStorage.getItem('longitude');
@@ -43,23 +42,11 @@ export class MapsComponent implements OnInit, AfterViewInit {
     if (navigator) {
       const role_id = localStorage.getItem('userDesignation');
       const markers = [];
-      if (role_id === '9') {
-          navigator.geolocation.watchPosition((data) => {
-              const lat_lng = {
-                  'lat': data.coords.latitude,
-                  'lng': data.coords.longitude
-              };
-              // publishing on pubnub channel
-              this.pubnub.publish({ channel: 'myChannel', message: lat_lng }, (response) => {
-                  console.log(response);
-              });
-          });
-      } else if (role_id === '1' || role_id === '2' || role_id === '3') {
+      if (role_id === '1' || role_id === '2' || role_id === '3') {
           // listening to pubnub message
-          this.pubnub.subscribe({ channels: ['myChannel'], triggerEvents: true, withPresence: true });
-          this.pubnub.getMessage('myChannel', (msg) => {
-              // console.log(msg);
-              this.clearMarkers(markers);
+          this.pubnub.getMessage('myChannel1', (msg) => {
+              console.log(msg);
+              this.clearMarkers(markers[msg.user_id]);
               const marker = new google.maps.Marker({
                 position: new google.maps.LatLng(msg.message.lat, msg.message.lng),
                 map: this.maps,
@@ -88,10 +75,10 @@ export class MapsComponent implements OnInit, AfterViewInit {
   //   // console.log(navigator.geolocation.watchPosition(onSuccess, onError));
   //   return navigator.geolocation.watchPosition(onSuccess, onError);
   // }
-  clearMarkers(markers) {
-    for (let i = 0; i < markers.length; i++) {
-      markers[i].setMap(null);
-    }
+  clearMarkers(marker) {
+      if (typeof marker !== 'undefined') {
+          marker.setMap(null);
+      }
   }
 
   ngAfterViewInit() {
