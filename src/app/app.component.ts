@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
                       'lng': data.coords.longitude
                   };
                   // publishing on pubnub channel
-                  this.pubnub.publish({ channel: 'myChannel', message: lat_lng }, (response) => {
+                  this.pubnub.publish({ channel: 'myChannel1', message: lat_lng }, (response) => {
                       console.log(response, 'published');
                   });
               });
