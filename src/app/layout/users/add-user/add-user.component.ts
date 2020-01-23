@@ -96,6 +96,22 @@ export class AddUserComponent implements OnInit {
         res => {
           this.toastr.success(res['success']);
           this.router.navigate(['users']);
+        },
+        err => {
+          if (err['status'] === 422) {
+            if (err['error']['errors']['email']) {
+              this.toastr.error(err['error']['errors']['email'][0]);
+            }
+            if (err['error']['errors']['employeeCode']) {
+              this.toastr.error(err['error']['errors']['employeeCode'][0]);
+            }
+            if (err['error']['errors']['cnic']) {
+              this.toastr.error(err['error']['errors']['cnic'][0]);
+            }
+            if (err['error']['errors']['mobileNumber']) {
+              this.toastr.error(err['error']['errors']['mobileNumber'][0]);
+            }
+          }
         }
       );
     } else {
@@ -106,9 +122,19 @@ export class AddUserComponent implements OnInit {
           this.router.navigate(['users']);
         },
         err => {
-          // console.log(err['status']);
-          if (err['status']) {
-            this.toastr.error('Email already exist.');
+          if (err['status'] === 422) {
+            if (err['error']['errors']['email']) {
+              this.toastr.error(err['error']['errors']['email'][0]);
+            }
+            if (err['error']['errors']['employeeCode']) {
+              this.toastr.error(err['error']['errors']['employeeCode'][0]);
+            }
+            if (err['error']['errors']['cnic']) {
+              this.toastr.error(err['error']['errors']['cnic'][0]);
+            }
+            if (err['error']['errors']['mobileNumber']) {
+              this.toastr.error(err['error']['errors']['mobileNumber'][0]);
+            }
           }
         }
       );
@@ -129,6 +155,7 @@ export class AddUserComponent implements OnInit {
     this.userService.getEditUser(uid).subscribe(
       res => {
         this.data = res;
+        console.log(this.data);
         this.userForm.patchValue({
           name: this.data.name,
           cnic: this.data.cnic,
