@@ -42,35 +42,35 @@
               <input class="form-control" formControlName="cnic" [textMask]="cnic" />
             </fieldset>
             <div class="form-group">
-              <label>Teams</label>
+              <label class="required">Teams</label>
               <select class="form-control" formControlName="team">
                 <option [disabled]>Select Team</option>
                 <option *ngFor = "let team of teams" value={{team.id}}>{{ team.team_name }}</option>
               </select>
             </div>
             <div class="form-group">
-              <label>Regions</label>
+              <label class="required">Regions</label>
               <select class="form-control" formControlName="region" (change)="getDisctricts($event.target.value)">
                 <option [disabled]>Select Region</option>
                 <option *ngFor = "let region of regions" value={{region.id}}>{{ region.region_name }}</option>
               </select>
             </div>
             <div class="form-group">
-              <label>District</label>
+              <label class="required">District</label>
               <select class="form-control" formControlName="district" (change)="getTerritories($event.target.value)">
                 <option [disabled]>Select District</option>
                 <option *ngFor = "let district of districts" value={{district.id}}>{{ district.district_name }}</option>
               </select>
             </div>
             <div class="form-group">
-              <label>Territory</label>
+              <label class="required">Territory</label>
               <select class="form-control" formControlName="territory">
                 <option [disabled]>Select Territory</option>
                 <option *ngFor = "let territory of territories" value={{territory.id}}>{{ territory.territory_name }}</option>
               </select>
             </div>
             <div class="btn-group" role="group" aria-label="...">
-              <button type="submit" [disabled]="!userForm.valid" class="btn btn-success">{{ editStatus ? 'Update' : 'Add' }}</button>
+              <button type="submit" [disabled]="!userForm.valid" class="btn btn-success">{{ editStatus ? 'Save' : 'Add' }}</button>
               <!-- <button type="button" class="btn btn-danger" (click)="onDelete()" *ngIf="editStatus">Delete</button> -->
               <button type="button" class="btn btn-primary" (click)="onClearForm()" *ngIf="editStatus">Clear</button>
             </div>

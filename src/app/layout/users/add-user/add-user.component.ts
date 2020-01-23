@@ -155,7 +155,7 @@ export class AddUserComponent implements OnInit {
     this.userService.getEditUser(uid).subscribe(
       res => {
         this.data = res;
-        console.log(this.data);
+        // console.log(this.data);
         this.userForm.patchValue({
           name: this.data.name,
           cnic: this.data.cnic,

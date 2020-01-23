@@ -18,6 +18,7 @@ export class EditcampsComponent implements OnInit {
   campId: any;
   campData: any;
   campStatus: any;
+  dateTime: any;
 
   constructor(
     private formBuilder: FormBuilder,

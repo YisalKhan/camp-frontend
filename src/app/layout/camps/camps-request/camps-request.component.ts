@@ -31,6 +31,7 @@ export class CampsRequestComponent implements OnInit {
     this.campService.getCamps().subscribe(
       (res) => {
         this.camps = res;
+        console.log(this.camps);
     });
   }
 

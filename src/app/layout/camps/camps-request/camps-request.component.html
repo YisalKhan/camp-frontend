@@ -17,8 +17,13 @@
 					<table class="table table-hover table-striped">
 						<thead>
 							<tr>
+								<th>SPO Name</th>
+								<th>Team</th>
+								<th>Region</th>
+								<th>District</th>
+								<th>Territory</th>
 								<th>Camp Type</th>
-								<th>Doctor Name</th>
+								<th>Dr Name</th>
 								<th>Camp Date/Time</th>
 								<th>Camp Status</th>
 								<th>Action</th>
@@ -26,6 +31,11 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let camp of camps">
+								<td>{{ camp.user.name }}</td>
+								<td>{{ camp.user.user_team.team_name }}</td>
+								<td>{{ camp.user.user_region.region_name }}</td>
+								<td>{{ camp.user.user_district.district_name }}</td>
+								<td>{{ camp.user.user_territory.territory_name }}</td>
 								<td *ngIf="camp.camp_type == 1">Cardio Camp</td>
 								<td *ngIf="camp.camp_type == 2">Dibetic Camp</td>
 								<td *ngIf="camp.camp_type == 3">Cardio/Dibetic Camp</td>

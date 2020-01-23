@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 import { routerTransition } from '../../../router.animations';
@@ -31,6 +32,7 @@ export class AddCampsComponent implements OnInit {
     private campService: CampService,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
+    private router: Router,
   ) { }
 
   campForm = this.formBuilder.group({
@@ -106,6 +108,7 @@ export class AddCampsComponent implements OnInit {
       res => {
         this.spinner.hide();
         this.toastr.success(res['success']);
+        this.router.navigate(['/camps']);
       }
     );
   }
