@@ -19,27 +19,28 @@ export class AppComponent implements OnInit {
     ngOnInit() {
       if (navigator) {
           const role_id = localStorage.getItem('userDesignation');
+          const user_data = JSON.parse(localStorage.getItem('userData'));
           if (role_id === '9') {
               navigator.geolocation.watchPosition((data) => {
                   const lat_lng = {
+                      'user_id': user_data.id,
                       'lat': data.coords.latitude,
                       'lng': data.coords.longitude
                   };
                   // publishing on pubnub channel
                   this.pubnub.publish({ channel: 'myChannel', message: lat_lng }, (response) => {
-                      console.log(response);
+                      console.log(response, 'published');
                   });
               });
-          } else if (role_id === '1' || role_id === '2' || role_id === '3') {
+          } /*else if (role_id === '1' || role_id === '2' || role_id === '3') {
               // listening to pubnub message
-              this.pubnub.subscribe({ channels: ['myChannel'], triggerEvents: true, withPresence: true });
               this.pubnub.getMessage('myChannel', (msg) => {
                   console.log(msg);
               });
               this.pubnub.getError((err) => {
                   console.log(err);
               });
-          }
+          }*/
         navigator.geolocation.getCurrentPosition( pos => {
           this.lng = pos.coords.longitude;
           this.lat = pos.coords.latitude;
