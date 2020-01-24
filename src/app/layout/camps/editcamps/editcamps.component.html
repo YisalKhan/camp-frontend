@@ -28,9 +28,9 @@
             </fieldset>
             <fieldset class="form-group">
               <label class="required"><b>Camp Date and Time</b></label>
-              <dl-date-time-picker formControlName="campDateAndTime" [(ngModel)]="campEditForm['campDateAndTime']">
-              </dl-date-time-picker>
-              <input class="form-control" value="{{ campEditForm['campDateAndTime'] }}">
+              <!--<dl-date-time-picker formControlName="campDateAndTime" [(ngModel)]="campEditForm['campDateAndTime']">
+              </dl-date-time-picker>-->
+              <input class="form-control" formControlName="campDateAndTime">
             </fieldset>
             <fieldset class="form-group">
               <label class="required">Camp Address</label>
