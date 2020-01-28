@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
@@ -15,7 +16,7 @@ export class MapsComponent implements OnInit, AfterViewInit {
   // lng = 74.3082251;
   // marker: any;
   constructor(public app: AppComponent) {
-    app.pubnub.subscribe({ channels: ['myChannel1'], triggerEvents: true, withPresence: true });
+    app.pubnub.subscribe({ channels: [environment.pubnubChannel], triggerEvents: true, withPresence: true });
     this.pubnub = app.pubnub;
   }
   lat: any = localStorage.getItem('latitude');
@@ -44,7 +45,7 @@ export class MapsComponent implements OnInit, AfterViewInit {
       const markers = [];
       if (role_id === '1' || role_id === '2' || role_id === '3') {
           // listening to pubnub message
-          this.pubnub.getMessage('myChannel1', (msg) => {
+          this.pubnub.getMessage(environment.pubnubChannel, (msg) => {
               console.log(msg);
               this.clearMarkers(markers[msg.user_id]);
               const marker = new google.maps.Marker({

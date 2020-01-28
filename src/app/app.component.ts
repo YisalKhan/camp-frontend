@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PubNubAngular } from 'pubnub-angular2';
+import { environment } from '../environments/environment';
 
 @Component({
     selector: 'app-root',
@@ -28,7 +29,7 @@ export class AppComponent implements OnInit {
                       'lng': data.coords.longitude
                   };
                   // publishing on pubnub channel
-                  this.pubnub.publish({ channel: 'myChannel1', message: lat_lng }, (response) => {
+                  this.pubnub.publish({ channel: environment.pubnubChannel, message: lat_lng }, (response) => {
                       console.log(response, 'published');
                   });
               });
