@@ -45,4 +45,8 @@ export class CampService {
   deleteCamp(campId) {
     return this.httpClient.delete(this.basicURL + '/camps/' + campId);
   }
+
+  updateCamp(campId, data) {
+    return this.httpClient.put(this.basicURL + '/camps/' + campId, data);
+  }
 }

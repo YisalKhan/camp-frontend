@@ -64,12 +64,15 @@
               <label class="required">Number of Screeing Slips</label>
               <input class="form-control" maxlength="3" formControlName="screeingSlips" />
             </fieldset>
-            <button type="submit" (click)="onCampApprove(campId)" class="btn btn-success" [disabled]="!campEditForm.valid">
-              Approve
-            </button>
-            <!-- <ng-template #elseBlock><button type="submit" class="btn btn-success" [disabled]="!campEditForm.valid">
-              Approved
-            </button></ng-template> -->
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="submit" (click)="onCampApprove(campId)" class="btn btn-primary" [disabled]="!campEditForm.valid">
+                Approve
+              </button>
+              <button type="submit" (click)="onCampUpdate(campId)" class="btn btn-success" [disabled]="!campEditForm.valid">
+                Save
+              </button>
+              <button type="submit" (click)="onBack()" class="btn btn-warning">Back</button>
+            </div>
           </form>
       </div>
   </div>

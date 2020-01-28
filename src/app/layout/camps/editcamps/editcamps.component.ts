@@ -38,7 +38,7 @@ export class EditcampsComponent implements OnInit {
     doctorName: ['', Validators.required],
     doctorPhoneNumber: ['', Validators.required],
     campDateAndTime: ['', Validators.required],
-    campDateAndTimeSecond: ['', Validators.required],
+    campDateAndTimeSecond: [''],
     campAddress: ['', Validators.required],
     bpApparatus: ['', Validators.required],
     campLat: ['129123'],
@@ -88,6 +88,20 @@ export class EditcampsComponent implements OnInit {
         this.router.navigate(['/camps/campsRequest']);
       }
     );
+  }
+
+  onCampUpdate(cid: any) {
+    const userID = JSON.parse(localStorage.getItem('userData'))['id'];
+    this.campEditForm.value.campUserID = userID;
+    this.campService.updateCamp(cid, this.campEditForm.value).subscribe(
+      res => {
+        this.toastr.success(res['success']);
+      }
+    )
+  }
+
+  onBack() {
+    this.router.navigate(['/camps/campsRequest']);
   }
 
 }
