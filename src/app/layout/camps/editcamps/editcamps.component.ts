@@ -18,6 +18,11 @@ export class EditcampsComponent implements OnInit {
   campId: any;
   campData: any;
   campStatus: any;
+  public phone = {
+    guide: true,
+    showMask: true,
+    mask: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/]
+  };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,6 +38,7 @@ export class EditcampsComponent implements OnInit {
     doctorName: ['', Validators.required],
     doctorPhoneNumber: ['', Validators.required],
     campDateAndTime: ['', Validators.required],
+    campDateAndTimeSecond: ['', Validators.required],
     campAddress: ['', Validators.required],
     bpApparatus: ['', Validators.required],
     campLat: ['129123'],
@@ -54,7 +60,7 @@ export class EditcampsComponent implements OnInit {
           this.campEditForm.patchValue({
             campType: this.campData.camp_type,
             doctorName: this.campData.dr_name,
-            doctorPhoneNumber: [this.campData.dr_phone_no],
+            doctorPhoneNumber: this.campData.dr_phone_no,
             campDateAndTime: this.campData.camp_datetime,
             campAddress: this.campData.address,
             bpApparatus: this.campData.is_bp_apparatus,

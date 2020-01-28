@@ -24,11 +24,13 @@
             </fieldset>
             <fieldset class="form-group">
               <label class="required">Doctor Phone Number</label>
-              <input class="form-control" formControlName="doctorPhoneNumber" />
+              <input class="form-control" formControlName="doctorPhoneNumber" [textMask]="phone"/>
             </fieldset>
             <fieldset class="form-group">
-              <label class="required">Camp Date and Time</label>
-              <input class="form-control" formControlName="campDateAndTime" />
+              <label class="required"><b> Date and Time</b></label>
+              <dl-date-time-picker formControlName="campDateAndTimeSecond" [(ngModel)]="campEditForm['campDateAndTimeSecond']">
+              </dl-date-time-picker>
+              <input class="form-control" formControlName="campDateAndTime" value="{{ campEditForm['campDateAndTimeSecond'] }}">
             </fieldset>
             <fieldset class="form-group">
               <label class="required">Camp Address</label>
