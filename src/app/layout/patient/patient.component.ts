@@ -16,6 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 export class PatientComponent implements OnInit {
 
   campType: any;
+  optionValue1: any; optionValue2: any; optionValue3: any; optionValue4: any; optionValue5: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,10 +28,16 @@ export class PatientComponent implements OnInit {
   patientForm = this.formBuilder.group({
     patientName: ['', Validators.required],
     patientPhoneNo: ['', Validators.required],
+    patientAge: ['', Validators.required],
     patientGender: ['', Validators.required],
     patientDiastolic: [''],
     patientSystolic: [''],
-    patientBloodSugar: ['']
+    patientBloodSugar: [''],
+    companyName1: [''],
+    companyName2: [''],
+    companyName3: [''],
+    companyName4: [''],
+    companyName5: ['']
   });
 
   ngOnInit() {
