@@ -18,6 +18,9 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.pubnub.publish({ channel: environment.pubnubChannel, message: {heelo: 'sdfsdf'} }, (response) => {
+            console.log(response, 'published');
+        });
       if (navigator) {
           const role_id = localStorage.getItem('userDesignation');
           const user_data = JSON.parse(localStorage.getItem('userData'));

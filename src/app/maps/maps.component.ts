@@ -33,6 +33,9 @@ export class MapsComponent implements OnInit, AfterViewInit {
   });
 
   ngOnInit() {
+    this.pubnub.getMessage(environment.pubnubChannel, (msg) => {
+      console.log(msg);
+    });
     // navigator.geolocation.watchPosition((data) => {
     //   console.log(data);
     //   // remove old marker
