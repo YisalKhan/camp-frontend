@@ -39,6 +39,7 @@ export class AddCampsComponent implements OnInit {
     campType: ['', Validators.required],
     doctorName: ['', Validators.required],
     doctorPhoneNumber: ['', Validators.required],
+    doctorID: ['', Validators.required],
     campDateAndTime: ['', Validators.required],
     campAddress: ['', Validators.required],
     bpApparatus: ['', Validators.required],

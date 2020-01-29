@@ -46,20 +46,22 @@ export class ApprovedCampsComponent implements OnInit {
     localStorage.setItem('campType', campType);
     this.campService.viewCamp(cId).subscribe(
       res => {
-        // this.campData = res;
         this.campData = {
           userId: res['user_id'],
           campId: res['id'],
           lat: res['lat'],
           lng: res['lng']
         };
-        // console.log(this.campData);
         this.campService.getCampPermission(this.campData).subscribe(
-          // res1 => console.log(res1)
           res1 => {
-            this.toastr.success(res1['success']);
-            this.router.navigate(['/patients']);
-            this.spinner.hide();
+            if(res1['error']) {
+              this.toastr.error(res1['error']);
+            }
+            else {
+              this.toastr.success(res1['success']);
+              this.router.navigate(['/patients']);
+              this.spinner.hide();
+            }
           },
           err => {
             this.toastr.error(err['error']);
