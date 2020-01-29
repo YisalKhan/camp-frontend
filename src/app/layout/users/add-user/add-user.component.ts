@@ -67,6 +67,7 @@ export class AddUserComponent implements OnInit {
       this.route.params.subscribe((params: Params) => {
         this.userID = params['userID'];
       });
+
       this.getEditUser(this.userID);
     }
   }
@@ -155,7 +156,9 @@ export class AddUserComponent implements OnInit {
     this.userService.getEditUser(uid).subscribe(
       res => {
         this.data = res;
-        // console.log(this.data);
+        console.log(this.data);
+        this.getDisctricts(this.data.region);
+        this.getTerritories(this.data.district);
         this.userForm.patchValue({
           name: this.data.name,
           cnic: this.data.cnic,
@@ -163,11 +166,11 @@ export class AddUserComponent implements OnInit {
           employeeCode: this.data.employee_code,
           mobileNumber: this.data.mobile_no,
           email: this.data.email,
-          territory: this.data.territory,
-          district: this.data.district,
+          // territory: this.data.territory,
           region: this.data.region,
           team: this.data.team
         });
+        
       },
       err => console.log(err)
     );
@@ -186,8 +189,13 @@ export class AddUserComponent implements OnInit {
     this.spinner.show();
     this.userService.getDistricts(regionID).subscribe(
       res => {
+        if (localStorage.getItem('editStatus')) {
+          this.userForm.controls['district'].setValue(this.data.district);
+        }
+        console.log(this.userForm.value)
         this.districts = res;
         this.spinner.hide();
+        // debugger;
       },
       err => console.log(err)
     );
@@ -197,6 +205,9 @@ export class AddUserComponent implements OnInit {
     this.spinner.show();
     this.userService.getTerritories(districtID).subscribe(
       res => {
+        if (localStorage.getItem('editStatus')) {
+          this.userForm.controls['territory'].setValue(this.data.territory);
+        }
         this.territories = res;
         this.spinner.hide();
       },
