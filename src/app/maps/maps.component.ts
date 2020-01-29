@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { AppComponent } from '../app.component';
+// import { AppComponent } from '../app.component';
+import { PubNubAngular } from 'pubnub-angular2';
 import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-maps',
@@ -10,14 +11,14 @@ export class MapsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('mapContainer', {static: false}) gmap: ElementRef;
   maps: google.maps.Map;
-    pubnub: any;
-
+  pubnub: any;
   // lat = 31.518875299999998;
   // lng = 74.3082251;
   // marker: any;
-  constructor(public app: AppComponent) {
-    app.pubnub.subscribe({ channels: [environment.pubnubChannel], triggerEvents: true, withPresence: true });
-    this.pubnub = app.pubnub;
+  constructor(public pubnb: PubNubAngular) {
+    // pubnb.init({ publishKey: 'pub-c-02414160-d913-45c5-8531-0eaa1dffa163', subscribeKey: 'sub-c-1901bc68-330b-11ea-a820-f6a3bb2caa12' });
+    this.pubnub = pubnb;
+    this.pubnub.subscribe({ channels: [environment.pubnubChannel], triggerEvents: true, withPresence: true });
   }
   lat: any = localStorage.getItem('latitude');
   lng: any = localStorage.getItem('longitude');
