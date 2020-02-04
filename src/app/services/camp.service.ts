@@ -53,4 +53,12 @@ export class CampService {
   getFilteredCamps(data) {
     return this.httpClient.post(this.basicURL + '/get/camps/present', data);
   }
+
+  getPreviousCamps() {
+    return this.httpClient.post(this.basicURL + '/get/camps/previous', {});
+  }
+
+  getFutureCamps(data) {
+    return this.httpClient.post(this.basicURL + '/get/camps/previous', data);
+  }
 }

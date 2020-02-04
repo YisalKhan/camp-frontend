@@ -20,10 +20,10 @@
             <app-stat [bgClass]="'primary'" [icon]="'fa-users'" [count]="1" [label]="'Patients Information'" ></app-stat>
         </div>
         <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="1" [label]="'Previous Camps Report'" ></app-stat>
+            <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" (click)="previousCamps()" [label]="'Previous Camps Report'" ></app-stat>
         </div>
         <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'success'" [icon]="'fa-tasks'" [count]="1" [label]="'New Camps Requests'" ></app-stat>
+            <app-stat [bgClass]="'success'" [icon]="'fa-tasks'" (click)="futureCamps()" [label]="'Future Camps'" ></app-stat>
         </div>
         <!-- <div class="col-xl-3 col-lg-6">
             <app-stat [bgClass]="'danger'" [icon]="'fa-support'" [count]="1" [label]="'New Tickets!'"></app-stat>

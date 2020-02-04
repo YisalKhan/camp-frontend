@@ -20,7 +20,7 @@
 						</div>
 						<div class="camp-filter">
 							<select class="form-control" formControlName="campType">
-								<option>Select Camp Type</option>
+								<option selected>Select Camp Type</option>
 								<option value="1">Cardio Camp</option>
 								<option value="2">Dibetic Camp</option>
 								<option value="3">Cardio/Dibetic Camp</option>
@@ -28,7 +28,7 @@
 						</div>
 						<div class="camp-filter">
 							<select class="form-control" formControlName="campStatus">
-								<option>Select Camp</option>
+								<option selected>Select Camp</option>
 								<option value="0">Pending</option>
 								<option value="1">Approved</option>
 								<option value="3">Close</option>
@@ -38,7 +38,7 @@
 							<button
 								type="submit"
 								class="btn btn-primary btn-userAdd">
-								Filter
+								Apply
 							</button>
 						</div>
 					</form>
@@ -74,7 +74,7 @@
 								<td *ngIf="camp.camp_status == 0">Pending</td>
 								<td *ngIf="camp.camp_status == 1">Approved</td>
 								<!-- <td>{{ camp.camp_status }}</td> -->
-                <td>
+								<td>
 									<div class="btn-group" role="group" aria-label="...">
 										<button type="button" (click)="viewCamp(camp.id)" class="btn btn-primary">View/Edit</button>
 										<button type="button" (click)="deleteCamp(camp.id)" class="btn btn-danger">Delete</button>

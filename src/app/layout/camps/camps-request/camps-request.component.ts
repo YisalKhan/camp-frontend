@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../../router.animations';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import {formatDate} from '@angular/common';
 
 import { CampService } from '../../../services/camp.service';
 import { ToastrService } from 'ngx-toastr';
@@ -17,6 +18,8 @@ import { from } from 'rxjs';
 export class CampsRequestComponent implements OnInit {
 
   camps: any;
+  previous: any;
+  future: any;
 
   constructor(
     private campService: CampService,
@@ -34,14 +37,51 @@ export class CampsRequestComponent implements OnInit {
   });
 
   ngOnInit() {
-    this.getCamps();
+    this.route.url.subscribe((params: Params) => {
+      if (params[0]['path'] == 'previousCamps') {
+        this.previous = params[0]['path'];
+      }
+      if (params[0]['path'] == 'futureCamps') {
+        this.future = params[0]['path'];
+      }
+    });
+    if (this.previous == 'previousCamps') {
+      // console.log('Previous Camps');
+      this.getPreviousCamps();
+    } else if (this.future == 'futureCamps') {
+      // console.log(this.futureDate);
+      this.getFutureCamps();
+    } else {
+      this.getCamps();
+    }
   }
 
   getCamps() {
     this.campService.getCamps().subscribe(
       (res) => {
         this.camps = res;
-        console.log(this.camps);
+    });
+  }
+
+  getPreviousCamps() {
+    this.spinner.show();
+    this.campService.getPreviousCamps().subscribe(
+      (res) => {
+        this.camps = res;
+        this.spinner.hide();
+    });
+  }
+
+  getFutureCamps() {
+    let startDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    let endDate = (new Date().getFullYear()+1).toString() + '-' + (new Date().getMonth()+1).toString() + '-' + (new Date().getDate()).toString();
+    let data = {startDate, endDate};
+    this.spinner.show();
+    this.campService.getFutureCamps(data).subscribe(
+      (res) => {
+        // console.log(res);
+        this.camps = res;
+        this.spinner.hide();
     });
   }
 
@@ -68,12 +108,9 @@ export class CampsRequestComponent implements OnInit {
 
   onSubmit(){
     this.spinner.show();
-    debugger
-    console.log(this.campFilter.value);
     this.campService.getFilteredCamps(this.campFilter.value).subscribe(
       (res) => {
         this.camps = res;
-        console.log(this.camps);
         this.spinner.hide();
     });
   }

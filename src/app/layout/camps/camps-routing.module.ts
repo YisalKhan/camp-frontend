@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'requestCamp', component: AddCampsComponent },
   { path: 'campsRequest', component: CampsRequestComponent },
   { path: 'viewEditCamp/:campID', component: EditcampsComponent },
-  { path: 'approvedCamps', component: ApprovedCampsComponent }
+  { path: 'approvedCamps', component: ApprovedCampsComponent },
+  { path: 'previousCamps', component: CampsRequestComponent },
+  { path: 'futureCamps', component: CampsRequestComponent }
 ];
 
 @NgModule({
