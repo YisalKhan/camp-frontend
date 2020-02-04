@@ -33,7 +33,9 @@ export class CampsRequestComponent implements OnInit {
   campFilter = this.formBuilder.group({
     doctorName: [''],
     campType: [''],
-    campStatus: ['']
+    campStatus: [''],
+    startDate: [''],
+    endDate: ['']
   });
 
   ngOnInit() {
@@ -113,6 +115,19 @@ export class CampsRequestComponent implements OnInit {
         this.camps = res;
         this.spinner.hide();
     });
+  }
+
+  onReset() {
+    if (this.previous == 'previousCamps') {
+      this.campFilter.reset();
+      this.getPreviousCamps();
+    } else if (this.future == 'futureCamps') {
+      this.campFilter.reset();
+      this.getFutureCamps();
+    } else {
+      this.campFilter.reset();
+      this.getCamps();
+    }
   }
 
 }

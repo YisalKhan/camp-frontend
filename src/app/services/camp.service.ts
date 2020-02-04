@@ -50,15 +50,19 @@ export class CampService {
     return this.httpClient.put(this.basicURL + '/camps/' + campId, data);
   }
 
+  // getFilteredCamps(data) {
+  //   return this.httpClient.post(this.basicURL + '/get/camps/present', data);
+  // }
+
   getFilteredCamps(data) {
     return this.httpClient.post(this.basicURL + '/get/camps/present', data);
   }
 
   getPreviousCamps() {
-    return this.httpClient.post(this.basicURL + '/get/camps/previous', {});
+    return this.httpClient.post(this.basicURL + '/get/camps/present', {});
   }
 
   getFutureCamps(data) {
-    return this.httpClient.post(this.basicURL + '/get/camps/previous', data);
+    return this.httpClient.post(this.basicURL + '/get/camps/present', data);
   }
 }

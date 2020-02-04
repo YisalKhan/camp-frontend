@@ -13,33 +13,43 @@
 		<div class="col col-xl-12 col-lg-12">
 			<div class="card mb-3">
 				<div class="card-header">
-					Filters
+					<!-- Filters -->
 					<form [formGroup]="campFilter" (ngSubmit)="onSubmit()" style="display: flex;">
 						<div class="camp-filter">
-							<input class="form-control" formControlName="doctorName" />
+							<label>Doctor Name</label>
+							<input class="form-control" formControlName="doctorName" placeholder="Filter by Doctor Name" />
 						</div>
 						<div class="camp-filter">
-							<select class="form-control" formControlName="campType">
-								<option selected>Select Camp Type</option>
+							<label>Camp Type</label>
+							<select class="form-control" [value]="" formControlName="campType">
+								<option value="">Select Camp Type</option>
 								<option value="1">Cardio Camp</option>
 								<option value="2">Dibetic Camp</option>
 								<option value="3">Cardio/Dibetic Camp</option>
 							</select>
 						</div>
 						<div class="camp-filter">
-							<select class="form-control" formControlName="campStatus">
-								<option selected>Select Camp</option>
+							<label>Camp Status</label>
+							<select class="form-control" [value]="" formControlName="campStatus">
+								<option value="">Select Camp</option>
 								<option value="0">Pending</option>
 								<option value="1">Approved</option>
-								<option value="3">Close</option>
+								<option value="2">Close</option>
 							</select>
 						</div>
-						<div class="camp-filter">
-							<button
-								type="submit"
-								class="btn btn-primary btn-userAdd">
-								Apply
-							</button>
+						<div class="camp-filter" *ngIf = "previous == 'previousCamps' || future == 'futureCamps'">
+							<label>Start Date</label>
+							<input type="date" class="form-control" formControlName="startDate" />
+						</div>
+						<div class="camp-filter" *ngIf = "previous == 'previousCamps' || future == 'futureCamps'">
+							<label>End Date</label>
+							<input type="date" class="form-control" formControlName="endDate" />
+						</div>
+						<div class="camp-filter" style="padding-top: 30px;">
+							<button type="submit" class="btn btn-primary"> Apply </button>
+						</div>
+						<div class="camp-filter" style="padding-top: 30px;">
+							<button type="button" (click)="onReset()" class="btn btn-success"> Reset </button>
 						</div>
 					</form>
 				</div>
@@ -56,7 +66,7 @@
 								<th>Dr Name</th>
 								<th>Camp Date/Time</th>
 								<th>Camp Status</th>
-								<th>Action</th>
+								<th *ngIf = "!previous && !future">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -74,7 +84,7 @@
 								<td *ngIf="camp.camp_status == 0">Pending</td>
 								<td *ngIf="camp.camp_status == 1">Approved</td>
 								<!-- <td>{{ camp.camp_status }}</td> -->
-								<td>
+								<td *ngIf = "!previous && !future">
 									<div class="btn-group" role="group" aria-label="...">
 										<button type="button" (click)="viewCamp(camp.id)" class="btn btn-primary">View/Edit</button>
 										<button type="button" (click)="deleteCamp(camp.id)" class="btn btn-danger">Delete</button>
