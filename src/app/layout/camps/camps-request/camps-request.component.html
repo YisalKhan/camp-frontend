@@ -1,17 +1,47 @@
 <div [@routerTransition]>
+	<ngx-spinner
+    bdOpacity = 0.9
+    bdColor = "#333"
+    size = "medium"
+    color = "#fff"
+    type = "ball-newton-cradle"
+    [fullScreen] = "true">
+	<p style="color: white" > Loading... </p>
+	</ngx-spinner>
   <app-page-header [heading]="'Camps'" [icon]="'fa-users'"></app-page-header>
 	<div class="row">
 		<div class="col col-xl-12 col-lg-12">
 			<div class="card mb-3">
 				<div class="card-header">
-						Camps
-						<!-- <button
-								type="button"
-								class="btn btn-primary btn-userAdd"
-								(click)="addUser()"
-						>
-								Add User
-						</button> -->
+					Filters
+					<form [formGroup]="campFilter" (ngSubmit)="onSubmit()" style="display: flex;">
+						<div class="camp-filter">
+							<input class="form-control" formControlName="doctorName" />
+						</div>
+						<div class="camp-filter">
+							<select class="form-control" formControlName="campType">
+								<option>Select Camp Type</option>
+								<option value="1">Cardio Camp</option>
+								<option value="2">Dibetic Camp</option>
+								<option value="3">Cardio/Dibetic Camp</option>
+							</select>
+						</div>
+						<div class="camp-filter">
+							<select class="form-control" formControlName="campStatus">
+								<option>Select Camp</option>
+								<option value="1">Approved</option>
+								<option value="2">Pending</option>
+								<option value="3">Close</option>
+							</select>
+						</div>
+						<div class="camp-filter">
+							<button
+								type="submit"
+								class="btn btn-primary btn-userAdd">
+								Filter
+							</button>
+						</div>
+					</form>
 				</div>
 				<div class="card-body table-responsive">
 					<table class="table table-hover table-striped">

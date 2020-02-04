@@ -49,4 +49,8 @@ export class CampService {
   updateCamp(campId, data) {
     return this.httpClient.put(this.basicURL + '/camps/' + campId, data);
   }
+
+  getFilteredCamps(data) {
+    return this.httpClient.post(this.basicURL + '/get/camps/present', data);
+  }
 }
