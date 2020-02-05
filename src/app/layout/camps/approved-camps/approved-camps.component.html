@@ -1,4 +1,13 @@
 <div [@routerTransition]>
+    <ngx-spinner
+    bdOpacity = 0.9
+    bdColor = "#333"
+    size = "medium"
+    color = "#fff"
+    type = "ball-newton-cradle"
+    [fullScreen] = "true">
+	<p style="color: white" > Loading... </p>
+	</ngx-spinner>
     <app-page-header [heading]="'Camps'" [icon]="'fa-users'"></app-page-header>
       <div class="row">
           <div class="col col-xl-12 col-lg-12">

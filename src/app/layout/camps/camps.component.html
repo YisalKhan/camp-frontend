@@ -4,7 +4,7 @@
             <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="12" [label]="'New task!'" ></app-stat>
         </div> -->
         <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'danger'" [icon]="'fa-tasks'" [label]="'Past Camps'" ></app-stat>
+            <app-stat [bgClass]="'danger'" [icon]="'fa-tasks'" (click)="onPastCamps()" [label]="'Past Camps'" ></app-stat>
         </div>
 
         <div class="col-xl-4 col-lg-6">
@@ -12,6 +12,6 @@
         </div>
 
         <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'primary'" [icon]="'fa-tasks'" [label]="'Future Camps'"></app-stat>
+            <app-stat [bgClass]="'primary'" [icon]="'fa-tasks'" (click)="onFutureCamps()" [label]="'Future Camps'"></app-stat>
         </div>
     </div>

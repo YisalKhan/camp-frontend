@@ -13,7 +13,9 @@ const routes: Routes = [
   { path: 'viewEditCamp/:campID', component: EditcampsComponent },
   { path: 'approvedCamps', component: ApprovedCampsComponent },
   { path: 'previousCamps', component: CampsRequestComponent },
-  { path: 'futureCamps', component: CampsRequestComponent }
+  { path: 'futureCamps', component: CampsRequestComponent },
+  { path: 'spoPastCamps', component: ApprovedCampsComponent },
+  { path: 'spoFutureCamps', component: ApprovedCampsComponent }
 ];
 
 @NgModule({
