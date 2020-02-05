@@ -80,7 +80,7 @@ export class SidebarComponent implements OnInit {
     //     localStorage.removeItem('isLoggedin');
     // }
 
-    spoDashboard() {
+    spoCreateCamp() {
         this.router.navigate(['/camps/requestCamp']);
     }
 
@@ -90,6 +90,10 @@ export class SidebarComponent implements OnInit {
 
     spoDashboardLink() {
         this.router.navigate(['/camps']);
+    }
+
+    spoPatient() {
+        this.router.navigate(['/patients/viewPatients']);
     }
 
     onLoggedout() {

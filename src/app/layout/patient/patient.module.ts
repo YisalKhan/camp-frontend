@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PatientComponent } from './patient.component';
 // import { NgxSpinnerComponent } from 'ngx-spinner';
 import { PatientRoutingModule } from './patient-routing.module';
+import { ViewPatientComponent } from './view-patient/view-patient.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { PatientRoutingModule } from './patient-routing.module';
     // NgxSpinnerComponent
   ],
   declarations: [
-    PatientComponent
+    PatientComponent,
+    ViewPatientComponent
   ]
 })
 export class PatientModule {}
