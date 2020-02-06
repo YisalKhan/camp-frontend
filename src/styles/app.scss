@@ -13,3 +13,123 @@
         display: none !important;
     }
 }
+
+
+/* =======================================*/
+/*              APP Colors                */
+/* =======================================*/
+
+$red:           #ED3237;
+$yellow:        #E68133;
+$blue:          #11838F;
+$light-blue:    #CCDFE5;
+$grey:          #A2A0A0;
+$light-grey:    #F5F5F5;
+$pink:          #D91E51;
+$white:         #FFFFFF;
+
+/* =======================================*/
+/*              APP Headings              */
+/* =======================================*/
+
+.app-main-heading{
+    font-size: 26px !important;
+    font-weight: bold !important;
+}
+
+
+
+/* =======================================*/
+/*              APP Buttons               */
+/* =======================================*/
+
+.app-btn{
+    border-radius: 0px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+}
+.red-btn{
+    background-color: $red !important;
+}
+
+/* =======================================*/
+/*              APP Forms               */
+/* =======================================*/
+
+.input-transparent{
+    background: none;
+    color: $white !important;
+    padding-left: 40px !important;
+}
+
+.app-login-wrapper{
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+    border: 1px solid $white;
+    -webkit-text-fill-color: $white;
+    transition: background-color 5000s ease-in-out 0s;
+    background: none;
+    }
+    .input-icon-username{
+        background: url('../assets/images/icons/email-icon.png') no-repeat scroll 15px 15px;
+        padding-left:30px;
+    }
+    .input-icon-password{
+        background: url('../assets/images/icons/password-icon.png') no-repeat scroll 15px 15px;
+        padding-left:30px;
+    }
+}
+/* =======================================*/
+/*              APP Utilities             */
+/* =======================================*/
+
+
+.app-uppercase{
+    text-transform: uppercase;
+}
+.app-white-text{
+    color:$white;
+}
+.app-link-grey{
+    color: $grey;
+    font-size: 14px;
+    font-style: italic;
+    &:hover{
+        color: $white;
+    }
+}
+
+/* =======================================*/
+/*             App Views                  */
+/* =======================================*/
+
+
+/* =============== Login View ===============*/
+
+.app-login-background{
+    background-image: url('../assets/images/login-background.jpg') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.app-login-wrapper{
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+.app-login-footer{
+    margin: 20px 10px;
+}
+.footer-logo{
+    width: 100%;
+    max-width: 100px;
+    margin-top: 30px;
+}
