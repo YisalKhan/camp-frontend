@@ -14,7 +14,55 @@
 		<div class="col col-xl-12 col-lg-12">
 			<div class="card mb-3">
 				<div class="card-header">
-						Users
+						<!-- Users -->
+						<form [formGroup]="userFilter" (ngSubmit)="onSubmit()" style="display: flex;">
+							<div class="user-filter">
+								<label>Search</label>
+								<input class="form-control" formControlName="userName" placeholder="Search" />
+							</div>
+							<div class="user-filter">
+								<label>Region</label>
+								<select class="form-control" [value]="" formControlName="region">
+									<option value="">Select Region</option>
+									<option *ngFor = "let region of regions" value="{{region.id}}">{{ region.region_name }}</option>
+								</select>
+							</div>
+							<div class="user-filter">
+								<label>District</label>
+								<select class="form-control" [value]="" formControlName="district">
+									<option value="">Select District</option>
+									<option *ngFor = "let district of districts" value="{{district.id}}">{{ district.district_name }}</option>
+								</select>
+							</div>
+							<div class="user-filter">
+								<label>Territory</label>
+								<select class="form-control" [value]="" formControlName="territory">
+									<option value="">Select Territory</option>
+					                <option *ngFor = "let territory of territories" value={{territory.id}}>{{ territory.territory_name }}</option>
+								</select>
+							</div>
+							<!-- <div class="user-filter">
+								<label>Team</label>
+								<select class="form-control" [value]="" formControlName="team">
+									<option value="">Select Team</option>
+					                <option *ngFor = "let team of teams" value={{territory.id}}>{{ territory.territory_name }}</option>
+								</select>
+							</div> -->
+							<!-- <div class="user-filter" *ngIf = "previous == 'previousCamps' || future == 'futureCamps'">
+								<label>Start Date</label>
+								<input type="date" class="form-control" formControlName="startDate" />
+							</div>
+							<div class="user-filter" *ngIf = "previous == 'previousCamps' || future == 'futureCamps'">
+								<label>End Date</label>
+								<input type="date" class="form-control" formControlName="endDate" />
+							</div> -->
+							<div class="user-filter" style="padding-top: 30px;">
+								<button type="submit" class="btn btn-primary"> Apply </button>
+							</div>
+							<div class="user-filter" style="padding-top: 30px;">
+								<button type="button" (click)="onReset()" class="btn btn-success"> Reset </button>
+							</div>
+						</form>
 						<button
 								type="button"
 								class="btn btn-primary btn-userAdd"

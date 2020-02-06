@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { routerTransition } from '../../router.animations';
+import { FormBuilder } from '@angular/forms';
+
 import { UserService } from '../../services/user.service';
+import { routerTransition } from '../../router.animations';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
@@ -16,19 +18,32 @@ export class UsersComponent implements OnInit {
   users: any;
   regions: any;
   pubnub: any;
+  districts: any;
+  territories: any;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
     private spinner: NgxSpinnerService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private formBuilder: FormBuilder
   ) {}
+
+  userFilter = this.formBuilder.group({
+    territory: [''],
+    region: [''],
+    district: [''],
+    teams: [''],
+    userName: ['']
+  });
 
   ngOnInit() {
     this.spinner.show();
     this.getUsers();
     this.getRegions();
+    this.getDistricts();
+    this.getTerritories();
   }
 
   addUser() {
@@ -37,6 +52,7 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers() {
+    this.spinner.show();
     this.userService.getUsers().subscribe(
       res => {
         this.users = res;
@@ -66,6 +82,22 @@ export class UsersComponent implements OnInit {
     );
   }
 
+  getDistricts() {
+    this.userService.getFilterDistricts().subscribe(
+      res => {
+        this.districts = res;
+      }
+    );
+  }
+
+  getTerritories() {
+    this.userService.getFilterTerritories().subscribe(
+      res => {
+        this.territories = res;
+      }
+    );
+  }
+
   onDeleteUser(uid) {
     this.userService.deleteUser(uid).subscribe(
       res => {
@@ -75,6 +107,24 @@ export class UsersComponent implements OnInit {
       },
       err => console.log(err)
     );
+  }
+
+  onSubmit() {
+    this.spinner.show();
+    this.userService.getFilterUsers(this.userFilter.value).subscribe(
+      res => {
+        this.users = res;
+        this.spinner.hide();
+      },
+      err => console.log(err)
+    );
+  }
+
+  onReset() {
+    this.spinner.show();
+    this.userFilter.reset();
+    this.getUsers();
+    this.spinner.hide();
   }
 
 }

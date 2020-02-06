@@ -53,4 +53,16 @@ export class UserService {
   deleteUser(userId) {
     return this.httpClient.delete(this.basicURL + '/users/' + userId);
   }
+
+  getFilterDistricts() {
+    return this.httpClient.get(this.basicURL + '/filter/districts');
+  }
+
+  getFilterTerritories() {
+    return this.httpClient.get(this.basicURL + '/filter/territories');
+  }
+
+  getFilterUsers(data) {
+    return this.httpClient.post(this.basicURL + '/get/users/report', data);
+  }
 }
