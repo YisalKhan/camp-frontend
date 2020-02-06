@@ -67,10 +67,10 @@ export class CampService {
   }
 
   getSpoPastCamps(userID) {
-    return this.httpClient.get(this.basicURL + '/get/camps/present', userID);
+    return this.httpClient.post(this.basicURL + '/get/camps/present', userID);
   }
 
   getSpoFutureCamps(data) {
-    return this.httpClient.get(this.basicURL + '/get/camps/present', data);
+    return this.httpClient.post(this.basicURL + '/get/camps/present', data);
   }
 }
