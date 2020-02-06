@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { routerTransition } from '../../../router.animations';
 import { CampService } from '../../../services/camp.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { PubNubAngular } from 'pubnub-angular2';
 
 @Component({
   selector: 'app-addcamps',
@@ -33,6 +34,7 @@ export class AddCampsComponent implements OnInit {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
     private router: Router,
+    private pubnub: PubNubAngular
   ) { }
 
   campForm = this.formBuilder.group({
@@ -107,6 +109,9 @@ export class AddCampsComponent implements OnInit {
     this.campForm.value.campUserID = this.campUserID;
     this.campService.createCamp(this.campForm.value).subscribe(
       res => {
+        this.pubnub.publish({ channel: 'createNotification', message: {heelo: 'Camp Create'} }, (response) => {
+          console.log(response, 'published');
+        });
         this.spinner.hide();
         this.toastr.success(res['success']);
         this.router.navigate(['/camps']);

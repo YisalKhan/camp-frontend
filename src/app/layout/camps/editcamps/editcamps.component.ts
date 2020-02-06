@@ -6,6 +6,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { CampService } from '../../../services/camp.service';
 import { routerTransition } from '../../../router.animations';
 import { ToastrService } from 'ngx-toastr';
+import { PubNubAngular } from 'pubnub-angular2';
 
 @Component({
   selector: 'app-editcamps',
@@ -30,7 +31,8 @@ export class EditcampsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private spinner: NgxSpinnerService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private pubnub: PubNubAngular
   ) { }
 
   campEditForm = this.formBuilder.group({
@@ -85,6 +87,9 @@ export class EditcampsComponent implements OnInit {
     // debugger;
     this.campService.campApprove(cid, userID).subscribe(
       res => {
+        this.pubnub.publish({ channel: 'approvedNotification', message: {heelo: 'Camp Approved'} }, (response) => {
+          console.log(response, 'published');
+        });
         // console.log(res);
         this.toastr.success(res['success']);
         this.router.navigate(['/camps/campsRequest']);
