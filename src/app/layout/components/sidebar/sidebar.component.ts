@@ -99,4 +99,8 @@ export class SidebarComponent implements OnInit {
     onLoggedout() {
         localStorage.clear();
     }
+
+    onProfile() {
+        this.router.navigate(['/users/profile']);
+    }
 }

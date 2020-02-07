@@ -8,6 +8,7 @@ import { PageHeaderModule } from '../../shared';
 import { AddUserComponent } from './add-user/add-user.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { TextMaskModule } from 'angular2-text-mask';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { TextMaskModule } from 'angular2-text-mask';
   ],
   declarations: [
     UsersComponent,
-    AddUserComponent
+    AddUserComponent,
+    ProfileComponent
   ]
 })
 export class UsersModule {}
