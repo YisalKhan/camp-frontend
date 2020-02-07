@@ -18,7 +18,8 @@ const routes: Routes = [
             { path: 'blank-page', loadChildren: () => import('./blank-page/blank-page.module').then(m => m.BlankPageModule) },
             { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
             { path: 'camps', loadChildren: () => import('./camps/camps.module').then(m => m.CampsModule) },
-            { path: 'patients', loadChildren: () => import('./patient/patient.module').then(m => m.PatientModule) }
+            { path: 'patients', loadChildren: () => import('./patient/patient.module').then(m => m.PatientModule) },
+            { path: 'doctors', loadChildren: () => import('./doctors/doctors.module').then(m => m.DoctorsModule) }
         ]
     }
 ];
