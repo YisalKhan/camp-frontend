@@ -107,4 +107,8 @@ export class SidebarComponent implements OnInit {
     onDoctors() {
         this.router.navigate(['doctors']);
     }
+
+    onPatients() {
+        this.router.navigate(['/patients/allPatients']);
+    } 
 }

@@ -12,6 +12,10 @@
             <i class="fa fa-fw fa-tasks"></i>&nbsp;
             <span>{{ 'Camps' | translate }}</span>
         </a>
+        <a (click)="onPatients()" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-tasks"></i>&nbsp;
+            <span>{{ 'Patients' | translate }}</span>
+        </a>
         <a (click)="onDoctors()" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-tasks"></i>&nbsp;
             <span>{{ 'Doctors' | translate }}</span>

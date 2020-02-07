@@ -69,4 +69,8 @@ export class UserService {
   getDoctors(data) {
     return this.httpClient.post(this.basicURL + '/get/doctors/report', data);
   }
+
+  getAllPatients(data) {
+    return this.httpClient.post(this.basicURL + '/get/patients/report', data);
+  }
 }

@@ -13,7 +13,24 @@
           <div class="col col-xl-12 col-lg-12">
               <div class="card mb-3">
                   <div class="card-header">
-                    Patients
+                    <!-- Patients -->
+                    <form [formGroup]="patientsFilter" (ngSubmit)="onSubmit()" style="display: flex;">
+                        <div class="patient-filter">
+							<label>Camp Type</label>
+							<select class="form-control" [value]="" formControlName="campType">
+								<option value="">Select Camp Type</option>
+								<option value="1">Cardio Camp</option>
+								<option value="2">Dibetic Camp</option>
+								<option value="3">Cardio/Dibetic Camp</option>
+							</select>
+						</div>
+                        <div class="patient-filter" style="padding-top: 30px;">
+                            <button type="submit" class="btn btn-primary"> Apply </button>
+                        </div>
+                        <div class="patient-filter" style="padding-top: 30px;">
+                            <button type="button" (click)="onReset()" class="btn btn-success"> Reset </button>
+                        </div>
+                    </form>
                   </div>
                   <div class="card-body table-responsive">
                       <table class="table table-hover table-striped">
@@ -21,18 +38,19 @@
                               <tr>
                                   <th>Patient Name</th>
                                   <th>Patient Contact</th>
-                                  <th>Action</th>
+                                  <th>Gender</th>
                               </tr>
                           </thead>
                           <tbody>
                               <tr *ngFor="let patient of patients">
-                                  <td>{{ patient.patientName }}</td>
-                                  <td>{{ patient.patientPhoneNo }}</td>
-                                  <td>
+                                  <td>{{ patient.patient_name }}</td>
+                                  <td>{{ patient.phone_no }}</td>
+                                  <td>{{ patient.gender }}</td>
+                                  <!-- <td>
                                       <div class="btn-group" role="group" aria-label="...">
                                           <button type="button" (click)="editPatient(patient.id)" class="btn btn-primary">Start Camp</button>
                                       </div>
-                                  </td>
+                                  </td> -->
                               </tr>
                           </tbody>
                       </table>
