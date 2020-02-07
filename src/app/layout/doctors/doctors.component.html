@@ -1,1 +1,52 @@
-<p>doctors works!</p>
+<div [@routerTransition]>
+    <ngx-spinner
+    bdOpacity = 0.9
+    bdColor = "#333"
+    size = "medium"
+    color = "#fff"
+    type = "ball-newton-cradle"
+    [fullScreen] = "true">
+	<p style="color: white" > Loading... </p>
+	</ngx-spinner>
+    <app-page-header [heading]="'Doctors'" [icon]="'fa-users'"></app-page-header>
+      <div class="row">
+          <div class="col col-xl-12 col-lg-12">
+              <div class="card mb-3">
+                  <div class="card-header">
+                    <!-- Doctors -->
+                    <form [formGroup]="doctorsFilter" (ngSubmit)="onSubmit()" style="display: flex;">
+                        <div class="doctor-filter">
+                            <label>Search</label>
+                            <input class="form-control" formControlName="doctorSearch" placeholder="Search" />
+                        </div>
+                        <div class="doctor-filter" style="padding-top: 30px;">
+                            <button type="submit" class="btn btn-primary"> Apply </button>
+                        </div>
+                        <div class="doctor-filter" style="padding-top: 30px;">
+                            <button type="button" (click)="onReset()" class="btn btn-success"> Reset </button>
+                        </div>
+                    </form>
+                  </div>
+                  <div class="card-body table-responsive">
+                      <table class="table table-hover table-striped">
+                          <thead>
+                              <tr>
+                                  <th>Doctor Name</th>
+                                  <th>Doctor Code</th>
+                                  <th>Doctor Contact</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let doctor of doctors">
+                                  <td>{{ doctor.dr_name }}</td>
+                                  <td>{{ doctor.dr_id }}</td>
+                                  <td>{{ doctor.dr_phone_no }}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
