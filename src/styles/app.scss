@@ -150,6 +150,30 @@ $white:         #FFFFFF;
     cursor: pointer;
 }
 
+/* =============== Page title & Breadcumb ================*/
+
+.app-page-title-wrapper{
+    margin-bottom: 100px;
+    text-align: center;
+}
+.app-page-title{
+    color: $white;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.app-breadcumb{
+    list-style-type: none;
+    a{
+        color:$light-grey;
+        font-size: 14px;
+        &:hover{
+            color:$white;
+            text-decoration: none;
+        }
+    }
+}
+
 /* =======================================*/
 /*             App Views                  */
 /* =======================================*/
