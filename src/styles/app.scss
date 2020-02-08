@@ -174,6 +174,33 @@ $white:         #FFFFFF;
     }
 }
 
+/* =============== Page Sidebar ================*/
+.app-sidebar-header{
+    padding:20px 10px;
+}
+.sidebar-app-logo{
+    width: 130px;
+    height: 130px;
+    background-image: url('../assets/icons/icon-384x384.png');
+    background-size: contain;
+    margin: 0 auto;
+}
+.sidebar-app-name{
+    color: $white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+.sidebar-icon{
+    width: 20px;
+}
+.sidebar-link{
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
 /* =======================================*/
 /*             App Views                  */
 /* =======================================*/
