@@ -41,21 +41,6 @@
 					                <option *ngFor = "let territory of territories" value={{territory.id}}>{{ territory.territory_name }}</option>
 								</select>
 							</div>
-							<!-- <div class="user-filter">
-								<label>Team</label>
-								<select class="form-control" [value]="" formControlName="team">
-									<option value="">Select Team</option>
-					                <option *ngFor = "let team of teams" value={{territory.id}}>{{ territory.territory_name }}</option>
-								</select>
-							</div> -->
-							<!-- <div class="user-filter" *ngIf = "previous == 'previousCamps' || future == 'futureCamps'">
-								<label>Start Date</label>
-								<input type="date" class="form-control" formControlName="startDate" />
-							</div>
-							<div class="user-filter" *ngIf = "previous == 'previousCamps' || future == 'futureCamps'">
-								<label>End Date</label>
-								<input type="date" class="form-control" formControlName="endDate" />
-							</div> -->
 							<div class="user-filter" style="padding-top: 30px;">
 								<button type="submit" class="btn btn-primary"> Apply </button>
 							</div>

@@ -12,6 +12,14 @@
             <i class="fa fa-fw fa-tasks"></i>&nbsp;
             <span>{{ 'Camps' | translate }}</span>
         </a>
+        <a (click)="onPatients()" href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-tasks"></i>&nbsp;
+            <span>{{ 'Patients' | translate }}</span>
+        </a>
+        <a (click)="onDoctors()" href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-tasks"></i>&nbsp;
+            <span>{{ 'Doctors' | translate }}</span>
+        </a>
     </div>
 
     <div class="list-group" *ngIf = "userDesignation == '9' || userDesignation == '10' || userDesignation == '11'">
@@ -36,7 +44,7 @@
     </div>
 
     <div class="list-group">
-        <a href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a (click)="onProfile()" href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-user"></i>&nbsp;
             <span>{{ 'Profile' | translate }}</span>
         </a>

@@ -65,4 +65,12 @@ export class UserService {
   getFilterUsers(data) {
     return this.httpClient.post(this.basicURL + '/get/users/report', data);
   }
+
+  getDoctors(data) {
+    return this.httpClient.post(this.basicURL + '/get/doctors/report', data);
+  }
+
+  getAllPatients(data) {
+    return this.httpClient.post(this.basicURL + '/get/patients/report', data);
+  }
 }
