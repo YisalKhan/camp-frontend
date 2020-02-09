@@ -8,45 +8,71 @@
     [fullScreen] = "true">
 	<p style="color: white" > Loading... </p>
 	</ngx-spinner>
-    <app-page-header [heading]="'Doctors'" [icon]="'fa-users'"></app-page-header>
-      <div class="row">
-          <div class="col col-xl-12 col-lg-12">
-              <div class="card mb-3">
-                  <div class="card-header">
-                    <!-- Doctors -->
-                    <form [formGroup]="doctorsFilter" (ngSubmit)="onSubmit()" style="display: flex;">
-                        <div class="doctor-filter">
-                            <label>Search</label>
-                            <input class="form-control" formControlName="doctorSearch" placeholder="Search" />
+    <!--app-page-header [heading]="'Doctors'" [icon]="'fa-users'"></app-page-header-->
+    <div class="app-page-title-wrapper">
+		<h2 class="app-page-title">Doctors</h2>
+		<ul class="list-inline app-breadcumb">
+			<li  class="list-inline-item">
+				<a href="#">CMP Dashboard -</a>
+			</li>
+			<li  class="list-inline-item">
+				<a href="#">Doctors</a>
+			</li>
+		</ul>
+    </div>
+    <div class="row">
+        <div class="col col-md-7 mx-auto">
+            <div class="app-table-view">   
+                <div class="app-filter-form pb-0">
+                    <div class="row">
+                        <div class="col col-md-11 mx-auto">
+                            <form [formGroup]="doctorsFilter" (ngSubmit)="onSubmit()">
+                                <ul class="list-inline app-filters">
+                                    <li  class="list-inline-item">
+                                        <div>
+                                            <!--label class="app-form-label">Camp Type</label-->
+                                            <input class="form-control app-form-input app-form-wide-input" formControlName="doctorSearch" placeholder="Search" />
+                                        </div>    
+                                    </li>
+                                    <li  class="list-inline-item">
+                                        <div class="patient-filter">
+                                            <button type="submit" class="btn btn-primary app-btn"> Apply </button>
+                                        </div>
+                                    </li>
+                                    <li  class="list-inline-item">
+                                        <div>
+                                            <button type="button" (click)="onReset()" class="btn btn-success app-btn"> Reset </button>
+                                        </div>    
+                                    </li>
+                                </ul>
+                            </form>
                         </div>
-                        <div class="doctor-filter" style="padding-top: 30px;">
-                            <button type="submit" class="btn btn-primary"> Apply </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-xl-12 col-lg-12">
+                        <div class="app-table-doctors">
+                            <table role="table">
+                                <thead role="rowgroup">
+                                    <tr role="row">
+                                        <th role="columnheader">Doctor Name</th>
+                                        <th role="columnheader">Doctor Code</th>
+                                        <th role="columnheader">Doctor Contact</th>
+                                    </tr>
+                                </thead>
+                                <tbody role="rowgroup">
+                                <tr role="row" *ngFor="let doctor of doctors">
+                                    <td role="cell">{{ doctor.dr_name }}</td>
+                                    <td role="cell">{{ doctor.dr_id }}</td>
+                                    <td role="cell">{{ doctor.dr_phone_no }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="doctor-filter" style="padding-top: 30px;">
-                            <button type="button" (click)="onReset()" class="btn btn-success"> Reset </button>
-                        </div>
-                    </form>
-                  </div>
-                  <div class="card-body table-responsive">
-                      <table class="table table-hover table-striped">
-                          <thead>
-                              <tr>
-                                  <th>Doctor Name</th>
-                                  <th>Doctor Code</th>
-                                  <th>Doctor Contact</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr *ngFor="let doctor of doctors">
-                                  <td>{{ doctor.dr_name }}</td>
-                                  <td>{{ doctor.dr_id }}</td>
-                                  <td>{{ doctor.dr_phone_no }}</td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
   
