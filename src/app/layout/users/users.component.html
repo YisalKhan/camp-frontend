@@ -9,85 +9,114 @@
   >
 <p style="color: white" > Loading... </p>
 </ngx-spinner>
-  <app-page-header [heading]="'Users'" [icon]="'fa-users'"></app-page-header>
-	<div class="row">
-		<div class="col col-xl-12 col-lg-12">
-			<div class="card mb-3">
-				<div class="card-header">
-						<!-- Users -->
-						<form [formGroup]="userFilter" (ngSubmit)="onSubmit()" style="display: flex;">
-							<div class="user-filter">
-								<label>Search</label>
-								<input class="form-control" formControlName="userName" placeholder="Search" />
-							</div>
-							<div class="user-filter">
-								<label>Region</label>
-								<select class="form-control" [value]="" formControlName="region">
-									<option value="">Select Region</option>
-									<option *ngFor = "let region of regions" value="{{region.id}}">{{ region.region_name }}</option>
-								</select>
-							</div>
-							<div class="user-filter">
-								<label>District</label>
-								<select class="form-control" [value]="" formControlName="district">
-									<option value="">Select District</option>
-									<option *ngFor = "let district of districts" value="{{district.id}}">{{ district.district_name }}</option>
-								</select>
-							</div>
-							<div class="user-filter">
-								<label>Territory</label>
-								<select class="form-control" [value]="" formControlName="territory">
-									<option value="">Select Territory</option>
-					                <option *ngFor = "let territory of territories" value={{territory.id}}>{{ territory.territory_name }}</option>
-								</select>
-							</div>
-							<div class="user-filter" style="padding-top: 30px;">
-								<button type="submit" class="btn btn-primary"> Apply </button>
-							</div>
-							<div class="user-filter" style="padding-top: 30px;">
-								<button type="button" (click)="onReset()" class="btn btn-success"> Reset </button>
-							</div>
-						</form>
-						<button
-								type="button"
-								class="btn btn-primary btn-userAdd"
-								(click)="addUser()"
-						>
-								Add User
-						</button>
+  <!--app-page-header [heading]="'Users'" [icon]="'fa-users'"></app-page-header-->
+
+	<div class="app-page-title-wrapper">
+		<h2 class="app-page-title">Users</h2>
+		<ul class="list-inline app-breadcumb">
+			<li  class="list-inline-item">
+				<a href="#">CMP Dashboard -</a>
+			</li>
+			<li  class="list-inline-item">
+				<a href="#">Users</a>
+			</li>
+		</ul>
+	</div>
+	<div class="app-table-view">
+		<div class="row">
+			<div class="col col-md-12">
+				<div class="app-filter-form">
+					<!-- Filters -->
+					<form [formGroup]="userFilter" (ngSubmit)="onSubmit()">
+						<ul class="list-inline app-filters">
+							<li  class="list-inline-item">
+								<div>
+									<label class="app-form-label">Search</label>
+									<input class="form-control app-form-input app-form-wide-input" formControlName="userName" placeholder="Search" />
+								</div>
+							</li>
+							<li  class="list-inline-item">
+								<div>
+									<label class="app-form-label">Region</label>
+									<select class="form-control app-form-input" [value]="" formControlName="region">
+										<option value="">Select Region</option>
+										<option *ngFor = "let region of regions" value="{{region.id}}">{{ region.region_name }}</option>
+									</select>
+								</div>
+							</li>
+							<li  class="list-inline-item">
+								<div>
+									<label class="app-form-label">District</label>
+									<select class="form-control app-form-input" [value]="" formControlName="district">
+										<option value="">Select District</option>
+										<option *ngFor = "let district of districts" value="{{district.id}}">{{ district.district_name }}</option>
+									</select>
+								</div>
+							</li>
+							<li  class="list-inline-item">
+								<div>
+									<label class="app-form-label">Territory</label>
+									<select class="form-control app-form-input" [value]="" formControlName="territory">
+										<option value="">Select Territory</option>
+										<option *ngFor = "let territory of territories" value={{territory.id}}>{{ territory.territory_name }}</option>
+									</select>
+								</div>
+							</li>
+							<li  class="list-inline-item">
+								<div class="user-filter">
+									<button type="submit" class="btn btn-primary app-btn"> Apply </button>
+								</div>
+							</li>
+							<li  class="list-inline-item">
+								<button type="button" (click)="onReset()" class="btn btn-success app-btn"> Reset </button>
+							</li>
+						</ul>
+					</form>
 				</div>
-				<div class="card-body table-responsive">
-					<table class="table table-hover table-striped">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Email</th>
-								<th>Employee Code</th>
-								<th>Region</th>
-								<th></th>
-								<th>Action</th>
-							</tr>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col-xl-12 col-lg-12">
+				<div class="app-table-users">
+					<table role="table">
+						<thead role="rowgroup">
+						  <tr role="row">
+							<th role="columnheader">Name</th>
+							<th role="columnheader">Email</th>
+							<th role="columnheader">Employee Code</th>
+							<th role="columnheader">Region</th>
+							<th role="columnheader">Action</th>
+						  </tr>
 						</thead>
-						<tbody>
-							<tr *ngFor="let user of users">
-								<td>{{ user.name }}</td>
-								<td>{{ user.email }}</td>
-								<td>{{ user.employee_code }}</td>
-								<ng-container *ngFor="let region of regions">
-									<td *ngIf="region.id == user.region">{{ region.region_name }}</td>
-								</ng-container>
-								<td></td>
-								<td>
-									<div class="btn-group" role="group" aria-label="...">
-										<button type="button" (click) = editUser(user.id) class="btn btn-primary">Edit</button>
-										<button type="button" (click) = onDeleteUser(user.id) class="btn btn-danger">Delete</button>
-									</div>
-								</td>
-							</tr>
+						<tbody role="rowgroup">
+						  <tr role="row" *ngFor="let user of users">
+
+							<td role="cell">{{ user.name }}</td>
+							<td role="cell">{{ user.email }}</td>
+							<td role="cell">{{ user.employee_code }}</td>
+							<ng-container *ngFor="let region of regions">
+								<td role="cell" *ngIf="region.id == user.region">{{ region.region_name }}</td>
+							</ng-container>
+							<td role="cell">
+								<div class="btn-group" role="group" aria-label="...">
+									<button type="button" (click) = editUser(user.id) class="app-icon-btn app-blue-text"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
+									<button type="button" (click) = onDeleteUser(user.id) class="app-icon-btn app-red-text"><i class="fa fa-times" aria-hidden="true"></i></button>
+								</div>
+							</td>
+						  </tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col col-xl-12 col-lg-12">
+				<div class="app-btn-wrapper text-right">
+					<button type="button" class="btn btn-outline-danger app-btn" (click)="addUser()">
+						<i class="fa fa-plus btn-icon" aria-hidden="true"></i> Add User
+					</button>
+				</div>	
+			</div>
+		</div>	
 	</div>
 </div>

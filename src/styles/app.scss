@@ -67,6 +67,9 @@ body{
     border:none;
     background: none;
 }
+.app-btn-wrapper{
+    margin-top:40px;
+}
 
 /* =======================================*/
 /*              APP Forms               */
@@ -145,9 +148,12 @@ body{
         background-color: $light-sky-blue;
         border-radius: 0;
         height: 45px !important;
-        width: 200px;
+        width: 150px;
         margin-bottom: 10px;
         font-size: 14px;
+    }
+    .app-form-wide-input{
+        width: 270px;
     }
 }
 
@@ -161,7 +167,9 @@ body{
     border-radius: 10px;
 }
 
-.app-table{
+/* =============== App Table Camps ================*/
+
+.app-table-camps{
     table{
         width: 100%;
     }
@@ -243,6 +251,88 @@ body{
 		td:nth-of-type(7):before { content: "Dr Name"; }
 		td:nth-of-type(8):before { content: "Camp Date/Time"; }
 		td:nth-of-type(9):before { content: "Camp Status"; }
+		td:nth-of-type(10):before { content: "Action"; }
+    }
+}
+
+/* =============== App Table Users ================*/
+.app-table-users{
+    table{
+        width: 100%;
+    }
+    th{
+        font-size: 14px;
+        font-weight: bold;
+        color: $blue;
+        background-color: $light-blue;
+        padding:5px 10px;
+    }
+    td{
+        font-size: 13px;
+        
+        padding:5px 5px;
+    }
+    tr:nth-child(even) {
+        background: $light-sky-blue;
+      }
+/*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+	@media
+	  only screen 
+    and (max-width: 760px), (min-device-width: 768px) 
+    and (max-device-width: 1024px)  {
+
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr {
+            display: block;
+            font-size: 14px;
+		}
+
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+
+    tr {
+      margin: 0 0 1rem 0;
+    }
+      
+    tr:nth-child(odd) {
+      background:$light-sky-blue;
+    }
+    
+		td {
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee;
+			position: relative;
+            padding-left: 50%;
+            text-align: left;
+		}
+
+		td:before {
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 5px;
+			left: 6px;
+			width: 45%;
+			padding-right: 10px;
+            white-space: nowrap;
+            font-weight: bold;
+		}
+
+		/*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+		*/
+		td:nth-of-type(1):before { content: "Name"; }
+		td:nth-of-type(2):before { content: "Email"; }
+		td:nth-of-type(3):before { content: "Employee Code"; }
+		td:nth-of-type(4):before { content: "Region"; }
 		td:nth-of-type(10):before { content: "Action"; }
     }
 }
