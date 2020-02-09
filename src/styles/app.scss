@@ -15,18 +15,27 @@
 }
 
 
+
 /* =======================================*/
 /*              APP Colors                */
 /* =======================================*/
 
-$red:           #ED3237;
-$yellow:        #E68133;
-$blue:          #11838F;
-$light-blue:    #CCDFE5;
-$grey:          #A2A0A0;
-$light-grey:    #F5F5F5;
-$pink:          #D91E51;
-$white:         #FFFFFF;
+$red:               #ED3237;
+$yellow:            #E68133;
+$blue:              #11838F;
+$light-blue:        #CCDFE5;
+$light-sky-blue:    #F7FAFC;
+$grey:              #A2A0A0;
+$dark-grey:         #83888A;
+$light-grey:        #F5F5F5;
+$shadow-light-grey: #e4e4e4;
+$pink:              #D91E51;
+$white:             #FFFFFF;
+
+
+body{
+    background-color: $light-grey;
+}
 
 /* =======================================*/
 /*              APP Headings              */
@@ -36,8 +45,6 @@ $white:         #FFFFFF;
     font-size: 26px !important;
     font-weight: bold !important;
 }
-
-
 
 /* =======================================*/
 /*              APP Buttons               */
@@ -52,10 +59,15 @@ $white:         #FFFFFF;
 .red-btn{
     background-color: $red !important;
 }
+.btn-icon{
+    padding-right: 10px;
+}
 
 /* =======================================*/
 /*              APP Forms               */
 /* =======================================*/
+
+/* =============== App Login Form ================*/
 
 .input-transparent{
     background: none;
@@ -86,6 +98,29 @@ $white:         #FFFFFF;
     .input-icon-password{
         background: url('../assets/images/icons/password-icon.png') no-repeat scroll 15px 15px;
         padding-left:30px;
+    }
+}
+
+/* =============== App Form================*/
+.app-form{
+    background-color: $white;
+    padding: 30px;
+    border-radius: 10px;
+    .app-form-label{
+        font-size: 13px;
+        font-weight: bold;
+        color: $dark-grey;
+    }
+    .app-form-input{
+        background-color: $light-sky-blue;
+        border-radius: 0;
+        box-shadow: 0px 4px 5px $shadow-light-grey;
+        border: none;
+        height: 45px !important;
+    }
+    .form-button-wrapper{
+        padding: 60px 10px 10px 10px;
+        text-align: center;
     }
 }
 /* =======================================*/
@@ -179,10 +214,12 @@ $white:         #FFFFFF;
     padding:20px 10px;
 }
 .sidebar-app-logo{
-    width: 130px;
-    height: 130px;
+    width: 110px;
+    height: 110px;
     background-image: url('../assets/icons/icon-384x384.png');
     background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 0 auto;
 }
 .sidebar-app-name{
