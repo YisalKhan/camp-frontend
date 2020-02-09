@@ -10,7 +10,27 @@
             </li-->
         </ul>
     </div>
-    
+    <div class="app-cards-container">    
+        <div class="row">
+            <div class="col-xl-4 col-lg-4">
+                <app-stat 
+                    [bgClass]="'card-bg'" 
+                    [icon]="'fa-tasks'" 
+                    (click)="futureCamps()" 
+                    [label]="'Future Camps'" >
+                </app-stat>
+            </div>
+            <div class="col-xl-4 col-lg-6">
+                <app-stat [bgClass]="'card-bg'" [icon]="'fa-undo'" (click)="previousCamps()" [label]="'Previous Camps'" ></app-stat>
+            </div>
+            <div class="col-xl-4 col-lg-6">
+                <app-stat [bgClass]="'card-bg'" [icon]="'fa-heartbeat'" [label]="'Patient Info'" ></app-stat>
+            </div>
+            <!-- <div class="col-xl-3 col-lg-6">
+                <app-stat [bgClass]="'danger'" [icon]="'fa-support'" [count]="1" [label]="'New Tickets!'"></app-stat>
+            </div> -->
+        </div>  
+    </div>
     <div class="row">
         <div class="col-md-12">
             <app-maps></app-maps>
@@ -25,22 +45,6 @@
             </ngb-carousel> -->
         </div>
     </div>
-    <hr>
-    <div class="row">
-        <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'primary'" [icon]="'fa-users'" [count]="1" [label]="'Patients Information'" ></app-stat>
-        </div>
-        <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" (click)="previousCamps()" [label]="'Previous Camps Report'" ></app-stat>
-        </div>
-        <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'success'" [icon]="'fa-tasks'" (click)="futureCamps()" [label]="'Future Camps'" ></app-stat>
-        </div>
-        <!-- <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'danger'" [icon]="'fa-support'" [count]="1" [label]="'New Tickets!'"></app-stat>
-        </div> -->
-    </div>
-    <hr />
     <!-- <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
     <hr /> -->
     <!-- <div class="row">

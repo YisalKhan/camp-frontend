@@ -20,6 +20,7 @@
 /*              APP Colors                */
 /* =======================================*/
 
+$black:             #212529;
 $red:               #ED3237;
 $yellow:            #E68133;
 $blue:              #11838F;
@@ -29,6 +30,7 @@ $grey:              #A2A0A0;
 $dark-grey:         #83888A;
 $light-grey:        #F5F5F5;
 $shadow-light-grey: #e4e4e4;
+$shadow-white:      #efeaea;
 $pink:              #D91E51;
 $white:             #FFFFFF;
 
@@ -165,7 +167,6 @@ body{
     background-color: $white;
     padding: 30px;
     border-radius: 10px;
-    margin-bottom: 30px;
 }
 
 /* =============== App Table Camps ================*/
@@ -617,6 +618,40 @@ body{
     font-size: 14px;
     letter-spacing: 1px;
 }
+
+/* =============== App Cards ===============*/
+
+.app-cards-container{
+    width:100%;
+    max-width: 800px;
+    margin:-80px auto 40px auto;
+    .card{
+        border-radius: 5px !important;
+        cursor: pointer;
+        border: none;
+        box-shadow: 1px 5px 8px $shadow-white;
+    }
+    .card-header{
+        font-size: 18px;
+        color:$black;
+    }
+    .card-bg{
+        background-color: $blue !important;
+    }
+    .fa{
+        font-size: 40px !important;
+        background-color: $blue;
+        border-radius: 100px;
+        padding: 20px;
+        color: $white;
+        width: 80px;
+        height: 80px;
+    }
+    .card-footer {
+        display: none;
+    }
+}
+
 
 /* =======================================*/
 /*             App Views                  */

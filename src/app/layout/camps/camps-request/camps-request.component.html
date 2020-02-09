@@ -60,10 +60,14 @@
 									<label class="app-form-label">Start Date</label>
 									<input type="date" class="form-control app-form-input" formControlName="startDate" />
 								</div>
+							</li>
+							<li  class="list-inline-item">
 								<div *ngIf = "previous == 'previousCamps' || future == 'futureCamps'">
 									<label class="app-form-label">End Date</label>
 									<input type="date" class="form-control app-form-input" formControlName="endDate" />
 								</div>
+							</li>
+							<li  class="list-inline-item">
 								<div class="camp-filter">
 									<button type="submit" class="btn btn-primary app-btn"> Apply </button>
 								</div>
