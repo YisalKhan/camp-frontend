@@ -7,141 +7,136 @@
     type = "ball-newton-cradle"
     [fullScreen] = "true"
   >
-<p style="color: white" > Loading... </p>
+  <p style="color: white" > Loading... </p>
 </ngx-spinner>
 
-<div class="app-page-title-wrapper">
-  <h2 class="app-page-title">New User</h2>
-  <ul class="list-inline app-breadcumb">
-      <li  class="list-inline-item">
-          <a href="#">CMP Dashboard -</a>
-      </li>
-      <li  class="list-inline-item">
-          <a href="#">Users -</a>
-      </li>
-      <li  class="list-inline-item">
-        <a href="#">New User</a>
-      </li>
-  </ul>
-</div>
-  <!--app-page-header [heading]="'Forms'" [icon]="'fa-edit'"></app-page-header-->
-<div class="row">
-  <div class="col-lg-8 mx-auto">
-    <div class="app-form">
-      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-        <div class="row">
-          <div class="col-lg-6">
-            <fieldset class="form-group">
-              <label class="required app-form-label">Name</label>
-              <input class="form-control app-form-input" formControlName="name" />
-            </fieldset>
-          </div>
-          <div class="col-lg-6">
-            <fieldset class="form-group">
-              <label class="required app-form-label">Email</label>
-              <input class="form-control app-form-input" formControlName="email" />
-            </fieldset>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="form-group">
-              <label class="app-form-label">Designation</label>
-              <select class="form-control app-form-input" formControlName="designation">
-                <option [disabled]>Select Role</option>
-                <option *ngFor = "let role of roles" value={{role.id}}>{{ role.role_name }} ({{ role.role_abv }}) </option>
-              </select>
+  <div class="app-page-title-wrapper">
+    <h2 class="app-page-title">New User</h2>
+    <ul class="list-inline app-breadcumb">
+        <li  class="list-inline-item">
+            <a href="#">CMP Dashboard -</a>
+        </li>
+        <li  class="list-inline-item">
+            <a href="#">Users -</a>
+        </li>
+        <li  class="list-inline-item">
+          <a href="#">New User</a>
+        </li>
+    </ul>
+  </div>
+    <!--app-page-header [heading]="'Forms'" [icon]="'fa-edit'"></app-page-header-->
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class="app-form">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-lg-6">
+              <fieldset class="form-group">
+                <label class="required app-form-label">Name</label>
+                <input class="form-control app-form-input" formControlName="name" />
+              </fieldset>
+            </div>
+            <div class="col-lg-6">
+              <fieldset class="form-group">
+                <label class="required app-form-label">Email</label>
+                <input class="form-control app-form-input" formControlName="email" />
+              </fieldset>
             </div>
           </div>
-          <div class="col-lg-6">
-            <fieldset class="form-group">
-              <label class="required app-form-label">Employee Code</label>
-              <input class="form-control app-form-input" formControlName="employeeCode" />
-            </fieldset>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <fieldset class="form-group">
-              <label class="required app-form-label">Mobile #</label>
-              <input class="form-control app-form-input" formControlName="mobileNumber" [textMask]="phone" />
-            </fieldset>
-          </div>
-          <div class="col-lg-6">
-            <fieldset class="form-group">
-              <label class="required app-form-label">CNIC</label>
-              <input class="form-control app-form-input" formControlName="cnic" [textMask]="cnic" />
-            </fieldset>
-          </div>
-        </div>
-        
-        <hr>
-        
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="form-group">
-              <label class="required app-form-label">Teams</label>
-              <select class="form-control app-form-input" formControlName="team">
-                <option [disabled]>Select Team</option>
-                <option *ngFor = "let team of teams" value={{team.id}}>{{ team.team_name }}</option>
-              </select>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="app-form-label">Designation</label>
+                <select class="form-control app-form-input" formControlName="designation">
+                  <option [disabled]>Select Role</option>
+                  <option *ngFor = "let role of roles" value={{role.id}}>{{ role.role_name }} ({{ role.role_abv }}) </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <fieldset class="form-group">
+                <label class="required app-form-label">Employee Code</label>
+                <input class="form-control app-form-input" formControlName="employeeCode" />
+              </fieldset>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="form-group">
-              <label class="required app-form-label">Regions</label>
-              <select class="form-control app-form-input" formControlName="region" (change)="getDisctricts($event.target.value)">
-                <option [disabled]>Select Region</option>
-                <option *ngFor = "let region of regions" value={{region.id}}>{{ region.region_name }}</option>
-              </select>
+          <div class="row">
+            <div class="col-lg-6">
+              <fieldset class="form-group">
+                <label class="required app-form-label">Mobile #</label>
+                <input class="form-control app-form-input" formControlName="mobileNumber" [textMask]="phone" />
+              </fieldset>
+            </div>
+            <div class="col-lg-6">
+              <fieldset class="form-group">
+                <label class="required app-form-label">CNIC</label>
+                <input class="form-control app-form-input" formControlName="cnic" [textMask]="cnic" />
+              </fieldset>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="form-group">
-              <label class="required app-form-label">District</label>
-              <select class="form-control app-form-input" formControlName="district" (change)="getTerritories($event.target.value)">
-                <option [disabled]>Select District</option>
-                <option *ngFor = "let district of districts" value={{district.id}}>{{ district.district_name }}</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="form-group">
-              <label class="required app-form-label">Territory</label>
-              <select class="form-control app-form-input" formControlName="territory">
-                <option [disabled]>Select Territory</option>
-                <option *ngFor = "let territory of territories" value={{territory.id}}>{{ territory.territory_name }}</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="form-button-wrapper">
-              <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-outline-danger app-btn" (click)="onClearForm()" *ngIf="editStatus">Clear</button>
-                <button type="submit" [disabled]="!userForm.valid" class="btn btn-danger btn-lg app-btn red-btn "><i class="fa fa-plus btn-icon" aria-hidden="true"></i>{{ editStatus ? 'Save' : 'Add User' }}</button>
-                <!-- <button type="button" class="btn btn-danger" (click)="onDelete()" *ngIf="editStatus">Delete</button> -->
-                
+          
+          <hr>
+          
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="required app-form-label">Teams</label>
+                <select class="form-control app-form-input" formControlName="team">
+                  <option [disabled]>Select Team</option>
+                  <option *ngFor = "let team of teams" value={{team.id}}>{{ team.team_name }}</option>
+                </select>
               </div>
             </div>
           </div>
-        </div>
-      
-        
-        
-        
-        
-        <!-- <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">
-          {{ editStatus ? 'Update' : 'Add' }}
-        </button>
-        <button type="reset" class="btn btn-danger" (click)="onDelete()" *ngIf="editStatus">Delete</button>
-        <button type="reset" class="btn btn-primary" (click)="onClearForm()">
-          Reset Button
-        </button> -->
-      </form>
-    </div>
-  </div> 
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="required app-form-label">Regions</label>
+                <select class="form-control app-form-input" formControlName="region" (change)="getDisctricts($event.target.value)">
+                  <option [disabled]>Select Region</option>
+                  <option *ngFor = "let region of regions" value={{region.id}}>{{ region.region_name }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="required app-form-label">District</label>
+                <select class="form-control app-form-input" formControlName="district" (change)="getTerritories($event.target.value)">
+                  <option [disabled]>Select District</option>
+                  <option *ngFor = "let district of districts" value={{district.id}}>{{ district.district_name }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="required app-form-label">Territory</label>
+                <select class="form-control app-form-input" formControlName="territory">
+                  <option [disabled]>Select Territory</option>
+                  <option *ngFor = "let territory of territories" value={{territory.id}}>{{ territory.territory_name }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="form-button-wrapper">
+                <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" class="btn btn-outline-danger app-btn" (click)="onClearForm()" *ngIf="editStatus">Clear</button>
+                  <button type="submit" [disabled]="!userForm.valid" class="btn btn-danger btn-lg app-btn red-btn "><i class="fa fa-plus btn-icon" aria-hidden="true"></i>{{ editStatus ? 'Save' : 'Add User' }}</button>
+                  <!-- <button type="button" class="btn btn-danger" (click)="onDelete()" *ngIf="editStatus">Delete</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">
+            {{ editStatus ? 'Update' : 'Add' }}
+          </button>
+          <button type="reset" class="btn btn-danger" (click)="onDelete()" *ngIf="editStatus">Delete</button>
+          <button type="reset" class="btn btn-primary" (click)="onClearForm()">
+            Reset Button
+          </button> -->
+        </form>
+      </div>
+    </div> 
+  </div>
 </div>

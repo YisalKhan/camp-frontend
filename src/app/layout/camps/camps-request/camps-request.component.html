@@ -8,92 +8,165 @@
     [fullScreen] = "true">
 	<p style="color: white" > Loading... </p>
 	</ngx-spinner>
-  <app-page-header [heading]="'Camps'" [icon]="'fa-users'"></app-page-header>
-	<div class="row">
-		<div class="col col-xl-12 col-lg-12">
-			<div class="card mb-3">
-				<div class="card-header">
+  <!--app-page-header [heading]="'Camps'" [icon]="'fa-users'"></app-page-header-->
+	<div class="app-page-title-wrapper">
+		<h2 class="app-page-title">Camps</h2>
+		<ul class="list-inline app-breadcumb">
+			<li  class="list-inline-item">
+				<a href="#">CMP Dashboard -</a>
+			</li>
+			<li  class="list-inline-item">
+				<a href="#">Camps</a>
+			</li>
+		</ul>
+	</div>
+	<div class="app-table-view">
+		<div class="row">
+			<div class="col col-md-12">
+				<div class="app-filter-form">
 					<!-- Filters -->
-					<form [formGroup]="campFilter" (ngSubmit)="onSubmit()" style="display: flex;">
-						<div class="camp-filter">
-							<label>Doctor Name</label>
-							<input class="form-control" formControlName="doctorName" placeholder="Filter by Doctor Name" />
-						</div>
-						<div class="camp-filter">
-							<label>Camp Type</label>
-							<select class="form-control" [value]="" formControlName="campType">
-								<option value="">Select Camp Type</option>
-								<option value="1">Cardio Camp</option>
-								<option value="2">Dibetic Camp</option>
-								<option value="3">Cardio/Dibetic Camp</option>
-							</select>
-						</div>
-						<div class="camp-filter">
-							<label>Camp Status</label>
-							<select class="form-control" [value]="" formControlName="campStatus">
-								<option value="">Select Camp</option>
-								<option value="0">Pending</option>
-								<option value="1">Approved</option>
-								<option value="2">Close</option>
-							</select>
-						</div>
-						<div class="camp-filter" *ngIf = "previous == 'previousCamps' || future == 'futureCamps'">
-							<label>Start Date</label>
-							<input type="date" class="form-control" formControlName="startDate" />
-						</div>
-						<div class="camp-filter" *ngIf = "previous == 'previousCamps' || future == 'futureCamps'">
-							<label>End Date</label>
-							<input type="date" class="form-control" formControlName="endDate" />
-						</div>
-						<div class="camp-filter" style="padding-top: 30px;">
-							<button type="submit" class="btn btn-primary"> Apply </button>
-						</div>
-						<div class="camp-filter" style="padding-top: 30px;">
-							<button type="button" (click)="onReset()" class="btn btn-success"> Reset </button>
-						</div>
+					<form [formGroup]="campFilter" (ngSubmit)="onSubmit()">
+						<ul class="list-inline app-filters">
+							<li  class="list-inline-item">
+								<div>
+									<label class="app-form-label">Doctor Name</label>
+									<input class="form-control app-form-input" formControlName="doctorName" placeholder="Filter by Doctor Name" />
+								</div>
+							</li>
+							<li  class="list-inline-item">
+								<div>
+									<label class="app-form-label">Camp Type</label>
+									<select class="form-control app-form-input" [value]="" formControlName="campType">
+										<option value="">Select Camp Type</option>
+										<option value="1">Cardio Camp</option>
+										<option value="2">Dibetic Camp</option>
+										<option value="3">Cardio/Dibetic Camp</option>
+									</select>
+								</div>
+							</li>
+							<li  class="list-inline-item">
+								<div>
+									<label class="app-form-label">Camp Status</label>
+									<select class="form-control app-form-input" [value]="" formControlName="campStatus">
+										<option value="">Select Camp</option>
+										<option value="0">Pending</option>
+										<option value="1">Approved</option>
+										<option value="2">Close</option>
+									</select>
+								</div>
+							</li>
+							<li  class="list-inline-item">
+								<div *ngIf = "previous == 'previousCamps' || future == 'futureCamps'">
+									<label class="app-form-label">Start Date</label>
+									<input type="date" class="form-control app-form-input" formControlName="startDate" />
+								</div>
+								<div *ngIf = "previous == 'previousCamps' || future == 'futureCamps'">
+									<label class="app-form-label">End Date</label>
+									<input type="date" class="form-control app-form-input" formControlName="endDate" />
+								</div>
+								<div class="camp-filter">
+									<button type="submit" class="btn btn-primary app-btn"> Apply </button>
+								</div>
+							</li>
+							<li  class="list-inline-item">
+								<div >
+									<button type="button" (click)="onReset()" class="btn btn-success app-btn"> Reset </button>
+								</div>
+							</li>
+						</ul>
 					</form>
 				</div>
-				<div class="card-body table-responsive">
-					<table class="table table-hover table-striped">
-						<thead>
-							<tr>
-								<th>SPO Name</th>
-								<th>Team</th>
-								<th>Region</th>
-								<th>District</th>
-								<th>Territory</th>
-								<th>Camp Type</th>
-								<th>Dr Name</th>
-								<th>Camp Date/Time</th>
-								<th>Camp Status</th>
-								<th *ngIf = "!previous && !future">Action</th>
-							</tr>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col col-xl-12 col-lg-12">
+				<div class="app-table">
+					<table role="table">
+						<thead role="rowgroup">
+						  <tr role="row">
+							<th role="columnheader">SPO Name</th>
+							<th role="columnheader">Team</th>
+							<th role="columnheader">Region</th>
+							<th role="columnheader">District</th>
+							<th role="columnheader">Territory</th>
+							<th role="columnheader">Camp Type</th>
+							<th role="columnheader">Dr Name</th>
+							<th role="columnheader">Camp Date/Time</th>
+							<th role="columnheader">Camp Status</th>
+							<th role="columnheader" *ngIf = "!previous && !future">Action</th>
+						  </tr>
 						</thead>
-						<tbody>
-							<tr *ngFor="let camp of camps">
-								<td>{{ camp.user.name }}</td>
-								<td>{{ camp.user.user_team.team_name }}</td>
-								<td>{{ camp.user.user_region.region_name }}</td>
-								<td>{{ camp.user.user_district.district_name }}</td>
-								<td>{{ camp.user.user_territory.territory_name }}</td>
-								<td *ngIf="camp.camp_type == 1">Cardio Camp</td>
-								<td *ngIf="camp.camp_type == 2">Dibetic Camp</td>
-								<td *ngIf="camp.camp_type == 3">Cardio/Dibetic Camp</td>
-								<td>{{ camp.dr_name }}</td>
-								<td>{{ camp.camp_datetime }}</td>
-								<td *ngIf="camp.camp_status == 0">Pending</td>
-								<td *ngIf="camp.camp_status == 1">Approved</td>
-								<!-- <td>{{ camp.camp_status }}</td> -->
-								<td *ngIf = "!previous && !future">
-									<div class="btn-group" role="group" aria-label="...">
-										<button type="button" (click)="viewCamp(camp.id)" class="btn btn-primary">View/Edit</button>
-										<button type="button" (click)="deleteCamp(camp.id)" class="btn btn-danger">Delete</button>
-									</div>
-								</td>
-							</tr>
+						<tbody role="rowgroup">
+						  <tr role="row" *ngFor="let camp of camps">
+							<td role="cell">{{ camp.user.name }}</td>
+							<td role="cell">{{ camp.user.user_team.team_name }}</td>
+							<td role="cell">{{ camp.user.user_region.region_name }}</td>
+							<td role="cell">{{ camp.user.user_district.district_name }}</td>
+							<td role="cell">{{ camp.user.user_territory.territory_name }}</td>
+							<td role="cell" *ngIf="camp.camp_type == 1">Dibetic Camp</td>
+							<td role="cell" *ngIf="camp.camp_type == 2">January 13, 1979</td>
+							<td role="cell" *ngIf="camp.camp_type == 3">Cardio/Dibetic Camp</td>
+							<td role="cell">{{ camp.dr_name }}</td>
+							<td role="cell">{{ camp.camp_datetime }}</td>
+							<td role="cell" *ngIf="camp.camp_status == 0">Pending</td>
+							<td role="cell"  *ngIf="camp.camp_status == 1">Approved</td>
+							<td role="cell" *ngIf = "!previous && !future">
+								<div class="btn-group" role="group" aria-label="...">
+									<button type="button" (click)="viewCamp(camp.id)" class="app-icon-btn app-blue-text"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
+									<button type="button" (click)="deleteCamp(camp.id)" class="app-icon-btn app-red-text"><i class="fa fa-times" aria-hidden="true"></i></button>
+								</div>
+							</td>
+
+						  </tr>
 						</tbody>
-					</table>
+					  </table>
+
 				</div>
+				
+				<!--div class="card">
+					<div class="card-body table-responsive">
+						<table class="table table-hover table-striped">
+							<thead>
+								<tr>
+									<th>SPO Name</th>
+									<th>Team</th>
+									<th>Region</th>
+									<th>District</th>
+									<th>Territory</th>
+									<th>Camp Type</th>
+									<th>Dr Name</th>
+									<th>Camp Date/Time</th>
+									<th>Camp Status</th>
+									<th *ngIf = "!previous && !future">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let camp of camps">
+									<td>{{ camp.user.name }}</td>
+									<td>{{ camp.user.user_team.team_name }}</td>
+									<td>{{ camp.user.user_region.region_name }}</td>
+									<td>{{ camp.user.user_district.district_name }}</td>
+									<td>{{ camp.user.user_territory.territory_name }}</td>
+									<td *ngIf="camp.camp_type == 1">Cardio Camp</td>
+									<td *ngIf="camp.camp_type == 2">Dibetic Camp</td>
+									<td *ngIf="camp.camp_type == 3">Cardio/Dibetic Camp</td>
+									<td>{{ camp.dr_name }}</td>
+									<td>{{ camp.camp_datetime }}</td>
+									<td *ngIf="camp.camp_status == 0">Pending</td>
+									<td *ngIf="camp.camp_status == 1">Approved</td-->
+									<!-- <td>{{ camp.camp_status }}</td> -->
+									<!--td *ngIf = "!previous && !future">
+										<div class="btn-group" role="group" aria-label="...">
+											<button type="button" (click)="viewCamp(camp.id)" class="btn btn-primary">View/Edit</button>
+											<button type="button" (click)="deleteCamp(camp.id)" class="btn btn-danger">Delete</button>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div-->
 			</div>
 		</div>
 	</div>

@@ -53,14 +53,19 @@ body{
 .app-btn{
     border-radius: 0px;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
+    padding: 10px 20px;
 }
 .red-btn{
     background-color: $red !important;
 }
 .btn-icon{
     padding-right: 10px;
+}
+.app-icon-btn{
+    border:none;
+    background: none;
 }
 
 /* =======================================*/
@@ -117,10 +122,128 @@ body{
         box-shadow: 0px 4px 5px $shadow-light-grey;
         border: none;
         height: 45px !important;
+        font-size: 14px;
     }
     .form-button-wrapper{
         padding: 60px 10px 10px 10px;
         text-align: center;
+    }
+}
+
+/* =============== App Filter Form================*/
+
+.app-filter-form{
+    background-color: $light-grey;
+    padding: 20px;
+    text-align: center;
+    .app-form-label{
+        font-size: 13px;
+        font-weight: bold;
+        color: $dark-grey;
+    }
+    .app-form-input{
+        background-color: $light-sky-blue;
+        border-radius: 0;
+        height: 45px !important;
+        width: 200px;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+}
+
+/* =======================================*/
+/*              APP Table View            */
+/* =======================================*/
+
+.app-table-view{
+    background-color: $white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.app-table{
+    table{
+        width: 100%;
+    }
+    th{
+        font-size: 14px;
+        font-weight: bold;
+        color: $blue;
+        background-color: $light-blue;
+        padding:5px 10px;
+    }
+    td{
+        font-size: 13px;
+        
+        padding:5px 5px;
+    }
+    tr:nth-child(even) {
+        background: $light-sky-blue;
+      }
+/*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+	@media
+	  only screen 
+    and (max-width: 760px), (min-device-width: 768px) 
+    and (max-device-width: 1024px)  {
+
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr {
+            display: block;
+            font-size: 14px;
+		}
+
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+
+    tr {
+      margin: 0 0 1rem 0;
+    }
+      
+    tr:nth-child(odd) {
+      background:$light-sky-blue;
+    }
+    
+		td {
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee;
+			position: relative;
+            padding-left: 50%;
+            text-align: left;
+		}
+
+		td:before {
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 5px;
+			left: 6px;
+			width: 45%;
+			padding-right: 10px;
+            white-space: nowrap;
+            font-weight: bold;
+		}
+
+		/*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+		*/
+		td:nth-of-type(1):before { content: "SPO Name"; }
+		td:nth-of-type(2):before { content: "Team"; }
+		td:nth-of-type(3):before { content: "Region"; }
+		td:nth-of-type(4):before { content: "District"; }
+		td:nth-of-type(5):before { content: "Territory"; }
+		td:nth-of-type(6):before { content: "Camp Type"; }
+		td:nth-of-type(7):before { content: "Dr Name"; }
+		td:nth-of-type(8):before { content: "Camp Date/Time"; }
+		td:nth-of-type(9):before { content: "Camp Status"; }
+		td:nth-of-type(10):before { content: "Action"; }
     }
 }
 /* =======================================*/
@@ -133,6 +256,12 @@ body{
 }
 .app-white-text{
     color:$white;
+}
+.app-red-text{
+    color: $red;
+}
+.app-blue-text{
+    color: $blue;
 }
 .app-link-grey{
     color: $grey;
