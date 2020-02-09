@@ -8,55 +8,80 @@
     [fullScreen] = "true">
 	<p style="color: white" > Loading... </p>
 	</ngx-spinner>
-    <app-page-header [heading]="'Patients'" [icon]="'fa-users'"></app-page-header>
-      <div class="row">
-          <div class="col col-xl-12 col-lg-12">
-              <div class="card mb-3">
-                  <div class="card-header">
-                    <!-- Patients -->
-                    <form [formGroup]="patientsFilter" (ngSubmit)="onSubmit()" style="display: flex;">
-                        <div class="patient-filter">
-							<label>Camp Type</label>
-							<select class="form-control" [value]="" formControlName="campType">
-								<option value="">Select Camp Type</option>
-								<option value="1">Cardio Camp</option>
-								<option value="2">Dibetic Camp</option>
-								<option value="3">Cardio/Dibetic Camp</option>
-							</select>
-						</div>
-                        <div class="patient-filter" style="padding-top: 30px;">
-                            <button type="submit" class="btn btn-primary"> Apply </button>
+    <!--app-page-header [heading]="'Patients'" [icon]="'fa-users'"></app-page-header-->
+    <div class="app-page-title-wrapper">
+		<h2 class="app-page-title">Patients</h2>
+		<ul class="list-inline app-breadcumb">
+			<li  class="list-inline-item">
+				<a href="#">CMP Dashboard -</a>
+			</li>
+			<li  class="list-inline-item">
+				<a href="#">Patients</a>
+			</li>
+		</ul>
+    </div>
+    <div class="row">
+        <div class="col col-md-7 mx-auto">
+            <div class="app-table-view">
+                
+                <div class="app-filter-form pb-0">
+                    <div class="row">
+                        <div class="col col-md-11 mx-auto">
+                            <form [formGroup]="patientsFilter" (ngSubmit)="onSubmit()" style="display: flex;">
+                                <ul class="list-inline app-filters">
+                                    <li  class="list-inline-item">
+                                        <div>
+                                            <!--label class="app-form-label">Camp Type</label-->
+                                            <select class="form-control app-form-input app-form-wide-input" [value]="" formControlName="campType">
+                                                <option value="">Select Camp Type</option>
+                                                <option value="1">Cardio Camp</option>
+                                                <option value="2">Dibetic Camp</option>
+                                                <option value="3">Cardio/Dibetic Camp</option>
+                                            </select>
+                                        </div>    
+                                    </li>
+                                    <li  class="list-inline-item">
+                                        <div class="patient-filter">
+                                            <button type="submit" class="btn btn-primary app-btn"> Apply </button>
+                                        </div>
+                                    </li>
+                                    <li  class="list-inline-item">
+                                        <div>
+                                            <button type="button" (click)="onReset()" class="btn btn-success app-btn"> Reset </button>
+                                        </div>    
+                                    </li>
+                                </ul>
+                            </form>
                         </div>
-                        <div class="patient-filter" style="padding-top: 30px;">
-                            <button type="button" (click)="onReset()" class="btn btn-success"> Reset </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-xl-12 col-lg-12">
+                        <div class="app-table-patients">
+                            <table role="table">
+                                <thead role="rowgroup">
+                                    <tr role="row">
+                                        <th role="columnheader">Patient Name</th>
+                                        <th role="columnheader">Patient Contact</th>
+                                        <th role="columnheader">Gender</th>
+                                    </tr>
+                                </thead>
+                                <tbody role="rowgroup">
+                                <tr role="row" *ngFor="let patient of patients">
+                                    <td role="cell">{{ patient.patient_name }}</td>
+                                    <td role="cell">{{ patient.phone_no }}</td>
+                                    <td role="cell">{{ patient.gender }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
-                    </form>
-                  </div>
-                  <div class="card-body table-responsive">
-                      <table class="table table-hover table-striped">
-                          <thead>
-                              <tr>
-                                  <th>Patient Name</th>
-                                  <th>Patient Contact</th>
-                                  <th>Gender</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr *ngFor="let patient of patients">
-                                  <td>{{ patient.patient_name }}</td>
-                                  <td>{{ patient.phone_no }}</td>
-                                  <td>{{ patient.gender }}</td>
-                                  <!-- <td>
-                                      <div class="btn-group" role="group" aria-label="...">
-                                          <button type="button" (click)="editPatient(patient.id)" class="btn btn-primary">Start Camp</button>
-                                      </div>
-                                  </td> -->
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
-          </div>
-      </div>
+                    </div>
+                </div>    
+            </div> 
+        </div>   
+    </div>
+        
+
+
   </div>
   

@@ -97,7 +97,7 @@
 							<ng-container *ngFor="let region of regions">
 								<td role="cell" *ngIf="region.id == user.region">{{ region.region_name }}</td>
 							</ng-container>
-							<td role="cell">
+							<td role="cell" class="text-center">
 								<div class="btn-group" role="group" aria-label="...">
 									<button type="button" (click) = editUser(user.id) class="app-icon-btn app-blue-text"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
 									<button type="button" (click) = onDeleteUser(user.id) class="app-icon-btn app-red-text"><i class="fa fa-times" aria-hidden="true"></i></button>

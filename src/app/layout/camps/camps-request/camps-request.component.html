@@ -111,7 +111,7 @@
 							<td role="cell">{{ camp.camp_datetime }}</td>
 							<td role="cell" *ngIf="camp.camp_status == 0">Pending</td>
 							<td role="cell"  *ngIf="camp.camp_status == 1">Approved</td>
-							<td role="cell" *ngIf = "!previous && !future">
+							<td role="cell" *ngIf = "!previous && !future" class="text-center">
 								<div class="btn-group" role="group" aria-label="...">
 									<button type="button" (click)="viewCamp(camp.id)" class="app-icon-btn app-blue-text"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
 									<button type="button" (click)="deleteCamp(camp.id)" class="app-icon-btn app-red-text"><i class="fa fa-times" aria-hidden="true"></i></button>
