@@ -1,1 +1,73 @@
-<p>profile works!</p>
+<div class="app-page-title-wrapper">
+    <h2 class="app-page-title">Profile</h2>
+    <ul class="list-inline app-breadcumb">
+      <li  class="list-inline-item">
+          <a href="#">CMP Dashboard - </a>
+      </li>
+      <li  class="list-inline-item">
+        <a href="#">Profile</a>
+    </li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="app-container">
+            <div class="app-user-title">
+                <h2>Mehmood Ahmed</h2>
+                <p>General Manager</p>
+            </div>
+            <div class="app-profile-content">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p><strong>Employee ID: </strong><span class="pl-1">ABC-12345</span></p>
+                        <p><strong>Email: </strong><span class="pl-1"> mehmood.ahmed@cclpharma.com</span></p> 
+                        <p><strong>Mobile: </strong><span class="pl-1">0423-5825452</span></p>                  
+                        <p><strong>CNIC: </strong><span class="pl-1">12345-654896-8</span></p> 
+                        <br>
+                        <p><a href="#" class="app-red-text">Change Password</a></p>                 
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="app-team-info">
+                            <p><strong>Team: </strong><span class="pl-1">Star</span></p>
+                            <p><strong>Region: </strong><span class="pl-1">Center-1</span></p> 
+                            <p><strong>District: </strong><span class="pl-1">Faisalabad</span></p>                  
+                            <p><strong>Territory: </strong><span class="pl-1">Faisalabad-National</span></p> 
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="app-form">
+                            <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <fieldset class="form-group">
+                                            <label class="required app-form-label">New Password</label>
+                                            <input class="form-control app-form-input" type="password" placeholder="Password" id="searchTextField" formControlName="campAddress" />
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <fieldset class="form-group">
+                                            <label class="required app-form-label">Repeat Password</label>
+                                            <input class="form-control app-form-input" type="password"  placeholder="Repeat Password" id="searchTextField" formControlName="campAddress" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="app-btn-wrapper text-center">
+                                    <button type="submit" class="btn btn-danger app-btn">
+                                      Change Password
+                                    </button>
+                                  </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+

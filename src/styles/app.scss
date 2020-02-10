@@ -756,6 +756,11 @@ body{
 /*             App Views                  */
 /* =======================================*/
 
+.app-container{
+    background-color: $white;
+    padding: 30px;
+    border-radius: 10px;
+}
 
 /* =============== Login View ===============*/
 
@@ -776,6 +781,35 @@ body{
     width: 100%;
     max-width: 100px;
     margin-top: 30px;
+}
+
+/* =============== Profile View ===============*/
+
+.app-user-title{
+    text-align: center;
+    h2{
+        font-size: 26px;
+        font-weight: 700;
+        color: $pink;
+    }
+    p{
+        font-size: 16px;
+        font-weight: 100;
+        color: $dark-grey;
+    }
+}
+.app-profile-content{
+    color:$dark-grey;
+    font-size: 14px;
+    margin-top: 30px;
+    p{
+        margin-bottom: 5px;
+    }
+}
+.app-team-info{
+    background-color: $light-grey;
+    padding:10px;
+    border-radius: 5px;
 }
 
 /* =======================================*/
