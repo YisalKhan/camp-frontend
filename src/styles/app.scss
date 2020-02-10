@@ -111,6 +111,7 @@ body{
     -webkit-text-fill-color: $white;
     transition: background-color 5000s ease-in-out 0s;
     background: none;
+    padding:0 10px !important;
     }
     .input-icon-username{
         background: url('../assets/images/icons/email-icon.png') no-repeat scroll 15px 15px;
