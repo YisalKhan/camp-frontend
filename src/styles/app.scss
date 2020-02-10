@@ -47,6 +47,9 @@ body{
     font-size: 26px !important;
     font-weight: bold !important;
 }
+.app-sub-heading{
+    font-size: 18px !important;
+}
 
 /* =======================================*/
 /*              APP Buttons               */
@@ -601,6 +604,9 @@ body{
 }
 .app-blue-text{
     color: $blue;
+}
+.app-grey-text{
+    color: $dark-grey;
 }
 .app-link-grey{
     color: $grey;

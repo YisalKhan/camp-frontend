@@ -1,77 +1,122 @@
 <div [@routerTransition]>
-  <app-page-header [heading]="'Add Camp'"></app-page-header>
-  <div class="map-container">
-    <h4>Click on Map for setting the location of Camp</h4>
-    <div class="map-frame">
-      <div #mapContainer id="map"></div>
-    </div>
+  <!--app-page-header [heading]="'Add Camp'"></app-page-header-->
+  <div class="app-page-title-wrapper">
+    <h2 class="app-page-title">Add Camp</h2>
+    <ul class="list-inline app-breadcumb">
+      <li  class="list-inline-item">
+          <a href="#">CMP Dashboard -</a>
+      </li>
+      <li  class="list-inline-item">
+          <a href="#">Camps -</a>
+      </li>
+      <li  class="list-inline-item">
+        <a href="#">Add Camp</a>
+      </li>
+    </ul>
   </div>
-  <div class="row" class="campForm">
-      <div class="col-lg-6 my-auto">
-          <form [formGroup]="campForm" (ngSubmit)="onSubmit()">
-          <fieldset class="form-group">
-              <label class="required">Camp Address</label>
-              <input class="form-control" placeholder="Search Location" id="searchTextField" formControlName="campAddress" />
-          </fieldset>
-          <div class="form-group">
-              <label>Camp Type</label>
-              <select class="form-control" formControlName="campType">
-                <option [disabled]>Select Camp</option>
-                <option value="1">Cardio Camp</option>
-                <option value="2">Dibetic Camp</option>
-                <option value="3">Cardio/Dibetic Camp</option>
-              </select>
+  <div class="row">
+    <div class="col-lg-9 mx-auto">
+      <div class="app-form">
+        <div class="map-container">
+          <h2 class="app-sub-heading app-grey-text">Click on map for setting the location of camp</h2>
+          <div class="map-frame">
+            <div #mapContainer id="map"></div>
+          </div>
+        </div>
+        <form [formGroup]="campForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-lg-12">
+              <fieldset class="form-group">
+                <label class="required app-form-label">Camp Address</label>
+                <input class="form-control app-form-input" placeholder="Search Location" id="searchTextField" formControlName="campAddress" />
+              </fieldset>
             </div>
-            <fieldset class="form-group">
-              <label class="required">Doctor Name</label>
-              <input class="form-control" formControlName="doctorName" />
-            </fieldset>
-            <fieldset class="form-group">
-              <label class="required">Doctor Phone Number</label>
-              <input class="form-control" formControlName="doctorPhoneNumber" [textMask]="phone" />
-            </fieldset>
-            <fieldset class="form-group">
-              <label class="required">Doctor ID</label>
-              <input class="form-control" formControlName="doctorID" />
-            </fieldset>
-            <fieldset class="form-group">
-              <label class="required"><b> Date and Time</b></label>
-              <dl-date-time-picker maxView="year" minView="hour" formControlName="campDateAndTime"  [(ngModel)]="campForm['campDateAndTime']">
-              </dl-date-time-picker>
-              <input class="form-control" value="{{ campForm['campDateAndTime'] }}">
-            </fieldset>
-            <div class="form-group">
-              <label>BP Apparatus</label>
-              <select class="form-control" formControlName="bpApparatus">
-                <option [disabled]>Select Option</option>
-                <option value="1">Yes</option>
-                <option value="0">No</option>
-              </select>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="required app-form-label">Camp Type</label>
+                <select class="form-control app-form-input" formControlName="campType">
+                  <option [disabled]>Select Camp</option>
+                  <option value="1">Cardio Camp</option>
+                  <option value="2">Dibetic Camp</option>
+                  <option value="3">Cardio/Dibetic Camp</option>
+                </select>
+              </div>
+              <fieldset class="form-group">
+                <label class="required app-form-label">Doctor Name</label>
+                <input class="form-control app-form-input" formControlName="doctorName" />
+              </fieldset>
+              <fieldset class="form-group">
+                <label class="required app-form-label">Doctor Phone Number</label>
+                <input class="form-control app-form-input" formControlName="doctorPhoneNumber" [textMask]="phone" />
+              </fieldset>
+              <fieldset class="form-group">
+                <label class="required app-form-label">Doctor ID</label>
+                <input class="form-control app-form-input" formControlName="doctorID" />
+              </fieldset>
             </div>
-            <div class="form-group">
-              <label>Blood Sugar Meter</label>
-              <select class="form-control" formControlName="bloodSugarMeter">
-                <option [disabled]>Select Option</option>
-                <option value="1">Yes</option>
-                <option value="0">No</option>
-              </select>
+            <div class="col-lg-6">
+              <fieldset class="form-group">
+                <label class="required app-form-label"><b> Date and Time</b></label>
+                <dl-date-time-picker maxView="year" minView="hour" formControlName="campDateAndTime"  [(ngModel)]="campForm['campDateAndTime']">
+                </dl-date-time-picker>
+                <input class="form-control app-form-input" value="{{ campForm['campDateAndTime'] }}">
+              </fieldset>
             </div>
-            <fieldset class="form-group">
-              <label class="required">Number of Strips</label>
-              <input class="form-control" maxlength="3" formControlName="strips" />
-            </fieldset>
-            <fieldset class="form-group">
-              <label class="required">Number of Flyers</label>
-              <input class="form-control" maxlength="3" formControlName="flyers" />
-            </fieldset>
-            <fieldset class="form-group">
-              <label class="required">Number of Screeing Slips</label>
-              <input class="form-control" maxlength="3" formControlName="screeingSlips" />
-            </fieldset>
-            <button type="submit" class="btn btn-success" [disabled]="!campForm.valid">
-              Request a Camp
-            </button>
-          </form>
+          </div>
+          <hr>
+          <div class="mt-5">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="required app-form-label">BP Apparatus</label>
+                  <select class="form-control app-form-input" formControlName="bpApparatus">
+                    <option [disabled]>Select Option</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="required app-form-label">Blood Sugar Meter</label>
+                  <select class="form-control app-form-input" formControlName="bloodSugarMeter">
+                    <option [disabled]>Select Option</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4">
+                <fieldset class="form-group">
+                  <label class="required app-form-label">Number of Strips</label>
+                  <input class="form-control app-form-input" maxlength="3" formControlName="strips" />
+                </fieldset> 
+              </div>
+              <div class="col-lg-4">
+                <fieldset class="form-group">
+                  <label class="required app-form-label">Number of Flyers</label>
+                  <input class="form-control app-form-input" maxlength="3" formControlName="flyers" />
+                </fieldset>
+              </div>
+              <div class="col-lg-4">
+                <fieldset class="form-group">
+                  <label class="required app-form-label">Number of Screeing Slips</label>
+                  <input class="form-control app-form-input" maxlength="3" formControlName="screeingSlips" />
+                </fieldset>
+              </div>
+            </div>
+            <div class="app-btn-wrapper text-center">
+              <button type="submit" class="btn btn-danger app-btn" [disabled]="!campForm.valid">
+                Request a Camp
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
+    </div>
   </div>
 </div>
