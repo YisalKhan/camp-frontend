@@ -1,17 +1,27 @@
-<hr>
+<div class="app-page-title-wrapper">
+    <h2 class="app-page-title">Dashboard</h2>
+    <ul class="list-inline app-breadcumb">
+      <li  class="list-inline-item">
+          <a href="#">CMP Dashboard -</a>
+      </li>
+    </ul>
+</div>
+<div class="app-cards-container app-cards-container-middle">    
+
     <div class="row">
         <!-- <div class="col-xl-3 col-lg-6">
             <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="12" [label]="'New task!'" ></app-stat>
         </div> -->
         <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'danger'" [icon]="'fa-tasks'" (click)="onPastCamps()" [label]="'Past Camps'" ></app-stat>
+            <app-stat [bgClass]="'card-bg'" [icon]="'fa-undo'" (click)="onPastCamps()" [label]="'Past Camps'" ></app-stat>
         </div>
 
         <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'success'" [icon]="'fa-tasks'" (click)="onAssignedCamps()" [label]="'Current Camps'" ></app-stat>
+            <app-stat [bgClass]="'card-bg'" [icon]="'fa-gg'" (click)="onAssignedCamps()" [label]="'Current Camps'" ></app-stat>
         </div>
 
         <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'primary'" [icon]="'fa-tasks'" (click)="onFutureCamps()" [label]="'Future Camps'"></app-stat>
+            <app-stat [bgClass]="'card-bg'" [icon]="'fa-share'" (click)="onFutureCamps()" [label]="'Future Camps'"></app-stat>
         </div>
     </div>
+</div>
