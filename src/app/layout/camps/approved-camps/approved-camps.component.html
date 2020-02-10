@@ -8,47 +8,50 @@
     [fullScreen] = "true">
 	<p style="color: white" > Loading... </p>
 	</ngx-spinner>
-    <app-page-header [heading]="'Camps'" [icon]="'fa-users'"></app-page-header>
-      <div class="row">
-          <div class="col col-xl-12 col-lg-12">
-              <div class="card mb-3">
-                  <div class="card-header">
-                          Approved Camps
-                          <!-- <button
-                                  type="button"
-                                  class="btn btn-primary btn-userAdd"
-                                  (click)="addUser()"
-                          >
-                                  Add User
-                          </button> -->
-                  </div>
-                  <div class="card-body table-responsive">
-                      <table class="table table-hover table-striped">
-                          <thead>
-                              <tr>
-                                  <th>Camp Type</th>
-                                  <th>Doctor Name</th>
-                                  <th>Action</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr *ngFor="let camp of camps">
-                                  <td *ngIf="camp.camp_type == 1">Cardio Camp</td>
-                                  <td *ngIf="camp.camp_type == 2">Dibetic Camp</td>
-                                  <td *ngIf="camp.camp_type == 3">Cardio/Dibetic Camp</td>
-                                  <td>{{ camp.dr_name }}</td>
-                  <td>
-                                      <div class="btn-group" role="group" aria-label="...">
-                                          <button type="button" (click)="startCamp(camp.id, camp.camp_type)" class="btn btn-primary">Start Camp</button>
-                                          <!-- <button type="button" class="btn btn-danger">Delete</button> -->
-                                      </div>
-                                  </td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
-          </div>
-      </div>
+    <!-- app-page-header [heading]="'Camps'" [icon]="'fa-users'"></app-page-header -->
+
+    <div class="app-page-title-wrapper">
+		<h2 class="app-page-title">Approved Camps</h2>
+		<ul class="list-inline app-breadcumb">
+			<li  class="list-inline-item">
+				<a href="#">CMP Dashboard -</a>
+			</li>
+			<li  class="list-inline-item">
+				<a href="#">Camps -</a>
+            </li>
+            <li  class="list-inline-item">
+				<a href="#">Approved Camps</a>
+			</li>
+		</ul>
+    </div>
+    <div class="app-table-view">
+		<div class="row">
+			<div class="col col-md-6 mx-auto">
+                <div class="app-table-users">
+					<table role="table">
+						<thead role="rowgroup">
+						  <tr role="row">
+							<th role="columnheader">Camp Type</th>
+							<th role="columnheader">Doctor Name</th>
+							<th role="columnheader" class="text-center">Action</th>
+						  </tr>
+						</thead>
+						<tbody role="rowgroup">
+						  <tr role="row" *ngFor="let camp of camps">
+                            <td role="cell" *ngIf="camp.camp_type == 1">Cardio Camp</td>
+                            <td role="cell" *ngIf="camp.camp_type == 2">Dibetic Camp</td>
+                            <td role="cell" *ngIf="camp.camp_type == 3">Cardio/Dibetic Camp</td>
+                            <td role="cell">{{ camp.dr_name }}</td>
+                            <div class="text-center">
+                                <button type="button" (click)="startCamp(camp.id, camp.camp_type)" class="btn btn-outline-success app-btn-small btn-sm app-btn ">Start Camp</button>
+                                <!-- <button type="button" class="btn btn-danger">Delete</button> -->
+                            </div>
+						  </tr>
+						</tbody>
+					</table>
+				</div>
+            </div>
+        </div>
+    </div>        
   </div>
   
