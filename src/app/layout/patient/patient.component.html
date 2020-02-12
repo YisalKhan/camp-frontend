@@ -1,11 +1,235 @@
 <div [@routerTransition]>
-    <div class="map-container">
-      <h4>Patient Information</h4>
-      <div class="map-frame">
-        <div #mapContainer id="map"></div>
+  <div class="app-page-title-wrapper">
+    <h2 class="app-page-title">Patient Information</h2>
+    <ul class="list-inline app-breadcumb">
+      <li  class="list-inline-item">
+          <a href="#">CMP Dashboard -</a>
+      </li>
+      <li  class="list-inline-item">
+          <a href="#">Camps -</a>
+      </li>
+      <li  class="list-inline-item">
+        <a href="#">Patient Information</a>
+      </li>
+    </ul>
+  </div>
+  <div class="map-container">
+    <div class="map-frame">
+      <div #mapContainer id="map"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class="app-form">
+        <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-lg-6">
+              <fieldset class="form-group">
+                <label class="required app-form-label">Patient Name</label>
+                <input class="form-control app-form-input" formControlName="patientName" />
+              </fieldset>
+              <fieldset class="form-group">
+                <label class="required app-form-label">Patient Phone #</label>
+                <input class="form-control app-form-input" formControlName="patientPhoneNo" />
+              </fieldset>
+            </div>
+            <div class="col-lg-6">
+              <fieldset class="form-group">
+                <label class="required app-form-label">Patient Age</label>
+                <input class="form-control app-form-input" formControlName="patientAge" />
+              </fieldset>
+              <div class="form-group">
+                <label class="app-form-label">Gender</label>
+                <select class="form-control app-form-input" formControlName="patientGender">
+                  <option selected>Select Option</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <br>
+          <div class="row">
+            <div class="col-lg-12">
+              <fieldset class="form-group" *ngIf = "campType == 1 || campType == 3">
+                <label class="required app-form-label">Patient Blood Pressure</label>
+                <div class="row">
+                  <div class="col-lg-4">
+                      <input class="form-control app-form-input mb-4" placeholder="Diastolic" formControlName="patientDiastolic" />
+                      <span class="unit app-unit">mmHg</span>
+                  </div>
+                  <div class="col-lg-4">
+                    <input class="form-control app-form-input "  placeholder="Systolic" formControlName="patientSystolic" />
+                    <span class="unit app-unit">mmHg</span>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset class="form-group" *ngIf = "campType == 2 || campType == 3">
+                      <label class="required">Blood Sugar {{ campType }}</label>
+                      <input class="form-control app-form-input" formControlName="patientBloodSugar" />
+                    </fieldset>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <hr>
+          <br>
+          <div class="app-highlight-area">
+            <h2 class="app-sub-heading">Drug Information</h2>
+            <div class="row">
+              <div class="col-lg-6">
+                <fieldset class="form-group" *ngIf = "campType == 2 || campType == 3">
+                  <label class="required app-form-label">Blood Sugar {{ campType }}</label>
+                  <input class="form-control app-form-input" formControlName="patientBloodSugar" />
+                </fieldset>
+                <fieldset class="form-group mb-0">
+                  <label class="app-form-label">Drug-1</label>
+                  <div class="mb-3">
+                    <select class="form-control app-form-input" formControlName="companyName1" [(ngModel)] = "optionValue1">
+                      <option>Select Option</option>
+                      <option value="1">Our Company</option>
+                      <option value="2">Other Company</option>
+                    </select>
+                  </div>
+                  <ng-container *ngIf = "optionValue1 == 2">
+                    <div class="mb-3">
+                      <input class="form-control app-form-input app-form-input-light"  placeholder="Systolic" />
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf = "optionValue1 == 1">
+                    <div class="mb-3">
+                      <select class="form-control app-form-input app-form-input-light">
+                        <option>Select Option</option>
+                        <option>Medicine</option>
+                        <option>Medicine 2</option>
+                      </select>
+                    </div>
+                  </ng-container>  
+                </fieldset>
+              </div>
+              <div class="col-lg-6">
+                <fieldset class="form-group mb-0">
+                  <label class="app-form-label">Drug-2</label>
+                  <div class="mb-3">
+                    <select class="form-control app-form-input" formControlName="companyName2" [(ngModel)] = "optionValue2">
+                      <option>Select Option</option>
+                      <option value="1">Our Company</option>
+                      <option value="2">Other Company</option>
+                    </select>
+                  </div>
+                  <ng-container *ngIf = "optionValue2 == 2">
+                    <div class="mb-3">
+                      <input class="form-control app-form-input app-form-input-light"  placeholder="Systolic" />
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf = "optionValue2 == 1">
+                    <div class="mb-3">
+                      <select class="form-control app-form-input app-form-input-light">
+                        <option>Select Option</option>
+                        <option>Medicine</option>
+                        <option>Medicine 2</option>
+                      </select>
+                    </div>
+                  </ng-container>
+                </fieldset>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <fieldset class="form-group mb-0">
+                  <label class="app-form-label">Drug-3</label>
+                  <div class="mb-3">
+                    <select class="form-control app-form-input" formControlName="companyName3" [(ngModel)] = "optionValue3">
+                      <option>Select Option</option>
+                      <option value="1">Our Company</option>
+                      <option value="2">Other Company</option>
+                    </select>
+                  </div>
+                  <ng-container *ngIf = "optionValue3 == 2">
+                    <div class="mb-3">
+                      <input class="form-control app-form-input app-form-input-light"  placeholder="Systolic" />
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf = "optionValue3 == 1">
+                    <div class="mb-3">
+                      <select class="form-control app-form-input app-form-input-light">
+                        <option>Select Option</option>
+                        <option>Medicine</option>
+                        <option>Medicine 2</option>
+                      </select>
+                    </div>
+                  </ng-container>
+                </fieldset>
+              </div>
+              <div class="col-lg-6">
+                <fieldset class="form-group mb-0">
+                  <label class="app-form-label">Drug-4</label>
+                  <div class="mb-3">
+                    <select class="form-control app-form-input" formControlName="companyName4" [(ngModel)] = "optionValue4">
+                      <option>Select Option</option>
+                      <option value="1">Our Company</option>
+                      <option value="2">Other Company</option>
+                    </select>
+                  </div>
+                  <ng-container *ngIf = "optionValue4 == 2">
+                    <div class="mb-3">
+                      <input class="form-control app-form-input app-form-input-light"  placeholder="Systolic" />
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf = "optionValue4 == 1">
+                    <div class="mb-3">
+                      <select class="form-control app-form-input app-form-input-light">
+                        <option>Select Option</option>
+                        <option>Medicine</option>
+                        <option>Medicine 2</option>
+                      </select>
+                    </div>
+                  </ng-container>
+                </fieldset>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <fieldset class="form-group mb-0">
+                  <label class="app-form-label">Drug-5</label>
+                  <div class="mb-3">
+                    <select class="form-control app-form-input" formControlName="companyName5" [(ngModel)] = "optionValue5">
+                      <option>Select Option</option>
+                      <option value="1">Our Company</option>
+                      <option value="2">Other Company</option>
+                    </select>
+                  </div>
+                  <ng-container *ngIf = "optionValue5 == 2">
+                    <div class="mb-3">
+                      <input class="form-control app-form-input app-form-input-light"  placeholder="Systolic" />
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf = "optionValue5 == 1">
+                    <div class="mb-3">
+                      <select class="form-control app-form-input app-form-input-light">
+                        <option>Select Option</option>
+                        <option>Medicine</option>
+                        <option>Medicine 2</option>
+                      </select>
+                    </div>
+                  </ng-container>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <div class="app-back-btn-wrapper text-center">
+            <button type="submit" class="btn btn-danger app-btn" [disabled]="!patientForm.valid">
+              Save Patient Record
+            </button>
+          </div>
+          
+        </form>
       </div>
     </div>
-    <div class="row" class="patientForm">
+  </div>
+
+    <!--div class="row" class="patientForm">
         <div class="col-lg-6 my-auto">
             <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
               <fieldset class="form-group">
@@ -168,6 +392,6 @@
               </button>
             </form>
         </div>
-    </div>
+    </div-->
   </div>
   
