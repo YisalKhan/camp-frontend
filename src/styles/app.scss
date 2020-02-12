@@ -319,8 +319,7 @@ body{
 	*/
 	@media
 	  only screen 
-    and (max-width: 760px), (min-device-width: 768px) 
-    and (max-device-width: 1024px)  {
+    and (max-width: 760px)  {
 
 		/* Force table to not be like tables anymore */
 		table, thead, tbody, th, td, tr {
@@ -401,8 +400,7 @@ body{
 	*/
 	@media
 	  only screen 
-    and (max-width: 760px), (min-device-width: 768px) 
-    and (max-device-width: 1024px)  {
+    and (max-width: 760px)  {
 
 		/* Force table to not be like tables anymore */
 		table, thead, tbody, th, td, tr {
@@ -480,8 +478,7 @@ body{
 	*/
 	@media
 	  only screen 
-    and (max-width: 760px), (min-device-width: 768px) 
-    and (max-device-width: 1024px)  {
+    and (max-width: 760px) {
 
 		/* Force table to not be like tables anymore */
 		table, thead, tbody, th, td, tr {
@@ -559,8 +556,7 @@ body{
 	*/
 	@media
 	  only screen 
-    and (max-width: 760px), (min-device-width: 768px) 
-    and (max-device-width: 1024px)  {
+    and (max-width: 760px) {
 
 		/* Force table to not be like tables anymore */
 		table, thead, tbody, th, td, tr {
@@ -861,6 +857,111 @@ body{
 /* =======================================*/
 /*       App Responsive Settings          */
 /* =======================================*/
+
+@include media-breakpoint-down(xs) {
+    .navbar-toggler{
+        padding: 0;
+    }
+    .app-user-title{
+        font-size: 16px;
+    }
+    .app-page-title{
+        font-size: 24px;
+    }  
+    .app-table-view{
+        padding: 10px;
+    }
+    .app-user-title h2{
+        font-size: 20px;
+    }
+    .app-user-title p {
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .app-breadcumb a{
+        font-size: 12px;
+    }
+    .app-sub-heading {
+        font-size: 12px !important;
+    }
+    .app-btn-small{
+        margin: 12px 0;
+    }
+    .app-filter-form{
+        .app-form-input{
+            width: 270px;
+        }
+    } 
+    .app-filter-form .app-form-input{
+        width:250px;
+    }
+    .app-table-approved-camps td:before{
+        left:20px !important;
+    }
+    .app-table-camps td:before{
+        left:20px !important;
+    }
+    .app-table-users td:before{
+        left:20px !important;
+    }
+    .app-table-patients td:before{
+        left:20px !important;
+    }
+    .app-table-doctors td:before{
+        left:20px !important;
+    }
+}
+@include media-breakpoint-down(sm) { 
+    
+    .app-table-camps td:before{
+        left:150px;
+    }
+    .app-table-users td:before{
+        left:150px;
+    }
+    .app-table-patients td:before{
+        left:100px;
+    }
+    .app-table-doctors td:before{
+        left:150px;
+    }
+   
+    .app-table-view{
+        padding: 20px;
+    }
+    .app-filter-form .app-form-input{
+        width:210px;
+    }
+}
+@include media-breakpoint-down(md) { 
+    .app-table-view{
+        padding: 20px;
+    }
+    .app-table-camps td:before{
+        left:24%;
+    }
+    .app-table-users td:before{
+        left:24%;
+    }
+    .app-table-approved-camps td:before{
+        left:24%;
+    }
+    .app-table-patients td:before{
+        left:24%;
+    }
+    .app-table-doctors td:before{
+        left:24%;
+    }
+ }
+ 
+@include media-breakpoint-down(lg) { 
+    .app-table-view{
+        padding: 20px;
+    }   
+    .app-table-camps td:before{
+        left:24%;
+    }
+ }
 
 @media
 	  only screen 
