@@ -210,7 +210,7 @@ body{
 
 .app-table-view{
     background-color: $white;
-    padding: 30px;
+    padding: 10px;
     border-radius: 10px;
 }
 
@@ -652,7 +652,18 @@ body{
 .bg-light-grey{
     background-color: $light-grey;
 }
-
+.bg-blue{
+    background-color: $blue;
+}
+.bg-red{
+    background-color: $red;
+}
+.bg-yellow{
+    background-color: $yellow;
+}
+.small-text{
+    font-size: 12px;
+}
 
 /* =======================================*/
 /*             App Components             */
@@ -749,32 +760,50 @@ body{
 
 .app-cards-container{
     width:100%;
-    max-width: 800px;
+    max-width: 900px;
     margin:-80px auto 40px auto;
-    .card{
+    .app-card{
         border-radius: 5px !important;
+        padding: 20px;
         cursor: pointer;
         border: none;
         box-shadow: 1px 5px 8px $shadow-white;
+        position: relative;
+        margin-bottom: 5px;
     }
-    .card-header{
-        font-size: 18px;
+    .main-label{
         color:$black;
+        font-size: 20px;
+    }
+    .small-label{
+        color:$black;
+        font-size: 14px;
+    }
+    .app-card-left{
+        position: absolute;
+        left: 115px;
+    }
+    .app-card-right{
+        right: 0;
+        width: 20%;
     }
     .card-bg{
         background-color: $blue !important;
     }
-    .fa{
-        font-size: 40px !important;
-        background-color: $blue;
+    .card-icon-wrapper{
         border-radius: 100px;
         padding: 20px;
         color: $white;
         width: 80px;
         height: 80px;
+        text-align: center;
     }
-    .card-footer {
-        display: none;
+    .card-icon{
+        font-size: 40px !important;
+    }
+    .card-count{
+        font-size: 22px;
+        font-weight: 700;
     }
 }
 .app-cards-container-middle{

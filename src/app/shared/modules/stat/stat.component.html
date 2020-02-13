@@ -1,19 +1,33 @@
-<div class="card text-white bg-{{bgClass}}">
-    <div class="card-header">
-        <div class="row">
-            <div class="col col-xs-3">
-                <i class="fa {{icon}} fa-5x"></i>
-            </div>
-            <div class="col col-xs-9 text-right">
-                <div class="d-block huge">{{count}}</div>
-                <div class="d-block">{{label}}</div>
-            </div>
-        </div>
+<div class="card app-card bg-{{bgClass}}">
+    <div class="app-card-left">
+            <div class="small-label">{{smallLabel}}</div>
+            <div class="main-label">{{label}}</div>
+            <p class="small-text app-grey-text">{{data}}</p>
     </div>
-    <div class="card-footer">
-        <span class="float-left">View Details {{data}}</span>
+    <div class="app-card-right">
+        <div class="card-icon-wrapper {{bgIcon}}">
+            <i class="fa {{icon}} card-icon"></i>
+            <span class="card-count">{{count}}</span>
+        </div>
+        <!--div class="row">
+            <div class="col col-md-9 col-sm-9 col-xs-9 text-left">
+                <div class="d-block huge">{{count}}</div>
+                <div class="card-label">{{label}}</div>
+                <p class="small-text app-grey-text">{{data}}</p>
+            </div>
+            <div class="col col-md-3 col-sm-3 col-xs-3">
+                <div class="text-right">
+                    <div class="card-icon-wrapper {{bgIcon}}">
+                        <i class="fa {{icon}} card-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div-->
+    </div>
+    <!--div class="card-footer">
+        <span>View Details {{data}}</span>
         <a href="javascript:void(0)" class="float-right card-inverse">
             <span ><i class="fa fa-arrow-circle-right"></i></span>
         </a>
-    </div>
+    </div-->
 </div>

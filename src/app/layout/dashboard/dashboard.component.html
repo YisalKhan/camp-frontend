@@ -12,19 +12,41 @@
     </div>
     <div class="app-cards-container">    
         <div class="row">
-            <div class="col-xl-4 col-lg-4">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <app-stat 
-                    [bgClass]="'card-bg'" 
+                    [bgClass]="'card-bg'"
+                    [bgIcon]="'bg-yellow'"  
                     [icon]="'fa-tasks'" 
                     (click)="futureCamps()" 
-                    [label]="'Future Camps'" >
+                    [label]="'Camps'"
+                    [smallLabel]="'Future'" 
+                    [data]="'Click here to view camp information'" 
+                    >
                 </app-stat>
             </div>
-            <div class="col-xl-4 col-lg-6">
-                <app-stat [bgClass]="'card-bg'" [icon]="'fa-undo'" (click)="previousCamps()" [label]="'Previous Camps'" ></app-stat>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <app-stat 
+                    [bgClass]="'card-bg'"
+                    [bgIcon]="'bg-blue'" 
+                    [icon]="'fa-undo'" 
+                    (click)="previousCamps()" 
+                    [label]="'Camps'"
+                    [smallLabel]="'Previous'" 
+                    [data]="'Click here to view camp information'" 
+                    >                  
+                </app-stat>
             </div>
-            <div class="col-xl-4 col-lg-6">
-                <app-stat [bgClass]="'card-bg'" [icon]="'fa-heartbeat'" [label]="'Patient Info'" ></app-stat>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <app-stat 
+                    [bgClass]="'card-bg'" 
+                    [bgIcon]="'bg-red'"
+                    [icon]="'fa-heartbeat'" 
+                    [label]="'Details'"
+                    [smallLabel]="'Patient'" 
+                    [data]="'Click here to view patient details'" 
+
+                    >
+                </app-stat>
             </div>
             <!-- <div class="col-xl-3 col-lg-6">
                 <app-stat [bgClass]="'danger'" [icon]="'fa-support'" [count]="1" [label]="'New Tickets!'"></app-stat>
