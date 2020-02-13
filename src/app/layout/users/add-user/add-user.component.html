@@ -30,13 +30,13 @@
       <div class="app-form">
         <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6 col-sm-6">
               <fieldset class="form-group">
                 <label class="required app-form-label">Name</label>
                 <input class="form-control app-form-input" formControlName="name" />
               </fieldset>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6 col-sm-6">
               <fieldset class="form-group">
                 <label class="required app-form-label">Email</label>
                 <input class="form-control app-form-input" formControlName="email" />
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6 col-sm-6">
               <div class="form-group">
                 <label class="app-form-label">Designation</label>
                 <select class="form-control app-form-input" formControlName="designation">
@@ -53,7 +53,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6 col-sm-6">
               <fieldset class="form-group">
                 <label class="required app-form-label">Employee Code</label>
                 <input class="form-control app-form-input" formControlName="employeeCode" />
@@ -61,13 +61,13 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6 col-sm-6">
               <fieldset class="form-group">
                 <label class="required app-form-label">Mobile #</label>
                 <input class="form-control app-form-input" formControlName="mobileNumber" [textMask]="phone" />
               </fieldset>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6 col-sm-6">
               <fieldset class="form-group">
                 <label class="required app-form-label">CNIC</label>
                 <input class="form-control app-form-input" formControlName="cnic" [textMask]="cnic" />
@@ -78,7 +78,7 @@
           <hr>
           
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6 col-sm-6">
               <div class="form-group">
                 <label class="required app-form-label">Teams</label>
                 <select class="form-control app-form-input" formControlName="team">
@@ -89,7 +89,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-4 col-sm-4">
               <div class="form-group">
                 <label class="required app-form-label">Regions</label>
                 <select class="form-control app-form-input" formControlName="region" (change)="getDisctricts($event.target.value)">
@@ -98,7 +98,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-4 col-sm-4">
               <div class="form-group">
                 <label class="required app-form-label">District</label>
                 <select class="form-control app-form-input" formControlName="district" (change)="getTerritories($event.target.value)">
@@ -107,7 +107,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-4 col-sm-4">
               <div class="form-group">
                 <label class="required app-form-label">Territory</label>
                 <select class="form-control app-form-input" formControlName="territory">

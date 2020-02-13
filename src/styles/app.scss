@@ -143,6 +143,14 @@ body{
     background-color: $white;
     padding: 30px;
     border-radius: 10px;
+    select { 
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image: url('../assets/images/icons/selectbox-arrow.png');
+        background-repeat: no-repeat;
+        background-position:96% center ;
+    }
     .app-form-label{
         font-size: 13px;
         font-weight: bold;
@@ -869,7 +877,7 @@ body{
         font-size: 24px;
     }  
     .app-table-view{
-        padding: 10px;
+        padding: 0px !important;
     }
     .app-user-title h2{
         font-size: 20px;
