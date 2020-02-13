@@ -12,16 +12,43 @@
         <!-- <div class="col-xl-3 col-lg-6">
             <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="12" [label]="'New task!'" ></app-stat>
         </div> -->
-        <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'card-bg'" [icon]="'fa-undo'" (click)="onPastCamps()" [label]="'Past Camps'" ></app-stat>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <app-stat 
+                [bgClass]="'card-bg'" 
+                [icon]="'fa-undo'" 
+                (click)="onPastCamps()" 
+                [label]="'Camps'" 
+                [smallLabel]="'Past'" 
+                [bgIcon]="'bg-yellow'"
+                [data]="'Click here to view camp information'"
+                >
+            </app-stat>
         </div>
 
-        <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'card-bg'" [icon]="'fa-gg'" (click)="onAssignedCamps()" [label]="'Current Camps'" ></app-stat>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <app-stat 
+                [bgClass]="'card-bg'" 
+                [icon]="'fa-gg'" 
+                (click)="onAssignedCamps()" 
+                [label]="'Camps'"
+                [smallLabel]="'Current'" 
+                [bgIcon]="'bg-red'"
+                [data]="'Click here to view camp information'" 
+                >
+            </app-stat>
         </div>
 
-        <div class="col-xl-4 col-lg-6">
-            <app-stat [bgClass]="'card-bg'" [icon]="'fa-share'" (click)="onFutureCamps()" [label]="'Future Camps'"></app-stat>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <app-stat 
+                [bgClass]="'card-bg'" 
+                [icon]="'fa-share'" 
+                (click)="onFutureCamps()" 
+                [label]="'Camps'"
+                [smallLabel]="'Future'" 
+                [bgIcon]="'bg-blue'"
+                [data]="'Click here to view camp information'"
+                >
+            </app-stat>
         </div>
     </div>
 </div>
