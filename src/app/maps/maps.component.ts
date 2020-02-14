@@ -33,9 +33,9 @@ export class MapsComponent implements OnInit, AfterViewInit {
   });
 
   ngOnInit() {
-    this.pubnub.getMessage(environment.pubnubChannel, (msg) => {
-      console.log(msg);
-    });
+    // this.pubnub.getMessage(environment.pubnubChannel, (msg) => {
+    //   console.log(msg);
+    // });
     // navigator.geolocation.watchPosition((data) => {
     //   console.log(data);
     //   // remove old marker
@@ -44,7 +44,7 @@ export class MapsComponent implements OnInit, AfterViewInit {
     //     map: this.maps,
     //   });
     // });
-    if (navigator) {
+    // if (navigator) {
       const role_id = localStorage.getItem('userDesignation');
       const markers = [];
       if (role_id === '1' || role_id === '2' || role_id === '3') {
@@ -70,7 +70,7 @@ export class MapsComponent implements OnInit, AfterViewInit {
       localStorage.setItem('latitude', this.lat);
       localStorage.setItem('longitude', this.lng);
     });
-  }
+  // }
 }
 
   // trackLocation ({onSuccess, onError = () => {} }) {
