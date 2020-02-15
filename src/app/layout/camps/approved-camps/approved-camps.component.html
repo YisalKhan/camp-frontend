@@ -33,7 +33,7 @@
 						  <tr role="row">
 							<th role="columnheader">Camp Type</th>
 							<th role="columnheader">Doctor Name</th>
-							<th role="columnheader" class="text-center">Action</th>
+							<th role="columnheader" *ngIf="!past && !future" class="text-center">Action</th>
 						  </tr>
 						</thead>
 						<tbody role="rowgroup">
@@ -43,7 +43,7 @@
                             <td role="cell" *ngIf="camp.camp_type == 3">Cardio/Dibetic Camp</td>
                             <td role="cell">{{ camp.dr_name }}</td>
                             <div class="text-center">
-                                <button type="button" (click)="startCamp(camp.id, camp.camp_type)" class="btn btn-outline-success app-btn-small btn-sm app-btn ">Start Camp</button>
+                                <button type="button"  *ngIf="!past && !future" (click)="startCamp(camp.id, camp.camp_type)" class="btn btn-outline-success app-btn-small btn-sm app-btn ">Start Camp</button>
                                 <!-- <button type="button" class="btn btn-danger">Delete</button> -->
                             </div>
 						  </tr>
