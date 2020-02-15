@@ -61,12 +61,12 @@
 									<input type="date" class="form-control app-form-input" formControlName="startDate" />
 								</div>
 							</li>
-							<li  class="list-inline-item">
+							<!-- <li  class="list-inline-item">
 								<div *ngIf = "previous == 'previousCamps' || future == 'futureCamps'">
 									<label class="app-form-label">End Date</label>
 									<input type="date" class="form-control app-form-input" formControlName="endDate" />
 								</div>
-							</li>
+							</li> -->
 							<li  class="list-inline-item">
 								<div class="camp-filter">
 									<button type="submit" class="btn btn-primary app-btn"> Apply </button>
@@ -108,8 +108,8 @@
 							<td role="cell">{{ camp.user.user_region.region_name }}</td>
 							<td role="cell">{{ camp.user.user_district.district_name }}</td>
 							<td role="cell">{{ camp.user.user_territory.territory_name }}</td>
-							<td role="cell" *ngIf="camp.camp_type == 1">Dibetic Camp</td>
-							<td role="cell" *ngIf="camp.camp_type == 2">Cardio Camp</td>
+							<td role="cell" *ngIf="camp.camp_type == 1">Cardio Camp</td>
+							<td role="cell" *ngIf="camp.camp_type == 2">Dibetic Camp</td>
 							<td role="cell" *ngIf="camp.camp_type == 3">Cardio/Dibetic Camp</td>
 							<td role="cell">{{ camp.dr_name }}</td>
 							<td role="cell">{{ camp.camp_datetime }}</td>
