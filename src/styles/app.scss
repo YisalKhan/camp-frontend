@@ -34,6 +34,7 @@ $shadow-light-grey: #e4e4e4;
 $shadow-white:      #efeaea;
 $pink:              #D91E51;
 $white:             #FFFFFF;
+$green:             #1f7e1e;
 
 
 body{
@@ -668,6 +669,9 @@ body{
 }
 .bg-yellow{
     background-color: $yellow;
+}
+.bg-green{
+    background-color: $green;
 }
 .small-text{
     font-size: 12px;

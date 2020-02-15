@@ -12,20 +12,31 @@
         <!-- <div class="col-xl-3 col-lg-6">
             <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="12" [label]="'New task!'" ></app-stat>
         </div> -->
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+            <app-stat 
+                [bgClass]="'card-bg'" 
+                [icon]="'fa-plus'" 
+                [label]="'Camp'" 
+                [smallLabel]="'Add a'" 
+                [bgIcon]="'bg-green'"
+                [data]="'Click here to add a camp'"
+                >
+            </app-stat>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
             <app-stat 
                 [bgClass]="'card-bg'" 
                 [icon]="'fa-undo'" 
                 (click)="onPastCamps()" 
                 [label]="'Camps'" 
-                [smallLabel]="'Past'" 
+                [smallLabel]="'Previous'" 
                 [bgIcon]="'bg-yellow'"
-                [data]="'Click here to view camp information'"
+                [data]="'Click here to view previous camps'"
                 >
             </app-stat>
         </div>
 
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
             <app-stat 
                 [bgClass]="'card-bg'" 
                 [icon]="'fa-gg'" 
@@ -33,12 +44,12 @@
                 [label]="'Camps'"
                 [smallLabel]="'Current'" 
                 [bgIcon]="'bg-red'"
-                [data]="'Click here to view camp information'" 
+                [data]="'Click here to view current camps'" 
                 >
             </app-stat>
         </div>
 
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
             <app-stat 
                 [bgClass]="'card-bg'" 
                 [icon]="'fa-share'" 
@@ -46,7 +57,7 @@
                 [label]="'Camps'"
                 [smallLabel]="'Future'" 
                 [bgIcon]="'bg-blue'"
-                [data]="'Click here to view camp information'"
+                [data]="'Click here to view Future camps'"
                 >
             </app-stat>
         </div>
