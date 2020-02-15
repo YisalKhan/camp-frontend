@@ -28,7 +28,8 @@
 		<div class="col col-md-8 mx-auto">
     		<div class="app-table-view">		
                 <div class="app-table-approved-camps">
-					<table role="table">
+					<h3 *ngIf="camps == ''">There is no data to show</h3>
+					<table role="table" *ngIf="camps != ''">
 						<thead role="rowgroup">
 						  <tr role="row">
 							<th role="columnheader">Camp Type</th>
