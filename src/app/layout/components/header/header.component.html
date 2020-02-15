@@ -10,13 +10,13 @@
 				<li class="nav-item dropdown" ngbDropdown>
 					<a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
 						<i class="app-white-text fa fa-bell"></i> <b class="caret"></b><span class="sr-only">(current)</span> 
-						<span class="app-navbar-right">Notifications</span>
+						<span class="app-navbar-right">Notifications<span *ngIf="createCounter != 0" class="badge badge-info">{{ createCounter }}</span></span>
 					</a>	
 					<div class="dropdown-menu-right" ngbDropdownMenu>
-						<a href="javascript:void(0)" *ngIf="role != 1" (click) = "onApprovedNotification()" class="dropdown-item">
+						<a href="javascript:void(0)" *ngIf="role == 9 || role == 10 || role == 11" (click) = "onApprovedNotification()" class="dropdown-item">
 								{{ 'Approved Camps' | translate }} <span class="badge badge-info">{{ approvedCounter }}</span>
 						</a>
-						<a href="javascript:void(0)" *ngIf="role == 1" (click) = "onCreateNotification()" class="dropdown-item">
+						<a href="javascript:void(0)" *ngIf="role != 9 && role != 10 && role != 11" (click) = "onCreateNotification()" class="dropdown-item">
 								{{ 'Create Camp' | translate }} <span class="badge badge-info">{{ createCounter }}</span>
 						</a>
 					</div>

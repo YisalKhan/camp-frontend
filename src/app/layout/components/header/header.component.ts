@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { PubNubAngular } from 'pubnub-angular2';
+import { NotificationService } from '../../../services/notification.service';
 
 @Component({
     selector: 'app-header',
@@ -18,7 +19,8 @@ export class HeaderComponent implements OnInit {
     constructor(
         private translate: TranslateService,
         private router: Router,
-        private pubnub: PubNubAngular
+        private pubnub: PubNubAngular,
+        private notification: NotificationService
     ) {
         this.router.events.subscribe(val => {
             if (
@@ -36,13 +38,26 @@ export class HeaderComponent implements OnInit {
         this.role = localStorage.getItem('userDesignation');
         this.pushRightClass = 'push-right';
         this.userData = JSON.parse(localStorage.getItem('userData'));
+        this.notification.getUnreadNotifications(this.userData['id']).subscribe(res => {
+            if (this.role == '9' || this.role == '10' || this.role == '11') {
+                console.log(res);
+                this.approvedCounter = res;
+            } else {
+                console.log(res);
+                this.createCounter = res;
+            }
+        });
         this.pubnub.getMessage('createNotification', (msg) => {
-            console.log(msg);
-            this.createCounter =+ 1;
+            this.notification.getUnreadNotifications(this.userData['id']).subscribe(res => {
+                console.log(res);
+                this.createCounter = res;
+            });
         });
         this.pubnub.getMessage('approvedNotification', (msg) => {
-            console.log(msg);
-            this.approvedCounter =+ 1;
+            this.notification.getUnreadNotifications(this.userData['id']).subscribe(res => {
+                console.log(res);
+                this.approvedCounter = res;
+            });
         });
     }
 
