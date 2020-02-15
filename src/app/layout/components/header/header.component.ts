@@ -40,22 +40,18 @@ export class HeaderComponent implements OnInit {
         this.userData = JSON.parse(localStorage.getItem('userData'));
         this.notification.getUnreadNotifications(this.userData['id']).subscribe(res => {
             if (this.role == '9' || this.role == '10' || this.role == '11') {
-                console.log(res);
                 this.approvedCounter = res;
             } else {
-                console.log(res);
                 this.createCounter = res;
             }
         });
         this.pubnub.getMessage('createNotification', (msg) => {
             this.notification.getUnreadNotifications(this.userData['id']).subscribe(res => {
-                console.log(res);
                 this.createCounter = res;
             });
         });
         this.pubnub.getMessage('approvedNotification', (msg) => {
             this.notification.getUnreadNotifications(this.userData['id']).subscribe(res => {
-                console.log(res);
                 this.approvedCounter = res;
             });
         });
@@ -93,5 +89,9 @@ export class HeaderComponent implements OnInit {
     onCreateNotification() {
         this.createCounter = 0;
         this.router.navigate(['/camps/campsRequest']);
+    }
+
+    onLoggedout() {
+        localStorage.clear();
     }
 }
