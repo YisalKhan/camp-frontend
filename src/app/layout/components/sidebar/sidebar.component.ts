@@ -35,6 +35,7 @@ export class SidebarComponent implements OnInit {
     ngOnInit() {
         this.isActive = false;
         this.collapsed = false;
+        this.showSubItems = false;
         this.showMenu = '';
         this.pushRightClass = 'push-right';
         this.userDesignation = localStorage.getItem('userDesignation');
@@ -66,7 +67,11 @@ export class SidebarComponent implements OnInit {
         const dom: any = document.querySelector('body');
         dom.classList.toggle(this.pushRightClass);
     }
+    subItemsToggle() {
 
+        this.showSubItems = ! this.showSubItems;
+        
+    }
     rltAndLtr() {
         const dom: any = document.querySelector('body');
         dom.classList.toggle('rtl');

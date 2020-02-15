@@ -759,6 +759,13 @@ body{
     text-align: center;
     margin-top: 10px;
 }
+.app-sidebar-subitems{
+    padding:0 5px;
+    .sidebar-link{
+        padding:5px 0 5px 30px;
+        font-weight: 100;
+    }
+}
 .sidebar-icon{
     width: 20px;
 }
