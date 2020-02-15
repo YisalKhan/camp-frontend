@@ -763,8 +763,13 @@ body{
     padding:0 5px;
     .sidebar-link{
         padding:5px 0 5px 30px;
-        font-weight: 100;
+        font-weight: 500;
     }
+}
+.sidebar-down-arrow{
+    position: absolute;
+    top:15px;
+    right:0px;
 }
 .sidebar-icon{
     width: 20px;
