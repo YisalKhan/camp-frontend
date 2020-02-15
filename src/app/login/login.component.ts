@@ -4,6 +4,7 @@ import {FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { routerTransition } from '../router.animations';
 
 import { LoginService } from '../services/login.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
     public router: Router,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit() {
@@ -41,7 +43,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-
+    this.spinner.show();
     this.loginService.userLogin(this.loginForm.value).subscribe(
       res => {
         this.data = res['success'];
@@ -50,11 +52,13 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('userData', JSON.stringify(this.data.user));
           localStorage.setItem('userDesignation', this.data.user.designation);
           this.router.navigate(['dashboard']);
+          this.spinner.hide();
         } else {
           localStorage.setItem('userDesignation', this.data.user.designation);
           localStorage.setItem('userData', JSON.stringify(this.data.user));
           localStorage.setItem('isLoggedin', 'true');
           this.router.navigate(['camps']);
+          this.spinner.hide();
         }
       }
     );
