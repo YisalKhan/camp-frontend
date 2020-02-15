@@ -37,9 +37,6 @@
             </a>
 
         </div>
-        
-
-
         <a (click)="onPatients()" href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
             <i class="fa fa-heartbeat sidebar-icon" aria-hidden="true"></i>
             <span>{{ 'Patients' | translate }}</span>
@@ -56,14 +53,13 @@
             <span>{{ 'SPO Dashboard' | translate }}</span>
         </a>
     </div>
-
     <div class="list-group" *ngIf = "userDesignation == '9' || userDesignation == '10' || userDesignation == '11'">
         <a (click)="subItemsToggle()" href="javascript:void(0)"  class="list-group-item sidebar-link">
             <i class="fa fa-braille sidebar-icon" aria-hidden="true"></i>
             <span>{{ 'Camps' | translate }}</span>
+            <i class="fa fa-angle-down sidebar-icon sidebar-down-arrow" aria-hidden="true"></i>
         </a>
     </div>
-
     <div class="app-sidebar-subitems" *ngIf="showSubItems">
         <div class="list-group" *ngIf = "userDesignation == '9' || userDesignation == '10' || userDesignation == '11'">
             <a (click)="spoCreateCamp()" href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">

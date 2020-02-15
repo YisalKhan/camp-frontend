@@ -1,22 +1,47 @@
 <div class="app-top-bar">
-
+	<div class="app-top-bar-right">
+		<div class="">
+			<ul class="navbar-nav ml-auto app-top-bar-list">
+				<li class="nav-item dropdown" ngbDropdown>
+					<a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+						<i class="app-white-text fa fa-bell"></i> <b class="caret"></b><span class="sr-only">(current)</span> 
+						<span class="app-navbar-right">Notifications<span *ngIf="createCounter != 0" class="badge badge-info app-badge">{{ createCounter }}</span></span>
+					</a>	
+					<div class="dropdown-menu-right" ngbDropdownMenu>
+						<a href="javascript:void(0)" *ngIf="role == 9 || role == 10 || role == 11" (click) = "onApprovedNotification()" class="dropdown-item app-dropdown-item">
+								{{ 'Approved Camps' | translate }} <span class="badge badge-info">{{ approvedCounter }}</span>
+						</a>
+						<a href="javascript:void(0)" *ngIf="role != 9 && role != 10 && role != 11" (click) = "onCreateNotification()" class="dropdown-item app-dropdown-item">
+								{{ 'Create Camp' | translate }} <span class="badge badge-info">{{ createCounter }}</span>
+						</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ml-3" href="javascript:void(0)">
+							<i class="fa fa-sign-out app-white-text" aria-hidden="true"></i>
+							<span class="app-navbar-right" (click)="onLoggedout()">Logout</span>
+					</a>
+				</li>
+			</ul>	
+		</div>
+	</div>
 	<nav class="navbar navbar-expand-lg app-navbar">
 		<div class="navbar-brand app-user-title">Welcome {{ userData.name }}</div>
 		<button class="navbar-toggler"  type="button" (click)="toggleSidebar()" data-toggle="collapse"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon app-toggle-icon"> <i class="fa fa-bars" style="color:#fff; font-size:28px;"></i></span>
 		</button>
-		<div class="collapse navbar-collapse">
+		<!--div class="collapse navbar-collapse">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item dropdown" ngbDropdown>
 					<a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
 						<i class="app-white-text fa fa-bell"></i> <b class="caret"></b><span class="sr-only">(current)</span> 
-						<span class="app-navbar-right">Notifications<span *ngIf="createCounter != 0" class="badge badge-info">{{ createCounter }}</span></span>
+						<span class="app-navbar-right">Notifications<span *ngIf="createCounter != 0" class="badge badge-info app-badge">{{ createCounter }}</span></span>
 					</a>	
 					<div class="dropdown-menu-right" ngbDropdownMenu>
-						<a href="javascript:void(0)" *ngIf="role == 9 || role == 10 || role == 11" (click) = "onApprovedNotification()" class="dropdown-item">
+						<a href="javascript:void(0)" *ngIf="role == 9 || role == 10 || role == 11" (click) = "onApprovedNotification()" class="dropdown-item app-dropdown-item">
 								{{ 'Approved Camps' | translate }} <span class="badge badge-info">{{ approvedCounter }}</span>
 						</a>
-						<a href="javascript:void(0)" *ngIf="role != 9 && role != 10 && role != 11" (click) = "onCreateNotification()" class="dropdown-item">
+						<a href="javascript:void(0)" *ngIf="role != 9 && role != 10 && role != 11" (click) = "onCreateNotification()" class="dropdown-item app-dropdown-item">
 								{{ 'Create Camp' | translate }} <span class="badge badge-info">{{ createCounter }}</span>
 						</a>
 					</div>
@@ -27,9 +52,8 @@
 							<span class="app-navbar-right" (click)="onLoggedout()">Logout</span>
 					</a>
 				</li>
-			</ul>
-			
-		</div>
+			</ul>	
+		</div-->
 	</nav>
 </div>
 

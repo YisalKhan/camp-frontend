@@ -702,11 +702,28 @@ body{
    font-size: 20px;
    font-weight: 100;
 }
+.app-top-bar-right{
+    position: absolute;
+    z-index: 1;
+    right: 30px;
+    top: 25px;
+}
+.app-top-bar-list{
+    flex-direction: row;
+}
 .app-navbar-right{
     color: $white;
     font-size: 14px;
     font-weight: bold;
     padding-left: 5px;
+}
+.app-badge{
+    position: absolute;
+    top: 5px;
+    left: -12px;
+}
+.app-dropdown-item{
+    font-size: 14px;
 }
 .app-navbar{
     background-color: $pink !important;
@@ -971,6 +988,13 @@ body{
     .app-table-doctors td:before{
         left:20px !important;
     }
+    .app-top-bar-right{
+        left:30px !important;
+        top:18px !important;
+    }
+    .app-user-title{
+        visibility: hidden;
+    }
 }
 @include media-breakpoint-down(sm) { 
     
@@ -992,6 +1016,10 @@ body{
     }
     .app-filter-form .app-form-input{
         width:210px;
+    }
+    .app-top-bar-right{
+        right:95px;
+        top:20px;
     }
 }
 @include media-breakpoint-down(md) { 
