@@ -10,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class SidebarComponent implements OnInit {
     isActive: boolean;
     collapsed: boolean;
+    showSubItems:boolean;
     showMenu: string;
     pushRightClass: string;
     userDesignation: any;
