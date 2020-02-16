@@ -18,6 +18,7 @@
                 [icon]="'fa-plus'" 
                 [label]="'Camp'" 
                 [smallLabel]="'Add a'" 
+                [iconImage]="'add-camp-icon'" 
                 [bgIcon]="'bg-green'"
                 [data]="'Click here to add a camp'"
                 >
@@ -30,6 +31,7 @@
                 (click)="onPastCamps()" 
                 [label]="'Camps'" 
                 [smallLabel]="'Previous'" 
+                [iconImage]="'previous-camps-icon'"
                 [bgIcon]="'bg-yellow'"
                 [data]="'Click here to view previous camps'"
                 >
@@ -43,6 +45,7 @@
                 (click)="onAssignedCamps()" 
                 [label]="'Camps'"
                 [smallLabel]="'Current'" 
+                [iconImage]="'current-camps-icon'"
                 [bgIcon]="'bg-red'"
                 [data]="'Click here to view current camps'" 
                 >
@@ -55,7 +58,8 @@
                 [icon]="'fa-share'" 
                 (click)="onFutureCamps()" 
                 [label]="'Camps'"
-                [smallLabel]="'Future'" 
+                [smallLabel]="'Future'"
+                [iconImage]="'future-camps-icon'" 
                 [bgIcon]="'bg-blue'"
                 [data]="'Click here to view Future camps'"
                 >

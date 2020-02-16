@@ -312,7 +312,7 @@ body{
 		td:nth-of-type(7):before { content: "Dr Name"; }
 		td:nth-of-type(8):before { content: "Camp Date/Time"; }
 		td:nth-of-type(9):before { content: "Camp Status"; }
-		td:nth-of-type(10):before { content: "Action"; }
+		td:nth-of-type(10):before { content: "Edit/Approve"; }
     }
 }
 
@@ -885,7 +885,7 @@ body{
     }
     .card-icon-wrapper{
         border-radius: 100px;
-        padding: 20px;
+        padding: 14px 0;
         color: $white;
         width: 80px;
         height: 80px;
@@ -897,6 +897,10 @@ body{
     .card-count{
         font-size: 22px;
         font-weight: 700;
+    }
+    .card-icon-adjust{
+        height: 5px;
+        display: table-row;
     }
 }
 .app-cards-container-middle{
