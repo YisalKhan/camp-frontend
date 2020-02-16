@@ -5,57 +5,57 @@
     </div>
     <div class="list-group" *ngIf = "userDesignation !== '9' && userDesignation !== '10' && userDesignation !== '11'">
         <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
-            <i class="fa fa-th sidebar-icon" aria-hidden="true"></i>
+            <span class="app-sidebar-icon app-icon-dashboard"></span>
             <span>{{ 'Dashboard' | translate }}</span>
         </a>
         <a routerLink="/users" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
-            <i class="fa fa-users sidebar-icon" aria-hidden="true"></i>
+            <span class="app-sidebar-icon app-icon-users"></span>
             <span>{{ 'Users' | translate }}</span>
         </a>
         <a (click)="subItemsToggle()" href="javascript:void(0)"  class="list-group-item sidebar-link">
-            <i class="fa fa-braille sidebar-icon" aria-hidden="true"></i>
+            <span class="app-sidebar-icon app-icon-camps"></span>
             <span>{{ 'Camps' | translate }}</span>
             <i class="fa fa-angle-down sidebar-icon sidebar-down-arrow" aria-hidden="true"></i>
         </a>
 
         <div class="app-sidebar-subitems" *ngIf="showSubItems">
             <a routerLink="/camps/campsRequest" (click)="requestedCamps()" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
-                <i class="fa fa-th-large sidebar-icon" aria-hidden="true"></i>
+                <span class="app-sidebar-icon app-icon-camp-requests"></span>
                 <span>{{ 'Camp Reuests' | translate }}</span>
             </a>
             <a class="list-group-item sidebar-link">
-                <i class="fa fa-undo sidebar-icon" aria-hidden="true"></i>
+                <span class="app-sidebar-icon app-icon-previous-camps"></span>
                 <span>{{ 'Previous Camps' | translate }}</span>
             </a>
             <a class="list-group-item sidebar-link">
-                <i class="fa fa-gg sidebar-icon" aria-hidden="true"></i>
+                <span class="app-sidebar-icon app-icon-current-camps"></span>
                 <span>{{ 'Current Camps' | translate }}</span>
             </a>
             <a class="list-group-item sidebar-link">
-                <i class="fa fa-share sidebar-icon" aria-hidden="true"></i>
+                <span class="app-sidebar-icon app-icon-future-camps"></span>
                 <span>{{ 'Future Camps' | translate }}</span>
             </a>
 
         </div>
         <a (click)="onPatients()" href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
-            <i class="fa fa-heartbeat sidebar-icon" aria-hidden="true"></i>
+            <span class="app-sidebar-icon app-icon-patients"></span>
             <span>{{ 'Patients' | translate }}</span>
         </a>
         <a (click)="onDoctors()" href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
-            <i class="fa fa-stethoscope sidebar-icon" aria-hidden="true"></i>
+            <span class="app-sidebar-icon app-icon-doctors"></span>
             <span>{{ 'Doctors' | translate }}</span>
         </a>
     </div>
 
     <div class="list-group" *ngIf = "userDesignation == '9' || userDesignation == '10' || userDesignation == '11'">
         <a (click)="spoDashboardLink()" href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
-            <i class="fa fa-th sidebar-icon" aria-hidden="true"></i>
+            <span class="app-sidebar-icon app-icon-dashboard"></span>
             <span>{{ 'SPO Dashboard' | translate }}</span>
         </a>
     </div>
     <div class="list-group" *ngIf = "userDesignation == '9' || userDesignation == '10' || userDesignation == '11'">
         <a (click)="subItemsToggle()" href="javascript:void(0)"  class="list-group-item sidebar-link">
-            <i class="fa fa-braille sidebar-icon" aria-hidden="true"></i>
+            <span class="app-sidebar-icon app-icon-camps"></span>
             <span>{{ 'Camps' | translate }}</span>
             <i class="fa fa-angle-down sidebar-icon sidebar-down-arrow" aria-hidden="true"></i>
         </a>
@@ -63,25 +63,25 @@
     <div class="app-sidebar-subitems" *ngIf="showSubItems">
         <div class="list-group" *ngIf = "userDesignation == '9' || userDesignation == '10' || userDesignation == '11'">
             <a (click)="spoCreateCamp()" href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
-                <i class="fa fa-plus sidebar-icon" aria-hidden="true"></i>
+                <span class="app-sidebar-icon app-icon-add-camp"></span>
                 <span>{{ 'Add a Camp' | translate }}</span>
             </a>
         </div>
         <div class="list-group" *ngIf = "userDesignation == '9' || userDesignation == '10' || userDesignation == '11'">
             <a href="javascript:void(0)" class="list-group-item sidebar-link">
-                <i class="fa fa-undo  sidebar-icon" aria-hidden="true"></i>
+                <span class="app-sidebar-icon app-icon-previous-camps"></span>
                 <span>{{ 'Previous Camps' | translate }}</span>
             </a>
         </div>
         <div class="list-group" *ngIf = "userDesignation == '9' || userDesignation == '10' || userDesignation == '11'">
             <a  href="javascript:void(0)" class="list-group-item sidebar-link">
-                <i class="fa fa-gg sidebar-icon" aria-hidden="true"></i>
+                <span class="app-sidebar-icon app-icon-current-camps"></span>
                 <span>{{ 'Current Camps' | translate }}</span>
             </a>
         </div>
         <div class="list-group" *ngIf = "userDesignation == '9' || userDesignation == '10' || userDesignation == '11'">
             <a href="javascript:void(0)" class="list-group-item sidebar-link">
-                <i class="fa fa-share sidebar-icon" aria-hidden="true"></i>
+                <span class="app-sidebar-icon app-icon-future-camps"></span>
                 <span>{{ 'Future Camps' | translate }}</span>
             </a>
         </div>
@@ -89,21 +89,21 @@
 
     <div class="list-group" *ngIf = "userDesignation == '9' || userDesignation == '10' || userDesignation == '11'">
         <a (click)="spoPatient()" href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
-            <i class="fa fa-heartbeat sidebar-icon" aria-hidden="true"></i>
+            <span class="app-sidebar-icon app-icon-patients"></span>
             <span>{{ 'Patients' | translate }}</span>
         </a>
     </div>
 
     <div class="list-group">
         <a (click)="onProfile()" href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
-            <i class="fa fa-id-card-o sidebar-icon" aria-hidden="true"></i>
+            <span class="app-sidebar-icon app-icon-profile"></span>
             <span>{{ 'Profile' | translate }}</span>
         </a>
     </div>
 
     <div class="list-group">
         <a (click)="onLoggedout()" [routerLink]="['/login']" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
-            <i class="fa fa-sign-out sidebar-icon" aria-hidden="true"></i>
+            <span class="app-sidebar-icon app-icon-logout"></span>
             <span>{{ 'Log Out' | translate }}</span>
         </a>
     </div>

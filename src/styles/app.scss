@@ -796,6 +796,53 @@ body{
 .sidebar-icon{
     width: 20px;
 }
+.app-sidebar-icon{
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    display: inline-block;
+    height: 15px;
+}
+.app-icon-dashboard{
+    background-image: url('../assets/images/icons/dashboard.png');
+}
+.app-icon-users{
+    background-image: url('../assets/images/icons/users.png');
+}
+
+.app-icon-camps{
+    background-image: url('../assets/images/icons/camps.png');
+}
+.app-icon-patients{
+    background-image: url('../assets/images/icons/patients.png');
+}
+
+.app-icon-doctors{
+    background-image: url('../assets/images/icons/doctors.png');
+}
+
+.app-icon-profile{
+    background-image: url('../assets/images/icons/profile.png');
+}
+.app-icon-logout{
+    background-image: url('../assets/images/icons/logout.png');
+}
+.app-icon-add-camp{
+    background-image: url('../assets/images/icons/add-camp.png');
+}
+.app-icon-camp-requests{
+    background-image: url('../assets/images/icons/camp-request.png');
+}
+.app-icon-current-camps{
+    background-image: url('../assets/images/icons/current-camps.png');
+}
+.app-icon-previous-camps{
+    background-image: url('../assets/images/icons/previous-camps.png');
+}
+.app-icon-future-camps{
+    background-image: url('../assets/images/icons/future-camps.png');
+}
 .sidebar-link{
     font-weight: bold;
     font-size: 14px;
