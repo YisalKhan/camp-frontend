@@ -14,23 +14,23 @@
     <div class="col-lg-8 mx-auto">
         <div class="app-container">
             <div class="app-user-title">
-                <h2>Mehmood Ahmed</h2>
-                <p>General Manager</p>
+                <h2>{{ data.name }}</h2>
+                <p>{{ data.user_role.role_name }}</p>
             </div>
             <div class="app-profile-content">
                 <div class="row">
                     <div class="col-lg-6 col-sm-6">
-                        <p><strong>Employee ID: </strong><span class="pl-1">ABC-12345</span></p>
-                        <p><strong>Email: </strong><span class="pl-1"> mehmood.ahmed@cclpharma.com</span></p> 
-                        <p><strong>Mobile: </strong><span class="pl-1">0423-5825452</span></p>                  
-                        <p><strong>CNIC: </strong><span class="pl-1">12345-654896-8</span></p> 
+                        <p><strong>Employee ID: </strong><span class="pl-1">{{ data.employee_code }}</span></p>
+                        <p><strong>Email: </strong><span class="pl-1">{{ data.email }}</span></p> 
+                        <p><strong>Mobile: </strong><span class="pl-1">{{ data.mobile_no }}</span></p>                  
+                        <p><strong>CNIC: </strong><span class="pl-1">{{ data.cnic }}</span></p> 
                     </div>
                     <div class="col-lg-6 col-sm-6">
                         <div class="app-team-info">
-                            <p><strong>Team: </strong><span class="pl-1">Star</span></p>
-                            <p><strong>Region: </strong><span class="pl-1">Center-1</span></p> 
-                            <p><strong>District: </strong><span class="pl-1">Faisalabad</span></p>                  
-                            <p><strong>Territory: </strong><span class="pl-1">Faisalabad-National</span></p> 
+                            <p><strong>Team: </strong><span class="pl-1">{{ data.user_team.team_name }}</span></p>
+                            <p><strong>Region: </strong><span class="pl-1">{{ data.user_region.region_name }}</span></p> 
+                            <p><strong>District: </strong><span class="pl-1">{{ data.user_district.district_name }}</span></p>                  
+                            <p><strong>Territory: </strong><span class="pl-1">{{ data.user_territory.territory_name }}</span></p> 
                         </div>
                     </div>
                 </div>

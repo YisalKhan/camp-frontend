@@ -26,7 +26,6 @@ export class ProfileComponent implements OnInit {
 
   getUser() {
     const userId = JSON.parse(localStorage.getItem('userData'))['id'];
-    // console.log(userId);
     this.userService.getEditUser(userId).subscribe(
       res => {
         this.data = res;
