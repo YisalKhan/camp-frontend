@@ -46,22 +46,23 @@ export class MapsComponent implements OnInit, AfterViewInit {
     // if (navigator) {
       const role_id = localStorage.getItem('userDesignation');
       const markers = [];
-      this.pubnub.subscribe({ channels: [environment.pubnubChannel], triggerEvents: true, withPresence: true });
-      this.pubnub.getMessage(environment.pubnubChannel, (msg) => {
-          console.log(msg);
-          this.clearMarkers(markers[msg.user_id]);
-          const marker = new google.maps.Marker({
-              position: new google.maps.LatLng(msg.message.lat, msg.message.lng),
-              map: this.maps,
-          });
-          markers.push(marker);
-      });
-      this.pubnub.getError((err) => {
-          console.log(err);
-      });
-      // if (role_id === '1' || role_id === '2' || role_id === '3') {
+      // tslint:disable-next-line:triple-equals
+      if (role_id == '1' || role_id == '2' || role_id == '3') {
           // listening to pubnub message
-      // }
+          this.pubnub.subscribe({ channels: [environment.pubnubChannel], triggerEvents: true, withPresence: true });
+          this.pubnub.getMessage(environment.pubnubChannel, (msg) => {
+              console.log(msg);
+              this.clearMarkers(markers[msg.user_id]);
+              const marker = new google.maps.Marker({
+                position: new google.maps.LatLng(msg.message.lat, msg.message.lng),
+                map: this.maps,
+              });
+              markers.push(marker);
+          });
+          this.pubnub.getError((err) => {
+              console.log(err);
+          });
+      }
     navigator.geolocation.getCurrentPosition( pos => {
       this.lng = pos.coords.longitude;
       this.lat = pos.coords.latitude;
