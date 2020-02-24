@@ -31,7 +31,8 @@
                     [label]="'Camps'"
 					[smallLabel]="'Previous'" 
 					[iconImage]="'previous-camps-icon'"
-                    [data]="'Click here to view camp information'" 
+					[data]="'Click here to view camp information'"
+					(click)="onPastCamps()"
                     >                  
                 </app-stat>
             </div>
@@ -55,7 +56,8 @@
                     [label]="'Camps'"
 					[smallLabel]="'Future'" 
 					[iconImage]="'future-camps-icon'"
-                    [data]="'Click here to view camp information'" 
+					[data]="'Click here to view camp information'"
+					(click)="onFutureCamps()"
                     >
                 </app-stat>
             </div>

@@ -74,4 +74,10 @@ export class DashboardComponent implements OnInit {
         this.router.navigate(['camps/futureCamps']);
         this.spinner.hide();
     }
+
+    requestedCamps() {
+        this.spinner.show();
+        this.router.navigate(['/camps/campsRequest']);
+        this.spinner.hide();
+    }
 }

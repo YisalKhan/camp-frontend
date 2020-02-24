@@ -130,4 +130,16 @@ export class CampsRequestComponent implements OnInit {
     }
   }
 
+  onPastCamps() {
+    this.spinner.show();
+    this.router.navigate(['camps/spoPastCamps']);
+    this.spinner.hide();
+  }
+
+  onFutureCamps() {
+    this.spinner.show();
+    this.router.navigate(['camps/spoFutureCamps']);
+    this.spinner.hide();
+  }
+
 }

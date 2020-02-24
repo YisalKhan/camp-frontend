@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'app-sidebar',
@@ -21,6 +22,7 @@ export class SidebarComponent implements OnInit {
         private translate: TranslateService,
         private route: ActivatedRoute,
         private router: Router,
+        private spinner: NgxSpinnerService
     ) {
         this.router.events.subscribe(val => {
             if (
@@ -116,5 +118,23 @@ export class SidebarComponent implements OnInit {
 
     onPatients() {
         this.router.navigate(['/patients/allPatients']);
-    } 
+    }
+
+    onPastCamps() {
+        this.spinner.show();
+        this.router.navigate(['camps/spoPastCamps']);
+        this.spinner.hide();
+    }
+
+    onFutureCamps() {
+        this.spinner.show();
+        this.router.navigate(['camps/spoFutureCamps']);
+        this.spinner.hide();
+    }
+
+    onAssignedCamps() {
+        this.spinner.show();
+        this.router.navigate(['camps/approvedCamps']);
+        this.spinner.hide();
+    }
 }

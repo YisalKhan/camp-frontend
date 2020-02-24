@@ -35,4 +35,10 @@ export class CampsComponent implements OnInit {
     this.spinner.hide();
   }
 
+  spoCreateCamp() {
+    this.spinner.show();
+    this.router.navigate(['/camps/requestCamp']);
+    this.spinner.hide();
+  }
+
 }
