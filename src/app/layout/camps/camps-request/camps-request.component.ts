@@ -59,7 +59,8 @@ export class CampsRequestComponent implements OnInit {
   }
 
   getCamps() {
-    this.campService.getCamps().subscribe(
+    const userID = JSON.parse(localStorage.getItem('userData'))['id'];
+    this.campService.getCamps(userID).subscribe(
       (res) => {
         this.camps = res;
     });

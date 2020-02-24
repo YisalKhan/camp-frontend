@@ -45,10 +45,10 @@ export class AddCampsComponent implements OnInit {
     doctorID: ['', Validators.required],
     campDateAndTime: ['', Validators.required],
     campAddress: ['', Validators.required],
-    bpApparatus: ['', Validators.required],
+    bpApparatus: [''],
     campLat: ['129123'],
     campLang: ['129123'],
-    bloodSugarMeter: ['', Validators.required],
+    bloodSugarMeter: [''],
     strips: ['', Validators.required],
     flyers: ['', Validators.required],
     screeingSlips: ['', Validators.required]
