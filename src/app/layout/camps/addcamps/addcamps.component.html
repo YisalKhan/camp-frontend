@@ -36,7 +36,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6">
               <div class="form-group">
                 <label class="required app-form-label">Camp Type</label>
-                <select class="form-control app-form-input" formControlName="campType">
+                <select (ngModelChange)="campTypeChanged()" class="form-control app-form-input" formControlName="campType">
                   <option [disabled]>Select Camp</option>
                   <option value="1">Cardio Camp</option>
                   <option value="2">Dibetic Camp</option>
@@ -68,7 +68,7 @@
           <hr>
           <div class="mt-5">
             <div class="row">
-              <div class="col-lg-4 col-md-4 col-sm-4">
+              <div *ngIf="campType == '1' || campType == '3'" class="col-lg-4 col-md-4 col-sm-4">
                 <div class="form-group">
                   <label class="required app-form-label">BP Apparatus</label>
                   <select class="form-control app-form-input" formControlName="bpApparatus">
@@ -78,7 +78,7 @@
                   </select>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-4 col-sm-4">
+              <div *ngIf="campType == '2' || campType == '3'" class="col-lg-4 col-md-4 col-sm-4">
                 <div class="form-group">
                   <label class="required app-form-label">Blood Sugar Meter</label>
                   <select class="form-control app-form-input" formControlName="bloodSugarMeter">

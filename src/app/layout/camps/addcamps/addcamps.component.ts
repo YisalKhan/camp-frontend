@@ -22,6 +22,7 @@ export class AddCampsComponent implements OnInit {
   map: any;
   address: any;
   dateTime: any;
+  campType: any;
   public phone = {
     guide: true,
     showMask: true,
@@ -119,4 +120,7 @@ export class AddCampsComponent implements OnInit {
     );
   }
 
+  campTypeChanged() {
+    this.campType = this.campForm.value.campType;
+  }
 }
