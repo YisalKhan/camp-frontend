@@ -44,7 +44,8 @@
                     [smallLabel]="'Doctors'" 
                     [iconImage]="'doctors-icon'"
                     [customClass]="'card-icon-adjust'"
-                    [data]="'Click here to view doctor details'" 
+                    [data]="'Click here to view doctor details'"
+                    (click)="onDoctors()"
                     >
                 </app-stat>
             </div>
@@ -56,7 +57,8 @@
                     [label]="'Details'"
                     [smallLabel]="'Patient'" 
                     [iconImage]="'patients-icon'"
-                    [data]="'Click here to view patient details'" 
+                    [data]="'Click here to view patient details'"
+                    (click)="onPatients()"
                     >
                 </app-stat>
             </div>

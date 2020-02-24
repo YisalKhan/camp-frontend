@@ -80,4 +80,16 @@ export class DashboardComponent implements OnInit {
         this.router.navigate(['/camps/campsRequest']);
         this.spinner.hide();
     }
+
+    onDoctors() {
+        this.spinner.show();
+        this.router.navigate(['doctors']);
+        this.spinner.hide();
+    }
+
+    onPatients() {
+        this.spinner.show();
+        this.router.navigate(['/patients/allPatients']);
+        this.spinner.hide();
+    }
 }

@@ -113,11 +113,15 @@ export class SidebarComponent implements OnInit {
     }
 
     onDoctors() {
+        this.spinner.show();
         this.router.navigate(['doctors']);
+        this.spinner.hide();
     }
 
     onPatients() {
+        this.spinner.show();
         this.router.navigate(['/patients/allPatients']);
+        this.spinner.hide();
     }
 
     onPastCamps() {
