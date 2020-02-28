@@ -26,8 +26,8 @@ export class UserService {
     return this.httpClient.post(this.basicURL + '/users', data);
   }
 
-  getUsers() {
-    return this.httpClient.get(this.basicURL + '/users');
+  getUsers(userID) {
+    return this.httpClient.get(this.basicURL + '/users?userID=' + userID);
   }
 
   getEditUser(uid: any) {
@@ -62,8 +62,8 @@ export class UserService {
     return this.httpClient.get(this.basicURL + '/filter/territories');
   }
 
-  getFilterUsers(data) {
-    return this.httpClient.post(this.basicURL + '/get/users/report', data);
+  getFilterUsers(data, userID) {
+    return this.httpClient.post(this.basicURL + '/get/users/report/' + userID, data);
   }
 
   getDoctors(data) {

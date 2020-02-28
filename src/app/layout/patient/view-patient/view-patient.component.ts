@@ -42,8 +42,9 @@ export class ViewPatientComponent implements OnInit {
   }
 
   getAllPatients() {
-    let data = {};
-    this.userService.getAllPatients(data).subscribe(
+    // let data = {};
+    const userID = JSON.parse(localStorage.getItem('userData'))['id'];
+    this.userService.getAllPatients(userID).subscribe(
       res => {
         this.patients = res;
       }
@@ -55,6 +56,8 @@ export class ViewPatientComponent implements OnInit {
   }
 
   onSubmit() {
+    const userID = JSON.parse(localStorage.getItem('userData'))['id'];
+    this.patientsFilter.value.userID = userID;
     this.userService.getAllPatients(this.patientsFilter.value).subscribe(
       res => {
         this.patients = res;

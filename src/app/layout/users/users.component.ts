@@ -53,7 +53,8 @@ export class UsersComponent implements OnInit {
 
   getUsers() {
     this.spinner.show();
-    this.userService.getUsers().subscribe(
+    const userID = JSON.parse(localStorage.getItem('userData'))['id'];
+    this.userService.getUsers(userID).subscribe(
       res => {
         this.users = res;
         this.spinner.hide();
@@ -111,7 +112,8 @@ export class UsersComponent implements OnInit {
 
   onSubmit() {
     this.spinner.show();
-    this.userService.getFilterUsers(this.userFilter.value).subscribe(
+    const userID = JSON.parse(localStorage.getItem('userData'))['id'];
+    this.userService.getFilterUsers(this.userFilter.value, userID).subscribe(
       res => {
         this.users = res;
         this.spinner.hide();

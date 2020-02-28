@@ -29,9 +29,10 @@ export class DoctorsComponent implements OnInit {
   }
 
   getDoctors() {
-    let data: {};
+    const userID = JSON.parse(localStorage.getItem('userData'))['id'];
+    // let data: {userId};
     this.spinner.show();
-    this.userService.getDoctors(data).subscribe(
+    this.userService.getDoctors(userID).subscribe(
       res => {
         this.doctors = res;
         this.spinner.hide();
@@ -41,6 +42,8 @@ export class DoctorsComponent implements OnInit {
 
   onSubmit() {
     this.spinner.show();
+    const userID = JSON.parse(localStorage.getItem('userData'))['id'];
+    this.doctorsFilter.value.userID = userID;
     this.userService.getDoctors(this.doctorsFilter.value).subscribe(
       res => {
         this.doctors = res;
