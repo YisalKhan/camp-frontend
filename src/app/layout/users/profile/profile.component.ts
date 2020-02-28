@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -13,11 +15,14 @@ export class ProfileComponent implements OnInit {
   
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private toastr: ToastrService,
+    private router: Router
     ) { }
   passwordForm = this.formBuilder.group({
+    oldPassword: ['', Validators.required],
     password : ['', Validators.required],
-    repeatPassword : ['', Validators.required],
+    // repeatPassword : ['', Validators.required],
   });
 
   ngOnInit() {
@@ -29,9 +34,23 @@ export class ProfileComponent implements OnInit {
     this.userService.getEditUser(userId).subscribe(
       res => {
         this.data = res;
-        console.log(this.data);
+        console.log(res);
     });
   }
 
-  onSubmit() {}
+  onSubmit() {
+    const userId = JSON.parse(localStorage.getItem('userData'))['id'];
+    this.passwordForm.value.userID = userId;
+    this.userService.updatePassword(this.passwordForm.value).subscribe(
+      res => {
+        if(res['success']) {
+          this.toastr.success(res['success']);
+          this.router.navigate(['/users/profile']);
+        }
+        if(!res['success']) {
+          this.toastr.error(res['error']);
+        }
+      }
+    );
+  }
 }

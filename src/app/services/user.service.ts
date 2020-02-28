@@ -73,4 +73,8 @@ export class UserService {
   getAllPatients(data) {
     return this.httpClient.post(this.basicURL + '/get/patients/report', data);
   }
+
+  updatePassword(data) {
+    return this.httpClient.post(this.basicURL + '/password/reset', data);
+  }
 }

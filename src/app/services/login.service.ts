@@ -15,7 +15,6 @@ export class LoginService {
   ) { }
 
   userLogin(data: any) {
-    // debugger;
     return this.httpClient.post(this.basicURL + '/login', data);
   }
 }

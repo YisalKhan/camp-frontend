@@ -5,6 +5,7 @@ import { routerTransition } from '../router.animations';
 
 import { LoginService } from '../services/login.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private loginService: LoginService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -60,6 +62,10 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['camps']);
           this.spinner.hide();
         }
+      },
+      err => {
+        this.toastr.error(err['error'].error);
+        this.spinner.hide();
       }
     );
   }
