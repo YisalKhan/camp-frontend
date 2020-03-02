@@ -8,10 +8,10 @@
 						<span class="app-navbar-right">Notifications<span *ngIf="createCounter != 0" class="badge badge-info app-badge">{{ createCounter }}</span></span>
 					</a>	
 					<div class="dropdown-menu-right" ngbDropdownMenu>
-						<a href="javascript:void(0)" *ngIf="role == 9 || role == 10 || role == 11" (click) = "onApprovedNotification()" class="dropdown-item app-dropdown-item">
+						<a href="javascript:void(0)" *ngIf="role == 11 || role == 12 || role == 13" (click) = "onApprovedNotification()" class="dropdown-item app-dropdown-item">
 								{{ 'Approved Camps' | translate }} <span class="badge badge-info">{{ approvedCounter }}</span>
 						</a>
-						<a href="javascript:void(0)" *ngIf="role != 9 && role != 10 && role != 11" (click) = "onCreateNotification()" class="dropdown-item app-dropdown-item">
+						<a href="javascript:void(0)" *ngIf="role != 11 && role != 12 && role != 13" (click) = "onCreateNotification()" class="dropdown-item app-dropdown-item">
 								{{ 'Create Camp' | translate }} <span class="badge badge-info">{{ createCounter }}</span>
 						</a>
 					</div>

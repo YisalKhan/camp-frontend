@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
         private translate: TranslateService,
         private router: Router,
         private pubnub: PubNubAngular,
-        private notification: NotificationService
+        private notificationService: NotificationService
     ) {
         this.router.events.subscribe(val => {
             if (
@@ -38,20 +38,20 @@ export class HeaderComponent implements OnInit {
         this.role = localStorage.getItem('userDesignation');
         this.pushRightClass = 'push-right';
         this.userData = JSON.parse(localStorage.getItem('userData'));
-        this.notification.getUnreadNotifications(this.userData['id']).subscribe(res => {
-            if (this.role == '9' || this.role == '10' || this.role == '11') {
+        this.notificationService.getUnreadNotifications(this.userData['id']).subscribe(res => {
+            if (this.role == '11' || this.role == '12' || this.role == '13') {
                 this.approvedCounter = res;
             } else {
                 this.createCounter = res;
             }
         });
         this.pubnub.getMessage('createNotification', (msg) => {
-            this.notification.getUnreadNotifications(this.userData['id']).subscribe(res => {
+            this.notificationService.getUnreadNotifications(this.userData['id']).subscribe(res => {
                 this.createCounter = res;
             });
         });
         this.pubnub.getMessage('approvedNotification', (msg) => {
-            this.notification.getUnreadNotifications(this.userData['id']).subscribe(res => {
+            this.notificationService.getUnreadNotifications(this.userData['id']).subscribe(res => {
                 this.approvedCounter = res;
             });
         });
@@ -83,12 +83,20 @@ export class HeaderComponent implements OnInit {
 
     onApprovedNotification() {
         this.approvedCounter = 0;
-        this.router.navigate(['/camps/approvedCamps']);
+        this.notificationService.markAsReadNotification(this.userData['id']).subscribe(
+            res => {
+                this.router.navigate(['/camps/approvedCamps']);
+            }
+        );
     }
 
     onCreateNotification() {
         this.createCounter = 0;
-        this.router.navigate(['/camps/campsRequest']);
+        this.notificationService.markAsReadNotification(this.userData['id']).subscribe(
+            res => {
+                this.router.navigate(['/camps/campsRequest']);
+            }
+        );
     }
 
     onLoggedout() {

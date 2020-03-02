@@ -16,4 +16,8 @@ export class NotificationService {
   getUnreadNotifications(id: any) {
     return this.httpClient.get(this.basicURL + '/get/notifications/unread/' + id);
   }
+
+  markAsReadNotification(userID: any) {
+    return this.httpClient.get(this.basicURL + '/notification/mark/read/' + userID);
+  }
 }
