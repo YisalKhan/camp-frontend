@@ -8,6 +8,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { from } from 'rxjs';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { from } from 'rxjs';
     ReactiveFormsModule,
     NgxSpinnerModule
   ],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent, ForgetPasswordComponent]
 })
 export class LoginModule {}
