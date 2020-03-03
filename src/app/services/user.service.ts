@@ -77,4 +77,16 @@ export class UserService {
   updatePassword(data) {
     return this.httpClient.post(this.basicURL + '/password/reset', data);
   }
+
+  onForgetPassword(data: any) {
+    return this.httpClient.post(this.basicURL + '/password/create', data);
+  }
+
+  tokenVerification(token: any) {
+    return this.httpClient.get(this.basicURL + '/password/find/' + token);
+  }
+
+  onResetPassword(data: any) {
+    return this.httpClient.post(this.basicURL + '/password/reset', data);
+  }
 }
