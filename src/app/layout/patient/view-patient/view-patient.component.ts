@@ -16,6 +16,7 @@ export class ViewPatientComponent implements OnInit {
 
   patients: any;
   allPatients: any;
+  viewPatients: any;
 
   constructor(
     private toastr: ToastrService,
@@ -36,23 +37,37 @@ export class ViewPatientComponent implements OnInit {
         this.allPatients = params[0]['path'];
         this.getAllPatients();
       }
-    })
-    this.spinner.show();
-    this.spinner.hide();
+      if (params[0]['path'] == 'viewPatients') {
+        this.viewPatients = params[0]['path'];
+        this.getSpoPatients();
+      }
+    });
   }
 
   getAllPatients() {
-    // let data = {};
+    this.spinner.show();
     const userID = JSON.parse(localStorage.getItem('userData'))['id'];
     this.userService.getAllPatients(userID).subscribe(
       res => {
         this.patients = res;
+        this.spinner.hide();
       }
     );
   }
 
-  editPatient(pID) {
-    console.log('patient');
+  getSpoPatients() {
+    this.spinner.show();
+    const campId = localStorage.getItem('campId');
+    this.userService.getSpoPatients(campId).subscribe(
+      res => {
+        this.patients = res;
+        this.spinner.hide();
+      }
+    );
+  }
+
+  onEditPatient(pID: any) {
+    console.log(pID);
   }
 
   onSubmit() {

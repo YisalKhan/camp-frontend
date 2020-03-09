@@ -89,4 +89,8 @@ export class UserService {
   onResetPassword(data: any) {
     return this.httpClient.post(this.basicURL + '/password/reset', data);
   }
+  
+  getSpoPatients(campId: any) {
+    return this.httpClient.get(this.basicURL + '/patients/' + campId);
+  }
 }

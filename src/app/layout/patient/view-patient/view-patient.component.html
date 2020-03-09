@@ -64,6 +64,7 @@
                                         <th role="columnheader">Patient Name</th>
                                         <th role="columnheader">Patient Contact</th>
                                         <th role="columnheader">Gender</th>
+                                        <th *ngIf="viewPatients">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody role="rowgroup">
@@ -71,6 +72,9 @@
                                     <td role="cell">{{ patient.patient_name }}</td>
                                     <td role="cell">{{ patient.phone_no }}</td>
                                     <td role="cell">{{ patient.gender }}</td>
+                                    <td *ngIf="viewPatients">
+                                        <button type="button" class="app-icon-btn app-blue-text" (click)="onEditPatient(patient.id)"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
