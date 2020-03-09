@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     this.loginService.userLogin(this.loginForm.value).subscribe(
       res => {
         this.data = res['success'];
-        if (this.data.user.designation !== '9' && this.data.user.designation !== '10' && this.data.user.designation !== '11') {
+        if (this.data.user.designation !== '11' && this.data.user.designation !== '12' && this.data.user.designation !== '13') {
           localStorage.setItem('isLoggedin', 'true');
           localStorage.setItem('userData', JSON.stringify(this.data.user));
           localStorage.setItem('userDesignation', this.data.user.designation);
