@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { CampService } from '../../services/camp.service';
 
@@ -16,13 +17,19 @@ import { ToastrService } from 'ngx-toastr';
 export class PatientComponent implements OnInit {
 
   campType: any;
+  editPatientPath: any;
+  isReadonly: any = false;
+  patientId: any;
+  patientData: any;
   optionValue1: any; optionValue2: any; optionValue3: any; optionValue4: any; optionValue5: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private spinner: NgxSpinnerService,
     private campService: CampService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   patientForm = this.formBuilder.group({
@@ -41,19 +48,13 @@ export class PatientComponent implements OnInit {
   });
 
   ngOnInit() {
-    this.campType = localStorage.getItem('campType');
   }
-
   onSubmit() {
-    // this.spinner.show();
     const campId = localStorage.getItem('campId');
     this.patientForm.value.camp_id = campId;
     this.campService.addPatient(this.patientForm.value).subscribe(
-      // res => console.log(res);
-      // this.patientForm.reset();
       res => {
         this.toastr.success(res['success']);
-        // console.log(res);
         this.patientForm.reset();
       }
     );
