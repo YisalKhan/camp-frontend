@@ -5,7 +5,10 @@
 				<li class="nav-item dropdown" ngbDropdown>
 					<a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
 						<i class="app-white-text fa fa-bell"></i> <b class="caret"></b><span class="sr-only">(current)</span> 
-						<span class="app-navbar-right">Notifications<span *ngIf="createCounter != 0" class="badge badge-info app-badge">{{ createCounter }}</span></span>
+						<span class="app-navbar-right">Notifications
+							<span *ngIf="createCounter != 0 && (role != '11' || role != '12' || role != '13')" class="badge badge-info app-badge">{{ createCounter }}</span>
+							<span *ngIf="approvedCounter != 0 && (role == '11' || role == '12' || role == '13')" class="badge badge-info app-badge">{{ approvedCounter }}</span>
+						</span>
 					</a>	
 					<div class="dropdown-menu-right" ngbDropdownMenu>
 						<a href="javascript:void(0)" *ngIf="role == 11 || role == 12 || role == 13" (click) = "onApprovedNotification()" class="dropdown-item app-dropdown-item">

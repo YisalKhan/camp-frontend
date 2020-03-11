@@ -111,7 +111,7 @@ export class CampsRequestComponent implements OnInit {
 
   onSubmit(){
     this.spinner.show();
-    this.campService.getFilteredCamps(this.campFilter.value).subscribe(
+    this.campService.getFilteredCamps(this.campFilter.value, '1').subscribe(
       (res) => {
         this.camps = res;
         this.spinner.hide();
@@ -141,6 +141,16 @@ export class CampsRequestComponent implements OnInit {
     this.spinner.show();
     this.router.navigate(['camps/spoFutureCamps']);
     this.spinner.hide();
+  }
+
+  onDownloadExcel(){
+    this.campFilter.value.action = 'excel';
+    this.spinner.show();
+    this.campService.getFilteredCamps(this.campFilter.value, '1').subscribe(
+      (res) => {
+        this.camps = res;
+        this.spinner.hide();
+    });
   }
 
 }

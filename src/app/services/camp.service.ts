@@ -50,8 +50,8 @@ export class CampService {
     return this.httpClient.put(this.basicURL + '/camps/' + campId, data);
   }
 
-  getFilteredCamps(data) {
-    return this.httpClient.post(this.basicURL + '/get/camps/present', data);
+  getFilteredCamps(data:any, userID:any) {
+    return this.httpClient.post(this.basicURL + '/get/camps/present/'+ userID, data);
   }
 
   getPreviousCamps() {
