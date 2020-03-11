@@ -67,7 +67,7 @@ export class ViewPatientComponent implements OnInit {
   }
 
   onEditPatient(pID: any) {
-    console.log(pID);
+    this.router.navigate(['patients/editPatient', pID]);
   }
 
   onSubmit() {

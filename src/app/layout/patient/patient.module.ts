@@ -7,6 +7,7 @@ import { ViewPatientComponent } from './view-patient/view-patient.component';
 import { PageHeaderModule } from 'src/app/shared';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { EditPatientComponent } from './edit-patient/edit-patient.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +18,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   ],
   declarations: [
     PatientComponent,
-    ViewPatientComponent
+    ViewPatientComponent,
+    EditPatientComponent
   ]
 })
 export class PatientModule {}

@@ -69,4 +69,12 @@ export class CampService {
   getSpoFutureCamps(data) {
     return this.httpClient.post(this.basicURL + '/get/camps/present/' + data['userID'], data);
   }
+
+  getPatient(patientId: any) {
+    return this.httpClient.get(this.basicURL + '/patient/' + patientId);
+  }
+
+  updatePatientDrugs(patientId: any, data: any) {
+    return this.httpClient.post(this.basicURL + '/patient/drugs/add/' + patientId, data);
+  }
 }
