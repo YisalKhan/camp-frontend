@@ -19,6 +19,7 @@ export class ApprovedCampsComponent implements OnInit {
   campData: any;
   past: any;
   future: any;
+  heading: any;
 
   constructor(
     private campService: CampService,
@@ -32,9 +33,11 @@ export class ApprovedCampsComponent implements OnInit {
     this.route.url.subscribe((params: Params) => {
       if (params[0]['path'] == 'spoPastCamps') {
         this.past = params[0]['path'];
+        this.heading = 'Previous Camps';
       }
       if (params[0]['path'] == 'spoFutureCamps') {
         this.future = params[0]['path'];
+        this.heading = 'Future Camps';
       }
     });
     if (this.past == 'spoPastCamps') {
@@ -42,6 +45,7 @@ export class ApprovedCampsComponent implements OnInit {
     } else if (this.future == 'spoFutureCamps') {
       this.getFutureCamps();
     } else {
+      this.heading = 'Current Camps';
       this.getCamps();
     }
   }
