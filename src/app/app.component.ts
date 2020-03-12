@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
           const role_id = localStorage.getItem('userDesignation');
           const user_data = JSON.parse(localStorage.getItem('userData'));
         // tslint:disable-next-line:triple-equals
-          if (role_id == '9') {
+          if (role_id == '11' || role_id == '12' || role_id == '13') {
               navigator.geolocation.watchPosition((data) => {
                   const lat_lng = {
                       'user_id': user_data.id,

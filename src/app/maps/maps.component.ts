@@ -47,7 +47,7 @@ export class MapsComponent implements OnInit, AfterViewInit {
       const role_id = localStorage.getItem('userDesignation');
       const markers = [];
       // tslint:disable-next-line:triple-equals
-      if (role_id == '1' || role_id == '2' || role_id == '3') {
+      if (role_id == '1' || role_id == '2' || role_id == '3' || role_id == '4' || role_id == '5' || role_id == '6' ||role_id == '7' || role_id == '8' || role_id == '9' || role_id == '10') {
           // listening to pubnub message
           this.pubnub.subscribe({ channels: [environment.pubnubChannel], triggerEvents: true, withPresence: true });
           this.pubnub.getMessage(environment.pubnubChannel, (msg) => {
