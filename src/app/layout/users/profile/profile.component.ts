@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +19,8 @@ export class ProfileComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
     ) { }
   passwordForm = this.formBuilder.group({
     oldPassword: ['', Validators.required],
@@ -31,6 +33,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getUser() {
+    this.spinner.show();
     const userId = JSON.parse(localStorage.getItem('userData'))['id'];
     this.userService.getEditUser(userId).subscribe(
       res => {
@@ -44,26 +47,33 @@ export class ProfileComponent implements OnInit {
         this.userRegion = res['user_region']['region_name'];
         this.userDistrict = res['user_district']['district_name'];
         this.userTerritory = res['user_territory']['territory_name'];
+      this.spinner.hide();
     });
   }
 
   onSubmit() {
+    this.spinner.show();
     const userId = JSON.parse(localStorage.getItem('userData'))['id'];
     this.passwordForm.value.userID = userId;
+    this.passwordForm.value.email = this.email;
     if (this.passwordForm.value.password == this.passwordForm.value.repeatPassword) {
       this.userService.updatePassword(this.passwordForm.value).subscribe(
         res => {
           if(res['success']) {
             this.toastr.success(res['success']);
+            this.passwordForm.reset();
             this.router.navigate(['/users/profile']);
+            this.spinner.hide();
           }
         },
         err => {
           this.toastr.error(err['error'].message);
+          this.spinner.hide();
         }
       );
     } else {
       this.toastr.error('Password does not match.');
+      this.spinner.hide();
     }
   }
 }
