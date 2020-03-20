@@ -148,7 +148,7 @@ export class CampsRequestComponent implements OnInit {
     this.spinner.show();
     this.campService.getFilteredCamps(this.campFilter.value, '1').subscribe(
       (res) => {
-        this.camps = res;
+        window.open(res, '_blank');
         this.spinner.hide();
     });
   }
