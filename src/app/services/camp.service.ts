@@ -13,40 +13,40 @@ export class CampService {
     private httpClient: HttpClient,
   ) { }
 
-  createCamp(data) {
+  createCamp(data: any) {
     return this.httpClient.post(this.basicURL + '/camps', data);
   }
 
-  getCamps(userID) {
+  getCamps(userID: any) {
     return this.httpClient.get(this.basicURL + '/camps?userID=' + userID);
   }
 
-  viewCamp(campID) {
+  viewCamp(campID: any) {
     return this.httpClient.get(this.basicURL + '/camps/' + campID);
   }
 
-  campApprove(campID, userID) {
+  campApprove(campID: any, userID: any) {
     return this.httpClient.get(this.basicURL + '/camp/approval/' + campID + '/' + userID);
   }
 
-  getApprovedCamps(userID) {
+  getApprovedCamps(userID: any) {
     return this.httpClient.get(this.basicURL + '/approved/camps/' + userID);
   }
 
-  addPatient(data) {
+  addPatient(data: any) {
     // debugger;
     return this.httpClient.post(this.basicURL + '/patient/add', data);
   }
 
-  getCampPermission(data) {
+  getCampPermission(data: any) {
     return this.httpClient.post(this.basicURL + '/start/camp', data);
   }
 
-  deleteCamp(campId) {
+  deleteCamp(campId: any) {
     return this.httpClient.delete(this.basicURL + '/camps/' + campId);
   }
 
-  updateCamp(campId, data) {
+  updateCamp(campId: any, data: any) {
     return this.httpClient.put(this.basicURL + '/camps/' + campId, data);
   }
 
@@ -58,15 +58,15 @@ export class CampService {
     return this.httpClient.post(this.basicURL + '/get/camps/present', {});
   }
 
-  getFutureCamps(data) {
+  getFutureCamps(data: any) {
     return this.httpClient.post(this.basicURL + '/get/camps/present', data);
   }
 
-  getSpoPastCamps(userID) {
-    return this.httpClient.post(this.basicURL + '/get/camps/present/' + userID, {});
+  getSpoPastCamps(userID: any) {
+    return this.httpClient.post(this.basicURL + '/get/camps/present/' + userID, {campReportType: 'previous'});
   }
 
-  getSpoFutureCamps(data) {
+  getSpoFutureCamps(data: any) {
     return this.httpClient.post(this.basicURL + '/get/camps/present/' + data['userID'], data);
   }
 

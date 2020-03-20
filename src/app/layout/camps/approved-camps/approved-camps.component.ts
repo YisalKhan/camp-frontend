@@ -76,7 +76,7 @@ export class ApprovedCampsComponent implements OnInit {
     let startDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
     let endDate = (new Date().getFullYear()+1).toString() + '-' + (new Date().getMonth()+1).toString() + '-' + (new Date().getDate()).toString();
     const userID = JSON.parse(localStorage.getItem('userData'))['id'];
-    let data = {startDate, endDate, userID};
+    let data = {startDate, endDate, userID, campReportType: 'future'};
     this.spinner.show();
     this.campService.getSpoFutureCamps(data).subscribe(
       res => {
