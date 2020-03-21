@@ -107,6 +107,8 @@ export class ApprovedCampsComponent implements OnInit {
             else {
               this.toastr.success(res1['success']);
               this.router.navigate(['/patients']);
+              localStorage.setItem('CampLat', this.campData.lat);
+              localStorage.setItem('CampLng', this.campData.lng);
               this.spinner.hide();
             }
           },

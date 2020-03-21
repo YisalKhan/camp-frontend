@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angula
 // import { AppComponent } from '../app.component';
 import { PubNubAngular } from 'pubnub-angular2';
 import { environment } from '../../environments/environment';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
@@ -15,7 +16,7 @@ export class MapsComponent implements OnInit, AfterViewInit {
   // lat = 31.518875299999998;
   // lng = 74.3082251;
   // marker: any;
-  constructor(public pubnb: PubNubAngular) {
+  constructor(public pubnb: PubNubAngular, private toastr: ToastrService) {
     // pubnb.init({ publishKey: 'pub-c-02414160-d913-45c5-8531-0eaa1dffa163', subscribeKey: 'sub-c-1901bc68-330b-11ea-a820-f6a3bb2caa12' });
     this.pubnub = pubnb;
   }
@@ -59,6 +60,13 @@ export class MapsComponent implements OnInit, AfterViewInit {
               });
               markers.push(marker);
           });
+          if(localStorage.getItem('CampLat') && localStorage.getItem('CampLng')) {
+            this.pubnub.subscribe({ channels: [environment.pubnubCampLocaion], triggerEvents: true, withPresence: true });
+            this.pubnub.getMessage(environment.pubnubCampLocaion, (msg) => {
+              console.log(msg);
+              this.toastr.info(msg['message']);
+            });
+          }
           this.pubnub.getError((err) => {
               console.log(err);
           });

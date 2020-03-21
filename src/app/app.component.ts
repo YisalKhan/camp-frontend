@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PubNubAngular } from 'pubnub-angular2';
 import { environment } from '../environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent implements OnInit {
   lng: any;
   pubnub: any;
 
-    constructor(pubnub: PubNubAngular) {
+    constructor(pubnub: PubNubAngular, private toastr: ToastrService) {
         pubnub.init({ publishKey: 'pub-c-02414160-d913-45c5-8531-0eaa1dffa163', subscribeKey: 'sub-c-1901bc68-330b-11ea-a820-f6a3bb2caa12' });
         this.pubnub = pubnub;
     }
@@ -41,7 +42,13 @@ export class AppComponent implements OnInit {
                   });
                   console.log(data);
                 //   navigator.geolocation.
-                console.log(this.distance(data.coords.latitude, data.coords.longitude,31.5147, 74.3114));
+                if(this.distance(data.coords.latitude, data.coords.longitude, localStorage.getItem('CampLat'), localStorage.getItem('CampLng')) > 1) {
+                    // this.toastr.error();
+                    this.pubnub.publish({ channel: environment.pubnubCampLocaion, message: 'SPO is out of his camp' }, (res) => {
+                        console.log(res, 'publish');
+                    });
+                }
+                // console.log(this.distance(data.coords.latitude, data.coords.longitude,31.5147, 74.3114));
               });
           } /*else if (role_id === '1' || role_id === '2' || role_id === '3') {
               // listening to pubnub message
@@ -63,23 +70,21 @@ export class AppComponent implements OnInit {
     //   }
     }
 
-    distance(lat1, lon1, lat2, lon2) 
-    {
-      var R = 6371; // km
-      var dLat = this.toRad(lat2-lat1);
-      var dLon = this.toRad(lon2-lon1);
+    distance(lat1, lon1, lat2, lon2) {
+      const R = 6371; // km
+      const dLat = this.toRad(lat2-lat1);
+      const dLon = this.toRad(lon2-lon1);
       lat1 = this.toRad(lat1);
       lat2 = this.toRad(lat2);
 
-      var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-        Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
-      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-      var d = R * c;
+      const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      const d = R * c;
       return d;
     }
     
-    toRad(Value) 
-    {
+    toRad(Value) {
         return Value * Math.PI / 180;
     }
 }
