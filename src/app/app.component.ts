@@ -35,7 +35,13 @@ export class AppComponent implements OnInit {
                   // publishing on pubnub channel
                   this.pubnub.publish({ channel: environment.pubnubChannel, message: lat_lng }, (response) => {
                       console.log(response, 'published');
+                    //   navigator.geolocation.getCurrentPosition((pos)=> {
+                    //     console.log(pos);
+                    //   });
                   });
+                  console.log(data);
+                //   navigator.geolocation.
+                console.log(this.distance(data.coords.longitude, data.coords.latitude, 74.3114, 31.5147));
               });
           } /*else if (role_id === '1' || role_id === '2' || role_id === '3') {
               // listening to pubnub message
@@ -56,4 +62,18 @@ export class AppComponent implements OnInit {
         });
     //   }
     }
+
+    distance(lon1, lat1, lon2, lat2) {
+        const R = 6371; // Radius of the earth in km
+        const dLat = (lat2-lat1);  // Javascript functions in radians
+        const dLon = (lon2-lon1);
+        // console.log('Latitude Difference ' + dLat);
+        // console.log('Longitude Difference ' + dLon); 
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(lat1) * Math.cos(lat2) * 
+                Math.sin(dLon/2) * Math.sin(dLon/2); 
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+        const d = R * c; // Distance in km
+        return d;
+      }
 }

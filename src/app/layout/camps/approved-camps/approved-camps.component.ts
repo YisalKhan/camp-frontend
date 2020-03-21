@@ -102,6 +102,7 @@ export class ApprovedCampsComponent implements OnInit {
           res1 => {
             if(res1['error']) {
               this.toastr.error(res1['error']);
+              this.spinner.hide();
             }
             else {
               this.toastr.success(res1['success']);
