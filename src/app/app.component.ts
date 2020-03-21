@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
                   });
                   console.log(data);
                 //   navigator.geolocation.
-                console.log(this.distance(data.coords.longitude, data.coords.latitude, 74.3114, 31.5147));
+                console.log(this.distance(data.coords.latitude, data.coords.longitude,31.5147, 74.3114));
               });
           } /*else if (role_id === '1' || role_id === '2' || role_id === '3') {
               // listening to pubnub message
@@ -63,17 +63,23 @@ export class AppComponent implements OnInit {
     //   }
     }
 
-    distance(lon1, lat1, lon2, lat2) {
-        const R = 6371; // Radius of the earth in km
-        const dLat = (lat2-lat1);  // Javascript functions in radians
-        const dLon = (lon2-lon1);
-        // console.log('Latitude Difference ' + dLat);
-        // console.log('Longitude Difference ' + dLon); 
-        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.cos(lat1) * Math.cos(lat2) * 
-                Math.sin(dLon/2) * Math.sin(dLon/2); 
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-        const d = R * c; // Distance in km
-        return d;
-      }
+    distance(lat1, lon1, lat2, lon2) 
+    {
+      var R = 6371; // km
+      var dLat = this.toRad(lat2-lat1);
+      var dLon = this.toRad(lon2-lon1);
+      lat1 = this.toRad(lat1);
+      lat2 = this.toRad(lat2);
+
+      var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+      var d = R * c;
+      return d;
+    }
+    
+    toRad(Value) 
+    {
+        return Value * Math.PI / 180;
+    }
 }
