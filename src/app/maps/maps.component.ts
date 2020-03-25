@@ -53,7 +53,7 @@ export class MapsComponent implements OnInit, AfterViewInit {
           this.pubnub.subscribe({ channels: [environment.pubnubChannel], triggerEvents: true, withPresence: true });
           this.pubnub.getMessage(environment.pubnubChannel, (msg) => {
               console.log(msg);
-              this.clearMarkers(markers[msg.user_id]);
+              this.clearMarkers(markers[msg.user_id], msg);
               const marker = new google.maps.Marker({
                 position: new google.maps.LatLng(msg.message.lat, msg.message.lng),
                 map: this.maps,
@@ -89,8 +89,14 @@ export class MapsComponent implements OnInit, AfterViewInit {
   //   // console.log(navigator.geolocation.watchPosition(onSuccess, onError));
   //   return navigator.geolocation.watchPosition(onSuccess, onError);
   // }
-  clearMarkers(marker) {
-      if (typeof marker !== 'undefined') {
+  clearMarkers(marker, user_info) {
+      const date = new Date();
+      const dateTime = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+
+      let diff = Math.abs(<any>new Date(dateTime) - <any>new Date(user_info.last_activity));
+      let minutes = Math.floor((diff/1000)/60);
+
+      if (typeof marker !== 'undefined' || minutes > 1) {
           marker.setMap(null);
       }
   }
