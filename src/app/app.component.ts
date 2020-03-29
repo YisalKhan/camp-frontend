@@ -27,11 +27,15 @@ export class AppComponent implements OnInit {
           const user_data = JSON.parse(localStorage.getItem('userData'));
         // tslint:disable-next-line:triple-equals
           if (role_id == '11' || role_id == '12' || role_id == '13') {
+            // get current date and time and send it along lat/lng of user to check if the user is in active or not
+            const date = new Date();
+            const dateTime = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
               navigator.geolocation.watchPosition((data) => {
                   const lat_lng = {
                       'user_id': user_data.id,
                       'lat': data.coords.latitude,
-                      'lng': data.coords.longitude
+                      'lng': data.coords.longitude,
+                      'last_activity': dateTime
                   };
                   // publishing on pubnub channel
                   this.pubnub.publish({ channel: environment.pubnubChannel, message: lat_lng }, (response) => {
