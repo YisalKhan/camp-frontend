@@ -40,11 +40,16 @@ export class PatientComponent implements OnInit {
     patientDiastolic: [''],
     patientSystolic: [''],
     patientBloodSugar: [''],
-    companyName1: [''],
-    companyName2: [''],
-    companyName3: [''],
-    companyName4: [''],
-    companyName5: ['']
+    isCompanyDrug1: [''],
+    isCompanyDrug2: [''],
+    isCompanyDrug3: [''],
+    isCompanyDrug4: [''],
+    isCompanyDrug5: [''],
+    drugName1: [''],
+    drugName2: [''],
+    drugName3: [''],
+    drugName4: [''],
+    drugName5: [''],
   });
 
   ngOnInit() {

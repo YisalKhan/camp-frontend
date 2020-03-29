@@ -92,20 +92,202 @@
                     <select class="form-control app-form-input" formControlName="companyName1" [(ngModel)] = "optionValue1">
                       <option>Select Option</option>
                       <option value="1">Our Company</option>
-                      <option value="2">Other Company</option>
+                      <option value="0">Other Company</option>
                     </select>
                   </div>
-                  <ng-container *ngIf = "optionValue1 == 2">
+                  <ng-container *ngIf = "optionValue1 == 0">
                     <div class="mb-3">
-                      <input class="form-control app-form-input app-form-input-light"  placeholder="Systolic" />
+                      <select class="form-control app-form-input app-form-input-light" formControlName="drugName1">
+                        <option>Select Option</option>
+                        <option>Hydrochlorothiazide</option>
+                        <option>Chlorthalidone</option>
+                        <option>Metolazone</option>
+                        <option>Indapamide</option>
+                        <option>Triamterene</option>
+                        <option>Amiloride</option>
+                        <option>Furosemide</option>
+                        <option>Torsemide</option>
+                        <option>Bumetanide</option>
+                        <option>Fosinopril</option>
+                        <option>Captopril</option>
+                        <option>Ramipril</option>
+                        <option>Enalapril</option>
+                        <option>Lisinopril</option>
+                        <option>Quinapril</option>
+                        <option>Losartan</option>
+                        <option>Olmesartan</option>
+                        <option>Eprosartan</option>
+                        <option>Azilsartan</option>
+                        <option>Atenolol</option>
+                        <option>Metoprolol</option>
+                        <option>Propranolol</option>
+                        <option>Bisoprolol</option>
+                        <option>Timolol</option>
+                        <option>Hydralazine</option>
+                        <option>Minoxidil</option>
+                        <option>Nifedipine</option>
+                        <option>Clevidipine</option>
+                        <option>Amlodipine</option>
+                        <option>Felodipine</option>
+                        <option>Diltiazem</option>
+                        <option>Verapamil</option>
+                        <option>Amlodipine/benazepril</option> 
+                        <option>Amlodipine/olmesartan</option>
+                        <option>Amlodipine/telmisartan</option>
+                        <option>Amlodipine/valsartan</option>
+                        <option>Amlodipine/valsartan/hydrochlorothiazide</option>
+                        <option>Amlodipine/aliskiren</option>
+                        <option>Amlodipine/aliskiren/hydrochlorothiazide</option>
+                        <option>Olmesartan/amlodipine/hydrochlorothiazide</option>
+                        <option>Trandolapril/verapamil</option>
+                        <option>Benazepril/hydrochlorothiazide</option>
+                        <option>Captopril/hydrochlorothiazide</option>
+                        <option>Enalapril/hydrochlorothiazide</option>
+                        <option>Fosinopril/hydrochlorothiazide</option>
+                        <option>Lisinopril/hydrochlorothiazide</option>
+                        <option>Moexipril/hydrochlorothiazide</option>
+                        <option>Quinapril/hydrochlorothiazide</option>
+                        <option>Candesartan/hydrochlorothiazide</option>
+                        <option>Eprosartan/hydrochlorothiazide</option>
+                        <option>Irbesartan/hydrochlorothiazide</option>
+                        <option>Losartan/hydrochlorothiazide</option>
+                        <option>Olmesartan/hydrochlorothiazide</option>
+                        <option>Telmisartan/hydrochlorothiazide</option>
+                        <option>Valsartan/hydrochlorothiazide</option>
+                        <option>Atenolol/chlorthalidone</option>
+                        <option>Bisoprolol/hydrochlorothiazide</option>
+                        <option>Metoprolol/hydrochlorothiazide</option>
+                        <option>Nadolol/bendroflumethiazide</option>
+                        <option>Propranolol/hydrochlorothiazide</option>
+                        <option>Aliskiren/hydrochlorothiazide</option>
+                        <option>Clonidine/chlorthalidone</option>
+                        <option>Spironolactone/hydrochlorothiazide</option>
+                        <option>Triamterene/hydrochlorothiazide</option>
+                        <option>Methyldopa/hydrochlorothiazide</option>
+                        <option>Amiloride/hydrochlorothiazide</option>
+                        <option>Atorvastatin</option>
+                        <option>Cerivastatin</option>
+                        <option>Fluvastatin</option>
+                        <option>Lovastatin</option>
+                        <option>Mevastatin</option>
+                        <option>Pitavastatin</option>
+                        <option>Pravastatin</option>
+                        <option>Rosuvastatin</option>
+                        <option>Simvastatin</option>
+                        <option>Simvastatin + ezetimibe</option>
+                        <option>Lovastatin + niacin extended-release</option>
+                        <option>Atorvastatin + amlodipine</option>
+                        <option>Simvastatin + niacin extended-release</option>
+                        <option>Aluminium clofibrate</option>
+                        <option>Bezafibrate</option>
+                        <option>Ciprofibrate</option>
+                        <option>Choline fenofibrate</option>
+                        <option>Clinofibrate</option>
+                        <option>Clofibrate</option>
+                        <option>Clofibride</option>
+                        <option>Fenofibrate</option>
+                        <option>Gemfibrozil</option>
+                        <option>Ronifibrate</option>
+                        <option>Simfibrate</option>
+                        <option>Beta-sitosterol</option>
+                        <option>campesterol</option>
+                        <option>cholesterol</option>
+                        <option>stigmasterol</option>
+                        <option>stigmastanol</option>
+                        <option>heparin</option>
+                        <option>warfarin</option>
+                        <option>rivaroxaban</option>
+                        <option>dabigatran</option>
+                        <option>apixaban</option>
+                        <option>edoxaban</option>
+                        <option>enoxaparin</option>
+                        <option>fondaparinux</option>
+                        <option>clopidogrel</option>
+                        <option>ticagrelor</option>
+                        <option>prasugrel </option>
+                        <option>dipyridamole</option>
+                        <option>dipyridamole/aspirin </option>
+                        <option>ticlopidine </option>
+                        <option>eptifibatide </option>
+                        <option>Glimepiride</option>
+                        <option>Gliclazide</option>
+                        <option>sitagliptin</option>
+                        <option>Vildagliptin</option>
+                        <option>insulin</option>
+                        <option>Metformin</option>
+                        <option>Empagliflozin</option>
+                        <option>Dapagliflozin</option>
+                      </select>
                     </div>
                   </ng-container>
                   <ng-container *ngIf = "optionValue1 == 1">
                     <div class="mb-3">
-                      <select class="form-control app-form-input app-form-input-light">
+                      <select class="form-control app-form-input app-form-input-light" formControlName="drugName1">
                         <option>Select Option</option>
-                        <option>Medicine</option>
-                        <option>Medicine 2</option>
+                        <option>CRESTAT Tabs 5mg 10's</option>
+                        <option>CRESTAT Tabs 10mg 10's</option>
+                        <option>CRESTAT Tabs 20mg 10's</option>
+                        <option>ORINASE-MET 1 Tabs</option>
+                        <option>ORINASE-MET 2 Tabs</option>
+                        <option>NOCLOT-EA Tab</option>
+                        <option>GALZA Tabs 50mg 28's</option>
+                        <option>GALZA-MET 50/500 Tab</option>
+                        <option>GALZA-MET 50/850 Tablets 14's</option>
+                        <option>GALZA-MET 50/1000 Tablets 14's</option>
+                        <option>VIRATA Tab 90mg</option>
+                        <option>NOCLOT Tabs 75mg 20's</option>
+                        <option>NOCLOT-LD Tab</option>
+                        <option>VALSTAR  Tabs 80mg 14's</option>
+                        <option>VALSTAR  Tabs 160mg 14's</option>
+                        <option>CO-VALSTAR  Tabs 160/25 14's</option>
+                        <option>ORINASE Tabs 1mg 20's</option>
+                        <option>ORINASE Tabs 2mg 20's</option>
+                        <option>ORINASE Tabs 3mg 20's</option>
+                        <option>ORINASE Tabs 4mg 20's</option>
+                        <option>DUPREX Caps 20mg</option>
+                        <option>DUPREX Caps 30mg</option>
+                        <option>DUPREX Caps 60mg</option>
+                        <option>PIOMET  500MG TABS</option>
+                        <option>PIOMET  850MG TABS</option>
+                        <option>XIGA Tab 5mg</option>
+                        <option>XIGA Tab 10mg</option>
+                        <option>SITA-MET XR 50/500 Tab</option>
+                        <option>SITA-MET XR 50/1000 Tab</option>
+                        <option>SITA-MET XR 100/1000 Tab</option>
+                        <option>XIGAMET 5/850 Tab</option>
+                        <option>XIGAMET 5/1000 Tab</option>
+                        <option>PRO-STATIN Tabs 10mg 10's</option>
+                        <option>PRO-STATIN Tabs 20mg 10's</option>
+                        <option>SITA-MET Tabs 50/500 14's</option>
+                        <option>SITA-MET Tabs 50/850 14's</option>
+                        <option>SITA-MET Tabs 50/1000 14's</option>
+                        <option>GABLIN Caps 25mg 14's</option>
+                        <option>GABLIN Caps 50mg 14's</option>
+                        <option>GABLIN Caps 100mg 14's</option>
+                        <option>JARDY Tabs 10mg</option>
+                        <option>JARDY Tabs 25mg</option>
+                        <option>SITA Tabs 50mg 14's</option>
+                        <option>SITA Tabs 100mg 14's</option>
+                        <option>VALAM Tabs 5/80 14's</option>
+                        <option>VALAM Tabs 5/160 14's</option>
+                        <option>VALAM Tabs 10/160 14's</option>
+                        <option>DAN-D Soft Gel Caps 5's</option>
+                        <option>DAN-D Soft Gel Caps 30's</option>
+                        <option>DAN-D Soft Gel Caps 1's</option>
+                        <option>FAAST+ 20 Caps 14's</option>
+                        <option>FAAST+ 40 Caps 14's</option>
+                        <option>XALIA 10 mg 10's</option>
+                        <option>XALIA 15 mg 10's</option>
+                        <option>XALIA 20 mg 10's</option>
+                        <option>XALIA 2.5mg 10's</option>
+                        <option>JARDY-MET 5/1000 Tablet</option>
+                        <option>JARDY-MET 12.5/500 Tablet</option>
+                        <option>JARDY-MET 12.5/1000 Tablet</option>
+                        <option>VALAM-H 5/160/12.5</option>
+                        <option>VALAM-H 10/160/12.5</option>
+                        <option>VALAM-H 10/320/25 Plus</option>
+                        <option>VALAM-H 10/160/25</option>
+                        <option>VALAM-H 5/160/25</option>
                       </select>
                     </div>
                   </ng-container>  
@@ -118,20 +300,202 @@
                     <select class="form-control app-form-input" formControlName="companyName2" [(ngModel)] = "optionValue2">
                       <option>Select Option</option>
                       <option value="1">Our Company</option>
-                      <option value="2">Other Company</option>
+                      <option value="0">Other Company</option>
                     </select>
                   </div>
-                  <ng-container *ngIf = "optionValue2 == 2">
+                  <ng-container *ngIf = "optionValue2 == 0">
                     <div class="mb-3">
-                      <input class="form-control app-form-input app-form-input-light"  placeholder="Systolic" />
+                      <select class="form-control app-form-input app-form-input-light" formControlName="drugName2">
+                          <option>Select Option</option>
+                          <option>Hydrochlorothiazide</option>
+                          <option>Chlorthalidone</option>
+                          <option>Metolazone</option>
+                          <option>Indapamide</option>
+                          <option>Triamterene</option>
+                          <option>Amiloride</option>
+                          <option>Furosemide</option>
+                          <option>Torsemide</option>
+                          <option>Bumetanide</option>
+                          <option>Fosinopril</option>
+                          <option>Captopril</option>
+                          <option>Ramipril</option>
+                          <option>Enalapril</option>
+                          <option>Lisinopril</option>
+                          <option>Quinapril</option>
+                          <option>Losartan</option>
+                          <option>Olmesartan</option>
+                          <option>Eprosartan</option>
+                          <option>Azilsartan</option>
+                          <option>Atenolol</option>
+                          <option>Metoprolol</option>
+                          <option>Propranolol</option>
+                          <option>Bisoprolol</option>
+                          <option>Timolol</option>
+                          <option>Hydralazine</option>
+                          <option>Minoxidil</option>
+                          <option>Nifedipine</option>
+                          <option>Clevidipine</option>
+                          <option>Amlodipine</option>
+                          <option>Felodipine</option>
+                          <option>Diltiazem</option>
+                          <option>Verapamil</option>
+                          <option>Amlodipine/benazepril</option> 
+                          <option>Amlodipine/olmesartan</option>
+                          <option>Amlodipine/telmisartan</option>
+                          <option>Amlodipine/valsartan</option>
+                          <option>Amlodipine/valsartan/hydrochlorothiazide</option>
+                          <option>Amlodipine/aliskiren</option>
+                          <option>Amlodipine/aliskiren/hydrochlorothiazide</option>
+                          <option>Olmesartan/amlodipine/hydrochlorothiazide</option>
+                          <option>Trandolapril/verapamil</option>
+                          <option>Benazepril/hydrochlorothiazide</option>
+                          <option>Captopril/hydrochlorothiazide</option>
+                          <option>Enalapril/hydrochlorothiazide</option>
+                          <option>Fosinopril/hydrochlorothiazide</option>
+                          <option>Lisinopril/hydrochlorothiazide</option>
+                          <option>Moexipril/hydrochlorothiazide</option>
+                          <option>Quinapril/hydrochlorothiazide</option>
+                          <option>Candesartan/hydrochlorothiazide</option>
+                          <option>Eprosartan/hydrochlorothiazide</option>
+                          <option>Irbesartan/hydrochlorothiazide</option>
+                          <option>Losartan/hydrochlorothiazide</option>
+                          <option>Olmesartan/hydrochlorothiazide</option>
+                          <option>Telmisartan/hydrochlorothiazide</option>
+                          <option>Valsartan/hydrochlorothiazide</option>
+                          <option>Atenolol/chlorthalidone</option>
+                          <option>Bisoprolol/hydrochlorothiazide</option>
+                          <option>Metoprolol/hydrochlorothiazide</option>
+                          <option>Nadolol/bendroflumethiazide</option>
+                          <option>Propranolol/hydrochlorothiazide</option>
+                          <option>Aliskiren/hydrochlorothiazide</option>
+                          <option>Clonidine/chlorthalidone</option>
+                          <option>Spironolactone/hydrochlorothiazide</option>
+                          <option>Triamterene/hydrochlorothiazide</option>
+                          <option>Methyldopa/hydrochlorothiazide</option>
+                          <option>Amiloride/hydrochlorothiazide</option>
+                          <option>Atorvastatin</option>
+                          <option>Cerivastatin</option>
+                          <option>Fluvastatin</option>
+                          <option>Lovastatin</option>
+                          <option>Mevastatin</option>
+                          <option>Pitavastatin</option>
+                          <option>Pravastatin</option>
+                          <option>Rosuvastatin</option>
+                          <option>Simvastatin</option>
+                          <option>Simvastatin + ezetimibe</option>
+                          <option>Lovastatin + niacin extended-release</option>
+                          <option>Atorvastatin + amlodipine</option>
+                          <option>Simvastatin + niacin extended-release</option>
+                          <option>Aluminium clofibrate</option>
+                          <option>Bezafibrate</option>
+                          <option>Ciprofibrate</option>
+                          <option>Choline fenofibrate</option>
+                          <option>Clinofibrate</option>
+                          <option>Clofibrate</option>
+                          <option>Clofibride</option>
+                          <option>Fenofibrate</option>
+                          <option>Gemfibrozil</option>
+                          <option>Ronifibrate</option>
+                          <option>Simfibrate</option>
+                          <option>Beta-sitosterol</option>
+                          <option>campesterol</option>
+                          <option>cholesterol</option>
+                          <option>stigmasterol</option>
+                          <option>stigmastanol</option>
+                          <option>heparin</option>
+                          <option>warfarin</option>
+                          <option>rivaroxaban</option>
+                          <option>dabigatran</option>
+                          <option>apixaban</option>
+                          <option>edoxaban</option>
+                          <option>enoxaparin</option>
+                          <option>fondaparinux</option>
+                          <option>clopidogrel</option>
+                          <option>ticagrelor</option>
+                          <option>prasugrel </option>
+                          <option>dipyridamole</option>
+                          <option>dipyridamole/aspirin </option>
+                          <option>ticlopidine </option>
+                          <option>eptifibatide </option>
+                          <option>Glimepiride</option>
+                          <option>Gliclazide</option>
+                          <option>sitagliptin</option>
+                          <option>Vildagliptin</option>
+                          <option>insulin</option>
+                          <option>Metformin</option>
+                          <option>Empagliflozin</option>
+                          <option>Dapagliflozin</option>
+                        </select>
                     </div>
                   </ng-container>
                   <ng-container *ngIf = "optionValue2 == 1">
                     <div class="mb-3">
-                      <select class="form-control app-form-input app-form-input-light">
+                      <select class="form-control app-form-input app-form-input-light" formControlName="drugName2">
                         <option>Select Option</option>
-                        <option>Medicine</option>
-                        <option>Medicine 2</option>
+                        <option>CRESTAT Tabs 5mg 10's</option>
+                        <option>CRESTAT Tabs 10mg 10's</option>
+                        <option>CRESTAT Tabs 20mg 10's</option>
+                        <option>ORINASE-MET 1 Tabs</option>
+                        <option>ORINASE-MET 2 Tabs</option>
+                        <option>NOCLOT-EA Tab</option>
+                        <option>GALZA Tabs 50mg 28's</option>
+                        <option>GALZA-MET 50/500 Tab</option>
+                        <option>GALZA-MET 50/850 Tablets 14's</option>
+                        <option>GALZA-MET 50/1000 Tablets 14's</option>
+                        <option>VIRATA Tab 90mg</option>
+                        <option>NOCLOT Tabs 75mg 20's</option>
+                        <option>NOCLOT-LD Tab</option>
+                        <option>VALSTAR  Tabs 80mg 14's</option>
+                        <option>VALSTAR  Tabs 160mg 14's</option>
+                        <option>CO-VALSTAR  Tabs 160/25 14's</option>
+                        <option>ORINASE Tabs 1mg 20's</option>
+                        <option>ORINASE Tabs 2mg 20's</option>
+                        <option>ORINASE Tabs 3mg 20's</option>
+                        <option>ORINASE Tabs 4mg 20's</option>
+                        <option>DUPREX Caps 20mg</option>
+                        <option>DUPREX Caps 30mg</option>
+                        <option>DUPREX Caps 60mg</option>
+                        <option>PIOMET  500MG TABS</option>
+                        <option>PIOMET  850MG TABS</option>
+                        <option>XIGA Tab 5mg</option>
+                        <option>XIGA Tab 10mg</option>
+                        <option>SITA-MET XR 50/500 Tab</option>
+                        <option>SITA-MET XR 50/1000 Tab</option>
+                        <option>SITA-MET XR 100/1000 Tab</option>
+                        <option>XIGAMET 5/850 Tab</option>
+                        <option>XIGAMET 5/1000 Tab</option>
+                        <option>PRO-STATIN Tabs 10mg 10's</option>
+                        <option>PRO-STATIN Tabs 20mg 10's</option>
+                        <option>SITA-MET Tabs 50/500 14's</option>
+                        <option>SITA-MET Tabs 50/850 14's</option>
+                        <option>SITA-MET Tabs 50/1000 14's</option>
+                        <option>GABLIN Caps 25mg 14's</option>
+                        <option>GABLIN Caps 50mg 14's</option>
+                        <option>GABLIN Caps 100mg 14's</option>
+                        <option>JARDY Tabs 10mg</option>
+                        <option>JARDY Tabs 25mg</option>
+                        <option>SITA Tabs 50mg 14's</option>
+                        <option>SITA Tabs 100mg 14's</option>
+                        <option>VALAM Tabs 5/80 14's</option>
+                        <option>VALAM Tabs 5/160 14's</option>
+                        <option>VALAM Tabs 10/160 14's</option>
+                        <option>DAN-D Soft Gel Caps 5's</option>
+                        <option>DAN-D Soft Gel Caps 30's</option>
+                        <option>DAN-D Soft Gel Caps 1's</option>
+                        <option>FAAST+ 20 Caps 14's</option>
+                        <option>FAAST+ 40 Caps 14's</option>
+                        <option>XALIA 10 mg 10's</option>
+                        <option>XALIA 15 mg 10's</option>
+                        <option>XALIA 20 mg 10's</option>
+                        <option>XALIA 2.5mg 10's</option>
+                        <option>JARDY-MET 5/1000 Tablet</option>
+                        <option>JARDY-MET 12.5/500 Tablet</option>
+                        <option>JARDY-MET 12.5/1000 Tablet</option>
+                        <option>VALAM-H 5/160/12.5</option>
+                        <option>VALAM-H 10/160/12.5</option>
+                        <option>VALAM-H 10/320/25 Plus</option>
+                        <option>VALAM-H 10/160/25</option>
+                        <option>VALAM-H 5/160/25</option>
                       </select>
                     </div>
                   </ng-container>
@@ -146,20 +510,202 @@
                     <select class="form-control app-form-input" formControlName="companyName3" [(ngModel)] = "optionValue3">
                       <option>Select Option</option>
                       <option value="1">Our Company</option>
-                      <option value="2">Other Company</option>
+                      <option value="0">Other Company</option>
                     </select>
                   </div>
-                  <ng-container *ngIf = "optionValue3 == 2">
+                  <ng-container *ngIf = "optionValue3 == 0">
                     <div class="mb-3">
-                      <input class="form-control app-form-input app-form-input-light"  placeholder="Systolic" />
+                      <select class="form-control app-form-input app-form-input-light" formControlName="drugName3">
+                        <option>Select Option</option>
+                        <option>Hydrochlorothiazide</option>
+                        <option>Chlorthalidone</option>
+                        <option>Metolazone</option>
+                        <option>Indapamide</option>
+                        <option>Triamterene</option>
+                        <option>Amiloride</option>
+                        <option>Furosemide</option>
+                        <option>Torsemide</option>
+                        <option>Bumetanide</option>
+                        <option>Fosinopril</option>
+                        <option>Captopril</option>
+                        <option>Ramipril</option>
+                        <option>Enalapril</option>
+                        <option>Lisinopril</option>
+                        <option>Quinapril</option>
+                        <option>Losartan</option>
+                        <option>Olmesartan</option>
+                        <option>Eprosartan</option>
+                        <option>Azilsartan</option>
+                        <option>Atenolol</option>
+                        <option>Metoprolol</option>
+                        <option>Propranolol</option>
+                        <option>Bisoprolol</option>
+                        <option>Timolol</option>
+                        <option>Hydralazine</option>
+                        <option>Minoxidil</option>
+                        <option>Nifedipine</option>
+                        <option>Clevidipine</option>
+                        <option>Amlodipine</option>
+                        <option>Felodipine</option>
+                        <option>Diltiazem</option>
+                        <option>Verapamil</option>
+                        <option>Amlodipine/benazepril</option> 
+                        <option>Amlodipine/olmesartan</option>
+                        <option>Amlodipine/telmisartan</option>
+                        <option>Amlodipine/valsartan</option>
+                        <option>Amlodipine/valsartan/hydrochlorothiazide</option>
+                        <option>Amlodipine/aliskiren</option>
+                        <option>Amlodipine/aliskiren/hydrochlorothiazide</option>
+                        <option>Olmesartan/amlodipine/hydrochlorothiazide</option>
+                        <option>Trandolapril/verapamil</option>
+                        <option>Benazepril/hydrochlorothiazide</option>
+                        <option>Captopril/hydrochlorothiazide</option>
+                        <option>Enalapril/hydrochlorothiazide</option>
+                        <option>Fosinopril/hydrochlorothiazide</option>
+                        <option>Lisinopril/hydrochlorothiazide</option>
+                        <option>Moexipril/hydrochlorothiazide</option>
+                        <option>Quinapril/hydrochlorothiazide</option>
+                        <option>Candesartan/hydrochlorothiazide</option>
+                        <option>Eprosartan/hydrochlorothiazide</option>
+                        <option>Irbesartan/hydrochlorothiazide</option>
+                        <option>Losartan/hydrochlorothiazide</option>
+                        <option>Olmesartan/hydrochlorothiazide</option>
+                        <option>Telmisartan/hydrochlorothiazide</option>
+                        <option>Valsartan/hydrochlorothiazide</option>
+                        <option>Atenolol/chlorthalidone</option>
+                        <option>Bisoprolol/hydrochlorothiazide</option>
+                        <option>Metoprolol/hydrochlorothiazide</option>
+                        <option>Nadolol/bendroflumethiazide</option>
+                        <option>Propranolol/hydrochlorothiazide</option>
+                        <option>Aliskiren/hydrochlorothiazide</option>
+                        <option>Clonidine/chlorthalidone</option>
+                        <option>Spironolactone/hydrochlorothiazide</option>
+                        <option>Triamterene/hydrochlorothiazide</option>
+                        <option>Methyldopa/hydrochlorothiazide</option>
+                        <option>Amiloride/hydrochlorothiazide</option>
+                        <option>Atorvastatin</option>
+                        <option>Cerivastatin</option>
+                        <option>Fluvastatin</option>
+                        <option>Lovastatin</option>
+                        <option>Mevastatin</option>
+                        <option>Pitavastatin</option>
+                        <option>Pravastatin</option>
+                        <option>Rosuvastatin</option>
+                        <option>Simvastatin</option>
+                        <option>Simvastatin + ezetimibe</option>
+                        <option>Lovastatin + niacin extended-release</option>
+                        <option>Atorvastatin + amlodipine</option>
+                        <option>Simvastatin + niacin extended-release</option>
+                        <option>Aluminium clofibrate</option>
+                        <option>Bezafibrate</option>
+                        <option>Ciprofibrate</option>
+                        <option>Choline fenofibrate</option>
+                        <option>Clinofibrate</option>
+                        <option>Clofibrate</option>
+                        <option>Clofibride</option>
+                        <option>Fenofibrate</option>
+                        <option>Gemfibrozil</option>
+                        <option>Ronifibrate</option>
+                        <option>Simfibrate</option>
+                        <option>Beta-sitosterol</option>
+                        <option>campesterol</option>
+                        <option>cholesterol</option>
+                        <option>stigmasterol</option>
+                        <option>stigmastanol</option>
+                        <option>heparin</option>
+                        <option>warfarin</option>
+                        <option>rivaroxaban</option>
+                        <option>dabigatran</option>
+                        <option>apixaban</option>
+                        <option>edoxaban</option>
+                        <option>enoxaparin</option>
+                        <option>fondaparinux</option>
+                        <option>clopidogrel</option>
+                        <option>ticagrelor</option>
+                        <option>prasugrel </option>
+                        <option>dipyridamole</option>
+                        <option>dipyridamole/aspirin </option>
+                        <option>ticlopidine </option>
+                        <option>eptifibatide </option>
+                        <option>Glimepiride</option>
+                        <option>Gliclazide</option>
+                        <option>sitagliptin</option>
+                        <option>Vildagliptin</option>
+                        <option>insulin</option>
+                        <option>Metformin</option>
+                        <option>Empagliflozin</option>
+                        <option>Dapagliflozin</option>
+                      </select>
                     </div>
                   </ng-container>
                   <ng-container *ngIf = "optionValue3 == 1">
                     <div class="mb-3">
-                      <select class="form-control app-form-input app-form-input-light">
+                      <select class="form-control app-form-input app-form-input-light" formControlName="drugName3">
                         <option>Select Option</option>
-                        <option>Medicine</option>
-                        <option>Medicine 2</option>
+                        <option>CRESTAT Tabs 5mg 10's</option>
+                        <option>CRESTAT Tabs 10mg 10's</option>
+                        <option>CRESTAT Tabs 20mg 10's</option>
+                        <option>ORINASE-MET 1 Tabs</option>
+                        <option>ORINASE-MET 2 Tabs</option>
+                        <option>NOCLOT-EA Tab</option>
+                        <option>GALZA Tabs 50mg 28's</option>
+                        <option>GALZA-MET 50/500 Tab</option>
+                        <option>GALZA-MET 50/850 Tablets 14's</option>
+                        <option>GALZA-MET 50/1000 Tablets 14's</option>
+                        <option>VIRATA Tab 90mg</option>
+                        <option>NOCLOT Tabs 75mg 20's</option>
+                        <option>NOCLOT-LD Tab</option>
+                        <option>VALSTAR  Tabs 80mg 14's</option>
+                        <option>VALSTAR  Tabs 160mg 14's</option>
+                        <option>CO-VALSTAR  Tabs 160/25 14's</option>
+                        <option>ORINASE Tabs 1mg 20's</option>
+                        <option>ORINASE Tabs 2mg 20's</option>
+                        <option>ORINASE Tabs 3mg 20's</option>
+                        <option>ORINASE Tabs 4mg 20's</option>
+                        <option>DUPREX Caps 20mg</option>
+                        <option>DUPREX Caps 30mg</option>
+                        <option>DUPREX Caps 60mg</option>
+                        <option>PIOMET  500MG TABS</option>
+                        <option>PIOMET  850MG TABS</option>
+                        <option>XIGA Tab 5mg</option>
+                        <option>XIGA Tab 10mg</option>
+                        <option>SITA-MET XR 50/500 Tab</option>
+                        <option>SITA-MET XR 50/1000 Tab</option>
+                        <option>SITA-MET XR 100/1000 Tab</option>
+                        <option>XIGAMET 5/850 Tab</option>
+                        <option>XIGAMET 5/1000 Tab</option>
+                        <option>PRO-STATIN Tabs 10mg 10's</option>
+                        <option>PRO-STATIN Tabs 20mg 10's</option>
+                        <option>SITA-MET Tabs 50/500 14's</option>
+                        <option>SITA-MET Tabs 50/850 14's</option>
+                        <option>SITA-MET Tabs 50/1000 14's</option>
+                        <option>GABLIN Caps 25mg 14's</option>
+                        <option>GABLIN Caps 50mg 14's</option>
+                        <option>GABLIN Caps 100mg 14's</option>
+                        <option>JARDY Tabs 10mg</option>
+                        <option>JARDY Tabs 25mg</option>
+                        <option>SITA Tabs 50mg 14's</option>
+                        <option>SITA Tabs 100mg 14's</option>
+                        <option>VALAM Tabs 5/80 14's</option>
+                        <option>VALAM Tabs 5/160 14's</option>
+                        <option>VALAM Tabs 10/160 14's</option>
+                        <option>DAN-D Soft Gel Caps 5's</option>
+                        <option>DAN-D Soft Gel Caps 30's</option>
+                        <option>DAN-D Soft Gel Caps 1's</option>
+                        <option>FAAST+ 20 Caps 14's</option>
+                        <option>FAAST+ 40 Caps 14's</option>
+                        <option>XALIA 10 mg 10's</option>
+                        <option>XALIA 15 mg 10's</option>
+                        <option>XALIA 20 mg 10's</option>
+                        <option>XALIA 2.5mg 10's</option>
+                        <option>JARDY-MET 5/1000 Tablet</option>
+                        <option>JARDY-MET 12.5/500 Tablet</option>
+                        <option>JARDY-MET 12.5/1000 Tablet</option>
+                        <option>VALAM-H 5/160/12.5</option>
+                        <option>VALAM-H 10/160/12.5</option>
+                        <option>VALAM-H 10/320/25 Plus</option>
+                        <option>VALAM-H 10/160/25</option>
+                        <option>VALAM-H 5/160/25</option>
                       </select>
                     </div>
                   </ng-container>
@@ -172,20 +718,202 @@
                     <select class="form-control app-form-input" formControlName="companyName4" [(ngModel)] = "optionValue4">
                       <option>Select Option</option>
                       <option value="1">Our Company</option>
-                      <option value="2">Other Company</option>
+                      <option value="0">Other Company</option>
                     </select>
                   </div>
-                  <ng-container *ngIf = "optionValue4 == 2">
+                  <ng-container *ngIf = "optionValue4 == 0">
                     <div class="mb-3">
-                      <input class="form-control app-form-input app-form-input-light"  placeholder="Systolic" />
+                      <select class="form-control app-form-input app-form-input-light" formControlName="drugName4">
+                        <option>Select Option</option>
+                        <option>Hydrochlorothiazide</option>
+                        <option>Chlorthalidone</option>
+                        <option>Metolazone</option>
+                        <option>Indapamide</option>
+                        <option>Triamterene</option>
+                        <option>Amiloride</option>
+                        <option>Furosemide</option>
+                        <option>Torsemide</option>
+                        <option>Bumetanide</option>
+                        <option>Fosinopril</option>
+                        <option>Captopril</option>
+                        <option>Ramipril</option>
+                        <option>Enalapril</option>
+                        <option>Lisinopril</option>
+                        <option>Quinapril</option>
+                        <option>Losartan</option>
+                        <option>Olmesartan</option>
+                        <option>Eprosartan</option>
+                        <option>Azilsartan</option>
+                        <option>Atenolol</option>
+                        <option>Metoprolol</option>
+                        <option>Propranolol</option>
+                        <option>Bisoprolol</option>
+                        <option>Timolol</option>
+                        <option>Hydralazine</option>
+                        <option>Minoxidil</option>
+                        <option>Nifedipine</option>
+                        <option>Clevidipine</option>
+                        <option>Amlodipine</option>
+                        <option>Felodipine</option>
+                        <option>Diltiazem</option>
+                        <option>Verapamil</option>
+                        <option>Amlodipine/benazepril</option> 
+                        <option>Amlodipine/olmesartan</option>
+                        <option>Amlodipine/telmisartan</option>
+                        <option>Amlodipine/valsartan</option>
+                        <option>Amlodipine/valsartan/hydrochlorothiazide</option>
+                        <option>Amlodipine/aliskiren</option>
+                        <option>Amlodipine/aliskiren/hydrochlorothiazide</option>
+                        <option>Olmesartan/amlodipine/hydrochlorothiazide</option>
+                        <option>Trandolapril/verapamil</option>
+                        <option>Benazepril/hydrochlorothiazide</option>
+                        <option>Captopril/hydrochlorothiazide</option>
+                        <option>Enalapril/hydrochlorothiazide</option>
+                        <option>Fosinopril/hydrochlorothiazide</option>
+                        <option>Lisinopril/hydrochlorothiazide</option>
+                        <option>Moexipril/hydrochlorothiazide</option>
+                        <option>Quinapril/hydrochlorothiazide</option>
+                        <option>Candesartan/hydrochlorothiazide</option>
+                        <option>Eprosartan/hydrochlorothiazide</option>
+                        <option>Irbesartan/hydrochlorothiazide</option>
+                        <option>Losartan/hydrochlorothiazide</option>
+                        <option>Olmesartan/hydrochlorothiazide</option>
+                        <option>Telmisartan/hydrochlorothiazide</option>
+                        <option>Valsartan/hydrochlorothiazide</option>
+                        <option>Atenolol/chlorthalidone</option>
+                        <option>Bisoprolol/hydrochlorothiazide</option>
+                        <option>Metoprolol/hydrochlorothiazide</option>
+                        <option>Nadolol/bendroflumethiazide</option>
+                        <option>Propranolol/hydrochlorothiazide</option>
+                        <option>Aliskiren/hydrochlorothiazide</option>
+                        <option>Clonidine/chlorthalidone</option>
+                        <option>Spironolactone/hydrochlorothiazide</option>
+                        <option>Triamterene/hydrochlorothiazide</option>
+                        <option>Methyldopa/hydrochlorothiazide</option>
+                        <option>Amiloride/hydrochlorothiazide</option>
+                        <option>Atorvastatin</option>
+                        <option>Cerivastatin</option>
+                        <option>Fluvastatin</option>
+                        <option>Lovastatin</option>
+                        <option>Mevastatin</option>
+                        <option>Pitavastatin</option>
+                        <option>Pravastatin</option>
+                        <option>Rosuvastatin</option>
+                        <option>Simvastatin</option>
+                        <option>Simvastatin + ezetimibe</option>
+                        <option>Lovastatin + niacin extended-release</option>
+                        <option>Atorvastatin + amlodipine</option>
+                        <option>Simvastatin + niacin extended-release</option>
+                        <option>Aluminium clofibrate</option>
+                        <option>Bezafibrate</option>
+                        <option>Ciprofibrate</option>
+                        <option>Choline fenofibrate</option>
+                        <option>Clinofibrate</option>
+                        <option>Clofibrate</option>
+                        <option>Clofibride</option>
+                        <option>Fenofibrate</option>
+                        <option>Gemfibrozil</option>
+                        <option>Ronifibrate</option>
+                        <option>Simfibrate</option>
+                        <option>Beta-sitosterol</option>
+                        <option>campesterol</option>
+                        <option>cholesterol</option>
+                        <option>stigmasterol</option>
+                        <option>stigmastanol</option>
+                        <option>heparin</option>
+                        <option>warfarin</option>
+                        <option>rivaroxaban</option>
+                        <option>dabigatran</option>
+                        <option>apixaban</option>
+                        <option>edoxaban</option>
+                        <option>enoxaparin</option>
+                        <option>fondaparinux</option>
+                        <option>clopidogrel</option>
+                        <option>ticagrelor</option>
+                        <option>prasugrel </option>
+                        <option>dipyridamole</option>
+                        <option>dipyridamole/aspirin </option>
+                        <option>ticlopidine </option>
+                        <option>eptifibatide </option>
+                        <option>Glimepiride</option>
+                        <option>Gliclazide</option>
+                        <option>sitagliptin</option>
+                        <option>Vildagliptin</option>
+                        <option>insulin</option>
+                        <option>Metformin</option>
+                        <option>Empagliflozin</option>
+                        <option>Dapagliflozin</option>
+                      </select>
                     </div>
                   </ng-container>
                   <ng-container *ngIf = "optionValue4 == 1">
                     <div class="mb-3">
-                      <select class="form-control app-form-input app-form-input-light">
+                      <select class="form-control app-form-input app-form-input-light" formControlName="drugName4">
                         <option>Select Option</option>
-                        <option>Medicine</option>
-                        <option>Medicine 2</option>
+                        <option>CRESTAT Tabs 5mg 10's</option>
+                        <option>CRESTAT Tabs 10mg 10's</option>
+                        <option>CRESTAT Tabs 20mg 10's</option>
+                        <option>ORINASE-MET 1 Tabs</option>
+                        <option>ORINASE-MET 2 Tabs</option>
+                        <option>NOCLOT-EA Tab</option>
+                        <option>GALZA Tabs 50mg 28's</option>
+                        <option>GALZA-MET 50/500 Tab</option>
+                        <option>GALZA-MET 50/850 Tablets 14's</option>
+                        <option>GALZA-MET 50/1000 Tablets 14's</option>
+                        <option>VIRATA Tab 90mg</option>
+                        <option>NOCLOT Tabs 75mg 20's</option>
+                        <option>NOCLOT-LD Tab</option>
+                        <option>VALSTAR  Tabs 80mg 14's</option>
+                        <option>VALSTAR  Tabs 160mg 14's</option>
+                        <option>CO-VALSTAR  Tabs 160/25 14's</option>
+                        <option>ORINASE Tabs 1mg 20's</option>
+                        <option>ORINASE Tabs 2mg 20's</option>
+                        <option>ORINASE Tabs 3mg 20's</option>
+                        <option>ORINASE Tabs 4mg 20's</option>
+                        <option>DUPREX Caps 20mg</option>
+                        <option>DUPREX Caps 30mg</option>
+                        <option>DUPREX Caps 60mg</option>
+                        <option>PIOMET  500MG TABS</option>
+                        <option>PIOMET  850MG TABS</option>
+                        <option>XIGA Tab 5mg</option>
+                        <option>XIGA Tab 10mg</option>
+                        <option>SITA-MET XR 50/500 Tab</option>
+                        <option>SITA-MET XR 50/1000 Tab</option>
+                        <option>SITA-MET XR 100/1000 Tab</option>
+                        <option>XIGAMET 5/850 Tab</option>
+                        <option>XIGAMET 5/1000 Tab</option>
+                        <option>PRO-STATIN Tabs 10mg 10's</option>
+                        <option>PRO-STATIN Tabs 20mg 10's</option>
+                        <option>SITA-MET Tabs 50/500 14's</option>
+                        <option>SITA-MET Tabs 50/850 14's</option>
+                        <option>SITA-MET Tabs 50/1000 14's</option>
+                        <option>GABLIN Caps 25mg 14's</option>
+                        <option>GABLIN Caps 50mg 14's</option>
+                        <option>GABLIN Caps 100mg 14's</option>
+                        <option>JARDY Tabs 10mg</option>
+                        <option>JARDY Tabs 25mg</option>
+                        <option>SITA Tabs 50mg 14's</option>
+                        <option>SITA Tabs 100mg 14's</option>
+                        <option>VALAM Tabs 5/80 14's</option>
+                        <option>VALAM Tabs 5/160 14's</option>
+                        <option>VALAM Tabs 10/160 14's</option>
+                        <option>DAN-D Soft Gel Caps 5's</option>
+                        <option>DAN-D Soft Gel Caps 30's</option>
+                        <option>DAN-D Soft Gel Caps 1's</option>
+                        <option>FAAST+ 20 Caps 14's</option>
+                        <option>FAAST+ 40 Caps 14's</option>
+                        <option>XALIA 10 mg 10's</option>
+                        <option>XALIA 15 mg 10's</option>
+                        <option>XALIA 20 mg 10's</option>
+                        <option>XALIA 2.5mg 10's</option>
+                        <option>JARDY-MET 5/1000 Tablet</option>
+                        <option>JARDY-MET 12.5/500 Tablet</option>
+                        <option>JARDY-MET 12.5/1000 Tablet</option>
+                        <option>VALAM-H 5/160/12.5</option>
+                        <option>VALAM-H 10/160/12.5</option>
+                        <option>VALAM-H 10/320/25 Plus</option>
+                        <option>VALAM-H 10/160/25</option>
+                        <option>VALAM-H 5/160/25</option>
                       </select>
                     </div>
                   </ng-container>
@@ -200,20 +928,202 @@
                     <select class="form-control app-form-input" formControlName="companyName5" [(ngModel)] = "optionValue5">
                       <option>Select Option</option>
                       <option value="1">Our Company</option>
-                      <option value="2">Other Company</option>
+                      <option value="0">Other Company</option>
                     </select>
                   </div>
-                  <ng-container *ngIf = "optionValue5 == 2">
+                  <ng-container *ngIf = "optionValue5 == 0">
                     <div class="mb-3">
-                      <input class="form-control app-form-input app-form-input-light"  placeholder="Systolic" />
+                      <select class="form-control app-form-input app-form-input-light" formControlName="drugName5">
+                        <option>Select Option</option>
+                        <option>Hydrochlorothiazide</option>
+                        <option>Chlorthalidone</option>
+                        <option>Metolazone</option>
+                        <option>Indapamide</option>
+                        <option>Triamterene</option>
+                        <option>Amiloride</option>
+                        <option>Furosemide</option>
+                        <option>Torsemide</option>
+                        <option>Bumetanide</option>
+                        <option>Fosinopril</option>
+                        <option>Captopril</option>
+                        <option>Ramipril</option>
+                        <option>Enalapril</option>
+                        <option>Lisinopril</option>
+                        <option>Quinapril</option>
+                        <option>Losartan</option>
+                        <option>Olmesartan</option>
+                        <option>Eprosartan</option>
+                        <option>Azilsartan</option>
+                        <option>Atenolol</option>
+                        <option>Metoprolol</option>
+                        <option>Propranolol</option>
+                        <option>Bisoprolol</option>
+                        <option>Timolol</option>
+                        <option>Hydralazine</option>
+                        <option>Minoxidil</option>
+                        <option>Nifedipine</option>
+                        <option>Clevidipine</option>
+                        <option>Amlodipine</option>
+                        <option>Felodipine</option>
+                        <option>Diltiazem</option>
+                        <option>Verapamil</option>
+                        <option>Amlodipine/benazepril</option> 
+                        <option>Amlodipine/olmesartan</option>
+                        <option>Amlodipine/telmisartan</option>
+                        <option>Amlodipine/valsartan</option>
+                        <option>Amlodipine/valsartan/hydrochlorothiazide</option>
+                        <option>Amlodipine/aliskiren</option>
+                        <option>Amlodipine/aliskiren/hydrochlorothiazide</option>
+                        <option>Olmesartan/amlodipine/hydrochlorothiazide</option>
+                        <option>Trandolapril/verapamil</option>
+                        <option>Benazepril/hydrochlorothiazide</option>
+                        <option>Captopril/hydrochlorothiazide</option>
+                        <option>Enalapril/hydrochlorothiazide</option>
+                        <option>Fosinopril/hydrochlorothiazide</option>
+                        <option>Lisinopril/hydrochlorothiazide</option>
+                        <option>Moexipril/hydrochlorothiazide</option>
+                        <option>Quinapril/hydrochlorothiazide</option>
+                        <option>Candesartan/hydrochlorothiazide</option>
+                        <option>Eprosartan/hydrochlorothiazide</option>
+                        <option>Irbesartan/hydrochlorothiazide</option>
+                        <option>Losartan/hydrochlorothiazide</option>
+                        <option>Olmesartan/hydrochlorothiazide</option>
+                        <option>Telmisartan/hydrochlorothiazide</option>
+                        <option>Valsartan/hydrochlorothiazide</option>
+                        <option>Atenolol/chlorthalidone</option>
+                        <option>Bisoprolol/hydrochlorothiazide</option>
+                        <option>Metoprolol/hydrochlorothiazide</option>
+                        <option>Nadolol/bendroflumethiazide</option>
+                        <option>Propranolol/hydrochlorothiazide</option>
+                        <option>Aliskiren/hydrochlorothiazide</option>
+                        <option>Clonidine/chlorthalidone</option>
+                        <option>Spironolactone/hydrochlorothiazide</option>
+                        <option>Triamterene/hydrochlorothiazide</option>
+                        <option>Methyldopa/hydrochlorothiazide</option>
+                        <option>Amiloride/hydrochlorothiazide</option>
+                        <option>Atorvastatin</option>
+                        <option>Cerivastatin</option>
+                        <option>Fluvastatin</option>
+                        <option>Lovastatin</option>
+                        <option>Mevastatin</option>
+                        <option>Pitavastatin</option>
+                        <option>Pravastatin</option>
+                        <option>Rosuvastatin</option>
+                        <option>Simvastatin</option>
+                        <option>Simvastatin + ezetimibe</option>
+                        <option>Lovastatin + niacin extended-release</option>
+                        <option>Atorvastatin + amlodipine</option>
+                        <option>Simvastatin + niacin extended-release</option>
+                        <option>Aluminium clofibrate</option>
+                        <option>Bezafibrate</option>
+                        <option>Ciprofibrate</option>
+                        <option>Choline fenofibrate</option>
+                        <option>Clinofibrate</option>
+                        <option>Clofibrate</option>
+                        <option>Clofibride</option>
+                        <option>Fenofibrate</option>
+                        <option>Gemfibrozil</option>
+                        <option>Ronifibrate</option>
+                        <option>Simfibrate</option>
+                        <option>Beta-sitosterol</option>
+                        <option>campesterol</option>
+                        <option>cholesterol</option>
+                        <option>stigmasterol</option>
+                        <option>stigmastanol</option>
+                        <option>heparin</option>
+                        <option>warfarin</option>
+                        <option>rivaroxaban</option>
+                        <option>dabigatran</option>
+                        <option>apixaban</option>
+                        <option>edoxaban</option>
+                        <option>enoxaparin</option>
+                        <option>fondaparinux</option>
+                        <option>clopidogrel</option>
+                        <option>ticagrelor</option>
+                        <option>prasugrel </option>
+                        <option>dipyridamole</option>
+                        <option>dipyridamole/aspirin </option>
+                        <option>ticlopidine </option>
+                        <option>eptifibatide </option>
+                        <option>Glimepiride</option>
+                        <option>Gliclazide</option>
+                        <option>sitagliptin</option>
+                        <option>Vildagliptin</option>
+                        <option>insulin</option>
+                        <option>Metformin</option>
+                        <option>Empagliflozin</option>
+                        <option>Dapagliflozin</option>
+                      </select>
                     </div>
                   </ng-container>
                   <ng-container *ngIf = "optionValue5 == 1">
                     <div class="mb-3">
-                      <select class="form-control app-form-input app-form-input-light">
+                      <select class="form-control app-form-input app-form-input-light" formControlName="drugName5">
                         <option>Select Option</option>
-                        <option>Medicine</option>
-                        <option>Medicine 2</option>
+                        <option>CRESTAT Tabs 5mg 10's</option>
+                        <option>CRESTAT Tabs 10mg 10's</option>
+                        <option>CRESTAT Tabs 20mg 10's</option>
+                        <option>ORINASE-MET 1 Tabs</option>
+                        <option>ORINASE-MET 2 Tabs</option>
+                        <option>NOCLOT-EA Tab</option>
+                        <option>GALZA Tabs 50mg 28's</option>
+                        <option>GALZA-MET 50/500 Tab</option>
+                        <option>GALZA-MET 50/850 Tablets 14's</option>
+                        <option>GALZA-MET 50/1000 Tablets 14's</option>
+                        <option>VIRATA Tab 90mg</option>
+                        <option>NOCLOT Tabs 75mg 20's</option>
+                        <option>NOCLOT-LD Tab</option>
+                        <option>VALSTAR  Tabs 80mg 14's</option>
+                        <option>VALSTAR  Tabs 160mg 14's</option>
+                        <option>CO-VALSTAR  Tabs 160/25 14's</option>
+                        <option>ORINASE Tabs 1mg 20's</option>
+                        <option>ORINASE Tabs 2mg 20's</option>
+                        <option>ORINASE Tabs 3mg 20's</option>
+                        <option>ORINASE Tabs 4mg 20's</option>
+                        <option>DUPREX Caps 20mg</option>
+                        <option>DUPREX Caps 30mg</option>
+                        <option>DUPREX Caps 60mg</option>
+                        <option>PIOMET  500MG TABS</option>
+                        <option>PIOMET  850MG TABS</option>
+                        <option>XIGA Tab 5mg</option>
+                        <option>XIGA Tab 10mg</option>
+                        <option>SITA-MET XR 50/500 Tab</option>
+                        <option>SITA-MET XR 50/1000 Tab</option>
+                        <option>SITA-MET XR 100/1000 Tab</option>
+                        <option>XIGAMET 5/850 Tab</option>
+                        <option>XIGAMET 5/1000 Tab</option>
+                        <option>PRO-STATIN Tabs 10mg 10's</option>
+                        <option>PRO-STATIN Tabs 20mg 10's</option>
+                        <option>SITA-MET Tabs 50/500 14's</option>
+                        <option>SITA-MET Tabs 50/850 14's</option>
+                        <option>SITA-MET Tabs 50/1000 14's</option>
+                        <option>GABLIN Caps 25mg 14's</option>
+                        <option>GABLIN Caps 50mg 14's</option>
+                        <option>GABLIN Caps 100mg 14's</option>
+                        <option>JARDY Tabs 10mg</option>
+                        <option>JARDY Tabs 25mg</option>
+                        <option>SITA Tabs 50mg 14's</option>
+                        <option>SITA Tabs 100mg 14's</option>
+                        <option>VALAM Tabs 5/80 14's</option>
+                        <option>VALAM Tabs 5/160 14's</option>
+                        <option>VALAM Tabs 10/160 14's</option>
+                        <option>DAN-D Soft Gel Caps 5's</option>
+                        <option>DAN-D Soft Gel Caps 30's</option>
+                        <option>DAN-D Soft Gel Caps 1's</option>
+                        <option>FAAST+ 20 Caps 14's</option>
+                        <option>FAAST+ 40 Caps 14's</option>
+                        <option>XALIA 10 mg 10's</option>
+                        <option>XALIA 15 mg 10's</option>
+                        <option>XALIA 20 mg 10's</option>
+                        <option>XALIA 2.5mg 10's</option>
+                        <option>JARDY-MET 5/1000 Tablet</option>
+                        <option>JARDY-MET 12.5/500 Tablet</option>
+                        <option>JARDY-MET 12.5/1000 Tablet</option>
+                        <option>VALAM-H 5/160/12.5</option>
+                        <option>VALAM-H 10/160/12.5</option>
+                        <option>VALAM-H 10/320/25 Plus</option>
+                        <option>VALAM-H 10/160/25</option>
+                        <option>VALAM-H 5/160/25</option>
                       </select>
                     </div>
                   </ng-container>
