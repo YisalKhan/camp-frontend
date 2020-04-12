@@ -102,6 +102,17 @@
 								</div>
 							</li>
 							<li  class="list-inline-item">
+								<div>
+									<label class="app-form-label">Camp Duration</label>
+									<select class="form-control app-form-input" [value]="" formControlName="campDuration">
+										<option value="">Select Duration</option>
+										<option value="present">Present</option>
+										<option value="previous">Previous</option>
+										<option value="future">Future</option>
+									</select>
+								</div>
+							</li>
+							<li  class="list-inline-item">
 								<div *ngIf = "previous == 'previousCamps' || future == 'futureCamps'">
 									<label class="app-form-label">Start Date</label>
 									<input type="date" class="form-control app-form-input" formControlName="startDate" />

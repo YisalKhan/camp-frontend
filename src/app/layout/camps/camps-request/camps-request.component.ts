@@ -35,7 +35,8 @@ export class CampsRequestComponent implements OnInit {
     campType: [''],
     campStatus: [''],
     startDate: [''],
-    endDate: ['']
+    endDate: [''],
+    campDuration: ['']
   });
 
   ngOnInit() {
