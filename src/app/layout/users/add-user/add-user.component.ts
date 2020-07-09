@@ -74,7 +74,7 @@ export class AddUserComponent implements OnInit {
   }
   
   onDesignationChange() {
-    if(this.userForm.controls['designation'].value == 14) {
+    if(this.userForm.controls['designation'].value == 0) {
       this.userForm.controls['territory'].clearValidators();
       this.userForm.controls['territory'].updateValueAndValidity();
       this.userForm.controls['district'].clearValidators();
