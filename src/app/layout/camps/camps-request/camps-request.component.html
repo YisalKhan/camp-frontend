@@ -174,7 +174,7 @@
 							<td role="cell" *ngIf="camp.camp_type == 2">Diabetic Camp</td>
 							<td role="cell" *ngIf="camp.camp_type == 3">Cardio/Diabetic Camp</td>
 							<td role="cell">{{ camp.dr_name }}</td>
-							<td role="cell">{{ camp.camp_datetime }}</td>
+							<td role="cell">{{ camp.camp_datetime | date: 'medium' }}</td>
 							<td role="cell" *ngIf="camp.camp_status == 0">Pending</td>
 							<td role="cell"  *ngIf="camp.camp_status == 1">Approved</td>
 							<td role="cell" *ngIf = "!previous && !future" class="text-center">
