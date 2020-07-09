@@ -34,6 +34,7 @@ export class AddUserComponent implements OnInit {
     showMask: true,
     mask: [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, ]
   };
+  showDisTer: any = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -69,6 +70,22 @@ export class AddUserComponent implements OnInit {
       });
 
       this.getEditUser(this.userID);
+    }
+  }
+  
+  onDesignationChange() {
+    if(this.userForm.controls['designation'].value == 14) {
+      this.userForm.controls['territory'].clearValidators();
+      this.userForm.controls['territory'].updateValueAndValidity();
+      this.userForm.controls['district'].clearValidators();
+      this.userForm.controls['district'].updateValueAndValidity();
+      this.showDisTer = false;
+    } else {
+      this.userForm.controls['territory'].setValidators([Validators.required]);
+      this.userForm.controls['territory'].updateValueAndValidity();
+      this.userForm.controls['district'].setValidators([Validators.required]);
+      this.userForm.controls['district'].updateValueAndValidity();
+      this.showDisTer = true;
     }
   }
 
