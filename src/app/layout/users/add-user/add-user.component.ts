@@ -188,14 +188,12 @@ export class AddUserComponent implements OnInit {
 
   getDisctricts(regionID) {
     if(this.userForm.controls['region'].value == 0) {
-      alert(this.userForm.controls['region'].value);
       this.userForm.controls['territory'].clearValidators();
       this.userForm.controls['territory'].updateValueAndValidity();
       this.userForm.controls['district'].clearValidators();
       this.userForm.controls['district'].updateValueAndValidity();
       this.showDisTer = false;
     } else {
-      alert(this.userForm.controls['region'].value);
       this.userForm.controls['territory'].setValidators([Validators.required]);
       this.userForm.controls['territory'].updateValueAndValidity();
       this.userForm.controls['district'].setValidators([Validators.required]);
