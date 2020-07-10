@@ -72,22 +72,6 @@ export class AddUserComponent implements OnInit {
       this.getEditUser(this.userID);
     }
   }
-  
-  onDesignationChange() {
-    if(this.userForm.controls['designation'].value == 0) {
-      this.userForm.controls['territory'].clearValidators();
-      this.userForm.controls['territory'].updateValueAndValidity();
-      this.userForm.controls['district'].clearValidators();
-      this.userForm.controls['district'].updateValueAndValidity();
-      this.showDisTer = false;
-    } else {
-      this.userForm.controls['territory'].setValidators([Validators.required]);
-      this.userForm.controls['territory'].updateValueAndValidity();
-      this.userForm.controls['district'].setValidators([Validators.required]);
-      this.userForm.controls['district'].updateValueAndValidity();
-      this.showDisTer = true;
-    }
-  }
 
   getUserRoles() {
     this.userService.getUserRoles().subscribe(
@@ -203,6 +187,22 @@ export class AddUserComponent implements OnInit {
   }
 
   getDisctricts(regionID) {
+    if(this.userForm.controls['region'].value == 0) {
+      alert(this.userForm.controls['region'].value);
+      this.userForm.controls['territory'].clearValidators();
+      this.userForm.controls['territory'].updateValueAndValidity();
+      this.userForm.controls['district'].clearValidators();
+      this.userForm.controls['district'].updateValueAndValidity();
+      this.showDisTer = false;
+    } else {
+      alert(this.userForm.controls['region'].value);
+      this.userForm.controls['territory'].setValidators([Validators.required]);
+      this.userForm.controls['territory'].updateValueAndValidity();
+      this.userForm.controls['district'].setValidators([Validators.required]);
+      this.userForm.controls['district'].updateValueAndValidity();
+      this.showDisTer = true;
+    }
+
     this.spinner.show();
     this.userService.getDistricts(regionID).subscribe(
       res => {
