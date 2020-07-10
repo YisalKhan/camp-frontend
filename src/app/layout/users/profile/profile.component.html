@@ -39,8 +39,8 @@
                         <div class="app-team-info">
                             <p><strong>Team: </strong><span class="pl-1">{{ userTeam }}</span></p>
                             <p><strong>Region: </strong><span class="pl-1">{{ userRegion }}</span></p> 
-                            <p><strong>District: </strong><span class="pl-1">{{ userDistrict }}</span></p>                  
-                            <p><strong>Territory: </strong><span class="pl-1">{{ userTerritory }}</span></p> 
+                            <p *ngIf="userDistrict != null"><strong>District: </strong><span class="pl-1">{{ userDistrict }}</span></p>                  
+                            <p *ngIf="userTerritory != null"><strong>Territory: </strong><span class="pl-1">{{ userTerritory }}</span></p> 
                         </div>
                     </div>
                 </div>

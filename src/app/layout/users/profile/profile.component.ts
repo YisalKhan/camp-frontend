@@ -45,8 +45,8 @@ export class ProfileComponent implements OnInit {
         this.cnic = res['cnic'];
         this.userTeam = res['user_team']['team_name'];
         this.userRegion = res['user_region']['region_name'];
-        this.userDistrict = res['user_district']['district_name'];
-        this.userTerritory = res['user_territory']['territory_name'];
+        this.userDistrict = res['user_district'] === null ? null : res['user_district']['district_name'];
+        this.userTerritory = res['user_territory'] === null ? null : res['user_territory']['territory_name'];
       this.spinner.hide();
     });
   }
