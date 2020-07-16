@@ -35,6 +35,7 @@ export class AddUserComponent implements OnInit {
     mask: [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, ]
   };
   showDisTer: any = true;
+  showTer: any = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -187,7 +188,7 @@ export class AddUserComponent implements OnInit {
   }
 
   getDisctricts(regionID) {
-    if(this.userForm.controls['region'].value == 0) {
+    if(regionID == 0) {
       this.userForm.controls['territory'].clearValidators();
       this.userForm.controls['territory'].updateValueAndValidity();
       this.userForm.controls['district'].clearValidators();
@@ -228,5 +229,17 @@ export class AddUserComponent implements OnInit {
       },
       err => console.log(err)
     );
+  }
+
+  getDesignation(roleId) {
+    if(roleId == 8 || roleId == 10) {
+      this.userForm.controls['territory'].clearValidators();
+      this.userForm.controls['territory'].updateValueAndValidity();
+      this.showTer = false;
+    } else {
+      this.userForm.controls['territory'].setValidators([Validators.required]);
+      this.userForm.controls['territory'].updateValueAndValidity();
+      this.showTer = true;
+    }
   }
 }

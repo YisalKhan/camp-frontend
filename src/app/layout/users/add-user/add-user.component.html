@@ -47,7 +47,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6">
               <div class="form-group">
                 <label class="app-form-label">Designation</label>
-                <select class="form-control app-form-input" formControlName="designation">
+                <select class="form-control app-form-input" formControlName="designation" (change)="getDesignation($event.target.value)">
                   <option [disabled]>Select Role</option>
                   <option *ngFor = "let role of roles" value={{role.id}}>{{ role.role_name }} ({{ role.role_abv }}) </option>
                 </select>
@@ -107,7 +107,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4" *ngIf="showDisTer == true">
+            <div class="col-lg-4 col-md-4 col-sm-4" *ngIf="showDisTer == true || showTer == true">
               <div class="form-group">
                 <label class="required app-form-label">Territory</label>
                 <select class="form-control app-form-input" formControlName="territory">
