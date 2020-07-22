@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import * as moment from "moment";
+import { DatePipe } from '@angular/common';
 
 import { CampService } from '../../../services/camp.service';
 import { routerTransition } from '../../../router.animations';
@@ -19,11 +21,15 @@ export class EditcampsComponent implements OnInit {
   campId: any;
   campData: any;
   campStatus: any;
+  campType: any;
+  dateTime: any;
   public phone = {
     guide: true,
     showMask: true,
     mask: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/]
   };
+  flyersValue: any;
+  screeingSlipsValue: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,7 +38,8 @@ export class EditcampsComponent implements OnInit {
     private router: Router,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
-    private pubnub: PubNubAngular
+    private pubnub: PubNubAngular,
+    private datePipe: DatePipe
   ) { }
 
   campEditForm = this.formBuilder.group({
@@ -43,13 +50,13 @@ export class EditcampsComponent implements OnInit {
     campDateAndTime: ['', Validators.required],
     campDateAndTimeSecond: [''],
     campAddress: ['', Validators.required],
-    bpApparatus: ['', Validators.required],
+    bpApparatus: [''],
     campLat: ['129123'],
     campLang: ['129123'],
-    bloodSugarMeter: ['', Validators.required],
-    strips: ['', Validators.required],
-    flyers: ['', Validators.required],
-    screeingSlips: ['', Validators.required]
+    bloodSugarMeter: [''],
+    strips: [''],
+    flyers: [''],
+    screeingSlips: ['']
   });
 
   ngOnInit() {
@@ -65,7 +72,7 @@ export class EditcampsComponent implements OnInit {
             doctorName: this.campData.dr_name,
             doctorPhoneNumber: this.campData.dr_phone_no,
             doctorID: this.campData.dr_id,
-            campDateAndTime: this.campData.camp_datetime,
+            campDateAndTime: this.datePipe.transform(this.campData.camp_datetime, 'EEEE MMM d, y, h:mm:ss a'),
             campAddress: this.campData.address,
             bpApparatus: this.campData.is_bp_apparatus,
             campLat: this.campData.lat,
@@ -75,6 +82,8 @@ export class EditcampsComponent implements OnInit {
             flyers: this.campData.no_of_flyers,
             screeingSlips: this.campData.no_of_screening_slips
           });
+          this.flyersValue =  this.campData.no_of_flyers;
+          this.screeingSlipsValue = this.campData.no_of_screening_slips;
           // this.campStatus = res['camp_status'];
           this.spinner.hide();
         }
@@ -109,6 +118,10 @@ export class EditcampsComponent implements OnInit {
 
   onBack() {
     this.router.navigate(['/camps/campsRequest']);
+  }
+
+  campTypeChanged() {
+    this.campType = this.campEditForm.value.campType;
   }
 
 }
