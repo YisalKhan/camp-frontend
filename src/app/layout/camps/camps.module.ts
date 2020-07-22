@@ -13,6 +13,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ApprovedCampsComponent } from './approved-camps/approved-camps.component';
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 import { TextMaskModule } from 'angular2-text-mask';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -33,6 +34,9 @@ import { TextMaskModule } from 'angular2-text-mask';
     CampsRequestComponent,
     EditcampsComponent,
     ApprovedCampsComponent
+  ],
+  providers: [
+    DatePipe
   ]
 })
 export class CampsModule {}
