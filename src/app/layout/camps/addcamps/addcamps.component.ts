@@ -49,9 +49,9 @@ export class AddCampsComponent implements OnInit {
     campLat: ['129123'],
     campLang: ['129123'],
     bloodSugarMeter: [''],
-    strips: ['', Validators.required],
-    flyers: ['', Validators.required],
-    screeingSlips: ['', Validators.required]
+    strips: [''],
+    flyers: [''],
+    screeingSlips: ['']
   });
 
   ngOnInit() {
@@ -107,6 +107,8 @@ export class AddCampsComponent implements OnInit {
 
   onSubmit() {
     this.spinner.show();
+    this.campForm.controls['flyers'].setValue(parseInt(this.campForm.value.flyers));
+    this.campForm.controls['screeingSlips'].setValue(parseInt(this.campForm.value.screeingSlips));
     this.campForm.value.campUserID = this.campUserID;
     this.campService.createCamp(this.campForm.value).subscribe(
       res => {
