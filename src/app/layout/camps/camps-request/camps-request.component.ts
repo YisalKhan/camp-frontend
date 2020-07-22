@@ -64,6 +64,9 @@ export class CampsRequestComponent implements OnInit {
     this.campService.getCamps(userID).subscribe(
       (res) => {
         this.camps = res;
+        for(let i = 0; i< this.camps.length; i++) {
+          this.camps[i].camp_datetime = new Date(this.camps[i].camp_datetime);
+        }
     });
   }
 
