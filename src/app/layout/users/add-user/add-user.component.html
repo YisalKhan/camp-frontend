@@ -11,7 +11,7 @@
 </ngx-spinner>
 
   <div class="app-page-title-wrapper">
-    <h2 class="app-page-title">New User</h2>
+    <h2 class="app-page-title">{{ editStatus ? 'Edit User' : 'New User' }}</h2>
     <ul class="list-inline app-breadcumb">
         <li  class="list-inline-item">
             <a href="#">CMP Dashboard -</a>
@@ -20,7 +20,7 @@
             <a href="#">Users -</a>
         </li>
         <li  class="list-inline-item">
-          <a href="#">New User</a>
+          <a href="#">{{ editStatus ? 'Edit User' : 'New User' }}</a>
         </li>
     </ul>
   </div>
@@ -78,7 +78,7 @@
           <hr>
           
           <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="col-lg-6 col-md-6 col-sm-6" *ngIf="showFields == true || showTeam == true">
               <div class="form-group">
                 <label class="required app-form-label">Teams</label>
                 <select class="form-control app-form-input" formControlName="team">
@@ -94,11 +94,11 @@
                 <label class="required app-form-label">Regions</label>
                 <select class="form-control app-form-input" formControlName="region" (change)="getDisctricts($event.target.value)">
                   <option [disabled]>Select Region</option>
-                  <option *ngFor = "let region of regions" value={{region.id}}>{{ region.region_name }}</option>
+                  <option *ngFor = "let region of regions" value={{region.id}} [disabled]="region.id != 0 && roleId <= 7">{{ region.region_name }}</option>
                 </select>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4" *ngIf="showDisTer == true">
+            <div class="col-lg-4 col-md-4 col-sm-4" *ngIf="(showFields != false && showTeam == true) || (roleId == 10 || roleId == 11)">
               <div class="form-group">
                 <label class="required app-form-label">District</label>
                 <select class="form-control app-form-input" formControlName="district" (change)="getTerritories($event.target.value)">
@@ -107,7 +107,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4" *ngIf="showDisTer == true && showTer == true">
+            <div class="col-lg-4 col-md-4 col-sm-4" *ngIf="showFields == true && showTeam == true">
               <div class="form-group">
                 <label class="required app-form-label">Territory</label>
                 <select class="form-control app-form-input" formControlName="territory">

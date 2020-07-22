@@ -34,8 +34,11 @@ export class AddUserComponent implements OnInit {
     showMask: true,
     mask: [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, ]
   };
-  showDisTer: any = true;
-  showTer: any = true;
+  showDisTer: any = false;
+  showTer: any = false;
+  showFields: any = false;
+  showTeam: any = false;
+  roleId: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -53,10 +56,10 @@ export class AddUserComponent implements OnInit {
     employeeCode : ['', Validators.required],
     mobileNumber : ['', Validators.required],
     email : ['', Validators.required],
-    territory : ['', Validators.required],
-    district : ['', Validators.required],
-    region : ['', Validators.required],
-    team : ['', Validators.required],
+    territory : [''],
+    district : [''],
+    region : [''],
+    team : [''],
   });
 
   ngOnInit() {
@@ -117,6 +120,7 @@ export class AddUserComponent implements OnInit {
           }
         }
       );
+      localStorage.removeItem('editStatus');
     } else {
       this.spinner.show();
       this.userService.createUser(this.userForm.value).subscribe(
@@ -148,6 +152,7 @@ export class AddUserComponent implements OnInit {
   onClearForm() {
     this.userForm.reset();
     this.editStatus = false;
+    localStorage.removeItem('editStatus');
   }
 
   onDelete() {
@@ -188,20 +193,6 @@ export class AddUserComponent implements OnInit {
   }
 
   getDisctricts(regionID) {
-    if(regionID == 0) {
-      this.userForm.controls['territory'].clearValidators();
-      this.userForm.controls['territory'].updateValueAndValidity();
-      this.userForm.controls['district'].clearValidators();
-      this.userForm.controls['district'].updateValueAndValidity();
-      this.showDisTer = false;
-    } else {
-      this.userForm.controls['territory'].setValidators([Validators.required]);
-      this.userForm.controls['territory'].updateValueAndValidity();
-      this.userForm.controls['district'].setValidators([Validators.required]);
-      this.userForm.controls['district'].updateValueAndValidity();
-      this.showDisTer = true;
-    }
-
     this.spinner.show();
     this.userService.getDistricts(regionID).subscribe(
       res => {
@@ -211,7 +202,6 @@ export class AddUserComponent implements OnInit {
         console.log(this.userForm.value)
         this.districts = res;
         this.spinner.hide();
-        // debugger;
       },
       err => console.log(err)
     );
@@ -232,14 +222,55 @@ export class AddUserComponent implements OnInit {
   }
 
   getDesignation(roleId) {
-    if(roleId == 8 || roleId == 10) {
+    if(roleId == 1 || roleId == 2) {
+      this.roleId = roleId;
+      this.userForm.controls['district'].clearValidators();
+      this.userForm.controls['team'].clearValidators();
       this.userForm.controls['territory'].clearValidators();
-      this.userForm.controls['territory'].updateValueAndValidity();
-      this.showTer = false;
-    } else {
-      this.userForm.controls['territory'].setValidators([Validators.required]);
-      this.userForm.controls['territory'].updateValueAndValidity();
-      this.showTer = true;
+      this.userForm.controls['region'].setValue('0');
+      this.userForm.updateValueAndValidity();
+      this.showFields = false;
+      this.showTeam = false;
+    }
+    if(roleId == 3 || roleId == 4 || roleId == 5 || roleId == 6 || roleId == 7) {
+      this.roleId = roleId;
+      this.userForm.controls['team'].setValidators(Validators.required);
+      this.userForm.controls['district'].clearValidators();
+      this.userForm.controls['territory'].clearValidators();
+      this.userForm.controls['region'].setValue('0');
+      this.userForm.updateValueAndValidity
+      this.showTeam = true;
+      this.showFields = false;
+    }
+    if(roleId == 8 || roleId == 9) {
+      this.roleId = roleId;
+      this.userForm.controls['team'].setValidators(Validators.required);
+      this.userForm.controls['region'].setValidators(Validators.required);
+      this.userForm.controls['district'].clearValidators();
+      this.userForm.controls['territory'].clearValidators();
+      this.userForm.updateValueAndValidity();
+      this.showTeam = true;
+      this.showFields = false;
+    }
+    if(roleId == 10 || roleId == 11) {
+      this.roleId = roleId;
+      this.userForm.controls['team'].setValidators(Validators.required);
+      this.userForm.controls['region'].setValidators(Validators.required);
+      this.userForm.controls['district'].setValidators(Validators.required);
+      this.userForm.controls['territory'].clearValidators();
+      this.userForm.updateValueAndValidity();
+      this.showTeam = true;
+      this.showFields = false;
+    }
+    if(roleId == 12 || roleId == 13 || roleId == 14) {
+      this.roleId = roleId;
+      this.userForm.controls['team'].setValidators(Validators.required);
+      this.userForm.controls['region'].setValidators(Validators.required);
+      this.userForm.controls['district'].setValidators(Validators.required);
+      this.userForm.controls['territory'].setValidators(Validators.required);
+      this.userForm.updateValueAndValidity();
+      this.showTeam = true;
+      this.showFields = true;
     }
   }
 }
