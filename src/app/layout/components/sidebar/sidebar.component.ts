@@ -141,4 +141,8 @@ export class SidebarComponent implements OnInit {
         this.router.navigate(['camps/approvedCamps']);
         this.spinner.hide();
     }
+
+    clearEditStatus() {
+        localStorage.removeItem('editStatus');
+    }
 }
