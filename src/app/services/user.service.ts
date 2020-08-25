@@ -38,8 +38,8 @@ export class UserService {
     return this.httpClient.put(this.basicURL + '/users/' + uid, data);
   }
 
-  getRegions() {
-    return this.httpClient.get(this.basicURL + '/regions');
+  getRegions(teamID) {
+    return this.httpClient.get(this.basicURL + '/regions/' + teamID);
   }
 
   getDistricts(regionID) {

@@ -78,13 +78,21 @@
           <hr>
           
           <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6" *ngIf="showFields == true || showTeam == true">
+            <div class="col-lg-6 col-md-6 col-sm-6" *ngIf="(showFields == true || showTeam == true) && selectTeam == true">
               <div class="form-group">
                 <label class="required app-form-label">Teams</label>
-                <select class="form-control app-form-input" formControlName="team">
+                <select class="form-control app-form-input" (change)="selectTeamFunction($event.target.value)" formControlName="team">
                   <option [disabled]>Select Team</option>
                   <option *ngFor = "let team of teams" value={{team.id}}>{{ team.team_name }}</option>
                 </select>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="(showFields == true || showTeam == true) && selectTeam == false">
+              <div class="form-group">
+                <label class="required app-form-label">Teams</label><br>
+                <span *ngFor="let team of teams; let i = index">
+                  <input type="checkbox" value="{{ team.id }}" (click)="onTeamChecked($event, team.id)" style="margin-right: 5px;"> <span style="margin-right: 10px;">{{ team.team_name }}</span>
+                </span>
               </div>
             </div>
           </div>

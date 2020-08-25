@@ -76,7 +76,7 @@ export class UsersComponent implements OnInit {
   }
 
   getRegions() {
-    this.userService.getRegions().subscribe(
+    this.userService.getRegions(JSON.parse(localStorage.getItem('userData'))['team']).subscribe(
       res => {
         this.regions = res;
       }

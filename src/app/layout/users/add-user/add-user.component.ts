@@ -39,6 +39,8 @@ export class AddUserComponent implements OnInit {
   showFields: any = false;
   showTeam: any = false;
   roleId: any;
+  selectTeam: boolean;
+  checkedArr = new Array;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -66,7 +68,7 @@ export class AddUserComponent implements OnInit {
     this.spinner.show();
     this.getUserRoles();
     this.getUserTeams();
-    this.getRegions();
+    // this.getRegions('');
     if (localStorage.getItem('editStatus')) {
       this.editStatus = true;
       this.route.params.subscribe((params: Params) => {
@@ -123,6 +125,7 @@ export class AddUserComponent implements OnInit {
       localStorage.removeItem('editStatus');
     } else {
       this.spinner.show();
+      console.log(this.userForm.value);
       this.userService.createUser(this.userForm.value).subscribe(
         res => {
           this.toastr.success(res['success']);
@@ -183,8 +186,14 @@ export class AddUserComponent implements OnInit {
     );
   }
 
-  getRegions() {
-    this.userService.getRegions().subscribe(
+  selectTeamFunction(id) {
+    this.getRegions(id);
+    this.userForm.value.isMultiple = 0;
+    console.log(this.userForm);
+  }
+
+  getRegions(teamId) {
+    this.userService.getRegions(teamId).subscribe(
       res => {
         this.regions = res;
       },
@@ -231,6 +240,7 @@ export class AddUserComponent implements OnInit {
       this.userForm.updateValueAndValidity();
       this.showFields = false;
       this.showTeam = false;
+      this.selectTeam = true;
     }
     if(roleId == 3 || roleId == 4 || roleId == 5 || roleId == 6 || roleId == 7) {
       this.roleId = roleId;
@@ -241,6 +251,7 @@ export class AddUserComponent implements OnInit {
       this.userForm.updateValueAndValidity
       this.showTeam = true;
       this.showFields = false;
+      this.selectTeam = true;
     }
     if(roleId == 8 || roleId == 9) {
       this.roleId = roleId;
@@ -251,6 +262,7 @@ export class AddUserComponent implements OnInit {
       this.userForm.updateValueAndValidity();
       this.showTeam = true;
       this.showFields = false;
+      this.selectTeam = true;
     }
     if(roleId == 10 || roleId == 11) {
       this.roleId = roleId;
@@ -261,6 +273,7 @@ export class AddUserComponent implements OnInit {
       this.userForm.updateValueAndValidity();
       this.showTeam = true;
       this.showFields = false;
+      this.selectTeam = true;
     }
     if(roleId == 12 || roleId == 13 || roleId == 14) {
       this.roleId = roleId;
@@ -271,6 +284,45 @@ export class AddUserComponent implements OnInit {
       this.userForm.updateValueAndValidity();
       this.showTeam = true;
       this.showFields = true;
+      this.selectTeam = true;
     }
+    if(roleId == 15 || roleId == 16) {
+      this.roleId = roleId;
+      this.userForm.controls['team'].setValidators(Validators.required);
+      this.userForm.controls['region'].setValidators(Validators.required);
+      this.userForm.controls['district'].clearValidators();
+      this.userForm.controls['territory'].clearValidators();
+      this.userForm.updateValueAndValidity();
+      this.showTeam = true;
+      this.showFields = false;
+      this.selectTeam = false;
+    }
+    if(roleId == 17 || roleId == 18) {
+      this.roleId = roleId;
+      this.userForm.controls['team'].setValidators(Validators.required);
+      this.userForm.controls['region'].setValidators(Validators.required);
+      this.userForm.controls['district'].setValidators(Validators.required);
+      this.userForm.controls['territory'].clearValidators();
+      this.userForm.updateValueAndValidity();
+      this.showTeam = true;
+      this.showFields = false;
+      this.selectTeam = false;
+    }
+  }
+
+  onTeamChecked(event, id) {
+    this.checkedArr;
+    console.log(event);
+    if(event.target.checked == true) {
+      this.checkedArr.push(id);
+    } else {
+      const index = this.checkedArr.indexOf(id);
+      this.checkedArr.splice(index, 1);
+    }
+    console.log(this.checkedArr);
+    this.userForm.value.team = this.checkedArr;
+    this.userForm.value.isMultiple = 1;
+    this.getRegions(this.checkedArr[0]);
+    console.log(this.userForm.value);
   }
 }
