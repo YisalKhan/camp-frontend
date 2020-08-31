@@ -37,6 +37,15 @@
 							</li>
 							<li  class="list-inline-item">
 								<div>
+									<label class="app-form-label">Team</label>
+									<select class="form-control app-form-input" [value]="" formControlName="teams">
+										<option value="">Select Team</option>
+										<option *ngFor = "let team of teams" value="{{team.id}}">{{ team.team_name }}</option>
+									</select>
+								</div>
+							</li>
+							<li  class="list-inline-item">
+								<div>
 									<label class="app-form-label">Region</label>
 									<select class="form-control app-form-input" [value]="" formControlName="region">
 										<option value="">Select Region</option>
@@ -75,6 +84,15 @@
 				</div>
 			</div>
 		</div>
+		<div class="row" style="margin-bottom: 40px;">
+			<div class="col col-xl-12 col-lg-12">
+				<div class="app-btn-wrapper text-center">
+					<button type="button" class="btn btn-outline-danger app-btn" (click)="addUser()">
+						<i class="fa fa-plus btn-icon" aria-hidden="true"></i> Add User
+					</button>
+				</div>	
+			</div>
+		</div>
 		<div class="row">
 			<div class="col col-xl-12 col-lg-12">
 				<div class="app-table-users">
@@ -111,15 +129,6 @@
 						</tbody>
 					</table>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col col-xl-12 col-lg-12">
-				<div class="app-btn-wrapper text-center">
-					<button type="button" class="btn btn-outline-danger app-btn" (click)="addUser()">
-						<i class="fa fa-plus btn-icon" aria-hidden="true"></i> Add User
-					</button>
-				</div>	
 			</div>
 		</div>
 	</div>

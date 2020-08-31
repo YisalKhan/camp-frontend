@@ -16,6 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 export class UsersComponent implements OnInit {
 
   users: any;
+  teams: any;
   regions: any;
   pubnub: any;
   districts: any;
@@ -44,6 +45,7 @@ export class UsersComponent implements OnInit {
     this.getRegions();
     this.getDistricts();
     this.getTerritories();
+    this.getTeams();
   }
 
   addUser() {
@@ -80,6 +82,14 @@ export class UsersComponent implements OnInit {
     this.userService.getRegions(JSON.parse(localStorage.getItem('userData'))['team']).subscribe(
       res => {
         this.regions = res;
+      }
+    );
+  }
+
+  getTeams() {
+    this.userService.getUserTeams().subscribe(
+      res => {
+        this.teams = res;
       }
     );
   }
