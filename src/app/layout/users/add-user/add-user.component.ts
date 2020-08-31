@@ -70,6 +70,8 @@ export class AddUserComponent implements OnInit {
     this.getUserTeams();
     // this.getRegions('');
     if (localStorage.getItem('editStatus')) {
+      this.showTeam = true;
+      this.selectTeam = true;
       this.editStatus = true;
       this.route.params.subscribe((params: Params) => {
         this.userID = params['userID'];
