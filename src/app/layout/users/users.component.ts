@@ -57,6 +57,7 @@ export class UsersComponent implements OnInit {
     this.userService.getUsers(userID).subscribe(
       res => {
         this.users = res;
+        console.log(res);
         this.spinner.hide();
       },
       err => console.log(err)
