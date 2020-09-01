@@ -32,7 +32,7 @@
 							<li  class="list-inline-item">
 								<div>
 									<label class="app-form-label">Search</label>
-									<input class="form-control app-form-input app-form-wide-input" formControlName="userName" placeholder="Search" />
+									<input class="form-control app-form-input app-form-wide-input" formControlName="userName" placeholder="Search" style="width: 100%;" />
 								</div>
 							</li>
 							<li  class="list-inline-item">
@@ -84,15 +84,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="row" style="margin-bottom: 40px;">
-			<div class="col col-xl-12 col-lg-12">
-				<div class="app-btn-wrapper text-center">
-					<button type="button" class="btn btn-outline-danger app-btn" (click)="addUser()">
-						<i class="fa fa-plus btn-icon" aria-hidden="true"></i> Add User
-					</button>
-				</div>	
-			</div>
-		</div>
 		<div class="row">
 			<div class="col col-xl-12 col-lg-12">
 				<div class="app-table-users">
@@ -110,7 +101,7 @@
 						  </tr>
 						</thead>
 						<tbody role="rowgroup">
-						  <tr role="row" *ngFor="let user of users">
+						  <tr role="row" *ngFor="let user of users | paginate: { itemsPerPage: 25, currentPage: p }">
 
 							<td role="cell">{{ user.name }}</td>
 							<td role="cell">{{ user.email }}</td>
@@ -131,5 +122,15 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col col-xl-12 col-lg-12">
+				<pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+				<div class="app-btn-wrapper text-center">
+					<button type="button" class="btn btn-outline-danger app-btn" (click)="addUser()">
+						<i class="fa fa-plus btn-icon" aria-hidden="true"></i> Add User
+					</button>
+				</div>	
+			</div>
+		</div>	
 	</div>
 </div>

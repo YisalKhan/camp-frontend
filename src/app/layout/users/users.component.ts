@@ -15,6 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UsersComponent implements OnInit {
 
+  p: number = 1;
   users: any;
   teams: any;
   regions: any;
