@@ -102,6 +102,14 @@ export class AddUserComponent implements OnInit {
 
   onSubmit() {
     if (this.editStatus) {
+      this.spinner.show();
+      if(this.userForm.value.team === true) {
+        this.userForm.value.team = this.checkedArr;
+        this.userForm.value.isMultiple = 1;
+      }
+      if(this.userForm.value.team.length == 1) {
+        this.userForm.value.isMultiple = 0;
+      }
       this.userService.updateUser(this.userID, this.userForm.value).subscribe(
         res => {
           this.toastr.success(res['success']);
@@ -124,10 +132,17 @@ export class AddUserComponent implements OnInit {
           }
         }
       );
+      this.spinner.hide();
       localStorage.removeItem('editStatus');
     } else {
       this.spinner.show();
-      console.log(this.userForm.value);
+      if(this.userForm.value.team === true) {
+        this.userForm.value.team = this.checkedArr;
+        this.userForm.value.isMultiple = 1;
+      }
+      if(this.userForm.value.team.length == 1) {
+        this.userForm.value.isMultiple = 0;
+      }
       this.userService.createUser(this.userForm.value).subscribe(
         res => {
           this.toastr.success(res['success']);
@@ -190,7 +205,7 @@ export class AddUserComponent implements OnInit {
 
   selectTeamFunction(id) {
     this.getRegions(id);
-    this.userForm.value.isMultiple = 0;
+    // this.userForm.value.isMultiple = 0;
     console.log(this.userForm);
   }
 
@@ -323,7 +338,7 @@ export class AddUserComponent implements OnInit {
     }
     console.log(this.checkedArr);
     this.userForm.value.team = this.checkedArr;
-    this.userForm.value.isMultiple = 1;
+    // this.userForm.value.isMultiple = 1;
     this.getRegions(this.checkedArr[0]);
     console.log(this.userForm.value);
   }
