@@ -131,6 +131,7 @@
                 <div class="btn-group" role="group" aria-label="...">
                   <button type="button" class="btn btn-outline-danger app-btn" (click)="onClearForm()" *ngIf="editStatus">Clear</button>
                   <button type="submit" [disabled]="!userForm.valid" class="btn btn-danger btn-lg app-btn red-btn "><i class="fa fa-plus btn-icon" aria-hidden="true"></i>{{ editStatus ? 'Save' : 'Add User' }}</button>
+                  <button type="button" class="btn btn-outline-danger app-btn" (click)="onCancel()">Cancel</button>
                   <!-- <button type="button" class="btn btn-danger" (click)="onDelete()" *ngIf="editStatus">Delete</button> -->
                 </div>
               </div>

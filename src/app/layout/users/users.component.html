@@ -106,7 +106,8 @@
 							<td role="cell">{{ user.name }}</td>
 							<td role="cell">{{ user.email }}</td>
 							<td role="cell">{{ user.employee_code }}</td>
-							<td role="cell">{{ user.user_team?.team_name }}</td>
+							<!-- <td role="cell" *ngIf="user.user_team?.team_name.length > 1">Hybrid</td> -->
+							<td role="cell">{{ user.is_multiple_teams == 1 ? "Hybrid" : user.user_team?.team_name }}</td>
 							<td role="cell">{{ user.user_region.region_name }}</td>
 							<td role="cell">{{ user.user_district == null ? "N/A" : user.user_district.district_name }}</td>
 							<td role="cell">{{ user.user_territory == null ? "N/A" : user.user_territory.territory_name }}</td>

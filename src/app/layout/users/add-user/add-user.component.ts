@@ -342,4 +342,7 @@ export class AddUserComponent implements OnInit {
     this.getRegions(this.checkedArr[0]);
     console.log(this.userForm.value);
   }
+  onCancel() {
+    this.router.navigate(['users']);
+  }
 }
