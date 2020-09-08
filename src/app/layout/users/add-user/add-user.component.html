@@ -91,7 +91,7 @@
               <div class="form-group">
                 <label class="required app-form-label">Teams</label><br>
                 <span *ngFor="let team of teams; let i = index">
-                  <input type="checkbox" formControlName="team" value="{{ team.id }}" (click)="onTeamChecked($event, team.id)" style="margin-right: 5px;"> <span style="margin-right: 10px;">{{ team.team_name }}</span>
+                  <input type="checkbox" formControlName="team" [checked]="team.selected == true" value="{{ team.id }}" (click)="onTeamChecked($event, team.id)" style="margin-right: 5px;"> <span style="margin-right: 10px;">{{ team.team_name }}</span>
                 </span>
               </div>
             </div>

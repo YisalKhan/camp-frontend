@@ -41,6 +41,7 @@ export class AddUserComponent implements OnInit {
   roleId: any;
   selectTeam: boolean;
   checkedArr = new Array;
+  multipleTeams: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -197,6 +198,22 @@ export class AddUserComponent implements OnInit {
           region: this.data.region,
           team: this.data.team
         });
+        if(this.data.is_multiple_teams == 1) {
+          this.getRegions(this.data.multiple_teams[0].id);
+          this.selectTeam = false;
+          this.multipleTeams = this.data.multiple_teams;
+          for(let i = 0; i < this.teams.length; i++) {
+            for(let j = 0; j < this.multipleTeams.length; j++) {
+              if(this.teams[i].id == this.multipleTeams[j].id) {
+                this.teams[i].selected = true;
+              }
+            }
+          }
+        }
+        if(this.data.is_multiple_teams == 0) {
+          this.getRegions(this.data.team);
+          this.selectTeam = true;
+        }
         
       },
       err => console.log(err)
