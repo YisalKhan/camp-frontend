@@ -102,7 +102,7 @@
                 <label class="required app-form-label">Regions</label>
                 <select class="form-control app-form-input" formControlName="region" (change)="getDisctricts($event.target.value)">
                   <option [disabled]>Select Region</option>
-                  <option *ngFor = "let region of regions" value={{region.id}} [disabled]="(region.id != 0 && region.id != 9 && region.id != 18 && region.id != 27 && region.id != 36) && roleId <= 7">{{ region.region_name }}</option>
+                  <option *ngFor = "let region of regions" value={{region.id}} [disabled]="(region.id != 0 && region.id != 10 && region.id != 19 && region.id != 28 && region.id != 37) && roleId <= 7">{{ region.region_name }}</option>
                 </select>
               </div>
             </div>
