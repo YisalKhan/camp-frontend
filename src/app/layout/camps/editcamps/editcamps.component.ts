@@ -93,6 +93,7 @@ export class EditcampsComponent implements OnInit {
 
   onCampApprove(cid) {
     const userID = JSON.parse(localStorage.getItem('userData'))['id'];
+    this.campEditForm.value.campDateAndTime = this.campEditForm['campDateAndTimeSecond'];
     // debugger;
     this.campService.campApprove(cid, userID).subscribe(
       res => {
@@ -109,11 +110,15 @@ export class EditcampsComponent implements OnInit {
   onCampUpdate(cid: any) {
     const userID = JSON.parse(localStorage.getItem('userData'))['id'];
     this.campEditForm.value.campUserID = userID;
+    this.campEditForm.value.campDateAndTime = this.campEditForm['campDateAndTimeSecond'];
     this.campService.updateCamp(cid, this.campEditForm.value).subscribe(
       res => {
         this.toastr.success(res['success']);
+      },
+      err => {
+        console.log(err);
       }
-    )
+    );
   }
 
   onBack() {
