@@ -134,6 +134,7 @@ export class AddUserComponent implements OnInit {
         }
       );
       this.spinner.hide();
+      
       localStorage.removeItem('editStatus');
     } else {
       this.spinner.show();
