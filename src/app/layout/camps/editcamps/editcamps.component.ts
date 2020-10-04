@@ -95,7 +95,7 @@ export class EditcampsComponent implements OnInit {
     const userID = JSON.parse(localStorage.getItem('userData'))['id'];
     this.campEditForm.value.campDateAndTime = this.campEditForm['campDateAndTimeSecond'];
     // debugger;
-    this.campService.campApprove(cid, userID).subscribe(
+    this.campService.campApprove(cid, userID, this.campEditForm.value.campDateAndTime).subscribe(
       res => {
         this.pubnub.publish({ channel: 'approvedNotification', message: {heelo: 'Camp Approved'} }, (response) => {
           console.log(response, 'published');

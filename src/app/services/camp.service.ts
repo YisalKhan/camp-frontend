@@ -25,8 +25,8 @@ export class CampService {
     return this.httpClient.get(this.basicURL + '/camps/' + campID);
   }
 
-  campApprove(campID: any, userID: any) {
-    return this.httpClient.get(this.basicURL + '/camp/approval/' + campID + '/' + userID);
+  campApprove(campID: any, userID: any, campDateTime: any) {
+    return this.httpClient.get(this.basicURL + '/camp/approval/' + campID + '/' + userID + '?datetime=' + campDateTime);
   }
 
   getApprovedCamps(userID: any) {
