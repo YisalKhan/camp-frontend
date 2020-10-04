@@ -150,7 +150,8 @@ export class CampsRequestComponent implements OnInit {
   onDownloadExcel(){
     this.campFilter.value.action = 'excel';
     this.spinner.show();
-    this.campService.getFilteredCamps(this.campFilter.value, '1').subscribe(
+    const userID = JSON.parse(localStorage.getItem('userData'))['id'];
+    this.campService.getFilteredCamps(this.campFilter.value, userID).subscribe(
       (res) => {
         const link = JSON.stringify(res);
         window.open(JSON.parse(link), '_blank');
