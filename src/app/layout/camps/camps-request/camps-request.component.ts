@@ -20,6 +20,9 @@ export class CampsRequestComponent implements OnInit {
   camps: any;
   previous: any;
   future: any;
+  campRequest: any;
+  regions: any;
+  districts: any;
 
   constructor(
     private campService: CampService,
@@ -36,7 +39,9 @@ export class CampsRequestComponent implements OnInit {
     campStatus: [''],
     startDate: [''],
     endDate: [''],
-    campDuration: ['']
+    campDuration: ['previous'],
+    region: [''],
+    district: ['']
   });
 
   ngOnInit() {
@@ -46,6 +51,9 @@ export class CampsRequestComponent implements OnInit {
       }
       if (params[0]['path'] == 'futureCamps') {
         this.future = params[0]['path'];
+      }
+      if(params[0]['path'] == 'campsRequest') {
+        this.campRequest = params[0]['path'];
       }
     });
     if (this.previous == 'previousCamps') {
@@ -57,6 +65,7 @@ export class CampsRequestComponent implements OnInit {
     } else {
       this.getCamps();
     }
+    this.getRegions();
   }
 
   getCamps() {
@@ -124,6 +133,12 @@ export class CampsRequestComponent implements OnInit {
   }
 
   onReset() {
+    this.campFilter.controls['doctorName'].setValue('');
+    this.campFilter.controls['campType'].setValue('');
+    this.campFilter.controls['campStatus'].setValue('');
+    this.campFilter.controls['startDate'].setValue('');
+    this.campFilter.controls['endDate'].setValue('');
+    this.campFilter.updateValueAndValidity();
     if (this.previous == 'previousCamps') {
       this.campFilter.reset();
       this.getPreviousCamps();
@@ -158,6 +173,25 @@ export class CampsRequestComponent implements OnInit {
         window.open(JSON.parse(link), '_blank');
         this.spinner.hide();
     });
+  }
+
+  getRegions() {
+    this.campService.getRegions(JSON.parse(localStorage.getItem('userData'))['team']).subscribe(
+      res => {
+        this.regions = res;
+      }
+    );
+  }
+
+  getDisctricts(regionID) {
+    this.spinner.show();
+    this.campService.getDistricts(regionID).subscribe(
+      res => {
+        this.districts = res;
+        this.spinner.hide();
+      },
+      err => console.log(err)
+    );
   }
 
 }

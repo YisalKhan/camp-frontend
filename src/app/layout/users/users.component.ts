@@ -44,8 +44,6 @@ export class UsersComponent implements OnInit {
     this.spinner.show();
     this.getUsers();
     this.getRegions();
-    this.getDistricts();
-    this.getTerritories();
     this.getTeams();
   }
 
@@ -95,19 +93,25 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  getDistricts() {
-    this.userService.getFilterDistricts().subscribe(
+  getDisctricts(regionID) {
+    this.spinner.show();
+    this.userService.getDistricts(regionID).subscribe(
       res => {
         this.districts = res;
-      }
+        this.spinner.hide();
+      },
+      err => console.log(err)
     );
   }
 
-  getTerritories() {
-    this.userService.getFilterTerritories().subscribe(
+  getTerritories(districtID) {
+    this.spinner.show();
+    this.userService.getTerritories(districtID).subscribe(
       res => {
         this.territories = res;
-      }
+        this.spinner.hide();
+      },
+      err => console.log(err)
     );
   }
 

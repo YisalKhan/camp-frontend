@@ -75,15 +75,15 @@
 						<ul class="list-inline app-filters">
 							<li  class="list-inline-item">
 								<div>
-									<label class="app-form-label">Doctor Name</label>
-									<input class="form-control app-form-input app-form-wide-input" formControlName="doctorName" placeholder="Filter by Doctor Name" />
+									<!-- <label class="app-form-label">Doctor Name</label> -->
+									<input class="form-control app-form-input app-form-wide-input" formControlName="doctorName" placeholder="Seach by Doctor/MIRO Name" />
 								</div>
 							</li>
 							<li  class="list-inline-item">
 								<div>
-									<label class="app-form-label">Camp Type</label>
+									<!-- <label class="app-form-label">Camp Type</label> -->
 									<select class="form-control app-form-input" [value]="" formControlName="campType">
-										<option value="">Camp Type</option>
+										<option value="" disabled  [selected]=true>Camp Type</option>
 										<option value="1">Cardio Camp</option>
 										<option value="2">Diabetic Camp</option>
 										<option value="3">Cardio/Diabetic Camp</option>
@@ -92,9 +92,9 @@
 							</li>
 							<li  class="list-inline-item">
 								<div>
-									<label class="app-form-label">Camp Status</label>
+									<!-- <label class="app-form-label">Camp Status</label> -->
 									<select class="form-control app-form-input" [value]="" formControlName="campStatus">
-										<option value="">Select Camp</option>
+										<option value="" disabled  [selected]=true>Select Camp</option>
 										<option value="0">Pending</option>
 										<option value="1">Approved</option>
 										<option value="2">Close</option>
@@ -103,6 +103,24 @@
 							</li>
 							<li  class="list-inline-item">
 								<div>
+									<!-- <label class="app-form-label">Region</label> -->
+									<select class="form-control app-form-input" [value]="" formControlName="region" (change)="getDisctricts($event.target.value)">
+										<option value="" disabled  [selected]=true>Select Region</option>
+										<option *ngFor = "let region of regions" value="{{region.id}}">{{ region.region_name }}</option>
+									</select>
+								</div>
+							</li>
+							<li  class="list-inline-item">
+								<div>
+									<!-- <label class="app-form-label">District</label> -->
+									<select class="form-control app-form-input" [value]="" formControlName="district">
+										<option value="" disabled  [selected]=true>Select District</option>
+										<option *ngFor = "let district of districts" value="{{district.id}}">{{ district.district_name }}</option>
+									</select>
+								</div>
+							</li>
+							<!-- <li  class="list-inline-item">
+								<div>
 									<label class="app-form-label">Camp Duration</label>
 									<select class="form-control app-form-input" [value]="" formControlName="campDuration">
 										<option value="">Select Duration</option>
@@ -110,6 +128,18 @@
 										<option value="previous">Previous</option>
 										<option value="future">Future</option>
 									</select>
+								</div>
+							</li> -->
+							<li  class="list-inline-item">
+								<div *ngIf = "campRequest == 'campsRequest'">
+									<!-- <label class="app-form-label">Start Date</label> -->
+									<input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Start Date" class="form-control app-form-input" formControlName="startDate" min="2020-10-01" />
+								</div>
+							</li>
+							<li  class="list-inline-item">
+								<div *ngIf = "campRequest == 'campsRequest'">
+									<!-- <label class="app-form-label">End Date</label> -->
+									<input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="End Date" class="form-control app-form-input" formControlName="endDate" min="2020-10-01" />
 								</div>
 							</li>
 							<li  class="list-inline-item">
@@ -151,7 +181,7 @@
 					<table role="table">
 						<thead role="rowgroup">
 						  <tr role="row">
-							<th role="columnheader">SPO Name</th>
+							<th role="columnheader">Name</th>
 							<th role="columnheader">Team</th>
 							<th role="columnheader">Region</th>
 							<th role="columnheader">District</th>

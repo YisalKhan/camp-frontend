@@ -47,7 +47,7 @@
 							<li  class="list-inline-item">
 								<div>
 									<label class="app-form-label">Region</label>
-									<select class="form-control app-form-input" [value]="" formControlName="region">
+									<select class="form-control app-form-input" [value]="" formControlName="region" (change)="getDisctricts($event.target.value)">
 										<option value="">Select Region</option>
 										<option *ngFor = "let region of regions" value="{{region.id}}">{{ region.region_name }}</option>
 									</select>
@@ -56,7 +56,7 @@
 							<li  class="list-inline-item">
 								<div>
 									<label class="app-form-label">District</label>
-									<select class="form-control app-form-input" [value]="" formControlName="district">
+									<select class="form-control app-form-input" [value]="" formControlName="district" (change)="getTerritories($event.target.value)">
 										<option value="">Select District</option>
 										<option *ngFor = "let district of districts" value="{{district.id}}">{{ district.district_name }}</option>
 									</select>

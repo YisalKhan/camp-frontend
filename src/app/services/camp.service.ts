@@ -77,4 +77,12 @@ export class CampService {
   updatePatientDrugs(patientId: any, data: any) {
     return this.httpClient.post(this.basicURL + '/patient/drugs/add/' + patientId, data);
   }
+
+  getRegions(teamID) {
+    return this.httpClient.get(this.basicURL + '/regions/' + teamID);
+  }
+
+  getDistricts(regionID) {
+    return this.httpClient.get(this.basicURL + '/districts/' + regionID);
+  }
 }
