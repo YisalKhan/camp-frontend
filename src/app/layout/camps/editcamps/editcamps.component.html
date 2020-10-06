@@ -53,7 +53,7 @@
               <fieldset class="form-group">
                 <label class="required app-form-label"><b> Date and Time</b></label>
                 <div class="mt-2">
-                <dl-date-time-picker formControlName="campDateAndTimeSecond" [(ngModel)]="campEditForm['campDateAndTimeSecond']">
+                <dl-date-time-picker formControlName="campDateAndTimeSecond" maxView="year" minView="hour" [(ngModel)]="campEditForm['campDateAndTimeSecond']">
                 </dl-date-time-picker>
                 <input class="form-control app-form-input" formControlName="campDateAndTime" value="{{ campEditForm['campDateAndTimeSecond'] }}">
                 </div>
