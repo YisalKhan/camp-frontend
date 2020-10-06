@@ -31,11 +31,11 @@
 						<ul class="list-inline app-filters">
 							<li  class="list-inline-item">
 								<div>
-									<label class="app-form-label">Search</label>
+									<!-- <label class="app-form-label">Search</label> -->
 									<input class="form-control app-form-input app-form-wide-input" formControlName="userName" placeholder="Search" style="width: 100%;" />
 								</div>
 							</li>
-							<li  class="list-inline-item">
+							<!-- <li  class="list-inline-item">
 								<div>
 									<label class="app-form-label">Team</label>
 									<select class="form-control app-form-input" [value]="" formControlName="teams">
@@ -43,30 +43,30 @@
 										<option *ngFor = "let team of teams" value="{{team.id}}">{{ team.team_name }}</option>
 									</select>
 								</div>
-							</li>
+							</li> -->
 							<li  class="list-inline-item">
 								<div>
-									<label class="app-form-label">Region</label>
+									<!-- <label class="app-form-label">Region</label> -->
 									<select class="form-control app-form-input" [value]="" formControlName="region" (change)="getDisctricts($event.target.value)">
-										<option value="">Select Region</option>
+										<option value="" disabled  [selected]=true>Select Region</option>
 										<option *ngFor = "let region of regions" value="{{region.id}}">{{ region.region_name }}</option>
 									</select>
 								</div>
 							</li>
 							<li  class="list-inline-item">
 								<div>
-									<label class="app-form-label">District</label>
+									<!-- <label class="app-form-label">District</label> -->
 									<select class="form-control app-form-input" [value]="" formControlName="district" (change)="getTerritories($event.target.value)">
-										<option value="">Select District</option>
+										<option value="" disabled  [selected]=true>Select District</option>
 										<option *ngFor = "let district of districts" value="{{district.id}}">{{ district.district_name }}</option>
 									</select>
 								</div>
 							</li>
 							<li  class="list-inline-item">
 								<div>
-									<label class="app-form-label">Territory</label>
+									<!-- <label class="app-form-label">Territory</label> -->
 									<select class="form-control app-form-input" [value]="" formControlName="territory">
-										<option value="">Select Territory</option>
+										<option value="" disabled  [selected]=true>Select Territory</option>
 										<option *ngFor = "let territory of territories" value={{territory.id}}>{{ territory.territory_name }}</option>
 									</select>
 								</div>
