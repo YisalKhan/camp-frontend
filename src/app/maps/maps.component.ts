@@ -24,12 +24,26 @@ export class MapsComponent implements OnInit, AfterViewInit {
   lng: any = localStorage.getItem('longitude');
   coordinates = new google.maps.LatLng(this.lat, this.lng);
   mapOptions: google.maps.MapOptions = {
-    center: this.coordinates,
-    zoom: 12,
+    // center: 
+    center:  {
+      lat: 30.3753,
+      lng: 69.3451
+    },
+    zoom: 6,
+    // country: 
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  endImage = {
+    url: 'assets/images/icons/customerpin.png', // url
+    scaledSize: new google.maps.Size(30, 42), // scaled size
+    origin: new google.maps.Point(0, 0), // origin
+    anchor: new google.maps.Point(16, 41) // anchor
   };
   marker = new google.maps.Marker({
     position: this.coordinates,
     map: this.maps,
+    // draggable: true,
+    icon: this.endImage,
   });
 
   ngOnInit() {
@@ -109,7 +123,7 @@ export class MapsComponent implements OnInit, AfterViewInit {
     // debugger;
     this.maps = new google.maps.Map(this.gmap.nativeElement,
     this.mapOptions);
-    // this.marker.setMap(this.maps);
+    this.marker.setMap(this.maps);
    }
 
   //  displayLocationInfo(position) {
