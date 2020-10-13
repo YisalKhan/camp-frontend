@@ -92,6 +92,7 @@
 						  <tr role="row">
 							<th role="columnheader">Name</th>
 							<th role="columnheader">Email</th>
+							<th role="columnheader">Designation</th>
 							<th role="columnheader">Employee Code</th>
 							<th role="columnheader">Team</th>
 							<th role="columnheader">Region</th>
@@ -105,6 +106,7 @@
 
 							<td role="cell">{{ user.name }}</td>
 							<td role="cell">{{ user.email }}</td>
+							<td role="cell">{{ user.user_role.role_name }}</td>
 							<td role="cell">{{ user.employee_code }}</td>
 							<!-- <td role="cell" *ngIf="user.user_team?.team_name.length > 1">Hybrid</td> -->
 							<td role="cell">{{ user.is_multiple_teams == 1 ? "Hybrid" : user.user_team?.team_name }}</td>
