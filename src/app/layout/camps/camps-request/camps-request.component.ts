@@ -39,7 +39,7 @@ export class CampsRequestComponent implements OnInit {
     campStatus: [''],
     startDate: [''],
     endDate: [''],
-    campDuration: ['previous'],
+    campDuration: [''],
     region: [''],
     district: ['']
   });
