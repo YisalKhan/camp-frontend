@@ -103,7 +103,6 @@
 						</thead>
 						<tbody role="rowgroup">
 						  <tr role="row" *ngFor="let user of users | paginate: { itemsPerPage: 25, currentPage: p }">
-
 							<td role="cell">{{ user.name }}</td>
 							<td role="cell">{{ user.email }}</td>
 							<td role="cell">{{ user.user_role.role_name }}</td>
