@@ -35,15 +35,15 @@
 									<input class="form-control app-form-input app-form-wide-input" formControlName="userName" placeholder="Search" style="width: 100%;" />
 								</div>
 							</li>
-							<!-- <li  class="list-inline-item">
+							<li *ngIf="designation == 1" class="list-inline-item">
 								<div>
-									<label class="app-form-label">Team</label>
+									<!-- <label class="app-form-label">Team</label> -->
 									<select class="form-control app-form-input" [value]="" formControlName="teams">
 										<option value="">Select Team</option>
 										<option *ngFor = "let team of teams" value="{{team.id}}">{{ team.team_name }}</option>
 									</select>
 								</div>
-							</li> -->
+							</li>
 							<li  class="list-inline-item">
 								<div>
 									<!-- <label class="app-form-label">Region</label> -->

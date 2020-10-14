@@ -18,6 +18,7 @@ export class UsersComponent implements OnInit {
   p: number = 1;
   users: any;
   teams: any;
+  designation: any;
   regions: any;
   pubnub: any;
   districts: any;
@@ -41,6 +42,8 @@ export class UsersComponent implements OnInit {
   });
 
   ngOnInit() {
+    this.designation = JSON.parse(localStorage.getItem('userData'))['designation'];
+    console.log(this.designation);
     this.spinner.show();
     this.getUsers();
     this.getRegions();
