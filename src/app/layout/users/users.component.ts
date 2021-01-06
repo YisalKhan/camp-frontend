@@ -38,7 +38,8 @@ export class UsersComponent implements OnInit {
     region: [''],
     district: [''],
     teams: [''],
-    userName: ['']
+    userName: [''],
+    is_multiple_teams: ['']
   });
 
   ngOnInit() {
