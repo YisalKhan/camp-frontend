@@ -148,4 +148,18 @@ export class UsersComponent implements OnInit {
     this.spinner.hide();
   }
 
+  downloadExcel() {
+    this.spinner.show();
+    this.userFilter.value.action = 'excel';
+    const userID = JSON.parse(localStorage.getItem('userData'))['id'];
+    this.userService.getFilterUsers(this.userFilter.value, userID).subscribe(
+      res => {
+        const link = JSON.stringify(res);
+        window.open(JSON.parse(link), '_blank');
+        this.spinner.hide();
+      },
+      err => console.log(err)
+    );
+  }
+
 }

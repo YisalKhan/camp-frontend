@@ -15,7 +15,7 @@
 		<h2 class="app-page-title">Users</h2>
 		<ul class="list-inline app-breadcumb">
 			<li  class="list-inline-item">
-				<a href="#">CMP Dashboard -</a>
+				<a href="#">CMP Dashboardas -</a>
 			</li>
 			<li  class="list-inline-item">
 				<a href="#">Users</a>
@@ -78,6 +78,11 @@
 							</li>
 							<li  class="list-inline-item">
 								<button type="button" (click)="onReset()" class="btn btn-success app-btn"> Reset </button>
+							</li>
+							<li  class="list-inline-item">
+								<div class="user-filter">
+									<button class="btn btn-success app-btn" (click)="downloadExcel()"> Download Excel </button>
+								</div>
 							</li>
 						</ul>
 					</form>
