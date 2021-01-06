@@ -82,6 +82,7 @@ export class EditcampsComponent implements OnInit {
             flyers: this.campData.no_of_flyers,
             screeingSlips: this.campData.no_of_screening_slips
           });
+          this.campType = this.campData.camp_type;
           this.flyersValue =  this.campData.no_of_flyers;
           this.screeingSlipsValue = this.campData.no_of_screening_slips;
           // this.campStatus = res['camp_status'];
