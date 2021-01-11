@@ -28,7 +28,8 @@ export class ViewPatientComponent implements OnInit {
   ) { }
 
   patientsFilter = this.formBuilder.group({
-    campType: ['']
+    campType: [''],
+    patient_search: ['']
   });
 
   ngOnInit() {

@@ -21,7 +21,7 @@
 		</ul>
     </div>
     <div class="row">
-        <div class="col col-md-7 mx-auto">
+        <div class="col col-md-12 mx-auto">
             <div class="app-table-view">
                 
                 <div class="app-filter-form pb-0">
@@ -29,6 +29,11 @@
                         <div class="col col-md-11 mx-auto">
                             <form [formGroup]="patientsFilter" (ngSubmit)="onSubmit()">
                                 <ul class="list-inline app-filters">
+                                    <li  class="list-inline-item">
+                                        <div>
+                                            <input class="form-control app-form-input app-form-wide-input" type="text" formControlName="patient_search" placeholder="Search by name or number">
+                                        </div>    
+                                    </li>
                                     <li  class="list-inline-item">
                                         <div>
                                             <!--label class="app-form-label">Camp Type</label-->
