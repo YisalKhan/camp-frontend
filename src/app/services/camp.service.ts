@@ -85,4 +85,12 @@ export class CampService {
   getDistricts(regionID) {
     return this.httpClient.get(this.basicURL + '/districts/' + regionID);
   }
+
+  getCclMedicine() {
+    return this.httpClient.get(this.basicURL + '/get/ccl/medicines');
+  }
+
+  getOtherMedicine() {
+    return this.httpClient.get(this.basicURL + '/get/other/medicines');
+  }
 }

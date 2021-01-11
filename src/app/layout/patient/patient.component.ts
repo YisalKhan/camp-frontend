@@ -8,6 +8,8 @@ import { routerTransition } from '../../router.animations';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
+  declare var $: any;
+
 @Component({
   selector: 'app-patient',
   templateUrl: './patient.component.html',
@@ -21,7 +23,10 @@ export class PatientComponent implements OnInit {
   isReadonly: any = false;
   patientId: any;
   patientData: any;
+  cclMedicines: any;
+  otherMedicines: any;
   optionValue1: any; optionValue2: any; optionValue3: any; optionValue4: any; optionValue5: any;
+  drugSearch1: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,20 +45,23 @@ export class PatientComponent implements OnInit {
     patientDiastolic: [''],
     patientSystolic: [''],
     patientBloodSugar: [''],
-    isCompanyDrug1: [''],
-    isCompanyDrug2: [''],
-    isCompanyDrug3: [''],
-    isCompanyDrug4: [''],
-    isCompanyDrug5: [''],
-    drugName1: [''],
-    drugName2: [''],
-    drugName3: [''],
-    drugName4: [''],
-    drugName5: [''],
+    drug1: [''],
+    drug2: [''],
+    drug3: [''],
+    drug4: [''],
+    drug5: [''],
+    companyName1: [''],
+    companyName2: [''],
+    companyName3: [''],
+    companyName4: [''],
+    companyName5: [''],
   });
 
   ngOnInit() {
+    this.getCclMedicine();
+    this.getOtherMedicine();
   }
+
   onSubmit() {
     const campId = localStorage.getItem('campId');
     this.patientForm.value.camp_id = campId;
@@ -63,6 +71,34 @@ export class PatientComponent implements OnInit {
         this.patientForm.reset();
       }
     );
+  }
+
+  getCclMedicine() {
+    this.campService.getCclMedicine().subscribe(
+      res => {
+        console.log(res);
+        this.cclMedicines = res['data'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  getOtherMedicine() {
+    this.campService.getOtherMedicine().subscribe(
+      res => {
+        console.log(res);
+        this.otherMedicines = res['data'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  searchMedicine() {
+    console.log($('#drugSearch1').val());
   }
 
 }
