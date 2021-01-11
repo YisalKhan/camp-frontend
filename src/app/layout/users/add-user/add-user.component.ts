@@ -108,8 +108,11 @@ export class AddUserComponent implements OnInit {
         this.userForm.value.team = this.checkedArr;
         this.userForm.value.isMultiple = 1;
       }
-      if(this.userForm.value.team.length == 1) {
+      if(Array.isArray(this.userForm.value.team) == false) {
         this.userForm.value.isMultiple = 0;
+        let team = this.userForm.value.team;
+        this.userForm.value.team = [];
+        this.userForm.value.team.push(team);
       }
       this.userService.updateUser(this.userID, this.userForm.value).subscribe(
         res => {
@@ -142,8 +145,14 @@ export class AddUserComponent implements OnInit {
         this.userForm.value.team = this.checkedArr;
         this.userForm.value.isMultiple = 1;
       }
-      if(this.userForm.value.team.length == 1) {
+      // if(this.userForm.value.team.length == 1) {
+      //   this.userForm.value.isMultiple = 0;
+      // }
+      if(Array.isArray(this.userForm.value.team) == false) {
         this.userForm.value.isMultiple = 0;
+        let team = this.userForm.value.team;
+        this.userForm.value.team = [];
+        this.userForm.value.team.push(team);
       }
       this.userService.createUser(this.userForm.value).subscribe(
         res => {
