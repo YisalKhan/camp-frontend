@@ -106,7 +106,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4" *ngIf="(showFields != false && showTeam == true) || (roleId == 10 || roleId == 11)">
+            <div class="col-lg-4 col-md-4 col-sm-4" *ngIf="(showFields != false && showTeam == true) || (roleId == 10 || roleId == 11 || roleId == 17 || roleId == 18)">
               <div class="form-group">
                 <label class="required app-form-label">District</label>
                 <select class="form-control app-form-input" formControlName="district" (change)="getTerritories($event.target.value)">
