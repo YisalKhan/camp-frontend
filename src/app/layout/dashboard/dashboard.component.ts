@@ -60,23 +60,7 @@ export class DashboardComponent implements OnInit {
         );
     }
 
-    ngOnInit() {
-        this.dashboardReports();
-    }
-
-    dashboardReports() {
-        let userID = JSON.parse(localStorage.getItem('userData'));
-        userID = userID['id'];
-        this.campService.getDashboardData(userID).subscribe(
-            res => {
-                console.log(res);
-                this.reportsData = res;
-            },
-            err => {
-                console.log(err);
-            }
-        );
-    }
+    ngOnInit() {}
 
     public closeAlert(alert: any) {
         const index: number = this.alerts.indexOf(alert);
