@@ -52,33 +52,59 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
                 <app-report 
                     [bgClass]="'card-bg'"
+                    [bgIcon]="'bg-red'"
+                    [icon]="'fa-heartbeat'"
                     [label]="'Strips'"
                     [smallLabel]="'Camp'" 
                     [customClass]="'card-icon-adjust'"
-                    [data]="'Your used camp strips'"
+                    [iconImage]="'patients-icon'"
+                    [data]="'Total :'"
+                    [count]=(reportsData?.total_slips)
                     >
                 </app-report>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <app-report 
-                    [bgClass]="'card-bg'" 
-                    [label]="'information'"
-                    [smallLabel]="'Doctors'" 
-                    [customClass]="'card-icon-adjust'"
-                    [data]="'Click here to view doctor details'"
-                    >
-                </app-report>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
                 <app-report 
                     [bgClass]="'card-bg'"
-                    [label]="'Details'"
-                    [smallLabel]="'Patient'"
+                    [bgIcon]="'bg-red'"
+                    [icon]="'fa-heartbeat'"
+                    [label]="'Total'"
+                    [smallLabel]="'Camp'" 
                     [customClass]="'card-icon-adjust'"
-                    [data]="'Click here to view patient details'"
+                    [iconImage]="'patients-icon'"
+                    [data]="'Total :'"
+                    [count]=(reportsData?.ready_camps+reportsData?.started_camps+reportsData?.completed_camps+reportsData?.canceled_camps)
+                    >
+                </app-report>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                <app-report 
+                    [bgClass]="'card-bg'"
+                    [bgIcon]="'bg-red'"
+                    [icon]="'fa-heartbeat'"
+                    [label]="'Completed'"
+                    [smallLabel]="'Camp'"
+                    [customClass]="'card-icon-adjust'"
+                    [iconImage]="'patients-icon'"
+                    [data]="'Total :'"
+                    [count]=(reportsData?.completed_camps)
+                    >
+                </app-report>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                <app-report 
+                    [bgClass]="'card-bg'"
+                    [bgIcon]="'bg-red'"
+                    [icon]="'fa-heartbeat'"
+                    [label]="'Canelled'"
+                    [smallLabel]="'Camp'"
+                    [customClass]="'card-icon-adjust'"
+                    [iconImage]="'patients-icon'"
+                    [data]="'Total :'"
+                    [count]=(reportsData?.canceled_camps)
                     >
                 </app-report>
             </div>

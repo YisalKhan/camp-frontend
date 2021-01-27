@@ -13,6 +13,7 @@ import { CampService } from '../../../app/services/camp.service';
 export class DashboardComponent implements OnInit {
     public alerts: Array<any> = [];
     public sliders: Array<any> = [];
+    reportsData: any;
 
     constructor(
         private router: Router,
@@ -60,11 +61,16 @@ export class DashboardComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.dashboardReports();
+    }
+
+    dashboardReports() {
         let userID = JSON.parse(localStorage.getItem('userData'));
         userID = userID['id'];
         this.campService.getDashboardData(userID).subscribe(
             res => {
                 console.log(res);
+                this.reportsData = res;
             },
             err => {
                 console.log(err);
