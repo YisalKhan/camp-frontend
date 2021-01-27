@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { CampService } from '../../../app/services/camp.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -15,7 +16,8 @@ export class DashboardComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private spinner: NgxSpinnerService
+        private spinner: NgxSpinnerService,
+        private campService: CampService
     ) {
         this.sliders.push(
             {
@@ -57,7 +59,18 @@ export class DashboardComponent implements OnInit {
         );
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        let userID = JSON.parse(localStorage.getItem('userData'));
+        userID = userID['id'];
+        this.campService.getDashboardData(userID).subscribe(
+            res => {
+                console.log(res);
+            },
+            err => {
+                console.log(err);
+            }
+        );
+    }
 
     public closeAlert(alert: any) {
         const index: number = this.alerts.indexOf(alert);

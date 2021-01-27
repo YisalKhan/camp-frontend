@@ -10,7 +10,7 @@ import {
     NotificationComponent,
     ChatComponent
 } from './components';
-import { StatModule } from '../../shared';
+import { StatModule, ReportModule } from '../../shared';
 import { CampboyDashboardComponent } from './campboy-dashboard/campboy-dashboard.component';
 
 @NgModule({
@@ -19,7 +19,8 @@ import { CampboyDashboardComponent } from './campboy-dashboard/campboy-dashboard
         NgbCarouselModule,
         NgbAlertModule,
         DashboardRoutingModule,
-        StatModule
+        StatModule,
+        ReportModule
     ],
     declarations: [
         DashboardComponent,

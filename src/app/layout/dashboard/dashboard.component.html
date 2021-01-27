@@ -23,18 +23,6 @@
                     >
                 </app-stat>
             </div>
-            <!--div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <app-stat 
-                    [bgClass]="'card-bg'"
-                    [bgIcon]="'bg-blue'" 
-                    [icon]="'fa-undo'" 
-                    (click)="previousCamps()" 
-                    [label]="'Camps'"
-                    [smallLabel]="'Previous'" 
-                    [data]="'Click here to view camp information'" 
-                    >                  
-                </app-stat>
-            </div-->
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <app-stat 
                     [bgClass]="'card-bg'" 
@@ -62,54 +50,43 @@
                     >
                 </app-stat>
             </div>
-            <!-- <div class="col-xl-3 col-lg-6">
-                <app-stat [bgClass]="'danger'" [icon]="'fa-support'" [count]="1" [label]="'New Tickets!'"></app-stat>
-            </div> -->
-        </div>  
+        </div>
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <app-report 
+                    [bgClass]="'card-bg'"
+                    [label]="'Strips'"
+                    [smallLabel]="'Camp'" 
+                    [customClass]="'card-icon-adjust'"
+                    [data]="'Your used camp strips'"
+                    >
+                </app-report>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <app-report 
+                    [bgClass]="'card-bg'" 
+                    [label]="'information'"
+                    [smallLabel]="'Doctors'" 
+                    [customClass]="'card-icon-adjust'"
+                    [data]="'Click here to view doctor details'"
+                    >
+                </app-report>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <app-report 
+                    [bgClass]="'card-bg'"
+                    [label]="'Details'"
+                    [smallLabel]="'Patient'"
+                    [customClass]="'card-icon-adjust'"
+                    [data]="'Click here to view patient details'"
+                    >
+                </app-report>
+            </div>
+        </div>   
     </div>
     <div class="row">
         <div class="col-md-12">
             <app-maps></app-maps>
-            <!-- <ngb-carousel>
-                <ng-template ngbSlide *ngFor="let slider of sliders">
-                    <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
-                    <div class="carousel-caption">
-                        <h3>{{slider.label}}</h3>
-                        <p>{{slider.text}}</p>
-                    </div>
-                </ng-template>
-            </ngb-carousel> -->
         </div>
     </div>
-    <!-- <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
-    <hr /> -->
-    <!-- <div class="row">
-        <div class="col-lg-8">
-            <div class="card card-default">
-                <div class="card-header">
-                    <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
-                </div> -->
-                <!-- /.card-header -->
-                <!-- <app-timeline></app-timeline> -->
-                <!-- /.card-body -->
-            <!-- </div> -->
-            <!-- /.card -->
-        <!-- </div> -->
-        <!-- /.col-lg-8 -->
-        <!-- <div class="col-lg-4">
-            <div class="card card-default mb-3">
-                <div class="card-header">
-                    <i class="fa fa-bell fa-fw"></i> Notifications card
-                </div> -->
-                <!-- /.card-header -->
-                <!-- <app-notification></app-notification> -->
-                <!-- /.card-body -->
-            <!-- </div> -->
-            <!-- /.card -->
-
-            <!-- <app-chat></app-chat> -->
-            <!-- /.card .chat-card -->
-        <!-- </div> -->
-        <!-- /.col-lg-4 -->
-    <!-- </div> -->
 </div>

@@ -93,4 +93,8 @@ export class CampService {
   getOtherMedicine() {
     return this.httpClient.get(this.basicURL + '/get/other/medicines');
   }
+
+  getDashboardData(userID) {
+    return this.httpClient.post(this.basicURL + '/get/camps/slips/' + userID, {});
+  }
 }
