@@ -11,7 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class SidebarComponent implements OnInit {
     isActive: boolean;
     collapsed: boolean;
-    showSubItems:boolean;
+    showSubItems: boolean;
     showMenu: string;
     pushRightClass: string;
     userDesignation: any;
@@ -71,9 +71,7 @@ export class SidebarComponent implements OnInit {
         dom.classList.toggle(this.pushRightClass);
     }
     subItemsToggle() {
-
         this.showSubItems = ! this.showSubItems;
-        
     }
     rltAndLtr() {
         const dom: any = document.querySelector('body');
@@ -115,6 +113,12 @@ export class SidebarComponent implements OnInit {
     onDoctors() {
         this.spinner.show();
         this.router.navigate(['doctors']);
+        this.spinner.hide();
+    }
+
+    onCampStatistics() {
+        this.spinner.show();
+        this.router.navigate(['/camps/camp-statisctics']);
         this.spinner.hide();
     }
 

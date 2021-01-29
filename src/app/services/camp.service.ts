@@ -50,8 +50,8 @@ export class CampService {
     return this.httpClient.put(this.basicURL + '/camps/' + campId, data);
   }
 
-  getFilteredCamps(data:any, userID:any) {
-    return this.httpClient.post(this.basicURL + '/get/camps/present/'+ userID, data);
+  getFilteredCamps(data: any, userID: any) {
+    return this.httpClient.post(this.basicURL + '/get/camps/present/' + userID, data);
   }
 
   getPreviousCamps() {
@@ -94,7 +94,7 @@ export class CampService {
     return this.httpClient.get(this.basicURL + '/get/other/medicines');
   }
 
-  getDashboardData(userID) {
-    return this.httpClient.post(this.basicURL + '/get/camps/slips/' + userID, {});
+  getCampStatsData(userID) {
+    return this.httpClient.get(this.basicURL + '/get/camps/slips/' + userID, {});
   }
 }

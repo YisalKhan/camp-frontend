@@ -1,0 +1,54 @@
+<div [@routerTransition]>
+  <ngx-spinner
+  bdOpacity = 0.9
+  bdColor = "#333"
+  size = "medium"
+  color = "#fff"
+  type = "ball-newton-cradle"
+  [fullScreen] = "true">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>
+  <div class="app-page-title-wrapper">
+  <h2 class="app-page-title">Camp Statistics</h2>
+  <ul class="list-inline app-breadcumb">
+    <li  class="list-inline-item">
+      <a href="#">CMP Dashboard -</a>
+    </li>
+    <li  class="list-inline-item">
+      <a href="#">Camp statistics</a>
+    </li>
+  </ul>
+  </div>
+  <div class="row">
+      <div class="col col-md-7 mx-auto">
+          <div class="app-table-view">   
+              <div class="row">
+                  <div class="col col-xl-12 col-lg-12">
+                      <div class="app-table-doctors">
+                          <table role="table">
+                              <thead role="rowgroup">
+                                  <tr role="row">
+                                      <th role="columnheader">Name</th>
+                                      <th role="columnheader">Ready Camps</th>
+									  <th role="columnheader">Completed Camps</th>
+									  <th role="columnheader">Cancelled Camps</th>
+									  <th role="columnheader">Total Camps</th>
+                                  </tr>
+                              </thead>
+                              <tbody role="rowgroup">
+                              <tr role="row" *ngFor="let data of userCampStats;">
+                                  <td role="cell">{{ data?.name }}</td>
+                                  <td role="cell">{{ data.total_ready_camps == undefined ? 0 : data?.total_ready_camps }}</td>
+								  <td role="cell">{{ data.total_completed_camps == undefined ? 0 : data?.total_completed_camps }}</td>
+								  <td role="cell">{{ data.total_canceled_camps == undefined ? 0 : data?.total_canceled_camps }}</td>
+								  <td role="cell">{{ data?.total_canceled_camps+data?.total_completed_camps+data?.total_ready_camps}}</td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

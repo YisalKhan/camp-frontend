@@ -14,6 +14,7 @@ import { ApprovedCampsComponent } from './approved-camps/approved-camps.componen
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 import { TextMaskModule } from 'angular2-text-mask';
 import { DatePipe } from '@angular/common';
+import { CampStatisticsComponent } from './camp-statistics/camp-statistics.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { DatePipe } from '@angular/common';
     AddCampsComponent,
     CampsRequestComponent,
     EditcampsComponent,
-    ApprovedCampsComponent
+    ApprovedCampsComponent,
+    CampStatisticsComponent
   ],
   providers: [
     DatePipe

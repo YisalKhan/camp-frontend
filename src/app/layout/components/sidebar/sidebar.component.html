@@ -23,20 +23,11 @@
                 <span class="app-sidebar-icon app-icon-camp-requests"></span>
                 <span>{{ 'Camp Requests' | translate }}</span>
             </a>
-            <!-- <a (click)="onPastCamps()" href="javascript:void(0)" class="list-group-item sidebar-link">
-                <span class="app-sidebar-icon app-icon-previous-camps"></span>
-                <span>{{ 'Previous Camps' | translate }}</span>
-            </a> -->
-            <!-- <a href="javascript:void(0)" (click)="clearEditStatus()" class="list-group-item sidebar-link">
-                <span class="app-sidebar-icon app-icon-current-camps"></span>
-                <span>{{ 'Current Camps' | translate }}</span>
-            </a>
-            <a (click)="onFutureCamps(); clearEditStatus()" href="javascript:void(0)" class="list-group-item sidebar-link">
-                <span class="app-sidebar-icon app-icon-future-camps"></span>
-                <span>{{ 'Future Camps' | translate }}</span>
-            </a> -->
-
         </div>
+        <a (click)="onCampStatistics(); clearEditStatus()" href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
+            <span class="app-sidebar-icon app-icon-patients"></span>
+            <span>{{ 'Camp Statistics' | translate }}</span>
+        </a>
         <a (click)="onPatients(); clearEditStatus()" href="javascript:void(0)" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
             <span class="app-sidebar-icon app-icon-patients"></span>
             <span>{{ 'Patients' | translate }}</span>
@@ -108,18 +99,5 @@
         </a>
     </div>
     <div class="list-group">
-        <!-- <a (click)="onLoggedout()" [routerLink]="['/login']" [routerLinkActive]="['router-link-active']" class="list-group-item sidebar-link">
-            <i class="fa fa-sign-out sidebar-icon" aria-hidden="true"></i>
-            <span>{{ 'Log Out' | translate }}</span>
-        </a> -->
     </div>
-
-    <!-- <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
-        <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}
-    </a> -->
-
-    <!-- <div class="toggle-button sidebar-link" [ngClass]="{collapsed: collapsed}"> -->
-        <!-- <i class="fa fa-fw"></i>&nbsp; -->
-        <!-- <span>{{ 'Collapse Sidebar' | translate }}</span> -->
-    <!-- </div> -->
 </nav>

@@ -5,6 +5,7 @@ import { CampsComponent } from './camps.component';
 import { CampsRequestComponent } from './camps-request/camps-request.component';
 import { EditcampsComponent } from './editcamps/editcamps.component';
 import { ApprovedCampsComponent } from './approved-camps/approved-camps.component';
+import { CampStatisticsComponent } from './camp-statistics/camp-statistics.component';
 
 const routes: Routes = [
   { path: '', component: CampsComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'previousCamps', component: CampsRequestComponent },
   { path: 'futureCamps', component: CampsRequestComponent },
   { path: 'spoPastCamps', component: ApprovedCampsComponent },
-  { path: 'spoFutureCamps', component: ApprovedCampsComponent }
+  { path: 'spoFutureCamps', component: ApprovedCampsComponent },
+  { path: 'camp-statisctics', component: CampStatisticsComponent }
 ];
 
 @NgModule({
