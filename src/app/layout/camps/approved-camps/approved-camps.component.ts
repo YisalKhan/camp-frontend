@@ -97,8 +97,8 @@ export class ApprovedCampsComponent implements OnInit {
     let checkCampType = false;
     this.campService.viewCamp(cId).subscribe(
       res => {
-        console.log(res);
         this.stripsRequested = res ['no_of_strips'];
+        localStorage.setItem('stripsRequested', this.stripsRequested);
         if (campType == 2) {
           $('#campStartPop').modal('show');
           checkCampType = true;

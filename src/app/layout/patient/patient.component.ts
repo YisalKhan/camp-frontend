@@ -7,6 +7,7 @@ import { CampService } from '../../services/camp.service';
 import { routerTransition } from '../../router.animations';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { parse } from 'querystring';
 
   declare var $: any;
 
@@ -27,6 +28,9 @@ export class PatientComponent implements OnInit {
   otherMedicines: any;
   optionValue1: any; optionValue2: any; optionValue3: any; optionValue4: any; optionValue5: any;
   drugSearch1: any;
+  stripsRequested: any;
+  stripsReceived: any;
+  stripsUsed: any = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -99,6 +103,44 @@ export class PatientComponent implements OnInit {
 
   searchMedicine() {
     console.log($('#drugSearch1').val());
+  }
+
+  showCloseCampPop() {
+    console.log(parseInt(localStorage.getItem('campType')));
+    if(parseInt(localStorage.getItem('campType')) == 2) {
+      console.log('in if');
+      this.stripsRequested = localStorage.getItem('stripsRequested');
+      this.stripsReceived = localStorage.getItem('stripReceived');
+      $('#showCloseCampPop').modal('show');
+    } else {
+      console.log('in else');
+      this.campService.closeCamp(localStorage.getItem('campId'), '').subscribe(
+        res => {
+          this.toastr.show(res['success']);
+          this.router.navigate(['camps']);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
+  }
+
+  closeCampPop() {
+    $('#showCloseCampPop').modal('hide');
+  }
+
+  closeDibeticCamp() {
+    this.campService.closeCamp(localStorage.getItem('campId'), this.stripsUsed).subscribe(
+      res => {
+        this.toastr.show(res['success']);
+        $('#showCloseCampPop').modal('hide');
+        this.router.navigate(['camps']);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
 }

@@ -57,27 +57,26 @@
     </div>        
 	</div>
 	
-	<div class="modal" tabindex="-1" id="campStartPop" data-backdrop='static'>
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">Start Camp</h5>
+<div class="modal" tabindex="-1" id="campStartPop" data-backdrop='static'>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Start Camp</h5>
+			</div>
+			<div class="modal-body">
+				<div>
+					<label for="stripsDeman">Strips Requested</label>
+					<input class="form-control app-form-input" type="text" name="stripsRequested" [(ngModel)]="stripsRequested" disabled>
 				</div>
-				<div class="modal-body">
-					<div>
-						<label for="stripsDeman">Strips Requested</label>
-						<input class="form-control app-form-input" type="text" name="stripsRequested" [(ngModel)]="stripsRequested" disabled>
-					</div>
-					<div>
-						<label for="stripsDeman">Strips Received</label>
-						<input class="form-control app-form-input" type="text" name="stripsReceived" [(ngModel)]="stripsReceived">
-					</div>
+				<div>
+					<label for="stripsDeman">Strips Received</label>
+					<input class="form-control app-form-input" type="text" name="stripsReceived" [(ngModel)]="stripsReceived">
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" (click)="closeCampStartPop()">Close</button>
-					<button type="button" class="btn btn-primary" (click)="startDibeticCamp()" [disabled]="stripsReceived=='' || stripsReceived > stripsRequested">Start Camp</button>
-				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" (click)="closeCampStartPop()">Close</button>
+				<button type="button" class="btn btn-primary" (click)="startDibeticCamp()" [disabled]="stripsReceived=='' || stripsReceived > stripsRequested">Start Camp</button>
 			</div>
 		</div>
 	</div>
-  
+</div>
