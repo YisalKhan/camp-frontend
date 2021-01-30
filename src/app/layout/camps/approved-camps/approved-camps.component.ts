@@ -7,6 +7,8 @@ import { routerTransition } from '../../../router.animations';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
+declare var $: any;
+
 @Component({
   selector: 'app-approved-camps',
   templateUrl: './approved-camps.component.html',
@@ -20,6 +22,8 @@ export class ApprovedCampsComponent implements OnInit {
   past: any;
   future: any;
   heading: any;
+  stripsRequested: any;
+  stripsReceived: any = '';
 
   constructor(
     private campService: CampService,
@@ -74,7 +78,7 @@ export class ApprovedCampsComponent implements OnInit {
 
   getFutureCamps() {
     let startDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
-    let endDate = (new Date().getFullYear()+1).toString() + '-' + (new Date().getMonth()+1).toString() + '-' + (new Date().getDate()).toString();
+    let endDate = (new Date().getFullYear() + 1).toString() + '-' + (new Date().getMonth() + 1).toString() + '-' + (new Date().getDate()).toString();
     const userID = JSON.parse(localStorage.getItem('userData'))['id'];
     let data = {startDate, endDate, userID, campReportType: 'future'};
     this.spinner.show();
@@ -90,34 +94,69 @@ export class ApprovedCampsComponent implements OnInit {
     this.spinner.show();
     localStorage.setItem('campId', cId);
     localStorage.setItem('campType', campType);
+    let checkCampType = false;
     this.campService.viewCamp(cId).subscribe(
       res => {
+        console.log(res);
+        this.stripsRequested = res ['no_of_strips'];
+        if (campType == 2) {
+          $('#campStartPop').modal('show');
+          checkCampType = true;
+        }
         this.campData = {
           userId: res['user_id'],
           campId: res['id'],
           lat: res['lat'],
           lng: res['lng']
         };
-        this.campService.getCampPermission(this.campData).subscribe(
-          res1 => {
-            if(res1['error']) {
-              this.toastr.error(res1['error']);
-              this.spinner.hide();
+        if (checkCampType == false) {
+          this.campService.getCampPermission(this.campData).subscribe(
+            res1 => {
+              if (res1['error']) {
+                this.toastr.error(res1['error']);
+              } else {
+                this.toastr.success(res1['success']);
+                this.router.navigate(['/patients']);
+                localStorage.setItem('CampLat', this.campData.lat);
+                localStorage.setItem('CampLng', this.campData.lng);
+              }
+            },
+            err => {
+              this.toastr.error(err['error']);
             }
-            else {
-              this.toastr.success(res1['success']);
-              this.router.navigate(['/patients']);
-              localStorage.setItem('CampLat', this.campData.lat);
-              localStorage.setItem('CampLng', this.campData.lng);
-              this.spinner.hide();
-            }
-          },
-          err => {
-            this.toastr.error(err['error']);
-          }
-        );
+          );
+        } else {
+          return;
+        }
       }
     );
+    this.spinner.hide();
+  }
+
+  startDibeticCamp() {
+    this.spinner.show();
+    this.campService.getCampPermission(this.campData).subscribe(
+      res1 => {
+        if (res1['error']) {
+          this.toastr.error(res1['error']);
+        } else {
+          this.toastr.success(res1['success']);
+          this.router.navigate(['/patients']);
+          localStorage.setItem('CampLat', this.campData.lat);
+          localStorage.setItem('CampLng', this.campData.lng);
+          localStorage.setItem('stripReceived', this.stripsReceived);
+          $('#campStartPop').modal('hide');
+        }
+      },
+      err => {
+        this.toastr.error(err['error']);
+      }
+    );
+    this.spinner.hide();
+  }
+
+  closeCampStartPop() {
+    $('#campStartPop').modal('hide');
   }
 
 }

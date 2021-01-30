@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageHeaderModule } from 'src/app/shared';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { CampsRoutingModule } from './camps-routing.module';
 import { CampsComponent } from './camps.component';
@@ -22,6 +22,7 @@ import { CampStatisticsComponent } from './camp-statistics/camp-statistics.compo
     CommonModule,
     CampsRoutingModule,
     PageHeaderModule,
+    FormsModule,
     ReactiveFormsModule,
     StatModule,
     NgxSpinnerModule,
