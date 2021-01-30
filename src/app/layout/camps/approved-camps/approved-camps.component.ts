@@ -126,7 +126,7 @@ export class ApprovedCampsComponent implements OnInit {
             }
           );
         } else {
-          return;
+          return; 
         }
       }
     );
