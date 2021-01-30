@@ -37,6 +37,7 @@
     "core-js": "2.5.7",
     "express": "^4.17.1",
     "font-awesome": "4.7.0",
+    "jquery": "^3.5.1",
     "leaflet-realtime": "^2.2.0",
     "moment": "^2.24.0",
     "ng2-charts": "2.3.0",
