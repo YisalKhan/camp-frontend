@@ -198,8 +198,8 @@
 							<td role="cell">{{ camp.user.name }}</td>
 							<td role="cell">{{ camp.user.team == null ? "Hybrid" : camp.user.user_team.team_name }}</td>
 							<td role="cell">{{ camp.user.user_region.region_name }}</td>
-							<td role="cell">{{ camp.user.user_district.district_name }}</td>
-							<td role="cell">{{ camp.user.user_territory.territory_name }}</td>
+							<td role="cell">{{ camp.user.user_district == null ? " " : camp.user.user_district.district_name }}</td>
+							<td role="cell">{{ camp.user.user_territory == null ? " " : camp.user.user_territory.territory_name }}</td>
 							<td role="cell" *ngIf="camp.camp_type == 1">Cardio Camp</td>
 							<td role="cell" *ngIf="camp.camp_type == 2">Diabetic Camp</td>
 							<td role="cell" *ngIf="camp.camp_type == 3">Cardio/Diabetic Camp</td>
