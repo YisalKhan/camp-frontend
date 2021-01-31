@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PatientComponent } from './patient.component';
 import { PatientRoutingModule } from './patient-routing.module';
 import { ViewPatientComponent } from './view-patient/view-patient.component';
@@ -13,6 +13,7 @@ import { EditPatientComponent } from './edit-patient/edit-patient.component';
     CommonModule,
     PatientRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     PageHeaderModule,
     NgxSpinnerModule
   ],

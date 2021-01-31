@@ -97,4 +97,8 @@ export class CampService {
   getCampStatsData(userID) {
     return this.httpClient.get(this.basicURL + '/get/camps/slips/' + userID, {});
   }
+
+  closeCamp(camp_id, used_strips) {
+    return this.httpClient.get(this.basicURL + '/close/camp/' + camp_id + '/' + used_strips, {});
+  }
 }
