@@ -20,7 +20,7 @@
   </ul>
   </div>
   <div class="row">
-      <div class="col col-md-7 mx-auto">
+      <div class="col col-md-12 mx-auto">
           <div class="app-table-view">   
               <div class="row">
                   <div class="col col-xl-12 col-lg-12">
@@ -30,19 +30,19 @@
                                   <tr role="row">
                                       <th role="columnheader">Name</th>
                                       <th role="columnheader">Ready Camps</th>
-									  <th role="columnheader">Completed Camps</th>
-									  <th role="columnheader">Cancelled Camps</th>
-									  <th role="columnheader">Total Camps</th>
+                                      <th role="columnheader">Completed Camps</th>
+                                      <th role="columnheader">Cancelled Camps</th>
+                                      <th role="columnheader">Total Camps</th>
                                   </tr>
                               </thead>
                               <tbody role="rowgroup">
-                              <tr role="row" *ngFor="let data of userCampStats;">
-                                  <td role="cell">{{ data?.name }}</td>
-                                  <td role="cell">{{ data.total_ready_camps == undefined ? 0 : data?.total_ready_camps }}</td>
-								  <td role="cell">{{ data.total_completed_camps == undefined ? 0 : data?.total_completed_camps }}</td>
-								  <td role="cell">{{ data.total_canceled_camps == undefined ? 0 : data?.total_canceled_camps }}</td>
-								  <td role="cell">{{ data?.total_canceled_camps+data?.total_completed_camps+data?.total_ready_camps}}</td>
-                              </tr>
+                                <tr role="row" *ngFor="let data of userCampStats;">
+                                    <td (click)="showCampDeatilPopup(data.camps)" style="cursor: pointer; color: #da3f51;" role="cell">{{ data?.name }}</td>
+                                    <td role="cell">{{ data.total_ready_camps == undefined ? 0 : data?.total_ready_camps }}</td>
+                                    <td role="cell">{{ data.total_completed_camps == undefined ? 0 : data?.total_completed_camps }}</td>
+                                    <td role="cell">{{ data.total_canceled_camps == undefined ? 0 : data?.total_canceled_camps }}</td>
+                                    <td role="cell">{{ data?.total_canceled_camps+data?.total_completed_camps+data?.total_ready_camps}}</td>
+                                </tr>
                               </tbody>
                           </table>
                       </div>
@@ -51,4 +51,73 @@
           </div>
       </div>
   </div>
+</div>
+
+<div class="modal" tabindex="-1" id="noCampFoundPop" data-backdrop='static'>
+	<div class="modal-dialog">
+		<div class="modal-content">
+      <div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+			<div class="modal-body">
+        <h5 style="text-align: center;">No data found against this user.</h5>
+			</div>
+			<div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-5" style="margin-bottom: 10px;">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+        </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal" tabindex="-1" id="campStripsDataPop">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+      <div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+			<div class="modal-body">
+        <div class="row">
+          <div class="col col-md-12 mx-auto">
+              <div class="app-table-view">   
+                  <div class="row">
+                      <div class="col col-xl-12 col-lg-12">
+                          <div class="app-table-doctors">
+                              <table role="table">
+                                  <thead role="rowgroup">
+                                      <tr role="row">
+                                          <th role="columnheader">Dr Name</th>
+                                          <th role="columnheader">Camp Address</th>
+                                          <th role="columnheader">Total Requested Strips</th>
+                                          <th role="columnheader">Total Received Strips</th>
+                                          <th role="columnheader">Reported Used Strips</th>
+                                          <th role="columnheader">Actual Used Strips</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody role="rowgroup">
+                                    <tr role="row" *ngFor="let campData of campStrips;">
+                                        <td role="cell">{{ campData?.dr_name }}</td>
+                                        <td role="cell">{{ campData?.address }}</td>
+                                        <td role="cell">{{ campData?.total_requested_slips }}</td>
+                                        <td role="cell">{{ campData?.total_received_strips }}</td>
+                                        <td role="cell">{{ campData?.total_used_strips }}</td>
+                                        <td role="cell">{{ campData?.actual_used_strips }}</td>
+                                    </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+			</div>
+		</div>
+	</div>
 </div>

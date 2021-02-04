@@ -3,6 +3,8 @@ import { CampService } from '../../../services/camp.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { routerTransition } from '../../../router.animations';
 
+declare var $: any;
+
 @Component({
   selector: 'app-camp-statistics',
   templateUrl: './camp-statistics.component.html',
@@ -12,6 +14,7 @@ import { routerTransition } from '../../../router.animations';
 export class CampStatisticsComponent implements OnInit {
 
   userCampStats = [];
+  campStrips: any;
 
   constructor(
     private campService: CampService,
@@ -40,6 +43,15 @@ export class CampStatisticsComponent implements OnInit {
       }
     );
     this.spinner.hide();
+  }
+
+  showCampDeatilPopup(campObj) {
+    if(campObj == undefined) {
+      $('#noCampFoundPop').modal('show');
+    } else {
+      $('#campStripsDataPop').modal('show');
+      this.campStrips = campObj;
+    }
   }
 
 }
