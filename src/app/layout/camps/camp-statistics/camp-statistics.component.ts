@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CampService } from '../../../services/camp.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { routerTransition } from '../../../router.animations';
 
 declare var $: any;
@@ -14,11 +15,14 @@ declare var $: any;
 export class CampStatisticsComponent implements OnInit {
 
   userCampStats = [];
+  backupUserCampStats = [];
   campStrips: any;
+  searchInput: any;
 
   constructor(
     private campService: CampService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -37,6 +41,7 @@ export class CampStatisticsComponent implements OnInit {
           ele.total_completed_camps === undefined ? ele.total_completed_camps = 0 : ele.total_completed_camps = ele.total_completed_camps;
           ele.total_canceled_camps === undefined ? ele.total_canceled_camps = 0 : ele.total_canceled_camps = ele.total_canceled_camps;
         });
+        this.backupUserCampStats = this.userCampStats;
       },
       err => {
         console.log(err);
@@ -51,6 +56,19 @@ export class CampStatisticsComponent implements OnInit {
     } else {
       $('#campStripsDataPop').modal('show');
       this.campStrips = campObj;
+    }
+  }
+
+  searchByName() {
+    if(this.searchInput == '') {
+      this.userCampStats = this.backupUserCampStats;
+    } else {
+      if(this.userCampStats.filter((e) => { return e.name.toLowerCase().includes(this.searchInput.toLowerCase()) }).length > 0) {
+        this.userCampStats = this.userCampStats.filter((e) => { return e.name.toLowerCase().includes(this.searchInput.toLowerCase()) });
+      } else {
+        this.userCampStats = this.backupUserCampStats;
+        this.toastr.show('No user found');
+      }
     }
   }
 

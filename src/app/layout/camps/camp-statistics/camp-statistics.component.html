@@ -21,7 +21,14 @@
   </div>
   <div class="row">
       <div class="col col-md-12 mx-auto">
-          <div class="app-table-view">   
+          <div class="app-table-view">
+              <div class="row">
+                  <div class="col col-md-12">
+                      <div class="searchbar-campstats">
+									        <input class="form-control app-form-input app-form-wide-input" [(ngModel)]="searchInput" (input)="searchByName()" placeholder="Search by name" />
+                      </div>
+                  </div>
+              </div>
               <div class="row">
                   <div class="col col-xl-12 col-lg-12">
                       <div class="app-table-doctors">
