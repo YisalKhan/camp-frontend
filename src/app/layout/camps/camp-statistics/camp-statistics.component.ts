@@ -18,6 +18,7 @@ export class CampStatisticsComponent implements OnInit {
   backupUserCampStats = [];
   campStrips: any;
   searchInput: any;
+  p: number = 1;
 
   constructor(
     private campService: CampService,

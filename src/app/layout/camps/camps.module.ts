@@ -15,6 +15,7 @@ import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-
 import { TextMaskModule } from 'angular2-text-mask';
 import { DatePipe } from '@angular/common';
 import { CampStatisticsComponent } from './camp-statistics/camp-statistics.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { CampStatisticsComponent } from './camp-statistics/camp-statistics.compo
     NgxSpinnerModule,
     DlDateTimeDateModule,  // <--- Determines the data type of the model
     DlDateTimePickerModule,
-    TextMaskModule
+    TextMaskModule,
+    NgxPaginationModule
   ],
   declarations: [
     CampsComponent,
