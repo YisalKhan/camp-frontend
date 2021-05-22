@@ -20,41 +20,41 @@
 			</li>
 		</ul>
 	</div>
-	<!-- <div class="app-cards-container">    
+	<!-- <div class="app-cards-container">
         <div class="row">
-            
+
             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
-                <app-stat 
+                <app-stat
                     [bgClass]="'card-bg'"
-                    [bgIcon]="'bg-blue'" 
-                    [icon]="'fa-undo'" 
+                    [bgIcon]="'bg-blue'"
+                    [icon]="'fa-undo'"
                     [label]="'Camps'"
-					[smallLabel]="'Previous'" 
+					[smallLabel]="'Previous'"
 					[iconImage]="'previous-camps-icon'"
 					[data]="'Click here to view camp information'"
 					(click)="onPastCamps()"
-                    >                  
-                </app-stat>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <app-stat 
-                    [bgClass]="'card-bg'" 
-                    [bgIcon]="'bg-red'"
-                    [icon]="'fa-stethoscope '" 
-                    [label]="'Camps'"
-					[smallLabel]="'Current'" 
-					[iconImage]="'current-camps-icon'"
-                    [data]="'Click here to view doctor details'" 
                     >
                 </app-stat>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <app-stat 
+                <app-stat
                     [bgClass]="'card-bg'"
-                    [bgIcon]="'bg-yellow'"  
+                    [bgIcon]="'bg-red'"
+                    [icon]="'fa-stethoscope '"
+                    [label]="'Camps'"
+					[smallLabel]="'Current'"
+					[iconImage]="'current-camps-icon'"
+                    [data]="'Click here to view doctor details'"
+                    >
+                </app-stat>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <app-stat
+                    [bgClass]="'card-bg'"
+                    [bgIcon]="'bg-yellow'"
                     [icon]="'fa-tasks'"
                     [label]="'Camps'"
-					[smallLabel]="'Future'" 
+					[smallLabel]="'Future'"
 					[iconImage]="'future-camps-icon'"
 					[data]="'Click here to view camp information'"
 					(click)="onFutureCamps()"
@@ -64,7 +64,7 @@
             <div class="col-xl-3 col-lg-6">
                 <app-stat [bgClass]="'danger'" [icon]="'fa-support'" [count]="1" [label]="'New Tickets!'"></app-stat>
             </div>
-        </div>  
+        </div>
     </div> -->
 	<div class="app-table-view">
 		<div class="row">
@@ -87,6 +87,7 @@
 										<option value="1">Cardio Camp</option>
 										<option value="2">Diabetic Camp</option>
 										<option value="3">Cardio/Diabetic Camp</option>
+										<option value="4">Biothesiometry Camp</option>
 									</select>
 								</div>
 							</li>
@@ -206,8 +207,8 @@
 							<td role="cell" *ngIf="camp.camp_type == 4">Biothesiometry Camp</td>
 							<td role="cell">{{ camp.dr_name }}</td>
 							<td role="cell">{{ camp.camp_datetime | date: 'medium' }}</td>
-							<td role="cell" *ngIf="camp.camp_status == 0">Pending</td>
-							<td role="cell"  *ngIf="camp.camp_status == 1">Approved</td>
+							<td role="cell" *ngIf="camp.is_approved == 0">Pending</td>
+							<td role="cell"  *ngIf="camp.is_approved == 1">Approved</td>
 							<td role="cell" *ngIf = "!previous && !future" class="text-center">
 								<div class="btn-group" role="group" aria-label="...">
 									<button type="button" (click)="viewCamp(camp.id)" class="app-icon-btn app-blue-text"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
@@ -220,7 +221,7 @@
 					</table>
 
 				</div>
-				
+
 				<!--div class="card">
 					<div class="card-body table-responsive">
 						<table class="table table-hover table-striped">

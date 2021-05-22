@@ -3,6 +3,7 @@ import { CampService } from '../../../services/camp.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { routerTransition } from '../../../router.animations';
+import { FormBuilder, Validators } from '@angular/forms';
 
 declare var $: any;
 
@@ -19,12 +20,23 @@ export class CampStatisticsComponent implements OnInit {
   campStrips: any;
   searchInput: any;
   p: number = 1;
+  totalRequestedStrips: number = 0;
+  totalReceivedStrips: number = 0;
+  totalReportedUsedStrips: number = 0;
+  totalActualUsedStrips: number = 0;
 
   constructor(
     private campService: CampService,
     private spinner: NgxSpinnerService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private formBuilder: FormBuilder,
   ) { }
+
+  campFilter = this.formBuilder.group({
+    campType: [''],
+    startDate: [''],
+    endDate: [''],
+  });
 
   ngOnInit() {
     this.campStats();
@@ -34,7 +46,7 @@ export class CampStatisticsComponent implements OnInit {
     let userId = JSON.parse(localStorage.getItem('userData'));
     userId = userId['id'];
     this.spinner.show();
-    this.campService.getCampStatsData(userId).subscribe(
+    this.campService.getCampStatsData(this.campFilter.value, userId).subscribe(
       res => {
         this.userCampStats = res['data'];
         this.userCampStats.forEach(ele => {
@@ -57,6 +69,12 @@ export class CampStatisticsComponent implements OnInit {
     } else {
       $('#campStripsDataPop').modal('show');
       this.campStrips = campObj;
+      for(let i = 0; i < this.campStrips.length; i++) {
+        this.totalRequestedStrips += this.campStrips[i].total_requested_slips;
+        this.totalReceivedStrips += this.campStrips[i].total_received_strips;
+        this.totalReportedUsedStrips += this.campStrips[i].total_used_strips;
+        this.totalActualUsedStrips += this.campStrips[i].actual_used_strips;
+      }
     }
   }
 
@@ -71,6 +89,44 @@ export class CampStatisticsComponent implements OnInit {
         this.toastr.show('No user found');
       }
     }
+  }
+
+  onSubmit(){
+    this.spinner.show();
+    let userId = JSON.parse(localStorage.getItem('userData'));
+    userId = userId['id'];
+    this.campService.getCampStatsData(this.campFilter.value, userId).subscribe(
+      (res) => {
+        this.userCampStats = res['data'];
+        this.userCampStats.forEach(ele => {
+          ele.total_ready_camps === undefined ? ele.total_ready_camps = 0 : ele.total_ready_camps = ele.total_ready_camps;
+          ele.total_completed_camps === undefined ? ele.total_completed_camps = 0 : ele.total_completed_camps = ele.total_completed_camps;
+          ele.total_canceled_camps === undefined ? ele.total_canceled_camps = 0 : ele.total_canceled_camps = ele.total_canceled_camps;
+        });
+        this.backupUserCampStats = this.userCampStats;
+        this.spinner.hide();
+    });
+  }
+
+  onReset() {
+    this.campFilter.controls['campType'].setValue('');
+    this.campFilter.controls['startDate'].setValue('');
+    this.campFilter.controls['endDate'].setValue('');
+    this.campFilter.updateValueAndValidity();
+    this.campStats();
+  }
+
+  onDownloadExcel() {
+    this.campFilter.value.action = 'excel';
+    this.spinner.show();
+    let userId = JSON.parse(localStorage.getItem('userData'));
+    userId = userId['id'];
+    this.campService.getCampStatsData(this.campFilter.value, userId).subscribe(
+      (res) => {
+        const link = JSON.stringify(res);
+        window.open(JSON.parse(link), '_blank');
+        this.spinner.hide();
+    });
   }
 
 }

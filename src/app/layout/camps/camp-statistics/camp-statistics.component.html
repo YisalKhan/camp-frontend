@@ -24,9 +24,53 @@
           <div class="app-table-view">
               <div class="row">
                   <div class="col col-md-12">
-                      <div class="searchbar-campstats">
-									        <input class="form-control app-form-input app-form-wide-input" [(ngModel)]="searchInput" (input)="searchByName()" placeholder="Search by name" />
-                      </div>
+                    <div class="app-filter-form">
+                      <ul class="list-inline app-filters d-flex justify-content-center">
+                        <li class="list-inline-item">
+                          <div class="searchbar-campstats">
+                            <input class="form-control app-form-input app-form-wide-input" [(ngModel)]="searchInput" (input)="searchByName()" placeholder="Search by name" />
+                          </div>
+                        </li>
+                        <form [formGroup]="campFilter" (ngSubmit)="onSubmit()">
+                          <li class="list-inline-item">
+                            <div>
+                              <select class="form-control app-form-input" [value]="" formControlName="campType">
+                                <option value="" disabled  [selected]=true>Camp Type</option>
+                                <option value="1">Cardio Camp</option>
+                                <option value="2">Diabetic Camp</option>
+                                <option value="3">Cardio/Diabetic Camp</option>
+                                <option value="4">Biothesiometry Camp</option>
+                              </select>
+                            </div>
+                          </li>
+                          <li class="list-inline-item">
+                            <div>
+                              <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Start Date" class="form-control app-form-input" formControlName="startDate" min="2020-10-01" />
+                            </div>
+                          </li>
+                          <li class="list-inline-item">
+                            <div>
+                              <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="End Date" class="form-control app-form-input" formControlName="endDate" min="2020-10-01" />
+                            </div>
+                          </li>
+                          <li  class="list-inline-item">
+                            <div class="camp-filter">
+                              <button type="submit" class="btn btn-primary app-btn"> Apply </button>
+                            </div>
+                          </li>
+                          <li  class="list-inline-item">
+                            <div >
+                              <button type="button" (click)="onReset()" class="btn btn-success app-btn"> Reset </button>
+                            </div>
+                          </li>
+                          <li  class="list-inline-item">
+                            <div >
+                              <button type="button" (click)="onDownloadExcel()" class="btn btn-success app-btn"> Download Excel </button>
+                            </div>
+                          </li>
+                        </form>
+                      </ul>
+                    </div>
                   </div>
               </div>
               <div class="row">
@@ -122,6 +166,16 @@
                                         <td role="cell">{{ campData?.actual_used_strips }}</td>
                                     </tr>
                                   </tbody>
+                                  <tfoot role="rowgroup">
+                                    <tr role="row">
+                                      <td role="columnheader"></td>
+                                      <td role="columnheader">Total</td>
+                                      <td role="columnheader"> {{ totalRequestedStrips }}</td>
+                                      <td role="columnheader">{{ totalReceivedStrips }}</td>
+                                      <td role="columnheader">{{ totalReportedUsedStrips }}</td>
+                                      <td role="columnheader">{{ totalActualUsedStrips }}</td>
+                                    </tr>
+                                  </tfoot>
                               </table>
                           </div>
                       </div>
