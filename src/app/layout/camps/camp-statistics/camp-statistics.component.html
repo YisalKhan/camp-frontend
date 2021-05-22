@@ -166,6 +166,16 @@
                                         <td role="cell">{{ campData?.actual_used_strips }}</td>
                                     </tr>
                                   </tbody>
+                                  <tfoot role="rowgroup">
+                                    <tr role="row">
+                                      <td role="columnheader"></td>
+                                      <td role="columnheader">Total</td>
+                                      <td role="columnheader"> {{ totalRequestedStrips }}</td>
+                                      <td role="columnheader">{{ totalReceivedStrips }}</td>
+                                      <td role="columnheader">{{ totalReportedUsedStrips }}</td>
+                                      <td role="columnheader">{{ totalActualUsedStrips }}</td>
+                                    </tr>
+                                  </tfoot>
                               </table>
                           </div>
                       </div>

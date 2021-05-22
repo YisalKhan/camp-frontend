@@ -20,6 +20,10 @@ export class CampStatisticsComponent implements OnInit {
   campStrips: any;
   searchInput: any;
   p: number = 1;
+  totalRequestedStrips: number = 0;
+  totalReceivedStrips: number = 0;
+  totalReportedUsedStrips: number = 0;
+  totalActualUsedStrips: number = 0;
 
   constructor(
     private campService: CampService,
@@ -65,6 +69,12 @@ export class CampStatisticsComponent implements OnInit {
     } else {
       $('#campStripsDataPop').modal('show');
       this.campStrips = campObj;
+      for(let i = 0; i < this.campStrips.length; i++) {
+        this.totalRequestedStrips += this.campStrips[i].total_requested_slips;
+        this.totalReceivedStrips += this.campStrips[i].total_received_strips;
+        this.totalReportedUsedStrips += this.campStrips[i].total_used_strips;
+        this.totalActualUsedStrips += this.campStrips[i].actual_used_strips;
+      }
     }
   }
 
