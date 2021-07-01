@@ -135,6 +135,7 @@ export class ApprovedCampsComponent implements OnInit {
 
   startDibeticCamp() {
     this.spinner.show();
+    this.campData.received_strips = Number(this.stripsReceived);
     this.campService.getCampPermission(this.campData).subscribe(
       res1 => {
         if (res1['error']) {
