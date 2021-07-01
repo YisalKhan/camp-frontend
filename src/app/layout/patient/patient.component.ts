@@ -62,6 +62,7 @@ export class PatientComponent implements OnInit {
   });
 
   ngOnInit() {
+    this.campType = localStorage.getItem("campType");
     this.getCclMedicine();
     this.getOtherMedicine();
   }
