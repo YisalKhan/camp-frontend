@@ -114,7 +114,7 @@ export class PatientComponent implements OnInit {
       $('#showCloseCampPop').modal('show');
     } else {
       console.log('in else');
-      this.campService.closeCamp(localStorage.getItem('campId'), '').subscribe(
+      this.campService.closeCamp(localStorage.getItem('campId'), 0).subscribe(
         res => {
           this.toastr.show(res['success']);
           this.router.navigate(['camps']);
