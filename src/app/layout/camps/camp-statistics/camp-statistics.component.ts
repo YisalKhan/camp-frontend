@@ -24,6 +24,7 @@ export class CampStatisticsComponent implements OnInit {
   totalReceivedStrips: number = 0;
   totalReportedUsedStrips: number = 0;
   totalActualUsedStrips: number = 0;
+  totalUnusedStrips: number = 0;
 
   constructor(
     private campService: CampService,
@@ -74,6 +75,7 @@ export class CampStatisticsComponent implements OnInit {
         this.totalReceivedStrips += this.campStrips[i].total_received_strips;
         this.totalReportedUsedStrips += this.campStrips[i].total_used_strips;
         this.totalActualUsedStrips += this.campStrips[i].actual_used_strips;
+        this.totalUnusedStrips += this.totalReceivedStrips - this.totalActualUsedStrips;
       }
     }
   }
