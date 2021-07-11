@@ -108,7 +108,7 @@ export class PatientComponent implements OnInit {
 
   showCloseCampPop() {
     console.log(parseInt(localStorage.getItem('campType')));
-    if(parseInt(localStorage.getItem('campType')) == 2) {
+    if(parseInt(localStorage.getItem('campType')) == 2 || parseInt(localStorage.getItem('campType')) == 3) {
       console.log('in if');
       this.stripsRequested = localStorage.getItem('stripsRequested');
       this.stripsReceived = localStorage.getItem('stripReceived');

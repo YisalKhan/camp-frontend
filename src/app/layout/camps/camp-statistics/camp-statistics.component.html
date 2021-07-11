@@ -154,6 +154,7 @@
                                           <th role="columnheader">Total Received Strips</th>
                                           <th role="columnheader">Reported Used Strips</th>
                                           <th role="columnheader">Actual Used Strips</th>
+                                          <th role="columnheader">Unused Strips (Total Received - Actual Used)</th>
                                       </tr>
                                   </thead>
                                   <tbody role="rowgroup">
@@ -164,6 +165,7 @@
                                         <td role="cell">{{ campData?.total_received_strips }}</td>
                                         <td role="cell">{{ campData?.total_used_strips }}</td>
                                         <td role="cell">{{ campData?.actual_used_strips }}</td>
+                                        <td role="cell">{{ campData?.total_received_strips - campData?.actual_used_strips }}</td>
                                     </tr>
                                   </tbody>
                                   <tfoot role="rowgroup">
@@ -174,6 +176,7 @@
                                       <td role="columnheader">{{ totalReceivedStrips }}</td>
                                       <td role="columnheader">{{ totalReportedUsedStrips }}</td>
                                       <td role="columnheader">{{ totalActualUsedStrips }}</td>
+                                      <td role="columnheader">{{ totalUnusedStrips }}</td>
                                     </tr>
                                   </tfoot>
                               </table>

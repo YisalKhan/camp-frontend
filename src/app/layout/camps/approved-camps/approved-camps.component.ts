@@ -99,7 +99,7 @@ export class ApprovedCampsComponent implements OnInit {
       res => {
         this.stripsRequested = res ['no_of_strips'];
         localStorage.setItem('stripsRequested', this.stripsRequested);
-        if (campType == 2) {
+        if (campType == 2 || campType == 3) {
           $('#campStartPop').modal('show');
           checkCampType = true;
         }
