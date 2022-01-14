@@ -689,7 +689,8 @@ body{
 /* =============== Topbar ================*/
 
 .app-top-bar{
-    background-color: $pink;
+    // background-color: $pink;
+    background-color: $header-blue;
     margin-left: 235px;
     padding: 15px;
     -ms-overflow-x: hidden;
@@ -731,7 +732,7 @@ body{
     font-size: 14px;
 }
 .app-navbar{
-    background-color: $pink !important;
+    background-color: $header-blue !important;
 }
 .app-toggle-icon{
     cursor: pointer;
@@ -768,7 +769,8 @@ body{
 .sidebar-app-logo{
     width: 110px;
     height: 110px;
-    background-image: url('../assets/icons/icon-384x384.png');
+    // background-image: url('../assets/icons/icon-384x384.png');
+    background-image: url('../assets/images/logo.jpeg');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
